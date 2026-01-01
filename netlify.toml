@@ -1,0 +1,42 @@
+[build]
+  command = "echo 'Static site - no build needed'"
+  publish = "igrs-netlify"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# プレビューデプロイ設定
+[context.deploy-preview]
+  command = "node check-encoding.js"
+  publish = "igrs-netlify"
+
+# ブランチデプロイ設定
+[context.branch-deploy]
+  command = "node check-encoding.js"
+  publish = "igrs-netlify"
+
+# 本番デプロイ設定（masterブランチ）
+[context.production]
+  command = "node check-encoding.js"
+  publish = "igrs-netlify"
+
+# リダイレクト設定はigrs-netlify/_redirectsファイルで管理
+
+# ヘッダー設定（UTF-8を明示）
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
