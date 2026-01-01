@@ -468,15 +468,15 @@ nav a.active {
 }
 
 .btn-navy {
-    background: var(--primary-color);
+    background: #0d3a5f;
     color: var(--white);
-    box-shadow: 0 10px 30px rgba(26, 84, 144, 0.4);
+    box-shadow: 0 10px 30px rgba(13, 58, 95, 0.4);
 }
 
 .btn-navy:hover {
-    background: var(--primary-dark);
+    background: #0a2d4a;
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(26, 84, 144, 0.5);
+    box-shadow: 0 15px 40px rgba(13, 58, 95, 0.5);
 }
 
 .btn-gray {
