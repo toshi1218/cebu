@@ -1375,3 +1375,28 @@ tr:hover {
     }
 }
 
+
+.btn-navy {
+    background: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(26, 84, 144, 0.3);
+    border: none;
+}
+.btn-navy:hover {
+    background: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(26, 84, 144, 0.4);
+}
+
+.btn-gray {
+    background: #e2e8f0;
+    color: var(--text-dark);
+    box-shadow: none;
+    border: none;
+}
+.btn-gray:hover {
+    background: #cbd5e0;
+    transform: translateY(-3px);
+}
+
