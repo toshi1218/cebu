@@ -537,6 +537,24 @@ section {
     padding: 60px 2rem;
 }
 
+.cta-section {
+    background: var(--bg-light);
+    text-align: center;
+    padding: 80px 2rem;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
 .section-title {
     text-align: center;
     margin-bottom: 2rem;
