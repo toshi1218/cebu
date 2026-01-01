@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cebu Web Design - あなたのビジネスを成長させるホームページ制作会社">
+    <title>Cebu Web Design | ホームページ制作</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --secondary-color: #1e293b;
+    --accent-color: #f59e0b;
+    --text-color: #334155;
+    --text-light: #64748b;
+    --text-dark: #0f172a;
+    --bg-color: #ffffff;
+    --bg-light: #f8fafc;
+    --bg-gray: #f1f5f9;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    --gradient-hero: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --transition: all 0.3s ease;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.8; color: var(--text-color); background-color: var(--bg-color); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; transition: var(--transition); }
+ul { list-style: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); transition: var(--transition); }
+.header.scrolled { box-shadow: var(--shadow-md); }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); }
+.logo span { color: var(--primary-color); }
+.nav-menu { display: flex; align-items: center; gap: 32px; }
+.nav-menu a { font-size: 0.95rem; font-weight: 500; color: var(--text-color); position: relative; }
+.nav-menu a:hover { color: var(--primary-color); }
+.nav-menu a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: var(--transition); }
+.nav-menu a:hover::after { width: 100%; }
+.nav-cta { background: var(--primary-color) !important; color: #fff !important; padding: 10px 24px; border-radius: var(--radius-md); }
+.nav-cta:hover { background: var(--primary-dark) !important; }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 5px; }
+.nav-toggle span { display: block; width: 25px; height: 2px; background: var(--secondary-color); transition: var(--transition); }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; font-size: 1rem; font-weight: 600; border-radius: var(--radius-md); border: 2px solid transparent; cursor: pointer; transition: var(--transition); }
+.btn-primary { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-secondary { background: transparent; color: var(--secondary-color); border-color: var(--secondary-color); }
+.btn-secondary:hover { background: var(--secondary-color); color: #fff; }
+.btn-outline { background: transparent; color: var(--primary-color); border-color: var(--primary-color); }
+.btn-outline:hover { background: var(--primary-color); color: #fff; }
+.btn-full { width: 100%; }
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; background: var(--gradient-hero); color: #fff; overflow: hidden; padding: 100px 20px 60px; }
+.hero-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.3; margin-bottom: 24px; }
+.hero-title .highlight { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-text { font-size: 1.25rem; opacity: 0.9; margin-bottom: 40px; line-height: 1.9; }
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-buttons .btn-secondary { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
+.hero-buttons .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: #fff; }
+.hero-visual { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; }
+.hero-shapes .shape { position: absolute; border-radius: 50%; opacity: 0.1; }
+.shape-1 { width: 600px; height: 600px; background: var(--primary-color); top: -200px; right: -100px; }
+.shape-2 { width: 400px; height: 400px; background: var(--accent-color); bottom: -100px; left: -100px; }
+.shape-3 { width: 300px; height: 300px; background: #fff; top: 50%; right: 20%; }
+.features { padding: 80px 0; background: var(--bg-color); margin-top: -60px; position: relative; z-index: 10; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+.feature-card { background: #fff; padding: 32px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); text-align: center; transition: var(--transition); }
+.feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+.feature-icon { width: 64px; height: 64px; margin: 0 auto 20px; background: var(--bg-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--primary-color); }
+.feature-icon svg { width: 32px; height: 32px; }
+.feature-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
+.feature-card p { font-size: 0.95rem; color: var(--text-light); }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-label { display: inline-block; font-size: 0.875rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+.section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: var(--text-dark); margin-bottom: 16px; }
+.section-description { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+.services { padding: 100px 0; background: var(--bg-light); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+.service-card { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition); }
+.service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+.service-image { height: 200px; background: var(--bg-gray); display: flex; align-items: center; justify-content: center; }
+.service-placeholder { color: var(--primary-color); }
+.service-placeholder svg { width: 80px; height: 80px; }
+.service-content { padding: 28px; }
+.service-content h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
+.service-content p { color: var(--text-light); margin-bottom: 20px; font-size: 0.95rem; }
+.service-features { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-features li { background: var(--bg-light); padding: 6px 14px; border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-color); }
+.works { padding: 100px 0; background: var(--bg-color); }
+.works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.work-card { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition); }
+.work-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+.work-image { height: 200px; overflow: hidden; }
+.work-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.25rem; font-weight: 600; }
+.work-content { padding: 24px; }
+.work-category { display: inline-block; font-size: 0.8rem; font-weight: 500; color: var(--primary-color); background: rgba(37, 99, 235, 0.1); padding: 4px 12px; border-radius: var(--radius-sm); margin-bottom: 12px; }
+.work-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+.work-content p { font-size: 0.9rem; color: var(--text-light); }
+.pricing { padding: 100px 0; background: var(--bg-light); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; align-items: start; }
+.pricing-card { background: #fff; border-radius: var(--radius-lg); padding: 40px 32px; box-shadow: var(--shadow-md); text-align: center; position: relative; transition: var(--transition); }
+.pricing-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+.pricing-card.popular { border: 2px solid var(--primary-color); transform: scale(1.05); }
+.pricing-card.popular:hover { transform: scale(1.05) translateY(-5px); }
+.popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary-color); color: #fff; padding: 6px 20px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; }
+.pricing-header h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+.pricing-description { font-size: 0.9rem; color: var(--text-light); margin-bottom: 24px; }
+.pricing-price { margin-bottom: 32px; }
+.price-amount { font-size: 2.5rem; font-weight: 700; color: var(--text-dark); }
+.price-amount::before { content: '¥'; font-size: 1.5rem; }
+.price-unit { font-size: 1rem; color: var(--text-light); }
+.pricing-features { text-align: left; margin-bottom: 32px; }
+.pricing-features li { padding: 12px 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 12px; font-size: 0.95rem; }
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-features .check { color: var(--success-color); font-weight: 600; }
+.flow { padding: 100px 0; background: var(--bg-color); }
+.flow-timeline { max-width: 800px; margin: 0 auto; }
+.flow-item { display: flex; gap: 32px; padding: 32px 0; position: relative; }
+.flow-item:not(:last-child)::after { content: ''; position: absolute; left: 35px; top: 90px; width: 2px; height: calc(100% - 60px); background: var(--border-color); }
+.flow-number { width: 72px; height: 72px; background: var(--gradient-primary); color: #fff; font-size: 1.5rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.flow-content h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
+.flow-content p { color: var(--text-light); font-size: 0.95rem; }
+.contact { padding: 100px 0; background: var(--bg-light); }
+.contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; max-width: 1000px; margin: 0 auto; }
+.contact-info h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); margin-bottom: 32px; }
+.contact-item { display: flex; gap: 16px; margin-bottom: 24px; }
+.contact-icon { width: 48px; height: 48px; background: var(--primary-color); color: #fff; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-icon svg { width: 24px; height: 24px; }
+.contact-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+.contact-item p { font-size: 0.95rem; color: var(--text-color); }
+.contact-note { font-size: 0.85rem; color: var(--text-light); }
+.contact-form { background: #fff; padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.form-group { margin-bottom: 24px; }
+.form-group label { display: block; font-size: 0.95rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px; }
+.required { color: #ef4444; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; font-size: 1rem; font-family: inherit; border: 1px solid var(--border-color); border-radius: var(--radius-md); transition: var(--transition); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.footer { background: var(--secondary-color); color: #fff; padding: 60px 0 0; }
+.footer-content { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; padding-bottom: 40px; }
+.footer-brand .logo { font-size: 1.5rem; margin-bottom: 16px; display: inline-block; }
+.footer-brand p { opacity: 0.7; font-size: 0.95rem; line-height: 1.8; }
+.footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.footer-column h4 { font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
+.footer-column ul li { margin-bottom: 12px; }
+.footer-column ul a { font-size: 0.95rem; opacity: 0.7; }
+.footer-column ul a:hover { opacity: 1; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 24px 0; text-align: center; }
+.footer-bottom p { font-size: 0.9rem; opacity: 0.6; }
+@media (max-width: 992px) {
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .footer-content { grid-template-columns: 1fr; gap: 40px; }
+    .pricing-card.popular { transform: none; }
+    .pricing-card.popular:hover { transform: translateY(-5px); }
+}
+@media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+    .nav-menu { position: fixed; top: 70px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 20px; gap: 0; box-shadow: var(--shadow-lg); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: var(--transition); }
+    .nav-menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
+    .nav-menu li { width: 100%; }
+    .nav-menu a { display: block; padding: 16px; border-bottom: 1px solid var(--border-color); }
+    .nav-menu a::after { display: none; }
+    .nav-cta { margin-top: 16px; text-align: center; }
+    .hero { padding: 120px 20px 80px; }
+    .hero-text br { display: none; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons .btn { width: 100%; }
+    .flow-item { flex-direction: column; gap: 20px; }
+    .flow-item:not(:last-child)::after { display: none; }
+    .flow-number { width: 56px; height: 56px; font-size: 1.25rem; }
+    .footer-links { grid-template-columns: 1fr 1fr; }
+    .contact-form { padding: 24px; }
+}
+@media (max-width: 480px) {
+    .features-grid, .services-grid, .works-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .footer-links { grid-template-columns: 1fr; gap: 24px; }
+    .section-title { font-size: 1.75rem; }
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="#" class="logo">Cebu<span>Web</span></a>
+                <button class="nav-toggle" aria-label="メニューを開く">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#works">制作実績</a></li>
+                    <li><a href="#pricing">料金</a></li>
+                    <li><a href="#flow">制作の流れ</a></li>
+                    <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">あなたのビジネスを<br><span class="highlight">成功に導く</span>ホームページ</h1>
+            <p class="hero-text">私たちは、お客様のビジネスを深く理解し、<br>集客・売上アップに貢献するホームページを制作します。</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">無料相談する</a>
+                <a href="#works" class="btn btn-secondary">制作実績を見る</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>高品質なデザイン</h3>
+                    <p>お客様のブランドイメージに合わせた、美しく機能的なデザインを提供します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>高速表示</h3>
+                    <p>最新の技術を活用し、快適な閲覧体験を提供する高速なサイトを制作します。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <h3>レスポンシブ対応</h3>
+                    <p>スマートフォン・タブレット・PCすべてで最適に表示されます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </div>
+                    <h3>SEO対策</h3>
+                    <p>検索エンジンに強い構造で、お客様のサイトを上位表示に導きます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Services</span>
+                <h2 class="section-title">サービス内容</h2>
+                <p class="section-description">お客様のニーズに合わせた最適なプランをご提案します</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="service-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>コーポレートサイト</h3>
+                        <p>企業の顔となるホームページを制作。会社概要、サービス紹介、採用情報など、必要な情報を分かりやすく伝えます。</p>
+                        <ul class="service-features">
+                            <li>レスポンシブデザイン</li>
+                            <li>お問い合わせフォーム</li>
+                            <li>SEO基本設定</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="service-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="9" cy="21" r="1"/>
+                                <circle cx="20" cy="21" r="1"/>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>ECサイト</h3>
+                        <p>オンラインショップの構築から運用サポートまで。売上アップにつながる導線設計と使いやすい管理画面を提供します。</p>
+                        <ul class="service-features">
+                            <li>商品管理システム</li>
+                            <li>決済機能連携</li>
+                            <li>在庫管理機能</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="service-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>ランディングページ</h3>
+                        <p>商品やサービスの魅力を最大限に伝え、コンバージョンを高めるLPを制作。広告運用との連携もサポートします。</p>
+                        <ul class="service-features">
+                            <li>高CVR設計</li>
+                            <li>A/Bテスト対応</li>
+                            <li>広告連携</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Works</span>
+                <h2 class="section-title">制作実績</h2>
+                <p class="section-description">これまでに手がけたプロジェクトの一部をご紹介します</p>
+            </div>
+            <div class="works-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><span>IT企業</span></div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">コーポレートサイト</span>
+                        <h3>テックスタート株式会社</h3>
+                        <p>先進的なイメージを表現したモダンなデザイン</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><span>美容室</span></div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">ブランドサイト</span>
+                        <h3>Hair Salon BLOOM</h3>
+                        <p>洗練された雰囲気を伝えるエレガントなデザイン</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><span>ECサイト</span></div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">ECサイト</span>
+                        <h3>オーガニックショップ Green</h3>
+                        <p>商品の魅力を引き出すクリーンなデザイン</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><span>飲食店</span></div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">店舗サイト</span>
+                        <h3>イタリアンレストラン Sole</h3>
+                        <p>温かみのある雰囲気を伝えるデザイン</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"><span>クリニック</span></div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">医療機関サイト</span>
+                        <h3>さくら歯科クリニック</h3>
+                        <p>安心感を与える清潔感のあるデザイン</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);"><span>不動産</span></div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">コーポレートサイト</span>
+                        <h3>ホームライフ不動産</h3>
+                        <p>信頼感を重視した落ち着いたデザイン</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Pricing</span>
+                <h2 class="section-title">料金プラン</h2>
+                <p class="section-description">お客様のご要望に合わせた3つのプランをご用意しています</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>ライトプラン</h3>
+                        <p class="pricing-description">小規模ビジネス・個人事業主向け</p>
+                        <div class="pricing-price">
+                            <span class="price-amount">198,000</span>
+                            <span class="price-unit">円〜</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span>5ページまで</li>
+                        <li><span class="check">✓</span>レスポンシブデザイン</li>
+                        <li><span class="check">✓</span>お問い合わせフォーム</li>
+                        <li><span class="check">✓</span>基本SEO設定</li>
+                        <li><span class="check">✓</span>公開後1ヶ月サポート</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">人気</div>
+                    <div class="pricing-header">
+                        <h3>スタンダードプラン</h3>
+                        <p class="pricing-description">中小企業・本格的なサイト向け</p>
+                        <div class="pricing-price">
+                            <span class="price-amount">398,000</span>
+                            <span class="price-unit">円〜</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span>10ページまで</li>
+                        <li><span class="check">✓</span>オリジナルデザイン</li>
+                        <li><span class="check">✓</span>CMS導入（WordPress等）</li>
+                        <li><span class="check">✓</span>SEO対策</li>
+                        <li><span class="check">✓</span>アクセス解析設定</li>
+                        <li><span class="check">✓</span>公開後3ヶ月サポート</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">お問い合わせ</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>プレミアムプラン</h3>
+                        <p class="pricing-description">大規模サイト・EC向け</p>
+                        <div class="pricing-price">
+                            <span class="price-amount">698,000</span>
+                            <span class="price-unit">円〜</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span>ページ数無制限</li>
+                        <li><span class="check">✓</span>完全オリジナルデザイン</li>
+                        <li><span class="check">✓</span>EC機能/予約システム</li>
+                        <li><span class="check">✓</span>高度なSEO対策</li>
+                        <li><span class="check">✓</span>SNS連携</li>
+                        <li><span class="check">✓</span>公開後6ヶ月サポート</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="flow" class="flow">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Flow</span>
+                <h2 class="section-title">制作の流れ</h2>
+                <p class="section-description">お問い合わせから公開まで、丁寧にサポートいたします</p>
+            </div>
+            <div class="flow-timeline">
+                <div class="flow-item">
+                    <div class="flow-number">01</div>
+                    <div class="flow-content">
+                        <h3>お問い合わせ・ヒアリング</h3>
+                        <p>まずはお気軽にご相談ください。ご要望やご予算、スケジュールなどを詳しくお伺いします。</p>
+                    </div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">02</div>
+                    <div class="flow-content">
+                        <h3>ご提案・お見積もり</h3>
+                        <p>ヒアリング内容をもとに、最適なプランとお見積もりをご提案いたします。</p>
+                    </div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">03</div>
+                    <div class="flow-content">
+                        <h3>デザイン制作</h3>
+                        <p>お客様のブランドイメージに合わせたデザインを制作。ご確認・修正を重ねて完成させます。</p>
+                    </div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">04</div>
+                    <div class="flow-content">
+                        <h3>コーディング・開発</h3>
+                        <p>デザインをもとに、高品質なコーディングでサイトを構築します。</p>
+                    </div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">05</div>
+                    <div class="flow-content">
+                        <h3>テスト・公開</h3>
+                        <p>各種ブラウザ・デバイスでの動作確認後、サイトを公開。公開後のサポートも充実しています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">お問い合わせ</h2>
+                <p class="section-description">まずはお気軽にご相談ください。無料でお見積もりいたします。</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>お問い合わせ方法</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>メール</h4>
+                            <p>info@cebu-web.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>電話</h4>
+                            <p>03-1234-5678</p>
+                            <span class="contact-note">平日 10:00〜18:00</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>所在地</h4>
+                            <p>〒100-0001<br>東京都千代田区1-1-1</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">お名前 <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">会社名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">ご希望のサービス</label>
+                        <select id="service" name="service">
+                            <option value="">選択してください</option>
+                            <option value="corporate">コーポレートサイト</option>
+                            <option value="ec">ECサイト</option>
+                            <option value="lp">ランディングページ</option>
+                            <option value="renewal">サイトリニューアル</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Cebu<span>Web</span></a>
+                    <p>お客様のビジネスを成功に導く<br>ホームページ制作会社</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>サービス</h4>
+                        <ul>
+                            <li><a href="#services">コーポレートサイト</a></li>
+                            <li><a href="#services">ECサイト</a></li>
+                            <li><a href="#services">ランディングページ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>会社情報</h4>
+                        <ul>
+                            <li><a href="#works">制作実績</a></li>
+                            <li><a href="#pricing">料金プラン</a></li>
+                            <li><a href="#flow">制作の流れ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>サポート</h4>
+                        <ul>
+                            <li><a href="#contact">お問い合わせ</a></li>
+                            <li><a href="#">プライバシーポリシー</a></li>
+                            <li><a href="#">利用規約</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cebu Web Design. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    }
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    smoothScrollLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const headerHeight = header.offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            }
+        });
+    });
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('お問い合わせを受け付けました。担当者より折り返しご連絡いたします。');
+            contactForm.reset();
+        });
+    }
+});
+    </script>
+</body>
+</html>
