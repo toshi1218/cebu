@@ -508,6 +508,15 @@ nav a.active {
     padding: 1rem 1.5rem;
 }
 
+/* タブレット・中画面での調整 (hero section の2カラムレイアウト対応) */
+@media (max-width: 1100px) and (min-width: 769px) {
+    .cta-group .btn {
+        min-width: 140px;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
 /* スマホでのボタン表示調整 */
 @media (max-width: 768px) {
     .cta-group {
