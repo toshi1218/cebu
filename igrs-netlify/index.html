@@ -481,20 +481,24 @@
             <div class="hero-content">
                 <h1>フィリピンの公的書類を<br><span>最短最速</span>で取得します</h1>
 
-                <!-- 3ボタン横並び -->
-                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                    <!-- 無料相談 - オレンジ（最重要CTA） -->
-                    <a href='/contact' style="flex: 1; min-width: 160px; max-width: 240px; padding: 1rem 1.5rem; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); border-radius: 8px; text-decoration: none; text-align: center; box-shadow: 0 4px 15px rgba(255,107,53,0.4); transition: all 0.3s ease; color: #fff; font-weight: 700; font-size: 1rem;">
-                        無料相談する
+                <!-- 個人/法人 2入口 -->
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href='/personal' style='flex: 1; min-width: 160px; padding: 1rem; background: rgba(255,255,255,0.95); border-radius: 12px; text-decoration: none; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);'>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.3rem;">👤</div>
+                        <div style="color: var(--text-dark); font-weight: 600; font-size: 0.95rem;">個人のお客様</div>
+                        <div style="color: var(--text-light); font-size: 0.8rem;">単発・標準の簡単申込み</div>
                     </a>
-                    <!-- 個人料金 - ネイビーブルー（個人向け） -->
-                    <a href='/personal' style="flex: 1; min-width: 160px; max-width: 240px; padding: 1rem 1.5rem; background: linear-gradient(135deg, #1a5f7a 0%, #2d8faa 100%); border-radius: 8px; text-decoration: none; text-align: center; box-shadow: 0 4px 15px rgba(26,95,122,0.4); transition: all 0.3s ease; color: #fff; font-weight: 700; font-size: 1rem;">
-                        個人料金を見る
+                    <a href='/business' style='flex: 1; min-width: 160px; padding: 1rem; background: rgba(255,255,255,0.95); border-radius: 12px; text-decoration: none; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);'>
+                        <div style="font-size: 1.5rem; margin-bottom: 0.3rem;">🏢</div>
+                        <div style="color: var(--text-dark); font-weight: 600; font-size: 0.95rem;">法人・士業のお客様</div>
+                        <div style="color: var(--text-light); font-size: 0.6rem; white-space: nowrap;">
+                            請求書対応・案件管理・提出先要件の確認込み</div>
                     </a>
-                    <!-- 法人プラン - グレー（セカンダリー） -->
-                    <a href='/business' style="flex: 1; min-width: 160px; max-width: 240px; padding: 1rem 1.5rem; background: linear-gradient(135deg, #4a5568 0%, #718096 100%); border-radius: 8px; text-decoration: none; text-align: center; box-shadow: 0 4px 15px rgba(74,85,104,0.4); transition: all 0.3s ease; color: #fff; font-weight: 700; font-size: 1rem;">
-                        法人・士業プランを見る
-                    </a>
+                </div>
+
+                <div class="cta-buttons" style="margin-top: 1.5rem;">
+                    <a class='btn btn-primary' href='/contact'>無料相談する</a>
+                    <a class='btn btn-outline' href='/services'>サービス詳細</a>
                 </div>
             </div>
 
