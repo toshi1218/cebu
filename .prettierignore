@@ -1,0 +1,18 @@
+# Build outputs
+*.min.js
+*.min.css
+
+# Dependencies
+node_modules/
+
+# Images and assets
+*.ico
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+
+# Other
+*.zip
