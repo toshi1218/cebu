@@ -1,0 +1,23 @@
+{
+  "name": "igrs-netlify",
+  "version": "1.0.0",
+  "description": "IGRS Philippines Document Services Website",
+  "private": true,
+  "scripts": {
+    "check": "npm run check:charset && npm run check:mojibake && npm run check:links && npm run check:seo && npm run check:jsonld",
+    "check:charset": "node scripts/check-charset.js",
+    "check:mojibake": "node scripts/check-mojibake.js",
+    "check:links": "node scripts/check-links.js",
+    "check:seo": "node scripts/check-seo.js",
+    "check:jsonld": "node scripts/check-jsonld.js",
+    "format": "prettier --write \"**/*.{html,css,js,json}\" --ignore-path .prettierignore",
+    "format:check": "prettier --check \"**/*.{html,css,js,json}\" --ignore-path .prettierignore"
+  },
+  "devDependencies": {
+    "glob": "^10.3.10",
+    "prettier": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
