@@ -1438,3 +1438,18 @@ tr:hover {
     background: #cbd5e0;
     transform: translateY(-3px);
 }
+
+/* ===========================
+   Numbered Circle Styling
+   =========================== */
+/* Ensure numbered circles (①②③) render as perfect circles */
+.numbered-circle,
+div[style*="border-radius: 50%"] {
+    aspect-ratio: 1 / 1;
+    border-radius: 50% !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+}

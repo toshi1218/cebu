@@ -185,7 +185,7 @@
         <div class="cta-group" style="justify-content: center;">
             <a class='btn btn-accent' href='/contact'>無料相談</a>
             <a class='btn btn-navy' href='/personal'>個人のお客様料金</a>
-            <a class='btn btn-gray' href='/business'>法人・士業プラン</a>
+            <a class='btn btn-gray' href='/business'>法人・士業様プラン</a>
         </div>
     </div>
 
@@ -237,7 +237,7 @@
                 <div class="cta-group" style="margin-top: 2rem;">
                     <a class='btn btn-accent' href='/contact'>無料相談</a>
                     <a class='btn btn-navy' href='/personal'>個人のお客様料金</a>
-                    <a class='btn btn-gray' href='/business'>法人・士業プラン</a>
+                    <a class='btn btn-gray' href='/business'>法人・士業様プラン</a>
                 </div>
             </div>
         </div>
@@ -335,7 +335,7 @@
         <div class="cta-group" style="margin-top: 2rem;">
             <a class='btn btn-accent' href='/contact'>無料相談</a>
             <a class='btn btn-navy' href='/personal'>個人のお客様料金</a>
-            <a class='btn btn-gray' href='/business'>法人・士業プラン</a>
+            <a class='btn btn-gray' href='/business'>法人・士業様プラン</a>
         </div>
     </section>
 
@@ -426,6 +426,18 @@
             <p>©2026 by IGRS all rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMobileNav() {
+            document.getElementById('navMobile').classList.toggle('active');
+        }
+
+        function toggleMobileDropdown(button) {
+            button.classList.toggle('open');
+            const submenu = button.nextElementSibling;
+            submenu.classList.toggle('open');
+        }
+    </script>
 </body>
 
 </html>
