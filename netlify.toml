@@ -1,0 +1,15 @@
+[build]
+  command = "true"
+  publish = "."
+
+[context.deploy-preview]
+  command = "true"
+  publish = "."
+
+[context.branch-deploy]
+  command = "true"
+  publish = "."
+
+[context.production]
+  command = "true"
+  publish = "igrs-netlify"
