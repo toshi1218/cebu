@@ -108,9 +108,17 @@
   <!-- プライバシーポリシー -->
   <url>
     <loc>https://igrs.online/privacy.html</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- 翻訳サービス -->
+  <url>
+    <loc>https://igrs.online/translation.html</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
