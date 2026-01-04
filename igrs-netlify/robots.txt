@@ -1,0 +1,11 @@
+# robots.txt for igrs.online
+# フィリピン公的書類取得・アポスティーユ認証サービス
+
+User-agent: *
+Allow: /
+
+# サイトマップ
+Sitemap: https://igrs.online/sitemap.xml
+
+# クロール速度（サーバー負荷軽減）
+Crawl-delay: 1

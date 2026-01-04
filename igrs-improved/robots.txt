@@ -1,0 +1,48 @@
+# robots.txt for igrs.online
+# フィリピン公的書類取得・アポスティーユ認証サービス
+
+# すべてのクローラーを許可
+User-agent: *
+Allow: /
+
+# クロールを除外するディレクトリ
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.pdf$
+Disallow: /api/
+
+# クロール速度の制限（サーバー負荷軽減）
+Crawl-delay: 1
+
+# サイトマップの場所
+Sitemap: https://igrs.online/sitemap.xml
+
+# Google専用設定
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google画像検索
+User-agent: Googlebot-Image
+Allow: /images/
+Disallow: /images/private/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yahoo Japan
+User-agent: Y!J-BRW
+Allow: /
+
+# 悪意のあるボットをブロック（オプション）
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

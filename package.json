@@ -1,0 +1,22 @@
+{
+  "name": "igrs-online",
+  "version": "1.0.0",
+  "description": "IGRS Online - フィリピン公的書類取得代行サービス",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write \"igrs-netlify/**/*.{html,css,js}\"",
+    "format:check": "prettier --check \"igrs-netlify/**/*.{html,css,js}\"",
+    "check": "node scripts/check-all.js",
+    "check:charset": "node scripts/check-charset.js",
+    "check:links": "node scripts/check-links.js",
+    "check:title-h1": "node scripts/check-title-h1.js",
+    "check:jsonld": "node scripts/check-jsonld.js",
+    "lint": "npm run format:check && npm run check"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
