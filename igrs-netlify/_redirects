@@ -47,6 +47,30 @@ https://www.igrs.online/* https://igrs.online/:splat 301!
 # アクセス (Access/Location) -> Company
 /アクセス /company.html 301
 
+# 概要 (Overview) -> Company
+/概要 /company.html 301
+/%E6%A6%82%E8%A6%81 /company.html 301
+
+# ホーム (Home) -> Homepage
+/ホーム / 301
+/%E3%83%9B%E3%83%BC%E3%83%A0 / 301
+
+# トップ (Top) -> Homepage
+/トップ / 301
+/%E3%83%88%E3%83%83%E3%83%97 / 301
+
+# サービス内容 (Service Details) -> Services
+/サービス内容 /services.html 301
+
+# 特定技能 (Specified Skills) -> Services
+/特定技能 /services.html 301
+
+# ビザ (Visa) -> Services  
+/ビザ /services.html 301
+
+# 書類 (Documents) -> Services
+/書類 /services.html 301
+
 # Common Wix system paths
 /_api/* / 301
 /_static/* / 301
