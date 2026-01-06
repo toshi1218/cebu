@@ -75,3 +75,16 @@ https://www.igrs.online/* https://igrs.online/:splat 301!
 /_api/* / 301
 /_static/* / 301
 /_partials/* / 301
+
+# Wix Bookings checkout paths -> Contact (booking redirects to contact form)
+/bookings-checkout/* /contact.html 301
+
+# URL-encoded プライバシーポリシー
+/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC /privacy.html 301
+
+# URL-encoded versions for additional paths
+/%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9 /company.html 301
+/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%86%85%E5%AE%B9 /services.html 301
+/%E7%89%B9%E5%AE%9A%E6%8A%80%E8%83%BD /services.html 301
+/%E3%83%93%E3%82%B6 /services.html 301
+/%E6%9B%B8%E9%A1%9E /services.html 301
