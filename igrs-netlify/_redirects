@@ -1,3 +1,53 @@
+# Domain normalization
 https://www.igrs.online/* https://igrs.online/:splat 301!
+
+# Legacy path redirect
 /web /  301
 
+# Legacy Wix Japanese URL paths -> Current site pages
+# プロジェクト (Project) -> Services
+/プロジェクト /services.html 301
+/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 /services.html 301
+
+# サービス (Service) -> Services
+/サービス /services.html 301
+/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9 /services.html 301
+
+# 会社概要 (Company Profile) -> Company
+/会社概要 /company.html 301
+/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81 /company.html 301
+
+# お問い合わせ (Contact) -> Contact
+/お問い合わせ /contact.html 301
+/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B /contact.html 301
+
+# 料金 (Pricing) -> Services
+/料金 /services.html 301
+/%E6%96%99%E9%87%91 /services.html 301
+
+# ブログ (Blog) -> Blog
+/ブログ /blog.html 301
+/%E3%83%96%E3%83%AD%E3%82%B0 /blog.html 301
+
+# 個人 (Personal) -> Personal
+/個人 /personal.html 301
+/%E5%80%8B%E4%BA%BA /personal.html 301
+
+# 法人 (Corporate) -> Business
+/法人 /business.html 301
+/%E6%B3%95%E4%BA%BA /business.html 301
+
+# よくある質問 / FAQ -> Services (or homepage)
+/よくある質問 /services.html 301
+/%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F /services.html 301
+
+# プライバシーポリシー -> Privacy
+/プライバシーポリシー /privacy.html 301
+
+# アクセス (Access/Location) -> Company
+/アクセス /company.html 301
+
+# Common Wix system paths
+/_api/* / 301
+/_static/* / 301
+/_partials/* / 301
