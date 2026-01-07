@@ -124,6 +124,9 @@
     <!-- ページヒーロー -->
     <section class="page-hero">
       <h1>会社概要</h1>
+      <p style="font-size: 1rem; opacity: 0.95; margin-bottom: 0.75rem; max-width: 900px; line-height: 1.8;">
+        <strong>IGRS（代表：五十嵐）</strong>は、フィリピン・セブ島を拠点に、フィリピン公的書類の取得代行を行うBPOサービスです。日本法人としての安心感と、現地フィリピンでの実務経験を活かしたサービスを提供しています。
+      </p>
       <p>株式会社IGRSについて</p>
     </section>
 
@@ -320,6 +323,36 @@
       </div>
     </footer>
 
+    <!-- ProfessionalService Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "IGRS フィリピン公的書類取得代行",
+        "url": "https://igrs.online/company",
+        "founder": {
+          "@type": "Person",
+          "familyName": "五十嵐",
+          "name": "五十嵐"
+        },
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "和歌山市",
+            "addressRegion": "和歌山県",
+            "addressCountry": "JP"
+          },
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "セブ市",
+            "addressRegion": "セブ",
+            "addressCountry": "PH"
+          }
+        ],
+        "foundingDate": "2020-06-01",
+        "description": "IGRS（代表：五十嵐）は、フィリピン・セブ島を拠点に、PSA・NBI・LTO書類の取得からDFAアポスティーユ認証まで一括代行するBPOサービスです。日本法人としての安心感と、現地フィリピンの実務経験を活かしたサービスを提供。"
+      }
+    </script>
     <!-- Organization構造化データ -->
     <script type="application/ld+json">
       {
@@ -329,13 +362,25 @@
         "url": "https://igrs.online",
         "logo": "https://igrs.online/images/logo.png",
         "foundingDate": "2020-06-01",
-        "address": {
-          "@type": "PostalAddress",
-
-          "addressLocality": "和歌山市",
-          "addressRegion": "和歌山県",
-          "addressCountry": "JP"
+        "founder": {
+          "@type": "Person",
+          "familyName": "五十嵐",
+          "name": "五十嵐"
         },
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "和歌山市",
+            "addressRegion": "和歌山県",
+            "addressCountry": "JP"
+          },
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "セブ市",
+            "addressRegion": "セブ",
+            "addressCountry": "PH"
+          }
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+81-73-494-7110",
