@@ -1,90 +1,44 @@
-# Domain normalization
+# ===========================================
+# IGRS Netlify Redirects
+# ===========================================
+
+# --- WWW to non-WWW redirect (forced) ---
 https://www.igrs.online/* https://igrs.online/:splat 301!
 
-# Legacy path redirect
+# --- Legacy /web path ---
 /web /  301
 
-# Legacy Wix Japanese URL paths -> Current site pages
-# プロジェクト (Project) -> Services
-/プロジェクト /services.html 301
-/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 /services.html 301
+# ===========================================
+# 旧 Wix 日本語パス → 新サイトへの 301 リダイレクト
+# ※旧Wixのパス名と実際の内容に「ねじれ」があったため修正済み
+# ===========================================
 
-# サービス (Service) -> Services
-/サービス /services.html 301
-/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9 /services.html 301
+# プロジェクト → 会社概要（旧Wixでは登記情報が掲載されていた）
+/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 /company 301
+/プロジェクト /company 301
 
-# 会社概要 (Company Profile) -> Company
-/会社概要 /company.html 301
-/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81 /company.html 301
+# 概要 → サービス（旧Wixでは実務詳細が掲載されていた）
+/%E6%A6%82%E8%A6%81 /services 301
+/概要 /services 301
 
-# お問い合わせ (Contact) -> Contact
-/お問い合わせ /contact.html 301
-/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B /contact.html 301
+# 会社概要 → 会社概要
+/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81 /company 301
+/会社概要 /company 301
 
-# 料金 (Pricing) -> Services
-/料金 /services.html 301
-/%E6%96%99%E9%87%91 /services.html 301
+# サービス内容／料金 → サービス
+/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%86%85%E5%AE%B9%EF%BC%8F%E6%96%99%E9%87%91 /services 301
+/サービス内容／料金 /services 301
 
-# ブログ (Blog) -> Blog
-/ブログ /blog.html 301
-/%E3%83%96%E3%83%AD%E3%82%B0 /blog.html 301
+# プロフィール → 会社概要
+/%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB /company 301
+/プロフィール /company 301
 
-# 個人 (Personal) -> Personal
-/個人 /personal.html 301
-/%E5%80%8B%E4%BA%BA /personal.html 301
+# お問い合わせ → お問い合わせ
+/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B /contact 301
+/お問い合わせ /contact 301
 
-# 法人 (Corporate) -> Business
-/法人 /business.html 301
-/%E6%B3%95%E4%BA%BA /business.html 301
-
-# よくある質問 / FAQ -> Services (or homepage)
-/よくある質問 /services.html 301
-/%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F /services.html 301
-
-# プライバシーポリシー -> Privacy
-/プライバシーポリシー /privacy.html 301
-
-# アクセス (Access/Location) -> Company
-/アクセス /company.html 301
-
-# 概要 (Overview) -> Company
-/概要 /company.html 301
-/%E6%A6%82%E8%A6%81 /company.html 301
-
-# ホーム (Home) -> Homepage
-/ホーム / 301
-/%E3%83%9B%E3%83%BC%E3%83%A0 / 301
-
-# トップ (Top) -> Homepage
-/トップ / 301
-/%E3%83%88%E3%83%83%E3%83%97 / 301
-
-# サービス内容 (Service Details) -> Services
-/サービス内容 /services.html 301
-
-# 特定技能 (Specified Skills) -> Services
-/特定技能 /services.html 301
-
-# ビザ (Visa) -> Services  
-/ビザ /services.html 301
-
-# 書類 (Documents) -> Services
-/書類 /services.html 301
-
-# Common Wix system paths
-/_api/* / 301
-/_static/* / 301
-/_partials/* / 301
-
-# Wix Bookings checkout paths -> Contact (booking redirects to contact form)
-/bookings-checkout/* /contact.html 301
-
-# URL-encoded プライバシーポリシー
-/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC /privacy.html 301
-
-# URL-encoded versions for additional paths
-/%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9 /company.html 301
-/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%86%85%E5%AE%B9 /services.html 301
-/%E7%89%B9%E5%AE%9A%E6%8A%80%E8%83%BD /services.html 301
-/%E3%83%93%E3%82%B6 /services.html 301
-/%E6%9B%B8%E9%A1%9E /services.html 301
+# ===========================================
+# フォールバック：上記以外の不明なパスはトップへ
+# (既存ファイルがある場合はそちらが優先される)
+# ===========================================
+/* / 301
