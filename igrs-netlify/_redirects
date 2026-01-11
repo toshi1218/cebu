@@ -1,0 +1,26 @@
+# Cloudflare Pages Redirect Rules
+# フィリピン書類取得代行センター
+
+# Explicit routing for extensionless URLs to HTML files
+/personal /personal.html 200
+/business /business.html 200
+/services /services.html 200
+/company /company.html 200
+/contact /contact.html 200
+/privacy /privacy.html 200
+/blog /blog.html 200
+/translation /translation.html 200
+
+# Service pages
+/psa-birth-certificate /psa-birth-certificate.html 200
+/marriage-certificate /marriage-certificate.html 200
+/cenomar /cenomar.html 200
+/nbi-clearance /nbi-clearance.html 200
+/lto-transaction-history /lto-transaction-history.html 200
+/dfa-apostille /dfa-apostille.html 200
+
+# Thank you page
+/thank-you /thank-you.html 200
+
+# SPA fallback - must be last
+/* /index.html 200
