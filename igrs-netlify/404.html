@@ -1,387 +1,385 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 Error｜ページが見つかりません｜トップページへ戻る</title>
-    <meta
-      name="description"
-      content="お探しのページは見つかりませんでした。URLが変更されたか、削除された可能性があります。トップページより目的のコンテンツをお探しください。"
-    />
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="canonical" href="https://igrs.online/404.html" />
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-      /* 404 Page Specific Styles */
-      .error-container {
-        min-height: calc(100vh - 70px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 120px 2rem 80px;
-        background: var(--bg-light);
-        position: relative;
-        overflow: hidden;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 Error｜ページが見つかりません｜トップページへ戻る</title>
+  <meta name="description" content="お探しのページは見つかりませんでした。URLが変更されたか、削除された可能性があります。トップページより目的のコンテンツをお探しください。" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://igrs.online/404.html" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* 404 Page Specific Styles */
+    .error-container {
+      min-height: calc(100vh - 70px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 2rem 80px;
+      background: var(--bg-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a5490' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .error-content {
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .error-number {
+      font-size: 8rem;
+      font-weight: 700;
+      background: var(--bg-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+      animation: fadeInScale 0.8s ease;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
       }
 
-      .error-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a5490' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        pointer-events: none;
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .error-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      .error-content {
-        max-width: 600px;
-        text-align: center;
-        position: relative;
-        z-index: 1;
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .error-title {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
 
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .error-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+
+    .error-actions .btn {
+      min-width: 250px;
+    }
+
+    .helpful-links {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+
+    .helpful-links h3 {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--white);
+      border-radius: 8px;
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .link-item:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow);
+      background: var(--primary-color);
+      color: var(--white);
+    }
+
+    .link-item .icon {
+      font-size: 1.2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
       .error-number {
-        font-size: 8rem;
-        font-weight: 700;
-        background: var(--bg-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        line-height: 1;
-        margin-bottom: 1rem;
-        animation: fadeInScale 0.8s ease;
-      }
-
-      @keyframes fadeInScale {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+        font-size: 5rem;
       }
 
       .error-icon {
-        font-size: 5rem;
-        margin-bottom: 1.5rem;
-        animation: float 3s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(-20px);
-        }
+        font-size: 3.5rem;
       }
 
       .error-title {
-        font-size: 2rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-weight: 700;
-        animation: fadeInUp 0.8s ease 0.2s both;
+        font-size: 1.5rem;
       }
 
       .error-message {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        margin-bottom: 2.5rem;
-        line-height: 1.8;
-        animation: fadeInUp 0.8s ease 0.4s both;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .error-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-        animation: fadeInUp 0.8s ease 0.6s both;
+        font-size: 1rem;
       }
 
       .error-actions .btn {
-        min-width: 250px;
-      }
-
-      .helpful-links {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--border-color);
-        animation: fadeInUp 0.8s ease 0.8s both;
-      }
-
-      .helpful-links h3 {
-        font-size: 1.1rem;
-        color: var(--text-dark);
-        margin-bottom: 1rem;
+        min-width: 100%;
       }
 
       .link-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-        margin-top: 1rem;
+        grid-template-columns: 1fr;
       }
+    }
+  </style>
+</head>
 
-      .link-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1rem;
-        background: var(--white);
-        border-radius: 8px;
-        color: var(--primary-color);
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        box-shadow: var(--shadow-sm);
-      }
-
-      .link-item:hover {
-        transform: translateX(5px);
-        box-shadow: var(--shadow);
-        background: var(--primary-color);
-        color: var(--white);
-      }
-
-      .link-item .icon {
-        font-size: 1.2rem;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .error-number {
-          font-size: 5rem;
-        }
-
-        .error-icon {
-          font-size: 3.5rem;
-        }
-
-        .error-title {
-          font-size: 1.5rem;
-        }
-
-        .error-message {
-          font-size: 1rem;
-        }
-
-        .error-actions .btn {
-          min-width: 100%;
-        }
-
-        .link-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- ヘッダー -->
-    <header>
-      <div class="header-container">
-        <a class="logo" href="/">
-          <div class="logo-icon">IGRS</div>
-          株式会社IGRS
-        </a>
-        <nav>
-          <a href="/">ホーム</a>
-          <div class="nav-item">
-            <a href="/services">サービス内容 <span class="dropdown-arrow">▼</span></a>
-            <div class="dropdown-menu">
-              <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
-              <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
-              <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
-              <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
-              <a href="/lto-transaction-history">🚗 運転経歴証明書（LTO）</a>
-              <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
-              <a href="/translation">🌐 翻訳サービス</a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <a href="/services">料金 <span class="dropdown-arrow">▼</span></a>
-            <div class="dropdown-menu">
-              <a href="/personal">👤 個人のお客様</a>
-              <a href="/business">🏢 法人・士業様</a>
-            </div>
-          </div>
-          <a href="/company">会社概要</a>
-          <a href="/privacy">プライバシーポリシー</a>
-          <a href="/contact">お問い合わせ</a>
-          <a href="/blog">ブログ</a>
-        </nav>
-        <div class="mobile-menu" onclick="toggleMobileNav()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <div class="nav-mobile" id="navMobile">
+<body>
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-container">
+      <a class="logo" href="/">
+        <div class="logo-icon">📋</div>
+        フィリピン書類取得窓口
+      </a>
+      <nav>
         <a href="/">ホーム</a>
-        <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
-          サービス内容 <span class="arrow">▼</span>
-        </button>
-        <div class="mobile-submenu">
-          <a href="/services">📋 サービス一覧</a>
-          <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
-          <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
-          <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
-          <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
-          <a href="/lto-transaction-history">🚗 運転経歴証明書（LTO）</a>
-          <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
-          <a href="/translation">🌐 翻訳サービス</a>
+        <div class="nav-item">
+          <a href="/services">サービス内容 <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
+            <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
+            <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
+            <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
+            <a href="/lto-transaction-history">🚗 運転経歴証明書（LTO）</a>
+            <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
+            <a href="/translation">🌐 翻訳サービス</a>
+          </div>
         </div>
-        <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
-          料金 <span class="arrow">▼</span>
-        </button>
-        <div class="mobile-submenu">
-          <a href="/personal">👤 個人のお客様</a>
-          <a href="/business">🏢 法人・士業様</a>
+        <div class="nav-item">
+          <a href="/services">料金 <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="/personal">👤 個人のお客様</a>
+            <a href="/business">🏢 法人・士業様</a>
+          </div>
         </div>
         <a href="/company">会社概要</a>
         <a href="/privacy">プライバシーポリシー</a>
         <a href="/contact">お問い合わせ</a>
         <a href="/blog">ブログ</a>
+      </nav>
+      <div class="mobile-menu" onclick="toggleMobileNav()">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-    </header>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="/">ホーム</a>
+      <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+        サービス内容 <span class="arrow">▼</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="/services">📋 サービス一覧</a>
+        <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
+        <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
+        <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
+        <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
+        <a href="/lto-transaction-history">🚗 運転経歴証明書（LTO）</a>
+        <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
+        <a href="/translation">🌐 翻訳サービス</a>
+      </div>
+      <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+        料金 <span class="arrow">▼</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="/personal">👤 個人のお客様</a>
+        <a href="/business">🏢 法人・士業様</a>
+      </div>
+      <a href="/company">会社概要</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/contact">お問い合わせ</a>
+      <a href="/blog">ブログ</a>
+    </div>
+  </header>
 
-    <!-- 404 エラーコンテンツ -->
-    <div class="error-container">
-      <div class="error-content">
-        <div class="error-icon">🔍</div>
-        <div class="error-number">404</div>
-        <h1 class="error-title">お探しのページが見つかりませんでした</h1>
-        <p class="error-message">
-          申し訳ございません。お探しのページは移動または削除された可能性があります。<br />
-          URLをご確認いただくか、下記のボタンからトップページへお戻りください。
-        </p>
+  <!-- 404 エラーコンテンツ -->
+  <div class="error-container">
+    <div class="error-content">
+      <div class="error-icon">🔍</div>
+      <div class="error-number">404</div>
+      <h1 class="error-title">お探しのページが見つかりませんでした</h1>
+      <p class="error-message">
+        申し訳ございません。お探しのページは移動または削除された可能性があります。<br />
+        URLをご確認いただくか、下記のボタンからトップページへお戻りください。
+      </p>
 
-        <div class="error-actions">
-          <a class="btn btn-accent" href="/">
-            <span>🏠</span>
-            トップページへ戻る
+      <div class="error-actions">
+        <a class="btn btn-accent" href="/">
+          <span>🏠</span>
+          トップページへ戻る
+        </a>
+        <a class="btn btn-secondary" href="/contact">
+          <span>📧</span>
+          お問い合わせ
+        </a>
+      </div>
+
+      <div class="helpful-links">
+        <h3>よくアクセスされるページ</h3>
+        <div class="link-grid">
+          <a href="/services" class="link-item">
+            <span class="icon">📋</span>
+            サービス一覧
           </a>
-          <a class="btn btn-secondary" href="/contact">
-            <span>📧</span>
-            お問い合わせ
+          <a href="/personal" class="link-item">
+            <span class="icon">👤</span>
+            個人のお客様料金
           </a>
-        </div>
-
-        <div class="helpful-links">
-          <h3>よくアクセスされるページ</h3>
-          <div class="link-grid">
-            <a href="/services" class="link-item">
-              <span class="icon">📋</span>
-              サービス一覧
-            </a>
-            <a href="/personal" class="link-item">
-              <span class="icon">👤</span>
-              個人のお客様料金
-            </a>
-            <a href="/business" class="link-item">
-              <span class="icon">🏢</span>
-              法人・士業様プラン
-            </a>
-            <a href="/company" class="link-item">
-              <span class="icon">ℹ️</span>
-              会社概要
-            </a>
-          </div>
+          <a href="/business" class="link-item">
+            <span class="icon">🏢</span>
+            法人・士業様プラン
+          </a>
+          <a href="/company" class="link-item">
+            <span class="icon">ℹ️</span>
+            会社概要
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- フッター -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-brand">
-          <h3>株式会社IGRS</h3>
-          <p>
-            フィリピン公的書類取得・アポスティーユ認証BPOサービス<br />
-            現地フィリピンにおける行政手続きのボトルネックを解消し、お客様が本来の手続き・業務に集中できる環境を提供します。
-          </p>
-        </div>
-
-        <div class="footer-links">
-          <h4>サービス</h4>
-          <ul>
-            <li><a href="/psa-birth-certificate">出生証明書（PSA）</a></li>
-            <li><a href="/marriage-certificate">婚姻証明書（PSA）</a></li>
-            <li><a href="/cenomar">独身証明書（CENOMAR）</a></li>
-            <li><a href="/nbi-clearance">無犯罪証明書（NBI）</a></li>
-            <li><a href="/lto-transaction-history">運転経歴証明書（LTO）</a></li>
-            <li><a href="/dfa-apostille">アポスティーユ認証（DFA）</a></li>
-            <li><a href="/translation">翻訳サービス</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h4>内部リンク</h4>
-          <ul>
-            <li><a href="/">ホーム</a></li>
-            <li><a href="/services">サービス内容／料金</a></li>
-            <li><a href="/company">会社概要</a></li>
-            <li><a href="/blog">ブログ</a></li>
-            <li><a href="/contact">お問い合わせ</a></li>
-            <li><a href="/privacy">プライバシーポリシー</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h4>外部リンク</h4>
-          <ul>
-            <li><a href="https://note.com/igrs_philippines" target="_blank" rel="noopener">note</a></li>
-          </ul>
-        </div>
+  <!-- フッター -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>フィリピン公的書類取得・認証代行センター</h3>
+        <p>
+          フィリピン公的書類取得・アポスティーユ認証BPOサービス<br />
+          現地フィリピンにおける行政手続きのボトルネックを解消し、お客様が本来の手続き・業務に集中できる環境を提供します。
+        </p>
       </div>
 
-      <div class="footer-bottom">
-        <p>©2026 by IGRS all rights reserved.</p>
+      <div class="footer-links">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="/psa-birth-certificate">出生証明書（PSA）</a></li>
+          <li><a href="/marriage-certificate">婚姻証明書（PSA）</a></li>
+          <li><a href="/cenomar">独身証明書（CENOMAR）</a></li>
+          <li><a href="/nbi-clearance">無犯罪証明書（NBI）</a></li>
+          <li><a href="/lto-transaction-history">運転経歴証明書（LTO）</a></li>
+          <li><a href="/dfa-apostille">アポスティーユ認証（DFA）</a></li>
+          <li><a href="/translation">翻訳サービス</a></li>
+        </ul>
       </div>
-    </footer>
 
-    <script>
-      function toggleMobileNav() {
-        document.getElementById('navMobile').classList.toggle('active');
-      }
+      <div class="footer-links">
+        <h4>内部リンク</h4>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/services">サービス内容／料金</a></li>
+          <li><a href="/company">会社概要</a></li>
+          <li><a href="/blog">ブログ</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href="/privacy">プライバシーポリシー</a></li>
+        </ul>
+      </div>
 
-      function toggleMobileDropdown(button) {
-        button.classList.toggle('open');
-        const submenu = button.nextElementSibling;
-        submenu.classList.toggle('open');
-      }
-    </script>
-  </body>
+      <div class="footer-links">
+        <h4>外部リンク</h4>
+        <ul>
+          <li><a href="https://note.com/igrs_philippines" target="_blank" rel="noopener">note</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>©2026 by IGRS all rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('navMobile').classList.toggle('active');
+    }
+
+    function toggleMobileDropdown(button) {
+      button.classList.toggle('open');
+      const submenu = button.nextElementSibling;
+      submenu.classList.toggle('open');
+    }
+  </script>
+</body>
+
 </html>
