@@ -3,7 +3,8 @@
 # ===========================================
 
 # --- WWW to non-WWW redirect (forced) ---
-https://www.igrs.online/* https://igrs.online/:splat 301!
+# Cloudflare Pagesでは不要のためコメントアウト
+# https://www.igrs.online/* https://igrs.online/:splat 301!
 
 # --- Legacy /web path ---
 /web /  301
