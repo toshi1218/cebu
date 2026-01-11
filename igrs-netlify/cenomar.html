@@ -192,6 +192,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
@@ -324,7 +327,9 @@
         border-bottom: 1px solid var(--border-color);
       ">
     <div class="cta-group" style="justify-content: center">
-      <a class="btn btn-accent" href="/contact">無料相談</a>
+      <a class="btn btn-accent" href="/contact" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        <i class="fas fa-envelope"></i> メールで無料相談
+      </a>
     </div>
   </div>
 
@@ -440,9 +445,15 @@
         <p>
           詳細な料金は<a href="/services" style="color: var(--primary-color); font-weight: 500">サービス内容・料金ページ</a>をご覧ください。
         </p>
-        <div class="cta-group" style="margin-top: 2rem">
-          <a class="btn btn-navy" href="/personal">個人のお客様料金</a>
-          <a class="btn btn-gray" href="/business">法人・士業様プラン</a>
+        <div class="cta-group" style="margin-top: 2rem; gap: 1rem;">
+          <a class="btn btn-navy" href="/personal"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; flex: 1; justify-content: center; min-width: 200px;">
+            <i class="fas fa-user"></i> 個人料金
+          </a>
+          <a class="btn btn-gray" href="/business"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; flex: 1; justify-content: center; min-width: 200px;">
+            <i class="fas fa-building"></i> 法人プラン
+          </a>
         </div>
       </div>
     </div>
@@ -558,12 +569,30 @@
 
   <!-- FAQ後のCTA -->
   <section class="cta-section">
+    <h2 style="margin-bottom: 1rem;">お問い合わせ・ご相談</h2>
     <p>CENOMARの取得でお困りですか？まずはお気軽にご相談ください。</p>
-    <p style="font-size: 0.95rem; opacity: 0.9">※婚姻届提出予定日がある方は、お問い合わせ時にお知らせください。</p>
-    <div class="cta-group" style="margin-top: 2rem">
-      <a class="btn btn-accent" href="/contact">無料相談</a>
-      <a class="btn btn-secondary" href="#" style="opacity: 0.6; cursor: not-allowed">LINE相談（準備中）</a>
-      <a class="btn btn-navy" href="#" style="opacity: 0.6; cursor: not-allowed">Zoom面談（予約）</a>
+    <p style="font-size: 0.95rem; opacity: 0.9; margin-bottom: 2rem;">※婚姻届提出予定日がある方は、お問い合わせ時にお知らせください。</p>
+    <div
+      style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; max-width: 800px; margin: 2rem auto 0;">
+      <a href="/contact"
+        style="background: #06C755; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 200px; justify-content: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(6, 199, 85, 0.3); opacity: 0.6; cursor: not-allowed;"
+        onclick="return false;">
+        <i class="fab fa-line" style="font-size: 1.5rem;"></i>
+        <span>LINEで相談<br><small style="font-size: 0.8rem; opacity: 0.9;">（準備中）</small></span>
+      </a>
+      <a href="/contact"
+        style="background: #2D8CFF; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 200px; justify-content: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(45, 140, 255, 0.3); opacity: 0.6; cursor: not-allowed;"
+        onclick="return false;">
+        <i class="fas fa-video" style="font-size: 1.5rem;"></i>
+        <span>Zoomで面談予約<br><small style="font-size: 0.8rem; opacity: 0.9;">（準備中）</small></span>
+      </a>
+      <a href="/contact"
+        style="background: var(--primary-color); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 200px; justify-content: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0, 56, 101, 0.3);"
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 56, 101, 0.4)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 56, 101, 0.3)';">
+        <i class="fas fa-envelope" style="font-size: 1.5rem;"></i>
+        <span>メールで無料相談</span>
+      </a>
     </div>
   </section>
 

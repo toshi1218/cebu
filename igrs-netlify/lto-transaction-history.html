@@ -186,6 +186,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
@@ -318,7 +321,9 @@
         border-bottom: 1px solid var(--border-color);
       ">
     <div class="cta-group" style="justify-content: center">
-      <a class="btn btn-accent" href="/contact">無料相談</a>
+      <a class="btn btn-accent" href="/contact" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        <i class="fas fa-envelope"></i> メールで無料相談
+      </a>
     </div>
   </div>
 
@@ -389,9 +394,15 @@
           <h4>最短は手配開始から3〜4週間</h4>
           <p>ただし、LTOの窓口状況、DFAの混雑、通関状況により前後します。</p>
         </div>
-        <div class="cta-group" style="margin-top: 2rem">
-          <a class="btn btn-navy" href="/personal">個人のお客様料金</a>
-          <a class="btn btn-gray" href="/business">法人・士業様プラン</a>
+        <div class="cta-group" style="margin-top: 2rem; gap: 1rem;">
+          <a class="btn btn-navy" href="/personal"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; flex: 1; justify-content: center; min-width: 200px;">
+            <i class="fas fa-user"></i> 個人料金
+          </a>
+          <a class="btn btn-gray" href="/business"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; flex: 1; justify-content: center; min-width: 200px;">
+            <i class="fas fa-building"></i> 法人プラン
+          </a>
         </div>
       </div>
     </div>
