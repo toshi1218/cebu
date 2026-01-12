@@ -255,7 +255,7 @@
     .service-card {
       background: var(--white);
       border-radius: 8px;
-      padding: 0.6rem;
+      padding: 0.5rem 0.65rem;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
       position: relative;
@@ -286,33 +286,29 @@
     }
 
     .service-icon {
-      width: 18px;
-      height: 18px;
-      background: transparent;
-      border-radius: 4px;
-      display: block;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-      margin-bottom: 0.25rem;
+      font-size: 1.0rem;
+      display: inline;
+      margin-right: 0.3rem;
+      vertical-align: baseline;
     }
 
     .service-card h3 {
-      font-size: 1.0rem;
+      font-size: 0.98rem;
       color: var(--text-dark);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
       display: block;
-      line-height: 1.4;
-      letter-spacing: -0.015em;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
       font-weight: 600;
       text-align: left;
     }
 
     .service-card p {
       color: var(--text-light);
-      font-size: 0.92rem;
-      line-height: 1.6;
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.01em;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.015em;
       text-align: left;
     }
 
@@ -320,24 +316,25 @@
       display: flex;
       flex-direction: column;
       margin-top: auto;
-      padding-top: 0.25rem;
-      gap: 0.3rem;
+      padding-top: 0.2rem;
+      gap: 0.25rem;
     }
 
     .service-card-meta {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--text-light);
-      opacity: 0.75;
+      opacity: 0.7;
       text-align: left;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
     }
 
     .service-card-footer .btn {
       width: 100%;
       text-align: center;
-      font-size: 0.82rem;
-      padding: 0.4rem 0.5rem;
+      font-size: 0.8rem;
+      padding: 0.35rem 0.5rem;
       margin: 0;
+      border-radius: 6px;
     }
 
     /* Benefits Section */
@@ -625,8 +622,7 @@
 
     <div class="services-grid">
       <div class="service-card">
-        <span class="service-icon">📄</span>
-        <h3>PSA公的証明書取得</h3>
+        <h3><span class="service-icon">📄</span>PSA公的証明書取得</h3>
         <p>フィリピン統計局（PSA）発行の出生証明書、結婚証明書、独身証明書（CENOMAR）を迅速に取得。</p>
         <div class="service-card-footer">
           <span class="service-card-meta">PSA発行</span>
@@ -635,8 +631,7 @@
       </div>
 
       <div class="service-card">
-        <span class="service-icon">📜</span>
-        <h3>DFAアポスティーユ認証</h3>
+        <h3><span class="service-icon">📜</span>DFAアポスティーユ認証</h3>
         <p>フィリピン外務省（DFA）によるアポスティーユ認証を代行。国際的に有効な公的書類として認証。</p>
         <div class="service-card-footer">
           <span class="service-card-meta">DFA認証</span>
@@ -645,8 +640,7 @@
       </div>
 
       <div class="service-card">
-        <span class="service-icon">🔒</span>
-        <h3>無犯罪証明書（NBI）取得</h3>
+        <h3><span class="service-icon">🔒</span>無犯罪証明書（NBI）取得</h3>
         <p>フィリピン国家捜査局（NBI）発行の無犯罪証明書を取得。特定技能や就労ビザ申請に必須。</p>
         <div class="service-card-footer">
           <span class="service-card-meta">NBI発行</span>
@@ -655,8 +649,7 @@
       </div>
 
       <div class="service-card">
-        <span class="service-icon">🚗</span>
-        <h3>LTO運転経歴証明書</h3>
+        <h3><span class="service-icon">🚗</span>LTO運転経歴証明書</h3>
         <p>陸運局（LTO）発行の運転経歴証明書を取得。外国免許切替（外免切替）申請に必要。</p>
         <div class="service-card-footer">
           <span class="service-card-meta">LTO発行</span>
@@ -665,8 +658,7 @@
       </div>
 
       <div class="service-card">
-        <span class="service-icon">💍</span>
-        <h3>CENOMAR（独身証明書）</h3>
+        <h3><span class="service-icon">💍</span>CENOMAR（独身証明書）</h3>
         <p>国際結婚・配偶者ビザに必要な独身証明書（CENOMAR）を取得。DFAアポスティーユまで対応。</p>
         <div class="service-card-footer">
           <span class="service-card-meta">PSA発行</span>
@@ -675,8 +667,7 @@
       </div>
 
       <div class="service-card">
-        <span class="service-icon">🤝</span>
-        <h3>現地窓口対応</h3>
+        <h3><span class="service-icon">🤝</span>現地窓口対応</h3>
         <p>現地窓口での折衝が必要な案件も対応可能。複雑なケースも日本語でサポート。</p>
       </div>
     </div>
