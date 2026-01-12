@@ -27,7 +27,7 @@
 
 .trouble-pattern {
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.0rem;
     color: var(--primary-color);
     background: rgba(26, 84, 144, 0.08);
     padding: 0.4rem 0.7rem;
@@ -40,7 +40,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: var(--text-dark);
     line-height: 1.6;
     padding: 0.3rem 0;
@@ -50,7 +50,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: var(--text-dark);
     line-height: 1.6;
     background: rgba(76, 175, 80, 0.08);
@@ -77,13 +77,13 @@
     }
 
     .trouble-pattern {
-        font-size: 0.88rem;
+        font-size: 0.95rem;
         padding: 0.35rem 0.6rem;
     }
 
     .trouble-issue,
     .trouble-solution {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .trouble-solution {
