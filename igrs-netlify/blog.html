@@ -134,7 +134,33 @@
   <!-- ブログ記事一覧 -->
   <section>
     <div class="container">
-      <div class="info-box" style="max-width: 800px; margin: 0 auto 3rem">
+      <!-- クイックナビゲーション -->
+      <div class="blog-quick-nav"
+        style="max-width: 800px; margin: 0 auto 2rem; background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
+        <h3
+          style="color: var(--primary-color); font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          📑 記事目次
+        </h3>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><a href="#article-1"
+              style="color: var(--text-dark); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0;">💰
+              フィリピン書類取得、自分で渡航vs代行どっちが得？</a></li>
+          <li><a href="#article-2"
+              style="color: var(--text-dark); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0;">📄
+              フィリピンの書類は、なぜこんなに手間や時間がかかるのか</a></li>
+          <li><a href="#article-3"
+              style="color: var(--text-dark); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0;">📰
+              初の登録支援機関許可取消：グランウェイ事件から学ぶ</a></li>
+          <li><a href="#article-4"
+              style="color: var(--text-dark); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0;">🔒
+              NBI HITを最短で抜ける完全ガイド</a></li>
+          <li><a href="#article-5"
+              style="color: var(--text-dark); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0;">📋
+              PSA・NBI・パスポートのデータ整合チェック完全ガイド</a></li>
+        </ul>
+      </div>
+
+      <div class="info-box" style="max-width: 800px; margin: 0 auto 2rem">
         <h4>📝 最新の記事一覧</h4>
         <p>
           より詳しい記事は
@@ -145,54 +171,64 @@
       </div>
 
       <div class="blog-grid">
-        <article class="blog-card">
-          <div class="blog-card-image">💰</div>
-          <div class="blog-card-content">
-            <div class="blog-card-date">2026年1月</div>
-            <h3>【2026年試算】フィリピン書類取得、自分で渡航vs代行どっちが得？</h3>
-            <p>自分で渡航すると15万円以上。IGRSの婚姻セットなら約9万円で完結。コストと手間を徹底比較します。</p>
-            <a href="/philippine-marriage-doc-cost-comparison" class="read-more">続きを読む →</a>
-          </div>
+        <article class="blog-card" id="article-1">
+          <a href="/philippine-marriage-doc-cost-comparison" class="blog-card-link">
+            <div class="blog-card-image">💰</div>
+            <div class="blog-card-content">
+              <div class="blog-card-date">2026年1月</div>
+              <h3>【2026年試算】フィリピン書類取得、自分で渡航vs代行どっちが得？</h3>
+              <p>自分で渡航すると15万円以上。IGRSの婚姻セットなら約9万円で完結。コストと手間を徹底比較します。</p>
+              <span class="read-more">続きを読む →</span>
+            </div>
+          </a>
         </article>
 
-        <article class="blog-card">
-          <div class="blog-card-image">📄</div>
-          <div class="blog-card-content">
-            <div class="blog-card-date">2025年12月</div>
-            <h3>フィリピンの書類は、なぜこんなに手間や時間がかかるのかという疑問</h3>
-            <p>フィリピンの公的書類取得が複雑で時間がかかる理由について、現地での経験を基に解説します。</p>
-            <a href="/blog-philippines-documents-complexity" class="read-more">続きを読む →</a>
-          </div>
+        <article class="blog-card" id="article-2">
+          <a href="/blog-philippines-documents-complexity" class="blog-card-link">
+            <div class="blog-card-image">📄</div>
+            <div class="blog-card-content">
+              <div class="blog-card-date">2025年12月</div>
+              <h3>フィリピンの書類は、なぜこんなに手間や時間がかかるのかという疑問</h3>
+              <p>フィリピンの公的書類取得が複雑で時間がかかる理由について、現地での経験を基に解説します。</p>
+              <span class="read-more">続きを読む →</span>
+            </div>
+          </a>
         </article>
 
-        <article class="blog-card">
-          <div class="blog-card-image">📰</div>
-          <div class="blog-card-content">
-            <div class="blog-card-date">2025年9月</div>
-            <h3>初の登録支援機関許可取消：グランウェイ事件から学ぶ、信頼と法令遵守の重要性</h3>
-            <p>登録支援機関の許可取り消し事例から、コンプライアンスの重要性について考察します。</p>
-            <a href="/blog-granway-compliance" class="read-more">続きを読む →</a>
-          </div>
+        <article class="blog-card" id="article-3">
+          <a href="/blog-granway-compliance" class="blog-card-link">
+            <div class="blog-card-image">📰</div>
+            <div class="blog-card-content">
+              <div class="blog-card-date">2025年9月</div>
+              <h3>初の登録支援機関許可取消：グランウェイ事件から学ぶ、信頼と法令遵守の重要性</h3>
+              <p>登録部援機関の許可取り消し事例から、コンプライアンスの重要性について考察します。</p>
+              <span class="read-more">続きを読む →</span>
+            </div>
+          </a>
         </article>
 
-        <article class="blog-card">
-          <div class="blog-card-image">🔒</div>
-          <div class="blog-card-content">
-            <div class="blog-card-date">2025年9月</div>
-            <h3>NBI HITを最短で抜ける完全ガイド</h3>
-            <p>NBIクリアランス取得時に発生する「HIT」とは何か、そして最短で解決する方法を詳しく解説します。</p>
-            <a href="/blog-nbi-hit-guide" class="read-more">続きを読む →</a>
-          </div>
+        <article class="blog-card" id="article-4">
+          <a href="/blog-nbi-hit-guide" class="blog-card-link">
+            <div class="blog-card-image">🔒</div>
+            <div class="blog-card-content">
+              <div class="blog-card-date">2025年9月</div>
+              <h3>NBI HITを最短で抜ける完全ガイド</h3>
+              <p>NBIクリアランス取得時に発生する「HIT」とは何か、そして最短で解決する方法を詳しく解説します。</p>
+              <span class="read-more">続きを読む →</span>
+            </div>
+          </a>
         </article>
 
-        <article class="blog-card">
-          <div class="blog-card-image">📋</div>
-          <div class="blog-card-content">
-            <div class="blog-card-date">2025年9月</div>
-            <h3>フィリピン人材受け入れ担当者のためPSA・NBI・パスポートのデータ整合チェック完全ガイド</h3>
-            <p>フィリピン人材の採用時に必要な書類のデータ整合性チェックについて、実務担当者向けに解説します。</p>
-            <a href="/blog-data-verification-guide" class="read-more">続きを読む →</a>
-          </div>
+        <article class="blog-card" id="article-5">
+          <a href="/blog-data-verification-guide" class="blog-card-link">
+            <div class="blog-card-image">📋</div>
+            <div class="blog-card-content">
+              <div class="blog-card-date">2025年9月</div>
+              <h3>フィリピン人材受け入れ担当者のためPSA・NBI・パスポートのデータ整合チェック完全ガイド</h3>
+              <p>フィリピン人材の採用時に必要な書類のデータ整合性チェックについて、実務担当者向けに解説します。</p>
+              <span class="read-more">続きを読む →</span>
+            </div>
+          </a>
         </article>
       </div>
 
