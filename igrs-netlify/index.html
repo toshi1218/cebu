@@ -429,7 +429,7 @@
   </style>
 </head>
 
-<body>
+<body class="home-page">
   <!-- ヘッダー -->
   <header>
     <div class="header-container">
@@ -957,6 +957,22 @@
       const submenu = button.nextElementSibling;
       submenu.classList.toggle('open');
     }
+
+    // ヘッダースクロール処理
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      lastScroll = currentScroll;
+    });
 
     // スクロールアニメーション
     const observerOptions = {
