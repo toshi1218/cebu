@@ -51,8 +51,8 @@
 
   <!-- 運転経歴証明書（LTO） -->
   <url>
-    <loc>https://igrs.online/lto-transaction-history</loc>
-    <lastmod>2026-01-12</lastmod>
+    <loc>https://igrs.online/lto-drivers-license</loc>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
