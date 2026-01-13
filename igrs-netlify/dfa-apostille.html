@@ -93,20 +93,35 @@
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "IGRS",
-        "image": "https://igrs.online/images/logo.png",
-        "url": "https://igrs.online/dfa-apostille",
-        "founder": {
-          "@type": "Person",
-          "name": "五十嵐",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "セブ市",
-            "addressRegion": "セブ",
-            "addressCountry": "PH"
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "name": "IGRS",
+            "alternateName": "フィリピン書類取得代行センター",
+            "image": "https://igrs.online/images/logo.png",
+            "url": "https://igrs.online/dfa-apostille",
+            "telephone": "+63-912-345-6789",
+            "priceRange": "PHP",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Mandaue City",
+              "addressLocality": "Cebu",
+              "addressRegion": "Cebu",
+              "postalCode": "6014",
+              "addressCountry": "PH"
+            },
+            "founder": {
+              "@type": "Person",
+              "name": "五十嵐",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "セブ市",
+                "addressRegion": "セブ",
+                "addressCountry": "PH"
+              }
+            }
           }
-        }
+        ]
       }
     </script>
   <!-- BreadcrumbList Structured Data -->
