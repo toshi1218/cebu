@@ -2,6 +2,80 @@
    IGRS Website - Global Styles
    =========================== */
 
+/* ========================================
+   事例カード縦書き問題の強制修正
+   ======================================== */
+.case-card,
+.example-card,
+.cases-grid>div,
+[class*="case"] {
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  padding: 32px !important;
+  gap: 16px !important;
+  background: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.case-card *,
+.example-card *,
+.cases-grid>div * {
+  writing-mode: horizontal-tb !important;
+  direction: ltr !important;
+  text-orientation: mixed !important;
+}
+
+.case-card h3,
+.example-card h3 {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #2c5282 !important;
+  margin: 0 0 16px 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.case-card p,
+.example-card p {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: #4a5568 !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.case-card p:last-child,
+.example-card p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.case-card strong,
+.example-card strong {
+  font-weight: 600 !important;
+  color: #2d3748 !important;
+  display: inline !important;
+}
+
+.cases-grid,
+.examples-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 32px !important;
+  margin-top: 40px !important;
+  width: 100% !important;
+}
+
 :root {
   --primary-color: #1a5490;
   --primary-dark: #14406e;
@@ -2284,6 +2358,7 @@ div[style*='border-radius: 50%'] {
     padding-left: 0;
   }
 }
+
 /* 実績サンプル画像 */
 .sample-section {
   margin-top: 48px;
@@ -2306,14 +2381,14 @@ div[style*='border-radius: 50%'] {
   aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .sample-doc-image:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* レスポンシブ */
