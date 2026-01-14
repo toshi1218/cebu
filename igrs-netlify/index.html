@@ -471,7 +471,7 @@
     <div class="header-container">
       <a class="logo" href="/" style="display: flex; align-items: center; gap: 12px;">
         <img src="/images/igrs-logo-new.png" alt="株式会社IGRS ロゴ" style="height: 45px; width: auto;">
-        <span>フィリピン書類取得代行センター</span>
+        <span style="color: var(--primary-color); font-weight: 600;">フィリピン書類取得代行センター</span>
       </a>
       <nav>
         <a class="active" href="/">ホーム</a>
@@ -1012,21 +1012,21 @@
       submenu.classList.toggle('open');
     }
 
-    // ヘッダースクロール処理
-    const header = document.querySelector('header');
-    let lastScroll = 0;
+    // ヘッダースクロール処理 - 無効化（白背景固定のため）
+    // const header = document.querySelector('header');
+    // let lastScroll = 0;
 
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
+    // window.addEventListener('scroll', () => {
+    //   const currentScroll = window.pageYOffset;
 
-      if (currentScroll > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+    //   if (currentScroll > 50) {
+    //     header.classList.add('scrolled');
+    //   } else {
+    //     header.classList.remove('scrolled');
+    //   }
 
-      lastScroll = currentScroll;
-    });
+    //   lastScroll = currentScroll;
+    // });
 
     // スクロールアニメーション
     const observerOptions = {
