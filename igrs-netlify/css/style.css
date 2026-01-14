@@ -2488,3 +2488,34 @@ div[style*='border-radius: 50%'] {
     grid-template-columns: 1fr;
   }
 }
+/* ========================================
+   フッター階層リスト
+   ======================================== */
+.footer-links .hierarchical-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links .hierarchical-list .parent-item {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.footer-links .hierarchical-list .child-item {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.footer-links .hierarchical-list .child-item::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  color: #718096;
+  font-size: 14px;
+}
+
+.footer-links .hierarchical-list .child-item a {
+  font-size: 14px;
+}
