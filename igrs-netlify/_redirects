@@ -1,2 +1,0 @@
-# Rewrite rules for clean URLs (200 status - no redirect)
-/personal /personal.html 200
