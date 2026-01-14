@@ -682,7 +682,7 @@ section {
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0.5rem;
   align-items: flex-start;
 }
