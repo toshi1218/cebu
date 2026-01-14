@@ -3,53 +3,128 @@
    =========================== */
 
 /* ========================================
-   事例カード縦書き問題の強制修正
+   ヘッダー白背景 - 絶対固定（透過完全排除）
+   ======================================== */
+header,
+header.scrolled,
+header.transparent,
+header[style*="background"],
+.header {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  transition: none !important;
+}
+
+header *,
+header a,
+header span,
+header .logo span,
+header nav a,
+.nav-link,
+.nav-item>a {
+  color: #2c5282 !important;
+  text-shadow: none !important;
+}
+
+header a:hover,
+header nav a:hover,
+.nav-link:hover {
+  color: #d97706 !important;
+}
+
+.dropdown-menu {
+  background: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+body {
+  padding-top: 70px !important;
+}
+
+.hero,
+.page-hero,
+section:first-of-type {
+  margin-top: 0 !important;
+  padding-top: 80px !important;
+}
+
+/* ========================================
+   事例カード - 完全水平レイアウト強制
    ======================================== */
 .case-card,
 .example-card,
 .cases-grid>div,
-[class*="case"] {
+[class*="case"],
+[class*="example"] {
   writing-mode: horizontal-tb !important;
+  -webkit-writing-mode: horizontal-tb !important;
+  -ms-writing-mode: lr-tb !important;
   direction: ltr !important;
   text-orientation: mixed !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
   justify-content: flex-start !important;
-  padding: 32px !important;
-  gap: 16px !important;
-  background: white !important;
+  padding: 32px 24px !important;
+  gap: 12px !important;
+  background: #FFFFFF !important;
   border-radius: 12px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #e2e8f0 !important;
   width: 100% !important;
   box-sizing: border-box !important;
+  min-height: 200px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.case-card:hover,
+.example-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
 .case-card *,
 .example-card *,
-.cases-grid>div * {
+.cases-grid>div *,
+[class*="case"] *,
+[class*="example"] * {
   writing-mode: horizontal-tb !important;
+  -webkit-writing-mode: horizontal-tb !important;
   direction: ltr !important;
   text-orientation: mixed !important;
 }
 
 .case-card h3,
-.example-card h3 {
+.example-card h3,
+.cases-grid>div h3 {
   font-size: 20px !important;
   font-weight: 600 !important;
   color: #2c5282 !important;
   margin: 0 0 16px 0 !important;
-  padding: 0 !important;
+  padding: 0 0 12px 0 !important;
+  border-bottom: 2px solid #e2e8f0 !important;
   width: 100% !important;
   text-align: left !important;
+  line-height: 1.4 !important;
 }
 
 .case-card p,
-.example-card p {
+.example-card p,
+.cases-grid>div p {
   font-size: 15px !important;
   line-height: 1.7 !important;
   color: #4a5568 !important;
-  margin: 0 0 12px 0 !important;
+  margin: 0 0 10px 0 !important;
   padding: 0 !important;
   width: 100% !important;
   text-align: left !important;
@@ -61,10 +136,12 @@
 }
 
 .case-card strong,
-.example-card strong {
+.example-card strong,
+.cases-grid>div strong {
   font-weight: 600 !important;
   color: #2d3748 !important;
   display: inline !important;
+  margin-right: 4px !important;
 }
 
 .cases-grid,
@@ -74,6 +151,20 @@
   gap: 32px !important;
   margin-top: 40px !important;
   width: 100% !important;
+}
+
+@media (max-width: 768px) {
+
+  .cases-grid,
+  .examples-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .case-card,
+  .example-card {
+    padding: 24px 20px !important;
+  }
 }
 
 :root {
