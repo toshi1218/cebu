@@ -66,7 +66,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: transparent;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
   z-index: 1000;
   padding: 0;
   transition: all 0.3s ease;
@@ -74,15 +74,15 @@ header {
 }
 
 header.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 body:not(.home-page) header {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header-container {
@@ -98,12 +98,13 @@ body:not(.home-page) header {
 .logo {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: #ffffff;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   height: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo-icon {
@@ -128,12 +129,13 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--text-dark);
+  color: #ffffff;
   font-weight: 500;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
   padding: 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 nav a::after {
@@ -143,8 +145,9 @@ nav a::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-color);
+  background: #ffd700;
   transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
 }
 
 nav a:hover::after,
@@ -154,7 +157,8 @@ nav a.active::after {
 
 nav a:hover,
 nav a.active {
-  color: var(--primary-color);
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Dropdown Menu */
@@ -232,9 +236,10 @@ nav a.active {
 .mobile-menu span {
   width: 25px;
   height: 3px;
-  background: var(--primary-color);
+  background: #ffffff;
   border-radius: 2px;
   transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Mobile Navigation */
