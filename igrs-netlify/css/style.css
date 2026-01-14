@@ -161,6 +161,30 @@ nav a.active {
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Contact Button - Primary CTA */
+nav a[href="/contact"] {
+  background: var(--accent-color);
+  color: #ffffff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  font-weight: 600;
+  text-shadow: none;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+nav a[href="/contact"]::after {
+  display: none;
+}
+
+nav a[href="/contact"]:hover {
+  background: var(--accent-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.6);
+  text-shadow: none;
+}
+
 /* Dropdown Menu */
 .nav-item {
   position: relative;
@@ -272,6 +296,24 @@ nav a.active {
 
 .nav-mobile a:hover {
   background: var(--bg-light);
+}
+
+/* Contact Button - Mobile Navigation */
+.nav-mobile a[href="/contact"] {
+  background: var(--accent-color);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.nav-mobile a[href="/contact"]:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.6);
 }
 
 /* Mobile Dropdown */
