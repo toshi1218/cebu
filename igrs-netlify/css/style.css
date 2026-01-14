@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    IGRS Website - Global Styles
    =========================== */
 
@@ -2282,5 +2282,43 @@ div[style*='border-radius: 50%'] {
 
   .footer-links .footer-submenu a:hover {
     padding-left: 0;
+  }
+}
+/* 実績サンプル画像 */
+.sample-section {
+  margin-top: 48px;
+  padding: 40px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sample-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.sample-image-wrapper {
+  position: relative;
+}
+
+.sample-doc-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.sample-doc-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .sample-images {
+    grid-template-columns: 1fr;
   }
 }
