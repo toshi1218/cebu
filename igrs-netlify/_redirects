@@ -1,11 +1,2 @@
-# Redirect www to non-www (301 permanent redirect)
-https://www.igrs.online/* https://igrs.online/:splat 301!
-http://www.igrs.online/* https://igrs.online/:splat 301!
-
-# Redirect old URLs to current pages (301 permanent redirect)
-/corporation /company 301
-/price /services 301
-/privacy-policy /privacy 301
-
 # Rewrite rules for clean URLs (200 status - no redirect)
 /personal /personal.html 200
