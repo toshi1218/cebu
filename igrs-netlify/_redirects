@@ -6,3 +6,6 @@ http://www.igrs.online/* https://igrs.online/:splat 301!
 /corporation /company 301
 /price /services 301
 /privacy-policy /privacy 301
+
+# Rewrite rules for clean URLs (200 status - no redirect)
+/personal /personal.html 200
