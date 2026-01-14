@@ -2159,3 +2159,42 @@ div[style*='border-radius: 50%'] {
     margin-bottom: 0.5rem;
   }
 }
+
+/* ===========================
+   Force Vertical Card Layout (Case Studies Fix)
+   =========================== */
+/* カード全体のスタック化を強制 */
+.card,
+.case-study-card,
+.pattern-card,
+[class*="card"] {
+  display: flex !important;
+  flex-direction: column !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  align-items: flex-start !important;
+  padding: 1.5rem !important;
+}
+
+/* タイトルの横書き・一行化を強制 */
+.card h3,
+.case-study-card h3,
+.pattern-card h3,
+[class*="card"] h3 {
+  writing-mode: horizontal-tb !important;
+  width: 100% !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.25rem !important;
+  line-height: 1.4 !important;
+  text-orientation: mixed !important;
+}
+
+/* カード内の段落要素も強制的に横書き */
+.card p,
+.case-study-card p,
+.pattern-card p,
+[class*="card"] p {
+  writing-mode: horizontal-tb !important;
+  width: 100% !important;
+  text-orientation: mixed !important;
+}
