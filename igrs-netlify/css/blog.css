@@ -22,6 +22,15 @@
     align-items: flex-start;
 }
 
+.blog-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    align-items: flex-start;
+}
+
 .blog-main {
     flex: 1;
     min-width: 0;
@@ -31,8 +40,13 @@
 .blog-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 80px 24px;
-    text-align: center;
     color: white;
+    margin-top: 70px;
+}
+
+.blog-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .blog-hero-content {
@@ -47,10 +61,19 @@
 }
 
 .blog-hero h1 {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.4;
-    margin: 0;
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    color: white !important;
+    text-align: left;
+}
+
+.blog-subtitle {
+    font-size: 18px;
+    margin-top: 16px;
+    opacity: 0.95;
+    line-height: 1.6;
 }
 
 /* Headings */
