@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>書類進捗確認 | フィリピン書類取得代行センター</title>
+    <meta name="description" content="追跡番号で書類の進捗状況を確認できます。" />
+    <link rel="canonical" href="https://igrs.online/track" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .track-container {
+            max-width: 800px;
+            margin: 100px auto 60px;
+            padding: 0 2rem;
+        }
+
+        .track-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .track-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .track-btn {
+            width: 100%;
+            padding: 12px;
+            background: #1a5490;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .track-btn:hover {
+            background: #14406e;
+        }
+
+        .progress-container {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-container.show {
+            display: block;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+
+        .progress-line-fill {
+            height: 100%;
+            background: #10b981;
+            transition: width 0.5s ease;
+        }
+
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #718096;
+            transition: all 0.3s;
+        }
+
+        .progress-step.active .progress-circle {
+            background: #1a5490;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .progress-step.completed .progress-circle {
+            background: #10b981;
+            color: white;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .progress-step.active .progress-label {
+            color: #1a5490;
+            font-weight: 600;
+        }
+
+        .progress-step.completed .progress-label {
+            color: #10b981;
+        }
+
+        .progress-info {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f7f9fc;
+            border-radius: 8px;
+        }
+
+        .progress-photo {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .progress-photo img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-msg {
+            color: #e53e3e;
+            padding: 1rem;
+            background: #fff5f5;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .error-msg.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .progress-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .progress-line {
+                width: 4px;
+                height: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .progress-line-fill {
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <div class="logo-icon">IGRS</div>
+                <span>フィリピン書類取得代行センター</span>
+            </a>
+            <nav>
+                <a href="/">ホーム</a>
+                <a href="/personal">個人のお客様</a>
+                <a href="/business">法人・士業のお客様</a>
+                <a href="/blog">ブログ</a>
+                <a href="/contact">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="track-container">
+        <h1 style="text-align: center; margin-bottom: 2rem; color: #1a5490;">書類進捗確認</h1>
+
+        <div class="track-form">
+            <label for="trackingNumber" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">追跡番号を入力</label>
+            <input type="text" id="trackingNumber" class="track-input" placeholder="例: TEST001" />
+            <button onclick="trackDocument()" class="track-btn">進捗を確認</button>
+            <div id="errorMsg" class="error-msg"></div>
+        </div>
+
+        <div id="progressContainer" class="progress-container">
+            <h2 style="margin-bottom: 1rem;">追跡番号: <span id="displayTrackingNumber"></span></h2>
+
+            <div class="progress-steps">
+                <div class="progress-line">
+                    <div id="progressLineFill" class="progress-line-fill" style="width: 0%"></div>
+                </div>
+                <div id="step1" class="progress-step">
+                    <div class="progress-circle">1</div>
+                    <div class="progress-label">受付完了</div>
+                </div>
+                <div id="step2" class="progress-step">
+                    <div class="progress-circle">2</div>
+                    <div class="progress-label">処理中</div>
+                </div>
+                <div id="step3" class="progress-step">
+                    <div class="progress-circle">3</div>
+                    <div class="progress-label">完了</div>
+                </div>
+            </div>
+
+            <div class="progress-info">
+                <p><strong>ステータス:</strong> <span id="statusText"></span></p>
+                <p><strong>最終更新:</strong> <span id="updatedAt"></span></p>
+            </div>
+
+            <div id="photoContainer" class="progress-photo" style="display: none;">
+                <h3>書類画像</h3>
+                <img id="photoImg" src="" alt="書類画像" />
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>フィリピン書類取得代行センター</h3>
+                <p>フィリピン公的書類取得・アポスティーユ認証BPOサービス<br>
+                    現地フィリピンにおける行政手続きのボトルネックを解消し、お客様が本来の手続き・業務に集中できる環境を提供します。</p>
+            </div>
+            <div class="footer-links">
+                <h4>取り扱い書類・手続き</h4>
+                <ul>
+                    <li><a href="/psa-birth-certificate">出生証明書（PSA）</a></li>
+                    <li><a href="/marriage-certificate">婚姻証明書（PSA）</a></li>
+                    <li><a href="/cenomar">独身証明書（CENOMAR）</a></li>
+                    <li><a href="/nbi-clearance">無犯罪証明書（NBI）</a></li>
+                    <li><a href="/lto-drivers-license">運転経歴証明書（LTO）</a></li>
+                    <li><a href="/dfa-apostille">アポスティーユ（DFA）</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>ご利用ガイド・料金</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 6px; padding-left: 16px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #718096;">└</span>
+                        <a href="/personal">個人のお客様</a>
+                    </li>
+                    <li style="padding-left: 16px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #718096;">└</span>
+                        <a href="/business">法人・士業のお客様</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>企業情報・案内</h4>
+                <ul>
+                    <li><a href="/">ホーム</a></li>
+                    <li><a href="/company">会社概要</a></li>
+                    <li><a href="/blog">ブログ</a></li>
+                    <li><a href="/contact">お問い合わせ</a></li>
+                    <li><a href="/privacy">プライバシーポリシー</a></li>
+                    <li><a href="https://note.com/igrs_philippines" target="_blank" rel="noopener">note</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©2026 by 株式会社IGRS all rights reserved.</p>
+            <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem; line-height: 1.6;">
+                運営: 株式会社IGRS | 日本本社: 和歌山県和歌山市 | フィリピン営業所: フィリピン共和国 セブ市
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const mockData = {
+            'TEST001': {
+                tracking_number: 'TEST001',
+                status: 'processing',
+                updated_at: '2026-01-15T10:30:00Z',
+                photo_url: null
+            },
+            'TEST002': {
+                tracking_number: 'TEST002',
+                status: 'completed',
+                updated_at: '2026-01-14T15:45:00Z',
+                photo_url: '/images/sample-doc.jpg'
+            },
+            'TEST003': {
+                tracking_number: 'TEST003',
+                status: 'received',
+                updated_at: '2026-01-15T09:00:00Z',
+                photo_url: null
+            }
+        };
+
+        function trackDocument() {
+            const trackingNumber = document.getElementById('trackingNumber').value.trim().toUpperCase();
+            const errorMsg = document.getElementById('errorMsg');
+            const progressContainer = document.getElementById('progressContainer');
+
+            if (!trackingNumber) {
+                errorMsg.textContent = '追跡番号を入力してください';
+                errorMsg.classList.add('show');
+                return;
+            }
+
+            errorMsg.classList.remove('show');
+
+            const data = mockData[trackingNumber];
+            if (!data) {
+                errorMsg.textContent = '追跡番号が見つかりません';
+                errorMsg.classList.add('show');
+                progressContainer.classList.remove('show');
+                return;
+            }
+
+            displayProgress(data);
+        }
+
+        function displayProgress(data) {
+            const progressContainer = document.getElementById('progressContainer');
+            const displayTrackingNumber = document.getElementById('displayTrackingNumber');
+            const statusText = document.getElementById('statusText');
+            const updatedAt = document.getElementById('updatedAt');
+            const photoContainer = document.getElementById('photoContainer');
+            const photoImg = document.getElementById('photoImg');
+
+            displayTrackingNumber.textContent = data.tracking_number;
+
+            const statusMap = {
+                'received': '受付完了',
+                'processing': '処理中',
+                'completed': '完了'
+            };
+            statusText.textContent = statusMap[data.status] || data.status;
+
+            const date = new Date(data.updated_at);
+            updatedAt.textContent = date.toLocaleString('ja-JP');
+
+            updateProgressBar(data.status);
+
+            if (data.photo_url) {
+                photoImg.src = data.photo_url;
+                photoContainer.style.display = 'block';
+            } else {
+                photoContainer.style.display = 'none';
+            }
+
+            progressContainer.classList.add('show');
+        }
+
+        function updateProgressBar(status) {
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+            const progressLineFill = document.getElementById('progressLineFill');
+
+            step1.classList.remove('active', 'completed');
+            step2.classList.remove('active', 'completed');
+            step3.classList.remove('active', 'completed');
+
+            if (status === 'received') {
+                step1.classList.add('active');
+                progressLineFill.style.width = '0%';
+            } else if (status === 'processing') {
+                step1.classList.add('completed');
+                step2.classList.add('active');
+                progressLineFill.style.width = '50%';
+            } else if (status === 'completed') {
+                step1.classList.add('completed');
+                step2.classList.add('completed');
+                step3.classList.add('active', 'completed');
+                progressLineFill.style.width = '100%';
+            }
+        }
+
+        document.getElementById('trackingNumber').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                trackDocument();
+            }
+        });
+    </script>
+</body>
+
+</html>
