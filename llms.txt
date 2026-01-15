@@ -13,6 +13,8 @@ We provide document acquisition and apostille support in the Philippines (Cebu b
 - Translation: https://igrs.online/translation
 
 ## Key pages
+- Home: https://igrs.online/
 - Company: https://igrs.online/company
 - Contact: https://igrs.online/contact
 - Privacy: https://igrs.online/privacy
+- Blog: https://igrs.online/blog
