@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://igrs.online/</loc></url>
+  
+  <!-- 個人向けサービス -->
+  <url><loc>https://igrs.online/personal</loc></url>
   <url><loc>https://igrs.online/psa-birth-certificate</loc></url>
   <url><loc>https://igrs.online/marriage-certificate</loc></url>
   <url><loc>https://igrs.online/cenomar</loc></url>
   <url><loc>https://igrs.online/nbi-clearance</loc></url>
   <url><loc>https://igrs.online/lto-drivers-license</loc></url>
-  <url><loc>https://igrs.online/lto-transaction-history</loc></url>
+  
+  <!-- 法人向けサービス -->
+  <url><loc>https://igrs.online/business</loc></url>
   <url><loc>https://igrs.online/dfa-apostille</loc></url>
   <url><loc>https://igrs.online/translation</loc></url>
-
+  
+  <!-- 情報ページ -->
   <url><loc>https://igrs.online/company</loc></url>
   <url><loc>https://igrs.online/privacy</loc></url>
   <url><loc>https://igrs.online/contact</loc></url>
-
+  <url><loc>https://igrs.online/track</loc></url>
+  <url><loc>https://igrs.online/thank-you</loc></url>
+  
+  <!-- ブログ -->
   <url><loc>https://igrs.online/blog</loc></url>
   <url><loc>https://igrs.online/blog-nbi-hit-guide</loc></url>
   <url><loc>https://igrs.online/blog-data-verification-guide</loc></url>
   <url><loc>https://igrs.online/blog-granway-compliance</loc></url>
   <url><loc>https://igrs.online/blog-philippines-documents-complexity</loc></url>
-
+  
+  <!-- 比較ページ -->
   <url><loc>https://igrs.online/philippine-marriage-doc-cost-comparison</loc></url>
 </urlset>
