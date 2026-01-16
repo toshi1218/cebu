@@ -11,9 +11,11 @@
     "check:links": "node scripts/check-links.js",
     "check:title-h1": "node scripts/check-title-h1.js",
     "check:jsonld": "node scripts/check-jsonld.js",
-    "lint": "npm run format:check && npm run check"
+    "lint": "npm run format:check && npm run check",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "@types/uuid": "^10.0.0",
     "prettier": "^3.2.0"
   },
