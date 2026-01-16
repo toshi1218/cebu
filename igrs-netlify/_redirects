@@ -1,4 +1,5 @@
 /personal   /personal.html   200
+/personal/  /personal.html   200
 
 # --- host normalize (www -> non-www, http -> https) ---
 https://www.igrs.online/* https://igrs.online/:splat 301!
@@ -20,5 +21,3 @@ http://www.igrs.online/* https://igrs.online/:splat 301!
 # --- English URL variants ---
 /privacy-policy /privacy 301
 /contact-us /contact 301
-
-/services /personal 301
