@@ -2,6 +2,7 @@
  * Mobile Pro - Phase 1 & 2
  * Phase 1: トップページ判定して is-home クラスを付与
  * Phase 2: サービス詳細ページの長文セクションをアコーディオン化
+ * Phase 3: フォームページ判定して is-form クラスを付与
  */
 (function () {
     'use strict';
@@ -14,6 +15,16 @@
 
     if (isHomePage) {
         document.body.classList.add('is-home');
+    }
+
+    // Phase 3: フォームページ判定
+    const isFormPage =
+        location.pathname === '/contact' ||
+        location.pathname === '/contact.html' ||
+        location.pathname.endsWith('/contact.html');
+
+    if (isFormPage) {
+        document.body.classList.add('is-form');
     }
 
     // Phase 2: サービス詳細ページのアコーディオン化（モバイルのみ）
