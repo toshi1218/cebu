@@ -1,4 +1,4 @@
-/personal  /personal.html  301
+/personal   /personal.html   200
 
 # --- host normalize (www -> non-www, http -> https) ---
 https://www.igrs.online/* https://igrs.online/:splat 301!
