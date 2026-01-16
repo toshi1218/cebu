@@ -1,11 +1,15 @@
 /**
- * Mobile Pro - Phase 1 & 2
+ * Mobile Pro - Phase 1, 2, 3, 4
  * Phase 1: トップページ判定して is-home クラスを付与
  * Phase 2: サービス詳細ページの長文セクションをアコーディオン化
  * Phase 3: フォームページ判定して is-form クラスを付与
+ * Phase 4: ボトムナビ簡素化（3項目のみ）
  */
 (function () {
     'use strict';
+
+    // Phase 4: LINE公式アカウントURL（変更可能）
+    const LINE_OA_URL = 'https://line.me/R/ti/p/@igrs';
 
     // Phase 1: トップページ判定
     const isHomePage =

@@ -295,4 +295,50 @@
     body.is-form .page-hero p {
         font-size: 0.9rem !important;
     }
+
+    /* ============================
+       Phase 4: ナビ簡素化
+       ============================ */
+
+    /* 電話リンクを完全非表示 */
+    .mobile-bottom-nav-item[href^="tel:"] {
+        display: none !important;
+    }
+
+    /* ボトムナビを3項目に最適化 */
+    .mobile-bottom-nav-container {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* タップ領域を56px相当に拡大 */
+    .mobile-bottom-nav-item {
+        min-height: 56px !important;
+        padding: 8px 4px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+    }
+
+    /* アイコンを大きく */
+    .mobile-bottom-nav-icon {
+        font-size: 1.5rem !important;
+        line-height: 1 !important;
+    }
+
+    /* テキストを大きく */
+    .mobile-bottom-nav-item>span:not(.mobile-bottom-nav-icon) {
+        font-size: 0.75rem !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+    }
+
+    /* safe-area対応 */
+    .mobile-bottom-nav {
+        padding-bottom: env(safe-area-inset-bottom) !important;
+    }
 }
