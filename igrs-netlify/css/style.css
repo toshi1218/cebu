@@ -2488,6 +2488,7 @@ div[style*='border-radius: 50%'] {
     grid-template-columns: 1fr;
   }
 }
+
 /* ========================================
    フッター階層リスト
    ======================================== */
@@ -2518,4 +2519,181 @@ div[style*='border-radius: 50%'] {
 
 .footer-links .hierarchical-list .child-item a {
   font-size: 14px;
+}
+
+/* ============================
+   Mobile Upgrade Patch (v1)
+   ============================ */
+
+:root {
+  --header-h-desktop: 60px;
+  --header-h-mobile: 56px;
+  --tap-min: 48px;
+}
+
+/* Header height fix */
+header {
+  height: var(--header-h-desktop);
+}
+
+@media (max-width: 768px) {
+  header {
+    height: var(--header-h-mobile);
+  }
+
+  body {
+    padding-top: var(--header-h-mobile);
+  }
+}
+
+/* Tap targets (Apple 44pt min / Material 48 min) */
+a,
+button,
+[role="button"],
+input[type="submit"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+
+  .btn,
+  button,
+  .mobile-menu,
+  nav a {
+    min-height: var(--tap-min);
+  }
+
+  nav a {
+    padding: 12px 14px;
+    /* accidental tap reduction */
+  }
+}
+
+/* ===== Mobile Nav: overlay + full-screen ===== */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .55);
+  opacity: 0;
+  transition: opacity .2s ease;
+  z-index: 9998;
+}
+
+.nav-overlay.is-visible {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+
+  /* lock scroll when nav is open */
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  /* Ensure mobile panel is full screen */
+  .nav-mobile {
+    display: none;
+    /* closed */
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0b1220;
+    /* dark overlay-style */
+    color: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: calc(var(--header-h-mobile) + 12px);
+  }
+
+  body.nav-open .nav-mobile {
+    display: block;
+  }
+
+  /* make links big + clear */
+  .nav-mobile a {
+    display: block;
+    padding: 14px 18px;
+    min-height: var(--tap-min);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .nav-mobile a:active {
+    opacity: .8;
+  }
+}
+
+/* ===== FAQ accordion (details/summary) ===== */
+details.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  padding: 6px 0;
+}
+
+details.faq-item>summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: var(--tap-min);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0;
+  font-weight: 600;
+}
+
+details.faq-item>summary::-webkit-details-marker {
+  display: none;
+}
+
+details.faq-item .faq-a {
+  padding: 0 0 14px 0;
+  color: rgba(0, 0, 0, .75);
+  line-height: 1.75;
+}
+
+/* ===== Responsive typography (clamp) ===== */
+h1 {
+  font-size: clamp(1.6rem, 4.5vw, 2.3rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3.8vw, 1.8rem);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 3.0vw, 1.3rem);
+  line-height: 1.4;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ===== Fixed footer / safe-area (if you have a fixed bottom nav) ===== */
+.fixed-footer-nav,
+.mobile-footer-nav,
+footer nav.fixed,
+nav.fixed-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Mobile FAQ adjustments */
+@media (max-width: 768px) {
+  .faq-item {
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-q {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-a {
+    padding: 1.25rem;
+    font-size: 0.9rem;
+  }
 }
