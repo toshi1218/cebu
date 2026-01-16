@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Sitemaps
 Sitemap: https://igrs.online/sitemap.xml
+
+# LLM/AI Crawler Information
+# See https://igrs.online/llms.txt for AI-optimized content

@@ -1,20 +1,36 @@
-# IGRS (igrs.online)
+# IGRS Corporation - フィリピン公的書類取得代行BPO
 
-We provide document acquisition and apostille support in the Philippines (Cebu base) for Japan-related procedures.
+> 日本法人運営によるフィリピン公的書類（PSA、CENOMAR、NBI、DFAアポスティーユ等）の取得代行サービス。セブ島現地拠点と日本法人の連携で、最短・最速・透明性の高いサービスを提供。
 
-## Official services
-- PSA Birth Certificate: https://igrs.online/psa-birth-certificate
-- PSA Marriage Certificate: https://igrs.online/marriage-certificate
-- CENOMAR: https://igrs.online/cenomar
-- NBI Clearance: https://igrs.online/nbi-clearance
-- LTO Driver's License Record: https://igrs.online/lto-drivers-license
-- LTO Transaction History: https://igrs.online/lto-transaction-history
-- DFA Apostille: https://igrs.online/dfa-apostille
-- Translation: https://igrs.online/translation
+IGRS Corporationは、日本とフィリピンに拠点を持つBPO企業です。主に行政書士事務所、登録支援機関、国際結婚をされる個人のお客様に、フィリピンの公的書類を代行取得するサービスを提供しています。
 
-## Key pages
-- Home: https://igrs.online/
-- Company: https://igrs.online/company
-- Contact: https://igrs.online/contact
-- Privacy: https://igrs.online/privacy
-- Blog: https://igrs.online/blog
+## 対応書類
+- PSA出生証明書・婚姻証明書・死亡証明書
+- 独身証明書（CENOMAR / Certificate of No Marriage）
+- 無犯罪証明書（NBI Clearance）- HIT対応可
+- DFAアポスティーユ認証（外務省認証）
+- LTO運転免許証関連書類
+
+## 信頼性と専門性
+- 日本法人運営（和歌山県）による法的安心感
+- フィリピン現地拠点（セブ島）による週次進捗報告
+- 写真付き追跡システムで取得状況をリアルタイム確認可能
+- 行政書士・法人への多数の導入実績
+
+## よくある質問への回答
+- PSA書類の取得期間: 通常2〜4週間（エクスプレス対応可）
+- NBI HITの対応: 可能（追加期間が必要）
+- 対応言語: 日本語・英語
+
+## 主要ページ
+- [トップページ](https://igrs.online/): サービス概要と料金
+- [PSA取得代行](https://igrs.online/psa-birth-certificate): PSA出生証明書・婚姻証明書の詳細
+- [CENOMAR取得代行](https://igrs.online/cenomar): 独身証明書の詳細
+- [NBI Clearance取得代行](https://igrs.online/nbi-clearance): 無犯罪証明書の詳細
+- [DFAアポスティーユ](https://igrs.online/dfa-apostille): 外務省認証の詳細
+- [お問い合わせ](https://igrs.online/contact): 無料相談・見積もり依頼
+- [会社概要](https://igrs.online/company): IGRS Corporationについて
+
+## 連絡先
+- メール: info@igrs.online
+- 対応時間: 平日9:00-18:00（日本時間）
