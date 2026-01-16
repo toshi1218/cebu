@@ -3,6 +3,9 @@
   const qs = (s, r = document) => r.querySelector(s);
   const qsa = (s, r = document) => Array.from(r.querySelectorAll(s));
 
+  // LINE URL configuration - easily changeable
+  const LINE_URL = "https://line.me/R/ti/p/@igrs";
+
   // ===== Mobile Nav: overlay + full-screen panel + ESC + scroll lock =====
   const panel =
     qs(".nav-mobile") ||
@@ -149,6 +152,32 @@
       details.appendChild(content);
       parent.insertBefore(details, h);
       parent.removeChild(h);
+    });
+  }
+
+  // ===== Bottom Navigation Optimization =====
+  const bottomNav = qs('.mobile-bottom-nav');
+  if (bottomNav) {
+    // Remove phone link completely
+    const phoneLink = qs('.mobile-bottom-nav-item[href^="tel:"]');
+    if (phoneLink) {
+      phoneLink.remove();
+    }
+
+    // Update LINE link to use constant
+    const lineLink = qs('.mobile-bottom-nav-item[href*="line.me"]');
+    if (lineLink) {
+      lineLink.href = LINE_URL;
+    }
+
+    // Add active state for current page
+    const currentPath = window.location.pathname;
+    const navItems = qsa('.mobile-bottom-nav-item');
+    navItems.forEach(item => {
+      const href = item.getAttribute('href');
+      if (href === currentPath || (currentPath === '/' && href === '/')) {
+        item.classList.add('active');
+      }
     });
   }
 })();
