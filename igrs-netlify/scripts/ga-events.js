@@ -1,4 +1,4 @@
-// GA4 Event Tracking for Lead Actions
+わからんけど、そのなんだ、例えばビジネスのページとかあるじゃないですか、ビジネスってか法人用のページとかね、そういうページとかのそのindex.htmlとかをそのWindsurferの中からコピーして貼り付けたらあんたわかるっていうことでいいのかな。// GA4 Event Tracking for Lead Actions
 // Tracks phone clicks, LINE clicks, and thank-you page loads
 
 (function () {
