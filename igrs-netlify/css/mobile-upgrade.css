@@ -1,0 +1,60 @@
+/* ============================
+   Mobile Upgrade - Phase 1
+   トップページのみカード圧縮
+   ============================ */
+
+/* トップページ + モバイルのみ適用 */
+@media (max-width: 768px) {
+
+    /* サービスカード圧縮（トップページ限定） */
+    body.home-page .service-card {
+        padding: 10px 12px !important;
+        margin-bottom: 0 !important;
+    }
+
+    body.home-page .services-grid {
+        gap: 10px !important;
+    }
+
+    /* カード内の見出し余白削減 */
+    body.home-page .service-card h3 {
+        font-size: 0.95rem !important;
+        margin-bottom: 8px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 説明文：3行クランプ（必須） */
+    body.home-page .service-card p {
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 3 !important;
+        overflow: hidden !important;
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* フッター余白削減 */
+    body.home-page .service-card-footer {
+        padding-top: 8px !important;
+        margin-top: 0 !important;
+    }
+
+    /* ボタンサイズ調整 */
+    body.home-page .service-card-footer .btn {
+        font-size: 0.75rem !important;
+        padding: 6px 14px !important;
+    }
+
+    /* アイコン調整 */
+    body.home-page .service-icon {
+        font-size: 0.9rem !important;
+        margin-right: 0.25rem !important;
+    }
+
+    /* issuerタグ調整 */
+    body.home-page .service-card h3 .issuer {
+        font-size: 0.7rem !important;
+        margin-left: 0.3rem !important;
+    }
+}
