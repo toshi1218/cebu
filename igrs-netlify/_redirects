@@ -1,7 +1,7 @@
 # --- host normalize (www -> non-www, http -> https) ---
-https://www.igrs.online/* https://igrs.online/:splat 301!
-http://igrs.online/* https://igrs.online/:splat 301!
-http://www.igrs.online/* https://igrs.online/:splat 301!
+https://www.igrs.online/* https://igrs.online/:splat 301
+http://igrs.online/* https://igrs.online/:splat 301
+http://www.igrs.online/* https://igrs.online/:splat 301
 
 # --- old Wix JP slugs (URL-encoded) ---
 /%E6%A6%82%E8%A6%81 /company 301
@@ -14,16 +14,16 @@ http://www.igrs.online/* https://igrs.online/:splat 301!
 /プロジェクト /blog 301
 /お問い合わせ /contact 301
 /プライバシーポリシー /privacy 301
-/帰化 /kika-shinsei 301!
-/帰化申請 /kika-shinsei 301!
-/kika /kika-shinsei 301!
+/帰化 /kika-shinsei 301
+/帰化申請 /kika-shinsei 301
+/kika /kika-shinsei 301
 
 # --- English URL variants ---
 /privacy-policy /privacy 301
 /contact-us /contact 301
 
 # --- Wildcard redirects ---
-/プロジェクト / 301!
-/projects/* / 301!
-/services/* / 301!
+/プロジェクト / 301
+/projects/* / 301
+/services/* / 301
 
