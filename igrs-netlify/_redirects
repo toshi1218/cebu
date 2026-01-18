@@ -18,3 +18,8 @@ http://www.igrs.online/* https://igrs.online/:splat 301!
 # --- English URL variants ---
 /privacy-policy /privacy 301
 /contact-us /contact 301
+
+# --- Specialty landing pages ---
+/kokusai-kekkon /kokusai-kekkon.html 200
+/gaimen-kirikae /gaimen-kirikae.html 200
+/kika /kika.html 200
