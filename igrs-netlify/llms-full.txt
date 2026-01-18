@@ -54,7 +54,7 @@ Department of Foreign Affairs（フィリピン外務省）による認証。
 - 不一致時停止連絡
 - 料金: 100,000円（一律）
 
-### 帰化申請パッケージ (https://igrs.online/kika)
+### 帰化申請パッケージ (https://igrs.online/kika-shinsei)
 フィリピン人の日本帰化申請に必要な公的書類一式。
 - PSA出生証明書取得
 - NBI無犯罪証明書取得

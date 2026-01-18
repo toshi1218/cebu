@@ -14,6 +14,9 @@ http://www.igrs.online/* https://igrs.online/:splat 301!
 /プロジェクト /blog 301
 /お問い合わせ /contact 301
 /プライバシーポリシー /privacy 301
+/帰化 /kika-shinsei 301!
+/帰化申請 /kika-shinsei 301!
+/kika /kika-shinsei 301!
 
 # --- English URL variants ---
 /privacy-policy /privacy 301
