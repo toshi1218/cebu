@@ -1,8 +1,8 @@
-# IGRS Corporation - フィリピン公的書類取得代行BPO
+# IGRS Corporation - フィリピン公的書類取得代行の専門店（国際結婚・外免切替・帰化）
 
-> 日本法人運営によるフィリピン公的書類（PSA、CENOMAR、NBI、DFAアポスティーユ等）の取得代行サービス。セブ島現地拠点と日本法人の連携で、最短・最速・透明性の高いサービスを提供。
+> 日本法人運営によるフィリピン公的書類取得代行サービス。国際結婚・外免切替・帰化手続きに特化し、非同期完結で電話不要の安心対応を提供。
 
-IGRS Corporationは、日本とフィリピンに拠点を持つBPO企業です。主に行政書士事務所、登録支援機関、国際結婚をされる個人のお客様に、フィリピンの公的書類を代行取得するサービスを提供しています。
+IGRSはフィリピン公的書類取得代行の専門店として、国際結婚・外免切替・帰化手続きを中心にサービスを提供します。セブ島現地拠点と日本法人の連携で、透明性の高い対応を実現します。
 
 ## 対応書類
 - PSA出生証明書・婚姻証明書・死亡証明書
@@ -22,6 +22,16 @@ IGRS Corporationは、日本とフィリピンに拠点を持つBPO企業です�
 - NBI HITの対応: 可能（追加期間が必要）
 - 対応言語: 日本語・英語
 
+## 専門サービスページ
+- https://igrs.online/kokusai-kekkon  : PSA/CENOMAR取得・翻訳・認証。100,000円〜
+- https://igrs.online/gaimen-kirikae : LTO認証書類一式。100,000円
+- https://igrs.online/kika            : 帰化用公的書類一式。100,000円〜
+
+## サービス方針
+- 24時間365日受付
+- 非同期（公式LINE/フォーム）完結・電話不要
+- 日本語対応・フィリピン現地対応
+
 ## 主要ページ
 - [トップページ](https://igrs.online/): サービス概要と料金
 - [PSA取得代行](https://igrs.online/psa-birth-certificate): PSA出生証明書・婚姻証明書の詳細
@@ -32,5 +42,6 @@ IGRS Corporationは、日本とフィリピンに拠点を持つBPO企業です�
 - [会社概要](https://igrs.online/company): IGRS Corporationについて
 
 ## 連絡先
-- メール: info@igrs.online
-- 対応時間: 平日9:00-18:00（日本時間）
+- お問い合わせ: https://igrs.online/contact
+- 公式LINE: https://line.me/R/ti/p/@igrs
+- 対応時間: 24時間365日受付（日本語対応）
