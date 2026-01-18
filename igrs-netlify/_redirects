@@ -19,3 +19,8 @@ http://www.igrs.online/* https://igrs.online/:splat 301!
 /privacy-policy /privacy 301
 /contact-us /contact 301
 
+# --- Wildcard redirects ---
+/プロジェクト / 301!
+/projects/* / 301!
+/services/* / 301!
+
