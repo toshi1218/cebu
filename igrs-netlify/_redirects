@@ -23,6 +23,7 @@ http://www.igrs.online/* https://igrs.online/:splat 301
 /contact-us /contact 301
 
 # --- Service page redirects (.html -> clean) ---
+/services.html /services 301!
 /psa-birth-certificate.html /psa-birth-certificate 301!
 /cenomar.html /cenomar 301!
 /marriage-certificate.html /marriage-certificate 301!
