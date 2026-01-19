@@ -2,6 +2,11 @@
 https://www.igrs.online/* https://igrs.online/:splat 301
 http://igrs.online/* https://igrs.online/:splat 301
 
+# --- Personal URL Consolidation ---
+/personal/        /personal        301!
+/personal/index.html  /personal     301!
+/personal.html     /personal        301!
+
 # --- Service Pages (.html -> clean) ---
 /psa-birth-certificate.html  /psa-birth-certificate  301!
 /marriage-certificate.html   /marriage-certificate   301!
