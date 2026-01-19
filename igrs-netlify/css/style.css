@@ -1560,3 +1560,57 @@ header nav {
         display: block !important;
     }
 }
+
+/* --- 強制レイアウト修正 2026/01/20 --- */
+.header-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 5% !important;
+    flex-wrap: nowrap !important;
+}
+
+.nav-desktop nav {
+    display: flex !important;
+    gap: 15px !important;
+    align-items: center !important;
+}
+
+/* モバイルメニュー制御 */
+.nav-mobile {
+    display: none !important;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background: #fff;
+    z-index: 9999;
+}
+
+.nav-mobile.active {
+    display: block !important;
+}
+
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none !important;
+    }
+
+    .mobile-menu-btn {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .mobile-menu-btn span {
+        width: 25px;
+        height: 3px;
+        background: #333;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none !important;
+    }
+}
