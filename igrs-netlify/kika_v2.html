@@ -8,6 +8,7 @@
     <meta name="description"
         content="帰化申請（日本国籍取得）のフィリピン書類を取得 → アポスティーユ認証 → 日本語翻訳 → 国際発送までまとめて代行します。必要書類の不足や表記ゆれを防ぎ、最短で帰化申請を完了させます。">
     <link rel="canonical" href="https://igrs.online/kika_v2">
+    <meta name="ig-variant" content="kika_v2">
     <meta property="og:url" content="https://igrs.online/kika_v2">
     <meta name="twitter:url" content="https://igrs.online/kika_v2">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -145,6 +146,8 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
     </style>
+    <script src="/ga-events.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css?v=KIKA_V2_26">
 </head>
 
 <body class="kika-v2 bg-white text-gray-900 leading-relaxed">
@@ -169,15 +172,16 @@
 
     <section class="page-hero">
         <div class="container">
-            <h1>帰化申請に必要なフィリピン書類を、取得・認証・翻訳まで一括で。</h1>
+            <h1 style="font-size:18px;line-height:1.4;max-width:100%;word-wrap:break-word;">
+                帰化申請に必要な<br>フィリピン書類を、<br>取得・認証・翻訳まで一括で。</h1>
             <p class="tight">
                 帰化申請（日本国籍取得）では「必要書類の不足」「表記ゆれ」「認証の欠落」が一番の時間ロスです。IGRSは、フィリピン側の公的書類を<strong>取得 → アポスティーユ認証 → 日本語翻訳 →
                     国際発送</strong>までまとめて代行します。
             </p>
 
             <div class="hero-actions">
-                <a href="#quick" class="btn btn-primary">3分で読む（料金と流れ）</a>
-                <a href="/contact" class="btn btn-secondary">見積もり・相談（フォーム）</a>
+                <a href="#quick" class="btn btn-primary" data-ga="kika_v2_cta_hero_primary">3分で読む（料金と流れ）</a>
+                <a href="/contact" class="btn btn-secondary" data-ga="kika_v2_cta_mid_primary">見積もり・相談（フォーム）</a>
                 <a href="https://line.me/R/ti/p/@igrs" target="_blank" rel="noopener" class="btn btn-primary"
                     style="background:#00B900; border:none;">相談（LINE）</a>
             </div>
@@ -392,7 +396,8 @@
                     <a href="https://line.me/R/ti/p/@igrs" target="_blank" rel="noopener"
                         class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition">LINEで相談する</a>
                     <a href="/contact"
-                        class="bg-sansan-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition">フォームから申し込む</a>
+                        class="bg-sansan-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition"
+                        data-ga="kika_v2_cta_footer_primary">フォームから申し込む</a>
                 </div>
             </div>
         </section>

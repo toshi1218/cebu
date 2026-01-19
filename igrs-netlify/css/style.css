@@ -3040,3 +3040,532 @@ body.nav-open {
 .faq-section details>summary [class*="icon"] {
   display: none !important;
 }
+
+/* =========================
+   kika_v2 Mobile Tighten Pack
+   対象：スマホ幅だけ
+========================= */
+@media (max-width: 480px) {
+
+  /* 全体：余白を締める */
+  body.kika-v2 .page-hero {
+    padding-top: 34px;
+    padding-bottom: 22px;
+  }
+
+  body.kika-v2 main.container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ヒーロー見出し：大きすぎ問題を解消（折れを減らす） */
+  body.kika-v2 .page-hero h1 {
+    font-size: 34px !important;
+    /* iPhoneで読みやすい最適値 */
+    line-height: 1.12 !important;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  body.kika-v2 .page-hero p {
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  /* CTA：押しやすく、縦の無駄を減らす */
+  body.kika-v2 .hero-actions {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  body.kika-v2 .hero-actions .btn {
+    width: 100%;
+    min-width: 0 !important;
+    padding: 14px 14px;
+    border-radius: 12px;
+  }
+
+  /* サブナビ：横並びをやめて2列グリッドで安定 */
+  body.kika-v2 .page-subnav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  body.kika-v2 .page-subnav a {
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+
+  /* 信頼ピル：高さを圧縮して"間延び"を消す */
+  body.kika-v2 .trust-row {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  body.kika-v2 .trust-pill {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  /* セクション見出し：余白を減らす（スクロール疲れ対策） */
+  body.kika-v2 h2 {
+    font-size: 26px;
+    line-height: 1.25;
+    margin: 22px 0 10px !important;
+  }
+
+  body.kika-v2 .section-lead {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* カード類：上下余白を圧縮 */
+  body.kika-v2 .service-card,
+  body.kika-v2 .pricing-card,
+  body.kika-v2 .timeline-item {
+    padding: 16px !important;
+  }
+
+  /* フローの丸数字：縦方向の間延びを軽減 */
+  body.kika-v2 .timeline {
+    gap: 12px;
+  }
+
+  body.kika-v2 .timeline-item h3 {
+    margin-bottom: 6px;
+  }
+}
+
+/* =========================================================
+   FINAL OVERRIDES (WIN LAST) - 2026-01
+   1) kika_v2 mobile hero H1 fix
+   2) FAQ accordion fix (details/summary + div/button both)
+========================================================= */
+
+/* 1) kika_v2: モバイルのH1がデカすぎ問題を強制で潰す */
+@media (max-width: 480px) {
+  body.kika-v2 .page-hero {
+    padding-top: 22px !important;
+    padding-bottom: 18px !important;
+  }
+
+  body.kika-v2 .page-hero .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  body.kika-v2 .page-hero h1 {
+    font-size: 28px !important;
+    /* 34でも折れすぎるので強制で下げる */
+    line-height: 1.22 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 0 10px 0 !important;
+    overflow-wrap: anywhere;
+    /* 長文でも破綻しない */
+    word-break: normal;
+  }
+
+  body.kika-v2 .page-hero p {
+    font-size: 14.5px !important;
+    line-height: 1.75 !important;
+    margin: 0 0 12px 0 !important;
+  }
+
+  body.kika-v2 .hero-actions {
+    margin-top: 12px !important;
+    gap: 10px !important;
+  }
+
+  body.kika-v2 .hero-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 13px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  body.kika-v2 .page-subnav {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-top: 12px !important;
+  }
+
+  body.kika-v2 .page-subnav a {
+    text-align: center !important;
+    padding: 10px 10px !important;
+    border-radius: 999px !important;
+    font-size: 0.9rem !important;
+  }
+
+  body.kika-v2 .trust-row {
+    margin-top: 12px !important;
+    gap: 10px !important;
+  }
+
+  body.kika-v2 .trust-pill {
+    width: 100% !important;
+    padding: 10px 12px !important;
+    border-radius: 14px !important;
+    font-size: 0.9rem !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* 2) FAQ: 全ページ共通（details/summary でも div/button でも同じ見た目にする） */
+.faq-section {
+  display: grid !important;
+  gap: 16px !important;
+}
+
+/* details/summary 方式 */
+.faq-section details {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.06) !important;
+}
+
+.faq-section details>summary {
+  margin: 0 !important;
+  padding: 16px 18px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  list-style: none !important;
+}
+
+.faq-section details>summary::-webkit-details-marker {
+  display: none !important;
+}
+
+.faq-section details>summary::after {
+  content: "▼" !important;
+  font-size: 0.9rem !important;
+  color: var(--text-light) !important;
+  transform: rotate(0deg);
+  transition: transform 0.18s ease;
+}
+
+.faq-section details[open]>summary {
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.faq-section details[open]>summary::after {
+  transform: rotate(180deg);
+}
+
+.faq-section details> :not(summary) {
+  padding: 14px 18px 16px !important;
+  margin: 0 !important;
+  color: var(--text-light) !important;
+}
+
+/* div/button 方式（faq-item 内にボタンやh3があるタイプ） */
+.faq-section .faq-item {
+  margin: 0 !important;
+  background: #fff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.06) !important;
+}
+
+.faq-section .faq-item h3,
+.faq-section .faq-item .faq-question,
+.faq-section .faq-item button {
+  margin: 0 !important;
+  padding: 16px 18px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  list-style: none !important;
+  background: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.faq-section .faq-item h3::after,
+.faq-section .faq-item .faq-question::after,
+.faq-section .faq-item button::after {
+  content: "▼" !important;
+  font-size: 0.9rem !important;
+  color: var(--text-light) !important;
+  transform: rotate(0deg);
+  transition: transform 0.18s ease;
+}
+
+.faq-section .faq-item[open] h3,
+.faq-section .faq-item[open] .faq-question,
+.faq-section .faq-item[open] button {
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.faq-section .faq-item[open] h3::after,
+.faq-section .faq-item[open] .faq-question::after,
+.faq-section .faq-item[open] button::after {
+  transform: rotate(180deg);
+}
+
+.faq-section .faq-item> :not(h3):not(.faq-question):not(button) {
+  padding: 14px 18px 16px !important;
+  margin: 0 !important;
+  color: var(--text-light) !important;
+}
+
+/* FAQ内の矢印二重を潰す（最強指定） */
+.faq-section details>summary [class*="arrow"],
+.faq-section details>summary [class*="icon"],
+.faq-section .faq-item h3 [class*="arrow"],
+.faq-section .faq-item h3 [class*="icon"],
+.faq-section .faq-item .faq-question [class*="arrow"],
+.faq-section .faq-item .faq-question [class*="icon"],
+.faq-section .faq-item button [class*="arrow"],
+.faq-section .faq-item button [class*="icon"] {
+  display: none !important;
+}
+
+/* =========================
+   FINAL OVERRIDES: KIKA V2 (LAYOUT HOTFIX)
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* モバイルで"2カラム残り"を強制的に1カラム化して、見出しの横幅を100%に戻す */
+  body.kika-v2 :where(.hero, .hero-section, .mv, .main-visual, header + section, main > section:first-child) :where(.grid, .row, .columns, .col, .flex, .hero-inner, .hero-content, .content, .inner, .wrap) {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 見出しの"細切れ改行"の原因（anywhere系）を撤去して自然改行に戻す */
+  body.kika-v2 :where(h1, .hero h1, header h1) {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    /* anywhere を殺す */
+    word-break: normal !important;
+    /* keep-all 等の副作用も避ける */
+    line-break: strict !important;
+  }
+
+  /* 見出しを抱えてる要素が幅を絞っているケースを潰す */
+  body.kika-v2 :where(.hero, .hero-section, .mv, .main-visual) :where(.text, .copy, .lead-wrap, .hero-text, .title, .headline, .left, .col-left, .content-left) {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* FINAL: KIKA V2 mobile headline fix */
+@media (max-width: 768px) {
+  body.kika-v2 :where(h1, .hero h1, header h1) {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    letter-spacing: 0 !important;
+  }
+
+  body.kika-v2 :where(.hero, .hero-section, .mv, .main-visual, section) :where(.hero-inner, .hero-content, .left, .col-left, .copy, .text, .headline, .title, .container, .wrap, .inner) {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* FINAL: KIKA V2 mobile hard stop v2 (better Japanese line breaks) */
+@media (max-width: 520px) {
+
+  /* heroの器を100%に固定 */
+  body.kika-v2 :where(.hero, .hero-section, .mv, .main-visual, main>section:first-child) {
+    width: 100% !important;
+    max-width: none !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  body.kika-v2 :where(.hero, .hero-section, .mv, .main-visual, main>section:first-child)>* {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* 見出し周辺の"内側余白"がきついと文字が割れるので、左右余白を少し詰める */
+  body.kika-v2 :where(.hero-inner, .hero-content, .copy, .text, .headline, .title, .left, .col-left, .container, .wrap, .inner) {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    float: none !important;
+  }
+
+  /* H1：日本語の"必/要"みたいな割れを抑える */
+  body.kika-v2 :where(h1, .hero h1, header h1) {
+    font-size: 24px !important;
+    line-height: 1.20 !important;
+    margin: 0 0 10px 0 !important;
+    letter-spacing: 0 !important;
+
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    /* ここが本命：CJKの割れを抑える */
+    line-break: strict !important;
+    /* 禁則を強めて"見た目の品格"を上げる */
+
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+}
+
+/* ========================================
+   KIKA V2: Hero H1 Width Fix (2025-01-19)
+   Issue: H1 parent container too narrow on mobile
+   ======================================== */
+
+/* Force hero layout to full width */
+body.kika-v2 .hero,
+body.kika-v2 .hero-section,
+body.kika-v2 [class*="hero"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Kill grid/flex narrow columns */
+body.kika-v2 .hero>*,
+body.kika-v2 .hero-section>*,
+body.kika-v2 [class*="hero"]>* {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  flex: none !important;
+  grid-column: 1 / -1 !important;
+}
+
+/* H1 full width + CJK line-breaking */
+body.kika-v2 h1,
+body.kika-v2 .hero h1,
+body.kika-v2 [class*="hero"] h1 {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  word-break: keep-all !important;
+  overflow-wrap: anywhere !important;
+  line-break: strict !important;
+}
+
+@media (max-width: 768px) {
+  body.kika-v2 h1 {
+    font-size: clamp(22px, 6vw, 32px) !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* ========================================
+   KIKA V2: NUCLEAR FIX - H1 line break (2025-01-19)
+   Previous fixes failed. Using #id-level specificity.
+   ======================================== */
+
+/* Target with maximum specificity */
+html body.kika-v2 section.page-hero div.container h1 {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  padding: 0 16px !important;
+  margin: 0 0 16px 0 !important;
+  font-size: 24px !important;
+  line-height: 1.4 !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+  line-break: strict !important;
+  white-space: normal !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+}
+
+html body.kika-v2 section.page-hero div.container {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+}
+
+html body.kika-v2 section.page-hero {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 480px) {
+  html body.kika-v2 section.page-hero div.container h1 {
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* ========================================
+   KIKA V2: Safari H1 Fix (2025-01-19)
+   Safari ignores some word-break rules
+   ======================================== */
+
+/* Safari-specific hack using @supports */
+@supports (-webkit-touch-callout: none) {
+  html body.kika-v2 section.page-hero div.container h1 {
+    -webkit-line-break: after-white-space !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+    line-break: strict !important;
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Alternative: Use <wbr> simulation by preventing ALL breaks */
+html body.kika-v2 section.page-hero div.container h1 {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  -webkit-nbsp-mode: space !important;
+  -webkit-line-break: after-white-space !important;
+  line-break: after-white-space !important;
+}
+
+@media (max-width: 400px) {
+  html body.kika-v2 section.page-hero div.container h1 {
+    font-size: 20px !important;
+    line-height: 1.35 !important;
+  }
+}
