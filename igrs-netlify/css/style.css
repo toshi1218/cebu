@@ -128,10 +128,13 @@ header nav a:hover,
 }
 
 .dropdown-menu {
+    display: none;
+    position: absolute;
     background: var(--bg-white) !important;
     box-shadow: var(--shadow-md) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: var(--border-radius-md) !important;
+    z-index: 1000;
 }
 
 .dropdown-menu a {
@@ -142,6 +145,24 @@ header nav a:hover,
 .dropdown-menu a:hover {
     background: var(--bg-light) !important;
     color: var(--primary-color) !important;
+}
+
+/* ホバー時にドロップダウンを表示 */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* ナビゲーションを横並びに */
+header nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+}
+
+/* ナビアイテムも横並び */
+.nav-item {
+    position: relative !important;
+    display: inline-block !important;
 }
 
 /* ========================================
