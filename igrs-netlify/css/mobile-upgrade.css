@@ -45,12 +45,12 @@
         display: none !important;
     }
 
-    /* ボトムナビを3項目に最適化 */
+    /* ボトムナビを2項目に最適化 */
     .mobile-bottom-nav-container {
         display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 0 !important;
-        max-width: 100% !important;
+        width: 100% !important;
     }
 
     /* タップ領域を56px相当に拡大 */
