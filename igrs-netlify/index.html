@@ -511,15 +511,34 @@
 
 <body class="home-page" style="padding-top: 56px;">
   <!-- ヘッダー -->
-  <header style="background: #FFFFFF !important; box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; height: 56px;">
+  <header>
     <div class="header-container">
       <a href="/" class="logo">フィリピン書類取得代行センター</a>
 
       <div class="nav-desktop">
         <nav>
-          <a href="/" class="active">ホーム</a>
-          <div class="nav-item">サービス内容 ▼</div>
-          <div class="nav-item">個別書類 ▼</div>
+          <a href="/">ホーム</a>
+          <div class="nav-item">
+            <span>サービス内容 ▼</span>
+            <div class="dropdown-menu">
+              <a href="/kokusai-kekkon">国際結婚</a>
+              <a href="/haigusha-visa">配偶者ビザ</a>
+              <a href="/kika-shinsei">帰化申請</a>
+              <a href="/gaimen-kirikae">外免切替</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <span>個別書類 ▼</span>
+            <div class="dropdown-menu">
+              <a href="/psa-birth-certificate">PSA 出生証明書</a>
+              <a href="/marriage-certificate">PSA 婚姻証明書</a>
+              <a href="/cenomar">CENOMAR（未婚証明）</a>
+              <a href="/nbi-clearance">NBI 無犯罪証明</a>
+              <a href="/lto-drivers-license">LTO 証明書</a>
+              <a href="/dfa-apostille">DFA アポスティーユ</a>
+              <a href="/translation">翻訳サービス</a>
+            </div>
+          </div>
           <a href="/contact" class="btn-cta">お問い合わせ</a>
         </nav>
       </div>
@@ -530,6 +549,29 @@
     </div>
 
     <div class="nav-mobile" id="navMobile">
+      <a href="/">ホーム</a>
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-label">サービス内容 ▼</div>
+        <div class="mobile-submenu">
+          <a href="/kokusai-kekkon">国際結婚</a>
+          <a href="/haigusha-visa">配偶者ビザ</a>
+          <a href="/kika-shinsei">帰化申請</a>
+          <a href="/gaimen-kirikae">外免切替</a>
+        </div>
+      </div>
+      <div class="mobile-nav-item">
+        <div class="mobile-nav-label">個別書類 ▼</div>
+        <div class="mobile-submenu">
+          <a href="/psa-birth-certificate">PSA 出生証明書</a>
+          <a href="/marriage-certificate">PSA 婚姻証明書</a>
+          <a href="/cenomar">CENOMAR（未婚証明）</a>
+          <a href="/nbi-clearance">NBI 無犯罪証明</a>
+          <a href="/lto-drivers-license">LTO 証明書</a>
+          <a href="/dfa-apostille">DFA アポスティーユ</a>
+          <a href="/translation">翻訳サービス</a>
+        </div>
+      </div>
+      <a href="/contact">お問い合わせ</a>
     </div>
   </header>
 
@@ -1026,6 +1068,13 @@
   <script>
     document.getElementById('menuToggle')?.addEventListener('click', function () {
       document.getElementById('navMobile')?.classList.toggle('active');
+    });
+
+    // スマホ版アコーディオン開閉
+    document.querySelectorAll('.mobile-nav-label').forEach(label => {
+      label.addEventListener('click', function () {
+        this.nextElementSibling?.classList.toggle('open');
+      });
     });
   </script>
 </body>
