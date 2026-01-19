@@ -522,7 +522,7 @@
                 <h2>よくあるご質問</h2>
                 <div class="faq-items">
                     <div class="faq-item">
-                        <h3>Q: なぜ10万円なのか？市場には3〜5万円のサービスもあるのでは？</h3>
+                        <h3 tabindex="0" role="button" aria-expanded="false">Q: なぜ10万円なのか？市場には3〜5万円のサービスもあるのでは？</h3>
                         <div class="faq-answer">
                             <p>IGRSが提供しているのは「書類を取るだけ」ではありません。①スピード（2〜3週間 vs
                                 公式6〜8週間）②失敗回避（表記ミス・不備の事前チェック）③進捗可視化（写真付きタイムライン）④無制限相談、これらを含めた「プレミアムサービス」として10万円を設定しています。
@@ -530,27 +530,27 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <h3>Q: パッケージと単票で安心パックの料金が違うのはなぜ？</h3>
+                        <h3 tabindex="0" role="button" aria-expanded="false">Q: パッケージと単票で安心パックの料金が違うのはなぜ？</h3>
                         <div class="faq-answer">
                             <p>パッケージサービス（国際結婚・帰化申請など）は複数書類を取得し、手続きも複雑です。そのため、万が一の再取得時の作業量が単票の2〜3倍になります。この作業量の違いを反映した価格設定です。
                             </p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <h3>Q: お客様側の情報提供ミスでも保証されますか？</h3>
+                        <h3 tabindex="0" role="button" aria-expanded="false">Q: お客様側の情報提供ミスでも保証されますか？</h3>
                         <div class="faq-answer">
                             <p>お客様が提供した情報に基づいて取得した書類の不備（PSA側の記載ミスなど）は保証対象です。しかし、お客様が誤った情報を提供した場合（例：生年月日を間違えて伝えた）は対象外となります。
                             </p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <h3>Q: 何度でも再取得できますか？</h3>
+                        <h3 tabindex="0" role="button" aria-expanded="false">Q: 何度でも再取得できますか？</h3>
                         <div class="faq-answer">
                             <p>再取得サポートは1回限りです。2回目以降の再取得には別途費用が発生します。</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <h3>Q: AI×OCR技術とは何ですか？</h3>
+                        <h3 tabindex="0" role="button" aria-expanded="false">Q: AI×OCR技術とは何ですか？</h3>
                         <div class="faq-answer">
                             <p>IGRSが独自開発した、証明書の自動読取・照合システムです。取得した書類をOCR（光学文字認識）でスキャンし、AIが申請情報と自動比較。氏名・生年月日・出生地などの不一致を即座に検知します。これにより、人間の目視では見逃しやすい微細な誤記も発見できます。
                             </p>
@@ -644,6 +644,50 @@
             submenu.classList.toggle('open');
             button.classList.toggle('open');
         }
+
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item h3');
+
+            faqItems.forEach(header => {
+                header.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const faqItem = this.parentElement;
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                    // Close other items
+                    faqItems.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherItem = otherHeader.parentElement;
+                            const otherAnswer = otherHeader.nextElementSibling;
+                            otherHeader.setAttribute('aria-expanded', 'false');
+                            otherItem.classList.remove('active');
+                            otherAnswer.style.display = 'none';
+                        }
+                    });
+
+                    // Toggle current item
+                    if (isExpanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        faqItem.classList.remove('active');
+                        answer.style.display = 'none';
+                    } else {
+                        this.setAttribute('aria-expanded', 'true');
+                        faqItem.classList.add('active');
+                        answer.style.display = 'block';
+                    }
+                });
+
+                // Keyboard support
+                header.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
 
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

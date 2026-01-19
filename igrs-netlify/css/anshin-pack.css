@@ -381,14 +381,16 @@
 }
 
 .faq-item h3::after {
-    content: '+';
-    font-size: 1.5rem;
+    content: '▼';
+    font-size: 1.2rem;
     color: var(--primary-color);
     transition: transform 0.3s ease;
+    font-weight: normal;
+    margin-left: 0.5rem;
 }
 
 .faq-item.active h3::after {
-    transform: rotate(45deg);
+    transform: rotate(180deg);
 }
 
 .faq-answer {
@@ -396,10 +398,15 @@
     color: var(--text-light);
     line-height: 1.6;
     display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
 .faq-item.active .faq-answer {
     display: block;
+    max-height: 500px;
+    padding: 0 2rem 2rem 2rem;
 }
 
 /* ========================================
