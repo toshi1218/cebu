@@ -483,6 +483,60 @@
         justify-content: center !important;
     }
 
+    /* ============================
+       Phase 7: 料金と納期セクション最適化
+       ============================ */
+
+    /* 料金と納期セクションのスペース削減 */
+    .content-section h2 {
+        margin-bottom: 16px !important;
+    }
+
+    .timeline {
+        margin: 0 0 12px 0 !important;
+    }
+
+    .timeline-item {
+        margin-bottom: 12px !important;
+        padding: 14px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* PSAカード（最重要サービス）の強調 */
+    .timeline-item:first-child {
+        border-left: 4px solid #3182CE !important;
+        background: #F0F7FF !important;
+    }
+
+    /* DFAカードの強調 */
+    .timeline-item:nth-child(2) {
+        border-left: 2px solid #CBD5E0 !important;
+    }
+
+    /* タイポグラフィ調整 */
+    .timeline-item strong,
+    .timeline-item h3 {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #1a365d !important;
+        margin-bottom: 8px !important;
+        display: block !important;
+    }
+
+    .timeline-item:nth-child(2) strong,
+    .timeline-item:nth-child(2) h3,
+    .timeline-item:nth-child(3) strong,
+    .timeline-item:nth-child(3) h3 {
+        font-size: 15px !important;
+    }
+
+    .timeline-item p {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        color: #4A5568 !important;
+        margin: 0 !important;
+    }
+
     /* 角丸を控えめに統一 */
     .card,
     .service-card,
