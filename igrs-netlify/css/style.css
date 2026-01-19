@@ -1083,27 +1083,43 @@ footer {
     background: var(--accent-color);
     color: var(--bg-white);
     border: none;
-    border-radius: var(--border-radius-sm);
-    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius-md);
+    padding: 1rem 3rem;
     font-family: var(--font-family);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: var(--font-weight-semibold);
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 120px;
+    min-width: 200px;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-submit:hover {
     background: var(--accent-hover);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-submit:active {
     transform: translateY(0);
+}
+
+.btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:disabled:hover {
+    background: var(--accent-color);
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ========================================
@@ -1125,8 +1141,10 @@ footer {
     }
 
     .btn-submit {
-        width: 100%;
-        padding: 1rem;
+        min-width: auto;
+        max-width: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 }
 
