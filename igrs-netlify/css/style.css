@@ -3603,28 +3603,46 @@ body.kika-v2 .anchor-nav a:hover {
 }
 
 /* =========================
-   KIKA_V2_BUTTON_TEXT_FIX v29
+   KIKA_V2_WHITE_UI_FIX v30
    ========================= */
 
-/* 白背景ボタンの文字だけ "濃色" に戻す（v28の白固定を上書き） */
+/* A) "白いCTA（フォーム）" は白背景＋濃色文字を保証 */
 body.kika-v2 .page-hero .btn-secondary,
 body.kika-v2 .hero .btn-secondary,
 body.kika-v2 .page-hero a.btn-secondary,
 body.kika-v2 .hero a.btn-secondary,
 body.kika-v2 .page-hero button.btn-secondary,
 body.kika-v2 .hero button.btn-secondary {
+  background: #ffffff !important;
   color: #1f2a44 !important;
   opacity: 1 !important;
   text-shadow: none !important;
 }
 
-/* もしクラス名が違う場合の保険（"白い枠/白いボタン系"） */
+/* B) ヒーロー内で bg-white が付いた"チップ/カード"が真っ白化して紛らわしいのを半透明チップに寄せる
+   ※CTAボタン（btn-secondary）は除外 */
+body.kika-v2 .page-hero .bg-white:not(.btn-secondary):not(a.btn-secondary):not(button.btn-secondary),
+body.kika-v2 .hero .bg-white:not(.btn-secondary):not(a.btn-secondary):not(button.btn-secondary) {
+  background: rgba(255, 255, 255, .12) !important;
+  border: 1px solid rgba(255, 255, 255, .20) !important;
+  box-shadow: none !important;
+}
+
+/* C) その"bg-whiteチップ"の中身は白文字にして確実に読ませる（チェックアイコン横の文言を復活） */
+body.kika-v2 .page-hero .bg-white:not(.btn-secondary):not(a.btn-secondary):not(button.btn-secondary) *,
+body.kika-v2 .hero .bg-white:not(.btn-secondary):not(a.btn-secondary):not(button.btn-secondary) * {
+  color: rgba(255, 255, 255, .92) !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .22) !important;
+}
+
+/* D) もし "白い枠ボタン系" が残ってる場合の保険 */
 body.kika-v2 .page-hero .btn-outline,
 body.kika-v2 .hero .btn-outline,
 body.kika-v2 .page-hero .btn-white,
 body.kika-v2 .hero .btn-white {
+  background: #ffffff !important;
   color: #1f2a44 !important;
-  opacity: 1 !important;
   text-shadow: none !important;
 }
 
