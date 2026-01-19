@@ -1,8 +1,16 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://igrs.online/sitemap.xml
+User-agent: GPTBot
+Allow: /
 
-# LLM/AI Crawler Information
-# See https://igrs.online/llms.txt for AI-optimized content
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+Sitemap: https://igrs.online/sitemap.xml
