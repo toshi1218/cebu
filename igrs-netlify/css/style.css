@@ -3602,6 +3602,32 @@ body.kika-v2 .anchor-nav a:hover {
   background: rgba(255, 255, 255, .30) !important;
 }
 
+/* =========================
+   KIKA_V2_BUTTON_TEXT_FIX v29
+   ========================= */
+
+/* 白背景ボタンの文字だけ "濃色" に戻す（v28の白固定を上書き） */
+body.kika-v2 .page-hero .btn-secondary,
+body.kika-v2 .hero .btn-secondary,
+body.kika-v2 .page-hero a.btn-secondary,
+body.kika-v2 .hero a.btn-secondary,
+body.kika-v2 .page-hero button.btn-secondary,
+body.kika-v2 .hero button.btn-secondary {
+  color: #1f2a44 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* もしクラス名が違う場合の保険（"白い枠/白いボタン系"） */
+body.kika-v2 .page-hero .btn-outline,
+body.kika-v2 .hero .btn-outline,
+body.kika-v2 .page-hero .btn-white,
+body.kika-v2 .hero .btn-white {
+  color: #1f2a44 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
 /* mobile tighten */
 @media (max-width: 768px) {
 
