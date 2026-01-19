@@ -519,6 +519,7 @@ table tr:last-child td {
    Mobile Navigation
    ======================================== */
 .nav-mobile {
+    display: none;
     background: var(--bg-white) !important;
     box-shadow: var(--shadow-md) !important;
     border: 1px solid var(--border-color) !important;
@@ -837,6 +838,16 @@ table tr:last-child td {
 
     .price-value {
         font-size: 2rem;
+    }
+
+    /* モバイル表示時のみナビゲーションを切り替え */
+    .nav-mobile {
+        display: block;
+    }
+
+    /* デスクトップ用ナビを非表示 */
+    header nav {
+        display: none;
     }
 }
 
