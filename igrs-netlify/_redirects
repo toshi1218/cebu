@@ -27,13 +27,15 @@ http://www.igrs.online/* https://igrs.online/:splat 301
 /license /gaimen-kirikae 301!
 /naturalization /kika-shinsei 301!
 
+# --- Clean URL redirects (.html -> clean) ---
+/index.html            /                     301!
+/kokusai-kekkon.html   /kokusai-kekkon       301!
+/gaimen-kirikae.html   /gaimen-kirikae       301!
+/kika-shinsei.html     /kika-shinsei         301!
+/gyoseishoshi.html     /gyoseishoshi         301!
+/splat.html            /:splat               301!
+
 # --- Service page redirects (.html -> clean) ---
-/index.html / 301
-/personal/ /personal 301
-/personal.html /personal 301
-/kokusai-kekkon.html /kokusai-kekkon 301
-/gaimen-kirikae.html /gaimen-kirikae 301
-/kika-shinsei.html /kika-shinsei 301
 /services /index#services 301!
 /services.html /index#services 301!
 /lto-transaction-history /gaimen-kirikae 301!
