@@ -22,6 +22,11 @@ http://www.igrs.online/* https://igrs.online/:splat 301
 /privacy-policy /privacy 301
 /contact-us /contact 301
 
+# --- English service URLs -> Romaji specialty pages (SEO consolidation) ---
+/marriage /kokusai-kekkon 301!
+/license /gaimen-kirikae 301!
+/naturalization /kika-shinsei 301!
+
 # --- Service page redirects (.html -> clean) ---
 /services.html /services 301!
 /psa-birth-certificate.html /psa-birth-certificate 301!
