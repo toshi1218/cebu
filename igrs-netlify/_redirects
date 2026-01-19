@@ -1,7 +1,31 @@
-# --- host normalize (www -> non-www, http -> https) ---
+# --- host normalize ---
 https://www.igrs.online/* https://igrs.online/:splat 301
 http://igrs.online/* https://igrs.online/:splat 301
-http://www.igrs.online/* https://igrs.online/:splat 301
+
+# --- Service Pages (.html -> clean) ---
+/psa-birth-certificate.html  /psa-birth-certificate  301!
+/marriage-certificate.html   /marriage-certificate   301!
+/cenomar.html                /cenomar                301!
+/nbi-clearance.html          /nbi-clearance          301!
+/lto-drivers-license.html    /lto-drivers-license    301!
+/dfa-apostille.html          /dfa-apostille          301!
+/translation.html            /translation            301!
+
+# --- Category & LP (.html -> clean) ---
+/kokusai-kekkon.html   /kokusai-kekkon   301!
+/gaimen-kirikae.html    /gaimen-kirikae    301!
+/kika-shinsei.html      /kika-shinsei      301!
+/kika                   /kika-shinsei      301!
+/gyoseishoshi.html      /gyoseishoshi      301!
+
+# --- Standard Pages ---
+/personal.html   /personal   301!
+/business.html   /business   301!
+/services.html   /services   301!
+/company.html    /company    301!
+/contact.html    /contact    301!
+/privacy.html    /privacy    301!
+/index.html      /           301!
 
 # --- old Wix JP slugs (URL-encoded) ---
 /%E6%A6%82%E8%A6%81 /services 301
@@ -34,35 +58,4 @@ http://www.igrs.online/* https://igrs.online/:splat 301
 /marriage /kokusai-kekkon 301!
 /license /gaimen-kirikae 301!
 /naturalization /kika-shinsei 301!
-
-# --- Clean URL redirects (.html -> clean) ---
-/index.html            /                     301!
-/kokusai-kekkon.html   /kokusai-kekkon       301!
-/gaimen-kirikae.html   /gaimen-kirikae       301!
-/kika-shinsei.html     /kika-shinsei         301!
-/gyoseishoshi.html     /gyoseishoshi         301!
-/splat.html            /:splat               301!
-/personal.html         /personal             301!
-/business.html         /business             301!
-/services.html         /services             301!
-/company.html          /company              301!
-/contact.html          /contact              301!
-/privacy.html          /privacy              301!
-
-# --- Service page redirects (.html -> clean) ---
-/services /index#services 301!
-/services.html /index#services 301!
-/lto-transaction-history /gaimen-kirikae 301!
-/lto-transaction-history.html /gaimen-kirikae 301!
-/gyoseishoshi.html /gyoseishoshi 301!
-/psa-birth-certificate.html /psa-birth-certificate 301!
-/cenomar.html /cenomar 301!
-/marriage-certificate.html /marriage-certificate 301!
-/nbi-clearance.html /nbi-clearance 301!
-/dfa-apostille.html /dfa-apostille 301!
-
-# --- Wildcard redirects ---
-/プロジェクト / 301
-/projects/* / 301
-/services/* / 301
 
