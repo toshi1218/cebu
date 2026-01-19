@@ -22,6 +22,13 @@ http://www.igrs.online/* https://igrs.online/:splat 301
 /privacy-policy /privacy 301
 /contact-us /contact 301
 
+# --- Service page redirects (.html -> clean) ---
+/psa-birth-certificate.html /psa-birth-certificate 301!
+/cenomar.html /cenomar 301!
+/marriage-certificate.html /marriage-certificate 301!
+/nbi-clearance.html /nbi-clearance 301!
+/dfa-apostille.html /dfa-apostille 301!
+
 # --- Wildcard redirects ---
 /プロジェクト / 301
 /projects/* / 301
