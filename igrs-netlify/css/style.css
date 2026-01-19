@@ -1382,3 +1382,53 @@ footer {
 /* ========================================
    Remove emoji icons from mobile navigation
    ======================================== */
+
+/* ========================================
+   ナビゲーション修正 - 強制追加
+   ======================================== */
+
+/* ドロップダウンメニューをデフォルトで非表示 */
+.dropdown-menu {
+    display: none !important;
+    position: absolute !important;
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1000 !important;
+    min-width: 200px !important;
+}
+
+/* ホバー時にドロップダウンを表示 */
+.nav-item:hover .dropdown-menu {
+    display: block !important;
+}
+
+/* ナビゲーションを横並びに */
+header nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+/* ナビアイテムの設定 */
+.nav-item {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* モバイルナビをデフォルトで非表示 */
+.nav-mobile {
+    display: none !important;
+}
+
+/* モバイル時の切り替え */
+@media (max-width: 768px) {
+    header nav {
+        display: none !important;
+    }
+
+    .nav-mobile {
+        display: block !important;
+    }
+}
