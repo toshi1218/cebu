@@ -83,7 +83,83 @@
     }
 
     /* ============================
-       Phase 2: サービス詳細ページ
+       Phase 2: カードレイアウト最適化
+       ============================ */
+
+    /* 全カードのpadding/marginを削減 */
+    .card {
+        padding: calc(1rem * 0.7) !important;
+        /* 30%削減 */
+        margin: calc(1.5rem * 0.5) 0 !important;
+        /* 50%削減 */
+        line-height: 1.5 !important;
+    }
+
+    /* ネストされたカード（大カードの中の小カード） */
+    .card .card {
+        padding: calc(1rem * 0.6) !important;
+        /* さらに40%削減 */
+        margin: calc(1rem * 0.6) 0 !important;
+        /* さらに40%削減 */
+    }
+
+    /* カード間の余白を最大16pxに制限 */
+    .price-grid,
+    .card-grid,
+    .info-grid {
+        gap: min(1rem, 16px) !important;
+    }
+
+    /* サービス説明カード */
+    .info-box {
+        padding: calc(1.5rem * 0.7) !important;
+        margin: calc(1.5rem * 0.5) 0 !important;
+    }
+
+    .info-box .info-box {
+        padding: calc(1rem * 0.6) !important;
+        margin: calc(1rem * 0.6) 0 !important;
+    }
+
+    /* 実績カード */
+    .price-grid .card {
+        padding: calc(1.5rem * 0.7) !important;
+        margin: 0 !important;
+    }
+
+    /* フォームセクションカード */
+    .form-section .card,
+    .contact-form-container .card {
+        padding: calc(2rem * 0.7) !important;
+        margin: calc(2rem * 0.5) 0 !important;
+    }
+
+    /* サービス内容カード（パッケージ内） */
+    .pricing-card,
+    .package-card {
+        padding: calc(2rem * 0.7) !important;
+        margin: calc(2rem * 0.5) 0 !important;
+    }
+
+    .pricing-card .card,
+    .package-card .card {
+        padding: calc(1rem * 0.6) !important;
+        margin: calc(1rem * 0.6) 0 !important;
+    }
+
+    /* テーブル内のカード風要素 */
+    .data-table {
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .data-table td,
+    .data-table th {
+        padding: calc(0.75rem * 0.7) !important;
+    }
+
+    /* ============================
+       Phase 3: サービス詳細ページ
        ============================ */
 
     /* セクション余白削減 */
