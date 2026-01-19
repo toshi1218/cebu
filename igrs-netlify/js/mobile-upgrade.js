@@ -106,6 +106,10 @@
 
   // ===== FAQ: auto accordion (no HTML rewrite needed) =====
   // Target: sequences like <h3>Q1....</h3><p>answer...</p>...
+  // Guard: Prevent multiple executions
+  if (window.faqAccordionProcessed) return;
+  window.faqAccordionProcessed = true;
+
   const faqHeadings = qsa("h3, h4").filter(h => {
     const t = (h.textContent || "").trim();
     return /^Q\s*\d+[\.\：\:]/i.test(t) || /^Q\s*\d+/i.test(t);
