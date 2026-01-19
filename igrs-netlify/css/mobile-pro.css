@@ -95,12 +95,23 @@
         line-height: 1.5 !important;
     }
 
-    /* ネストされたカード（大カードの中の小カード） */
+    /* ネストされたカード構造を解消 - 直接配置に変更 */
     .card .card {
-        padding: calc(1rem * 0.6) !important;
-        /* さらに40%削減 */
-        margin: calc(1rem * 0.6) 0 !important;
-        /* さらに40%削減 */
+        /* ネストを解除し、直接配置用のスタイル */
+        margin: 12px 0 !important;
+        padding: calc(1rem * 0.7) !important;
+    }
+
+    /* セクションタイトルとカードグループの間の余白 */
+    .section-title+.price-grid,
+    .section-title+.card-grid,
+    .section-title+.info-grid,
+    .section-title+.pricing-grid {
+        margin-top: -16px !important;
+    }
+
+    .section-title {
+        margin-bottom: 16px !important;
     }
 
     /* カード間の余白を最大16pxに制限 */
