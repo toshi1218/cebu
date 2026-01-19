@@ -19,6 +19,11 @@ http://igrs.online/* https://igrs.online/:splat 301
 /gyoseishoshi.html      /gyoseishoshi      301!
 /haigusha-visa.html     /haigusha-visa     301!
 
+# --- Premium Package URL Consolidation ---
+/anshin-pack           /premium-package   301!
+/anshin-pack/          /premium-package   301!
+/anshin-pack.html      /premium-package   301!
+
 # --- Standard Pages ---
 /personal.html   /personal   301!
 /business.html   /business   301!
@@ -60,4 +65,5 @@ http://igrs.online/* https://igrs.online/:splat 301
 /license /gaimen-kirikae 301!
 /naturalization /kika-shinsei 301!
 /spouse-visa /haigusha-visa 301!
+/premium-pack /premium-package 301!
 
