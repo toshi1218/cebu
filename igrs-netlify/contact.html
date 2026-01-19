@@ -283,26 +283,31 @@
       <div class="contact-grid">
         <!-- フォーム -->
         <div class="contact-form-container">
-          <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.3rem">お問い合わせフォーム</h3>
-          <form action="https://formspree.io/f/xgoezely" method="POST">
+          <h3>お問い合わせフォーム</h3>
+          <form action="https://formspree.io/f/xgoezely" method="POST" class="contact-form">
             <input type="hidden" name="_next" value="https://igrs.online/thank-you" />
             <input type="hidden" name="_subject" value="フィリピン書類取得代行センターお問い合わせ" />
+
             <div class="form-group">
               <label for="company">会社名・事務所名</label>
               <input type="text" id="company" name="company" placeholder="例：○○行政書士事務所" />
             </div>
+
             <div class="form-group">
-              <label for="name">お名前 <span style="color: var(--accent-color)">*</span></label>
+              <label for="name">お名前 <span class="required">*</span></label>
               <input type="text" id="name" name="name" required placeholder="例：山田 太郎" />
             </div>
+
             <div class="form-group">
-              <label for="email">メールアドレス <span style="color: var(--accent-color)">*</span></label>
+              <label for="email">メールアドレス <span class="required">*</span></label>
               <input type="email" id="email" name="email" required placeholder="例：example@email.com" />
             </div>
+
             <div class="form-group">
               <label for="phone">電話番号</label>
               <input type="tel" id="phone" name="phone" placeholder="例：090-1234-5678" />
             </div>
+
             <div class="form-group">
               <label for="client_type">ご依頼区分</label>
               <select id="client_type" name="client_type">
@@ -311,6 +316,7 @@
                 <option value="法人・士業様（代理申請／複数案件）">法人・士業様（代理申請／複数案件）</option>
               </select>
             </div>
+
             <div class="form-group">
               <label for="service">ご依頼内容</label>
               <select id="service" name="service">
@@ -323,17 +329,17 @@
                 <option value="その他・複数の依頼">その他・複数の依頼</option>
               </select>
             </div>
+
             <div class="form-group">
-              <label for="message">お問い合わせ内容 <span style="color: var(--accent-color)">*</span></label>
-              <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem">
-                ※法人・士業様は、提出先・期限・件数もご記入ください。
-              </p>
+              <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+              <p class="form-note">※法人・士業様は、提出先・期限・件数もご記入ください。</p>
               <textarea id="message" name="message" required placeholder="ご依頼内容やご質問をご記入ください。
 
 例：フィリピン人従業員3名のPSA出生証明書とNBIクリアランスの取得を依頼したいです。"></textarea>
             </div>
-            <div style="text-align: center">
-              <button type="submit" class="btn btn-accent">送信する</button>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-submit">送信する</button>
             </div>
           </form>
         </div>
