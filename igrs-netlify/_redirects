@@ -32,6 +32,7 @@ http://www.igrs.online/* https://igrs.online/:splat 301
 /services.html /index#services 301!
 /lto-transaction-history /gaimen-kirikae 301!
 /lto-transaction-history.html /gaimen-kirikae 301!
+/gyoseishoshi.html /gyoseishoshi 301!
 /psa-birth-certificate.html /psa-birth-certificate 301!
 /cenomar.html /cenomar 301!
 /marriage-certificate.html /marriage-certificate 301!
