@@ -3569,3 +3569,117 @@ html body.kika-v2 section.page-hero div.container h1 {
     line-height: 1.35 !important;
   }
 }
+
+/* ========================================
+   KIKA_V2_CONTRAST_FIX v27
+   ======================================== */
+body.kika-v2 {
+  --on-dark: #ffffff;
+  --on-dark-muted: rgba(255, 255, 255, .85);
+  --on-dark-faint: rgba(255, 255, 255, .75);
+}
+
+/* hero wrapper (both naming patterns) */
+body.kika-v2 .page-hero,
+body.kika-v2 .hero {
+  position: relative;
+  color: var(--on-dark);
+}
+
+/* stabilize contrast on gradient background */
+body.kika-v2 .page-hero::before,
+body.kika-v2 .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, .08) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* keep content above overlay */
+body.kika-v2 .page-hero>*,
+body.kika-v2 .hero>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* H1 */
+body.kika-v2 .page-hero h1,
+body.kika-v2 .hero h1 {
+  color: var(--on-dark) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .30);
+}
+
+/* body text */
+body.kika-v2 .page-hero p,
+body.kika-v2 .hero p,
+body.kika-v2 .page-hero .lead,
+body.kika-v2 .hero .lead,
+body.kika-v2 .page-hero .description,
+body.kika-v2 .hero .description {
+  color: var(--on-dark-muted) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+}
+
+/* sub navigation / anchors (both patterns) */
+body.kika-v2 .page-hero .page-subnav a,
+body.kika-v2 .hero .page-subnav a,
+body.kika-v2 .page-hero .anchor-nav a,
+body.kika-v2 .hero .anchor-nav a {
+  color: var(--on-dark) !important;
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, .25);
+  text-decoration-color: rgba(255, 255, 255, .60);
+}
+
+body.kika-v2 .page-hero .page-subnav a:hover,
+body.kika-v2 .hero .page-subnav a:hover,
+body.kika-v2 .page-hero .anchor-nav a:hover,
+body.kika-v2 .hero .anchor-nav a:hover {
+  background: rgba(255, 255, 255, .25);
+}
+
+/* trust pill */
+body.kika-v2 .page-hero .trust-pill,
+body.kika-v2 .hero .trust-pill {
+  color: var(--on-dark-muted) !important;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .20);
+}
+
+/* buttons: keep readable */
+body.kika-v2 .btn-primary {
+  color: #fff !important;
+}
+
+body.kika-v2 .btn-secondary {
+  color: var(--on-dark) !important;
+  border-color: rgba(255, 255, 255, .50) !important;
+}
+
+/* mobile tighten */
+@media (max-width: 768px) {
+
+  body.kika-v2 .page-hero p,
+  body.kika-v2 .hero p,
+  body.kika-v2 .page-hero .lead,
+  body.kika-v2 .hero .lead,
+  body.kika-v2 .page-hero .description,
+  body.kika-v2 .hero .description {
+    color: var(--on-dark) !important;
+  }
+
+  body.kika-v2 .page-hero .page-subnav a,
+  body.kika-v2 .hero .page-subnav a,
+  body.kika-v2 .page-hero .anchor-nav a,
+  body.kika-v2 .hero .anchor-nav a {
+    font-size: .85rem;
+  }
+
+  body.kika-v2 .page-hero .trust-pill,
+  body.kika-v2 .hero .trust-pill {
+    font-size: .80rem;
+    color: var(--on-dark) !important;
+  }
+}
