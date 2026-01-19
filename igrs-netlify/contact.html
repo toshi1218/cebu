@@ -452,7 +452,7 @@
             .then((response) => {
               if (response.ok) {
                 // Redirect to thank you page
-                window.location.href = '/thank-you.html';
+                window.location.href = '/thank-you';
               } else {
                 return response.json().then((data) => {
                   throw new Error(data.error || '送信に失敗しました');
