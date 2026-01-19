@@ -17,6 +17,7 @@ http://igrs.online/* https://igrs.online/:splat 301
 /kika-shinsei.html      /kika-shinsei      301!
 /kika                   /kika-shinsei      301!
 /gyoseishoshi.html      /gyoseishoshi      301!
+/haigusha-visa.html     /haigusha-visa     301!
 
 # --- Standard Pages ---
 /personal.html   /personal   301!
@@ -58,4 +59,5 @@ http://igrs.online/* https://igrs.online/:splat 301
 /marriage /kokusai-kekkon 301!
 /license /gaimen-kirikae 301!
 /naturalization /kika-shinsei 301!
+/spouse-visa /haigusha-visa 301!
 

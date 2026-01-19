@@ -266,121 +266,93 @@
 </head>
 
 <body>
-  <!-- ヘッダー -->
-  <header>
-    <div class="header-container">
-      <a class="logo" href="/" style="display: flex; align-items: center; gap: 12px;">
-        <img src="/images/igrs-logo-new.png" alt="株式会社IGRS ロゴ" style="height: 45px; width: auto;">
-        <span style="color: var(--primary-color); font-weight: 600;">フィリピン書類取得代行センター</span>
-      </a>
-      <nav>
-        <a href="/">ホーム</a>
-        <div class="nav-item">
-          <a href="javascript:void(0)">サービス内容 <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-menu">
-            <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
-            <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
-            <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
-            <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
-            <a href="/lto-drivers-license">🚗 運転経歴証明書（LTO）</a>
-            <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
-            <a href="/translation">🌐 翻訳サービス</a>
-          </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-container">
+        <div class="logo">
+          <a href="/">
+            <img src="/images/logo.png" alt="IGRS Corporation" class="logo-img">
+            <span>フィリピン書類取得代行センター</span>
+          </a>
         </div>
-        <div class="nav-item">
-          <a href="javascript:void(0)">料金 <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-menu">
-            <a href="/personal">👤 個人のお客様</a>
-            <a href="/business">🏢 法人・士業様</a>
+        <nav>
+          <a href="/">ホーム</a>
+          <div class="nav-item">
+            <a href="javascript:void(0)">サービス内容 ▼（目的別）<span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-menu">
+              <a href="/kokusai-kekkon">💒 国際結婚</a>
+              <a href="/haigusha-visa">💑 配偶者ビザ</a>
+              <a href="/kika-shinsei">🏛️ 帰化申請</a>
+              <a href="/gaimen-kirikae">🚗 外免切替</a>
+            </div>
           </div>
-        </div>
-        <a href="/company">会社概要</a>
-        <a href="/privacy">プライバシーポリシー</a>
-        <a href="/contact">お問い合わせ</a>
-        <a href="/blog">ブログ</a>
-      </nav>
-      <div class="mobile-menu" onclick="toggleMobileNav()">
-        <span></span>
-        <span></span>
-        <span></span>
+          <div class="nav-item">
+            <a href="javascript:void(0)">個別書類 ▼（書類別）<span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-menu">
+              <a href="/psa-birth-certificate">📄 PSA 出生証明書</a>
+              <a href="/marriage-certificate">💒 PSA 婚姻証明書</a>
+              <a href="/cenomar">💍 CENOMAR（未婚証明）</a>
+              <a href="/nbi-clearance">🔒 NBI 無犯罪証明</a>
+              <a href="/lto-drivers-license">🚗 LTO 証明書</a>
+              <a href="/dfa-apostille">📜 DFA アポスティーユ</a>
+              <a href="/translation">🌐 翻訳サービス</a>
+            </div>
+          </div>
+          <a href="/personal">料金</a>
+          <a href="/company">会社概要</a>
+          <a href="/privacy">プライバシーポリシー</a>
+          <a href="/contact" class="nav-cta">お問い合わせ</a>
+          <a href="/blog">ブログ</a>
+        </nav>
       </div>
-    </div>
-    <div class="nav-mobile" id="navMobile">
-      <a href="/">ホーム</a>
-      <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
-        サービス内容 <span class="arrow">▼</span>
-      </button>
-      <div class="mobile-submenu">
-        <a href="/services">📋 サービス一覧</a>
-        <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
-        <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
-        <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
-        <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
-        <a href="/lto-drivers-license">🚗 運転経歴証明書（LTO）</a>
-        <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
-        <a href="/translation">🌐 翻訳サービス</a>
-      </div>
-      <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
-        料金 <span class="arrow">▼</span>
-      </button>
-      <div class="mobile-submenu">
-        <a href="/personal">👤 個人のお客様</a>
-        <a href="/business">🏢 法人・士業様</a>
-      </div>
-      <a href="/company">会社概要</a>
-      <a href="/privacy">プライバシーポリシー</a>
-      <a href="/contact">お問い合わせ</a>
-      <a href="/blog">ブログ</a>
     </div>
   </header>
 
-  <!-- 404 エラーコンテンツ -->
-  <div class="error-container">
-    <div class="error-content">
-      <div class="error-icon">🔍</div>
-      <div class="error-number">404</div>
-      <h1 class="error-title">お探しのページが見つかりませんでした</h1>
-      <p class="error-message">
-        申し訳ございません。お探しのページは移動または削除された可能性があります。<br />
-        URLをご確認いただくか、下記のボタンからトップページへお戻りください。
-      </p>
+  <!-- Main Content -->
+  <main class="container">
+    <div class="error-404">
+      <div class="error-content">
+        <h1>404</h1>
+        <h2>ページが見つかりません</h2>
+        <p>お探しのページは見つかりませんでした。URLが変更されたか、削除された可能性があります。</p>
 
-      <div class="error-actions">
-        <a class="btn btn-accent" href="/">
-          <span>🏠</span>
-          トップページへ戻る
-        </a>
-        <a class="btn btn-secondary" href="/contact">
-          <span>📧</span>
-          お問い合わせ
-        </a>
-      </div>
+        <div class="error-actions">
+          <h3>目的別のサービスをご確認ください</h3>
+          <div class="service-links">
+            <div class="service-category">
+              <h4>サービス内容（目的別）</h4>
+              <ul>
+                <li><a href="/kokusai-kekkon">💒 国際結婚</a></li>
+                <li><a href="/haigusha-visa">💑 配偶者ビザ</a></li>
+                <li><a href="/kika-shinsei">🏛️ 帰化申請</a></li>
+                <li><a href="/gaimen-kirikae">🚗 外免切替</a></li>
+              </ul>
+            </div>
+            <div class="service-category">
+              <h4>個別書類（書類別）</h4>
+              <ul>
+                <li><a href="/psa-birth-certificate">📄 PSA 出生証明書</a></li>
+                <li><a href="/marriage-certificate">💒 PSA 婚姻証明書</a></li>
+                <li><a href="/cenomar">💍 CENOMAR（未婚証明）</a></li>
+                <li><a href="/nbi-clearance">🔒 NBI 無犯罪証明</a></li>
+                <li><a href="/lto-drivers-license">🚗 LTO 証明書</a></li>
+                <li><a href="/dfa-apostille">📜 DFA アポスティーユ</a></li>
+                <li><a href="/translation">🌐 翻訳サービス</a></li>
+              </ul>
+            </div>
+          </div>
 
-      <div class="helpful-links">
-        <h3>よくアクセスされるページ</h3>
-        <div class="link-grid">
-          <a href="javascript:void(0)" class="link-item">
-            <span class="icon">📋</span>
-            サービス一覧
-          </a>
-          <a href="/personal" class="link-item">
-            <span class="icon">👤</span>
-            個人のお客様料金
-          </a>
-          <a href="/business" class="link-item">
-            <span class="icon">🏢</span>
-            法人・士業様プラン
-          </a>
-          <a href="/company" class="link-item">
-            <span class="icon">ℹ️</span>
-            会社概要
-          </a>
+          <div class="cta-group">
+            <a href="/" class="btn btn-accent" data-cta="404_home">トップページへ戻る</a>
+            <a href="/contact" class="btn btn-navy" data-cta="404_contact">お問い合わせ</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- フッター -->
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-brand">
@@ -400,16 +372,10 @@
         </ul>
       </div>
       <div class="footer-links">
-        <h4>ご利用ガイド料金</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 6px; padding-left: 16px; position: relative;">
-            <span style="position: absolute; left: 0; color: #718096;"></span>
-            <a href="/personal">個人のお客様</a>
-          </li>
-          <li style="padding-left: 16px; position: relative;">
-            <span style="position: absolute; left: 0; color: #718096;"></span>
-            <a href="/business">法人士業のお客様</a>
-          </li>
+        <h4>ご利用ガイド・料金</h4>
+        <ul>
+          <li><a href="/personal">個人のお客様</a></li>
+          <li><a href="/business">法人・士業様</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -425,25 +391,41 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>2026 by 株式会社IGRS all rights reserved.</p>
-      <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem; line-height: 1.6;">
-        運営: 株式会社IGRS | 日本本社: 和歌山県和歌山市 | フィリピン営業所: フィリピン共和国 セブ市
-      </p>
+      <div class="footer-copyright">
+        <p>&copy; 2026 株式会社IGRS all rights reserved.</p>
+        <p class="company-info">
+          <strong>運営:</strong> 株式会社IGRS<br>
+          <strong>日本本社:</strong> 和歌山県和歌山市<br>
+          <strong>フィリピン営業所:</strong> フィリピン共和国 セブ市
+        </p>
+      </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    function toggleMobileNav() {
-      document.getElementById('navMobile').classList.toggle('active');
-    }
+    // CTA Tracking
+    document.addEventListener('DOMContentLoaded', function () {
+      const ctaElements = document.querySelectorAll('[data-cta]');
 
-    function toggleMobileDropdown(button) {
-      button.classList.toggle('open');
-      const submenu = button.nextElementSibling;
-      submenu.classList.toggle('open');
-    }
+      ctaElements.forEach(element => {
+        element.addEventListener('click', function (e) {
+          const ctaId = this.getAttribute('data-cta');
+
+          // GA4 Event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'cta_click', {
+              cta_id: ctaId,
+              page_path: '/404',
+              page_variant: 'error_page'
+            });
+          }
+
+          console.log('CTA Click:', ctaId);
+        });
+      });
+    });
   </script>
-  <script src="/scripts/ga-events.js" defer></script>
 </body>
 
 </html>
