@@ -1432,3 +1432,22 @@ header nav {
         display: block !important;
     }
 }
+
+/* === NAV VISIBILITY HARD STOP === */
+.nav-desktop {
+    display: block !important;
+}
+
+.nav-mobile {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none !important;
+    }
+
+    .nav-mobile {
+        display: block !important;
+    }
+}
