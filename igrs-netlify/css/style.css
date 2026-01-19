@@ -565,8 +565,8 @@ nav a[href="/contact"]:hover {
   text-decoration: underline;
 }
 
-.breadcrumb span {
-  color: var(--text-light);
+.breadcrumb li:last-child span {
+  color: #6b7280;
 }
 
 /* Content Section */
