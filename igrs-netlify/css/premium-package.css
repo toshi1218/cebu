@@ -382,6 +382,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    text-align: center !important;
 }
 
 .hero-premium .subtitle {
@@ -1000,6 +1001,7 @@
 
     .hero-premium h1 {
         font-size: 2rem;
+        text-align: center !important;
     }
 
     .price-display {
@@ -1071,6 +1073,7 @@
 
     .hero-premium h1 {
         font-size: 1.5rem;
+        text-align: center !important;
     }
 
     .price-box .price {

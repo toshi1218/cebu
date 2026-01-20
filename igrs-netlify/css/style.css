@@ -376,6 +376,7 @@ section:first-of-type {
 .page-hero h1 {
     color: var(--primary-color) !important;
     font-weight: var(--font-weight-bold) !important;
+    text-align: center !important;
 }
 
 .hero p,

@@ -247,6 +247,7 @@
     .page-hero h1 {
         font-size: 1.75rem !important;
         margin-bottom: 1rem !important;
+        text-align: center !important;
     }
 
     .page-hero p {
