@@ -936,6 +936,16 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+/* 空のliや空のulを非表示にする安全策 */
+footer ul:empty,
+footer li:empty {
+    display: none;
+}
+
+footer .footer-section:empty {
+    display: none;
+}
+
 .footer-links a {
     color: #cbd5e0;
     text-decoration: none;
