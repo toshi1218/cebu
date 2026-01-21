@@ -385,6 +385,82 @@ section:first-of-type {
     font-size: 1.1rem !important;
 }
 
+/* vHERO_UNIFY_01: service pages hero normalization */
+/* NOTE:
+   - index.html の .hero(2カラム) を壊さないため、サービス用 .hero は .service-hero を付与して適用する */
+.page-hero,
+.service-hero,
+.service-hero-section,
+.hero-section {
+    text-align: center !important;
+}
+
+/* コンテナを縦積み＋中央揃え（サービス用Heroだけ） */
+.service-hero > .container,
+.page-hero > .container,
+.service-hero-section > .container,
+.hero-section > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+/* H1を確実に中央寄せ */
+.service-hero h1,
+.page-hero h1,
+.service-hero-section h1,
+.hero-section h1 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    max-width: 980px;
+}
+
+/* リード文・補足テキストも中央で読みやすく（Hero内だけ） */
+.service-hero > p,
+.service-hero p,
+.page-hero > p,
+.page-hero p,
+.service-hero-section p,
+.hero-section p {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* “上がスカスカ”を潰す（パンくず/ヒーローの余白を圧縮） */
+.breadcrumbs,
+.breadcrumb,
+.breadcrumb-wrap {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 0 !important;
+}
+
+.page-hero,
+.service-hero,
+.service-hero-section,
+.hero-section {
+    padding-top: 56px !important;
+    padding-bottom: 42px !important;
+}
+
+/* CTAボタンが片側に寄る/浮く問題を潰す（Hero内だけ） */
+.page-hero .cta,
+.page-hero .cta-group,
+.service-hero .cta,
+.service-hero .cta-group,
+.service-hero-section .cta,
+.hero-section .cta,
+.hero-actions,
+.cta-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 /* ========================================
    Content Sections
    ======================================== */
@@ -1211,6 +1287,53 @@ footer .footer-section:empty {
 /* ========================================
    Dropdown Menu Improvements
    ======================================== */
+.dropdown-menu,
+.mobile-submenu {
+    /* vDROPDOWN_UNIFY_01: services dropdown stabilization */
+    z-index: 9999 !important;
+}
+
+/* ドロップダウン自体の保険（既存前提を崩さない最小） */
+.dropdown-menu,
+.mobile-submenu {
+    position: absolute;
+}
+
+/* mobile-submenu はモバイルナビ内で「押し出し表示」される前提があるため、文脈で戻す */
+.nav-mobile .mobile-submenu {
+    position: static;
+}
+
+.dropdown-menu a,
+.mobile-submenu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.2;
+    white-space: nowrap;
+    padding: 10px 12px !important;
+}
+
+.dropdown-menu a i,
+.mobile-submenu a i,
+.dropdown-menu a img,
+.mobile-submenu a img {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+/* もし「途中で切れる」なら親の overflow が犯人。
+   広い指定（header/nav全体）は禁止。実在するヘッダー親だけに限定する */
+header .header-container {
+    overflow: visible !important;
+}
+
+/* 限定クラス（has-dropdown等）が無いので、最小フォールバック：メニュー自体も切れないよう保険 */
+.dropdown-menu {
+    overflow: visible !important;
+}
+
 .nav-item .dropdown-menu {
     min-width: 220px;
     padding: 0.5rem 0;
