@@ -127,6 +127,21 @@ header nav a:hover,
     text-decoration: underline !important;
 }
 
+/* ヘッダー右上ナビの箇条書き（・）を消す */
+header ul,
+header nav ul,
+.header-container ul,
+.header-container nav ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+header li,
+.header-container li {
+    list-style: none !important;
+}
+
 .dropdown-menu {
     display: none;
     position: absolute;
