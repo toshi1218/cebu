@@ -1293,6 +1293,21 @@ footer .footer-section:empty {
     z-index: 9999 !important;
 }
 
+/* 箇条書き（・）が出ないようにする（premium-package等の保険） */
+.dropdown-menu,
+.mobile-submenu {
+    list-style: none !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+}
+
+.dropdown-menu li,
+.mobile-submenu li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 /* ドロップダウン自体の保険（既存前提を崩さない最小） */
 .dropdown-menu,
 .mobile-submenu {
