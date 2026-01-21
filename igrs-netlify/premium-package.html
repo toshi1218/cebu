@@ -251,7 +251,6 @@
         </ol>
     </nav>
 
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-container">
@@ -261,14 +260,70 @@
                         <span>フィリピン書類取得代行センター</span>
                     </a>
                 </div>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="/">ホーム</a></li>
-                        <li><a href="/services.html">サービス一覧</a></li>
-                        <li><a href="/business.html">法人・士業向け</a></li>
-                        <li><a href="/contact.html">お問い合わせ</a></li>
-                    </ul>
+                <nav>
+                    <div class="nav-item">
+                        <a href="javascript:void(0)">サービス内容 <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="/kokusai-kekkon">💒 国際結婚</a>
+                            <a href="/haigusha-visa">💑 配偶者ビザ</a>
+                            <a href="/kika-shinsei">🏛️ 帰化申請</a>
+                            <a href="/gaimen-kirikae">📋 外面切替</a>
+                            <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
+                            <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
+                            <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
+                            <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
+                            <a href="/lto-drivers-license">🚗 運転経歴証明書（LTO）</a>
+                            <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
+                            <a href="/translation">🌐 翻訳サービス</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="javascript:void(0)">料金 <span class="dropdown-arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="/personal">👤 個人のお客様</a>
+                            <a href="/business">🏢 法人・士業様</a>
+                        </div>
+                    </div>
+                    <a href="/company">会社概要</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/blog">ブログ</a>
                 </nav>
+                <div class="mobile-menu" onclick="toggleMobileNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="nav-mobile" id="navMobile">
+                <a href="/">ホーム</a>
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    サービス内容 <span class="arrow">▼</span>
+                </button>
+                <div class="mobile-submenu">
+                    <a href="/kokusai-kekkon">💒 国際結婚</a>
+                    <a href="/haigusha-visa">💑 配偶者ビザ</a>
+                    <a href="/kika-shinsei">🏛️ 帰化申請</a>
+                    <a href="/gaimen-kirikae">📋 外面切替</a>
+                    <a href="/psa-birth-certificate">📄 出生証明書（PSA）</a>
+                    <a href="/marriage-certificate">💒 婚姻証明書（PSA）</a>
+                    <a href="/cenomar">💍 独身証明書（CENOMAR）</a>
+                    <a href="/nbi-clearance">🔒 無犯罪証明書（NBI）</a>
+                    <a href="/lto-drivers-license">🚗 運転経歴証明書（LTO）</a>
+                    <a href="/dfa-apostille">📜 アポスティーユ認証（DFA）</a>
+                    <a href="/translation">🌐 翻訳サービス</a>
+                </div>
+                <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">
+                    料金 <span class="arrow">▼</span>
+                </button>
+                <div class="mobile-submenu">
+                    <a href="/personal">👤 個人のお客様</a>
+                    <a href="/business">🏢 法人・士業様</a>
+                </div>
+                <a href="/company">会社概要</a>
+                <a href="/privacy">プライバシーポリシー</a>
+                <a href="/blog">ブログ</a>
+                <a href="/contact">お問い合わせ</a>
             </div>
         </div>
     </header>
@@ -846,6 +901,21 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Navigation
+        function toggleMobileNav() {
+            const navMobile = document.getElementById('navMobile');
+            navMobile.classList.toggle('active');
+        }
+
+        function toggleMobileDropdown(button) {
+            const submenu = button.nextElementSibling;
+            submenu.classList.toggle('open');
+            button.classList.toggle('open');
+        }
+    </script>
 
     <!-- モバイル固定ボトムナビゲーション -->
     <nav class="mobile-bottom-nav">
