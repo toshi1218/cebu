@@ -41,24 +41,24 @@ http://igrs.online/* https://igrs.online/:splat 301
 # --- old Wix JP slugs (URL-encoded) ---
 /%E6%A6%82%E8%A6%81 /services 301
 /%E6%A6%82%E8%A6%81/ /services 301
-/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 /company 301
-/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/ /company 301
+/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 / 301!
+/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/ / 301!
 /%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B /contact 301
 /%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/ /contact 301
 /%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC /privacy 301
 /%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/ /privacy 301
 
 # --- old Wix JP slugs (raw JP) ---
-/概要 /services 301
-/概要/ /services 301
-/プロジェクト /company 301
-/プロジェクト/ /company 301
-/お問い合わせ /contact 301
-/お問い合わせ/ /contact 301
+/概要E/services 301
+/概要E /services 301
+/プロジェクチE/company 301
+/プロジェクチE /company 301
+/お問ぁE��わせ /contact 301
+/お問ぁE��わせ/ /contact 301
 /プライバシーポリシー /privacy 301
 /プライバシーポリシー/ /privacy 301
-/帰化 /kika-shinsei 301
-/帰化申請 /kika-shinsei 301
+/帰匁E/kika-shinsei 301
+/帰化申諁E/kika-shinsei 301
 /kika /kika-shinsei 301
 
 # --- English URL variants ---
