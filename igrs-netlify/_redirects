@@ -62,3 +62,9 @@ http://igrs.online/* https://igrs.online/:splat 301
 /naturalization /kika-shinsei 301!
 /spouse-visa /haigusha-visa 301!
 /premium-pack /premium-package 301!
+
+# --- project slug (raw JP) ---
+/プロジェクト / 301!
+/プロジェクト/ / 301!
+/プロジェクト/* / 301!
+
