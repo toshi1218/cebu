@@ -68,3 +68,9 @@ http://igrs.online/* https://igrs.online/:splat 301
 /プロジェクチE / 301!
 /プロジェクチE* / 301!
 
+
+# --- project slug redirects (final) ---
+/プロジェクト / 301
+/プロジェクト/ / 301
+/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 / 301
+/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/ / 301
