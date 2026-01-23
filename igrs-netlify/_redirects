@@ -51,8 +51,8 @@ http://igrs.online/* https://igrs.online/:splat 301
 # --- old Wix JP slugs (raw JP) ---
 /概要E/services 301
 /概要E /services 301
-/プロジェクチE/company 301
-/プロジェクチE /company 301
+/プロジェクチE / 301!
+/プロジェクチE / 301!
 /お問ぁE��わせ /contact 301
 /お問ぁE��わせ/ /contact 301
 /プライバシーポリシー /privacy 301
