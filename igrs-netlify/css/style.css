@@ -1050,6 +1050,29 @@ footer .footer-section:empty {
     text-decoration: underline;
 }
 
+/* Footer generic sections (e.g. premium-package, blog footers) */
+footer .footer-section h3,
+footer .footer-section h4 {
+    color: var(--bg-white, #ffffff);
+}
+
+footer .footer-section p,
+footer .footer-section li,
+footer .footer-section a {
+    color: #cbd5e0;
+}
+
+footer .footer-section a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+footer .footer-section a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1.5rem 0;
