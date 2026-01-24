@@ -43,15 +43,6 @@ http://igrs.online/* https://igrs.online/:splat 301
 /%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC /privacy 301
 /%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/ /privacy 301
 # --- old Wix JP slugs (raw JP) ---
-/概要E/services 301
-/概要E /services 301
-/プロジェクチE / 301!
-/お問ぁE��わせ /contact 301
-/お問ぁE��わせ/ /contact 301
-/プライバシーポリシー /privacy 301
-/プライバシーポリシー/ /privacy 301
-/帰匁E/kika-shinsei 301
-/帰化申諁E/kika-shinsei 301
 /kika /kika-shinsei 301
 # --- English URL variants ---
 /privacy-policy /privacy 301
@@ -64,13 +55,8 @@ http://igrs.online/* https://igrs.online/:splat 301
 /premium-pack /premium-package 301!
 
 # --- project slug (raw JP) ---
-/プロジェクチE/ 301!
-/プロジェクチE / 301!
-/プロジェクチE* / 301!
 
 
 # --- project slug redirects (final) ---
-/プロジェクト / 301
-/プロジェクト/ / 301
 /%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 / 301
 /%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/ / 301
