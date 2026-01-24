@@ -442,16 +442,6 @@
       }
     </script>
   <script>
-    function toggleMobileNav() {
-      document.getElementById('navMobile').classList.toggle('active');
-    }
-
-    function toggleMobileDropdown(button) {
-      button.classList.toggle('open');
-      const submenu = button.nextElementSibling;
-      submenu.classList.toggle('open');
-    }
-
     // Handle form submission and redirect
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('form[action*="formspree"]');
@@ -497,6 +487,7 @@
     });
   </script>
   <script src="/scripts/ga-events.js" defer></script>
+  <script src="/js/nav-menu.js" defer></script>
 </body>
 
 </html>

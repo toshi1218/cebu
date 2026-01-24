@@ -1087,18 +1087,7 @@
   <script src="/scripts/ga-events.js" defer></script>
   <script src="/js/mobile-pro.js"></script>
   <script src="/js/mobile-upgrade.js" defer></script>
-  <script>
-    document.getElementById('menuToggle')?.addEventListener('click', function () {
-      document.getElementById('navMobile')?.classList.toggle('active');
-    });
-
-    // スマホ版アコーディオン開閉
-    document.querySelectorAll('.mobile-nav-label').forEach(label => {
-      label.addEventListener('click', function () {
-        this.nextElementSibling?.classList.toggle('open');
-      });
-    });
-  </script>
+  <script src="/js/nav-menu.js" defer></script>
 </body>
 
 </html>

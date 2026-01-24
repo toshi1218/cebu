@@ -706,18 +706,6 @@
 
     <!-- Scripts -->
     <script>
-        // Mobile Navigation
-        function toggleMobileNav() {
-            const navMobile = document.getElementById('navMobile');
-            navMobile.classList.toggle('active');
-        }
-
-        function toggleMobileDropdown(button) {
-            const submenu = button.nextElementSibling;
-            submenu.classList.toggle('open');
-            button.classList.toggle('open');
-        }
-
         // FAQ Accordion
         document.addEventListener('DOMContentLoaded', function () {
             const faqItems = document.querySelectorAll('.faq-item h3');
@@ -775,6 +763,7 @@
             });
         });
     </script>
+    <script src="/js/nav-menu.js" defer></script>
 </body>
 
 </html>

@@ -911,21 +911,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Mobile Navigation
-        function toggleMobileNav() {
-            const navMobile = document.getElementById('navMobile');
-            navMobile.classList.toggle('active');
-        }
-
-        function toggleMobileDropdown(button) {
-            const submenu = button.nextElementSibling;
-            submenu.classList.toggle('open');
-            button.classList.toggle('open');
-        }
-    </script>
-
     <!-- モバイル固定ボトムナビゲーション -->
     <nav class="mobile-bottom-nav">
         <div class="mobile-bottom-nav-container">
@@ -939,6 +924,7 @@
             </a>
         </div>
     </nav>
+    <script src="/js/nav-menu.js" defer></script>
 </body>
 
 </html>
