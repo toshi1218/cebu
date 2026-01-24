@@ -1093,14 +1093,53 @@ footer .footer-section a:hover {
     line-height: 1.6;
 }
 
+/* Company info section (会社情報ブロック本体) */
 .company-info {
+    color: #111827;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0.75rem 0 0 0;
+}
+
+.company-info strong,
+.company-info dt {
+    color: #374151;
+    font-weight: 500;
+}
+
+.company-info dd {
+    color: #111827;
+    font-weight: 400;
+}
+
+.company-info a {
+    color: #111827;
+    text-decoration: underline;
+}
+
+.company-info a:hover {
+    color: #0f172a;
+}
+
+.company-info-label {
+    color: #374151;
+    font-weight: 500;
+}
+
+.company-info-value {
+    color: #111827;
+    font-weight: 400;
+}
+
+/* Footer内の会社情報（コピーライト直下の小さなテキスト）は従来のトーンを維持 */
+footer .company-info {
     color: #a0aec0;
     font-size: 0.875rem;
     line-height: 1.6;
     margin: 0.5rem 0 0 0;
 }
 
-.company-info strong {
+footer .company-info strong {
     color: #cbd5e0;
     font-weight: var(--font-weight-medium);
 }
