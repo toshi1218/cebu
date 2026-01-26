@@ -1884,4 +1884,23 @@ header nav {
 
 .nav-item:hover .dropdown-menu {
     display: block !important;
+} 
+ 
+/* ========================================
+   Footer Bottom - Center Alignment
+   ======================================== */
+.footer-bottom,
+.footer-info,
+.footer-copyright {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.footer-bottom p,
+.footer-info p {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
