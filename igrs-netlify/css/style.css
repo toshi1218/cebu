@@ -411,10 +411,10 @@ section:first-of-type {
 }
 
 /* コンテナを縦積み＋中央揃え（サービス用Heroだけ） */
-.service-hero > .container,
-.page-hero > .container,
-.service-hero-section > .container,
-.hero-section > .container {
+.service-hero>.container,
+.page-hero>.container,
+.service-hero-section>.container,
+.hero-section>.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -434,9 +434,9 @@ section:first-of-type {
 }
 
 /* リード文・補足テキストも中央で読みやすく（Hero内だけ） */
-.service-hero > p,
+.service-hero>p,
 .service-hero p,
-.page-hero > p,
+.page-hero>p,
 .page-hero p,
 .service-hero-section p,
 .hero-section p {
@@ -1884,8 +1884,10 @@ header nav {
 
 .nav-item:hover .dropdown-menu {
     display: block !important;
-} 
- 
+}
+
+   
+
 /* ========================================
    Footer Bottom - Center Alignment
    ======================================== */
@@ -1906,13 +1908,15 @@ header nav {
 }
 
 /* ========================================
-   Section Titles - Center Alignment
+   Section Titles - Center Alignment (Landing Pages Only)
    ======================================== */
-section h2,
-.section-title h2,
-.content-section > h2 {
+/* 特定のランディングページセクションのみ中央寄せ */
+.page-hero h1,
+.page-hero h2,
+.section-title h2 {
     text-align: center;
 }
+
 
 /* FAQ Section Improvements */
 .faq-section {
