@@ -1,0 +1,9 @@
+TYPE    PRIORITY    HOST    DATA
+MX      1           @       ASPMX.L.GOOGLE.COM
+MX      5           @       ALT1.ASPMX.L.GOOGLE.COM
+MX      5           @       ALT2.ASPMX.L.GOOGLE.COM
+MX      10          @       ALT3.ASPMX.L.GOOGLE.COM
+MX      10          @       ALT4.ASPMX.L.GOOGLE.COM
+
+Note: specific verification TXT records may also be required if not already verified.
+But for receiving email, these 5 records are the standard requirement for Google Workspace.
