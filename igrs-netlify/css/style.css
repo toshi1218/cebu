@@ -1904,3 +1904,59 @@ header nav {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ========================================
+   Section Titles - Center Alignment
+   ======================================== */
+section h2,
+.section-title h2,
+.content-section > h2 {
+    text-align: center;
+}
+
+/* FAQ Section Improvements */
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+/* Timeline/Flow Section Spacing */
+.timeline {
+    margin-top: 3rem;
+}
+
+/* Recommended Badge Enhancement */
+.recommended-badge {
+    position: absolute;
+    top: -16px;
+    right: 16px;
+    background: #ff6b35;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
