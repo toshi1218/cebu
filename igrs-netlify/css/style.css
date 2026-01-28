@@ -2249,3 +2249,47 @@ body * {
         max-width: 100% !important;
     }
 }
+
+/* === CTA lead text alignment fix (global) === */
+.cta-section {
+    text-align: center;
+}
+
+.cta-lead {
+    max-width: 980px;
+    margin: 0 auto 12px;
+    padding: 0 20px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* CTA buttons block should be centered consistently */
+.cta-buttons,
+.contact-buttons,
+.button-group,
+.cta-group {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+/* mobile: CTA buttons full width extended */
+@media (max-width: 520px) {
+
+    .cta-buttons a,
+    .contact-buttons a,
+    .button-group a,
+    .cta-group a,
+    .cta-buttons button,
+    .contact-buttons button,
+    .button-group button,
+    .cta-group button {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+}
