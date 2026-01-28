@@ -2542,3 +2542,41 @@ button,
         margin-bottom: 4rem;
     }
 }
+
+/* === Internal Link Enhancements === */
+.related-links {
+    margin: 3rem 0;
+    padding: 1.5rem;
+    background: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--primary-color);
+}
+
+.related-links h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.related-links ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.related-links li {
+    margin-bottom: 0.5rem;
+}
+
+.related-links a {
+    color: var(--text-dark);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    transition: all 0.2s;
+}
+
+.related-links a:hover {
+    color: var(--primary-color);
+    text-decoration-thickness: 2px;
+}
