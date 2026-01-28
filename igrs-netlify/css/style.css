@@ -1132,6 +1132,12 @@ footer {
     margin-top: auto;
 }
 
+footer::before {
+    content: "";
+    display: block;
+    height: 2rem;
+}
+
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -2334,11 +2340,10 @@ body {
     min-height: 100vh;
 }
 
-/* Main wrapping elements that push the footer down */
+/* Main wrapping elements that push the footer down (avoid .container) */
 main,
 .page-wrap,
 .content,
-.container,
 .wrapper,
 #root,
 #app {
@@ -2346,14 +2351,6 @@ main,
     width: 100%;
 }
 
-/* Ensure content doesn't touch footer directly */
-main:last-child,
-.page-wrap:last-child,
-.content:last-child,
-.container:last-child,
-.wrapper:last-child {
-    margin-bottom: 2rem;
-}
 
 *,
 *::before,
