@@ -2334,9 +2334,25 @@ body {
     min-height: 100vh;
 }
 
-main {
+/* Main wrapping elements that push the footer down */
+main,
+.page-wrap,
+.content,
+.container,
+.wrapper,
+#root,
+#app {
     flex: 1;
     width: 100%;
+}
+
+/* Ensure content doesn't touch footer directly */
+main:last-child,
+.page-wrap:last-child,
+.content:last-child,
+.container:last-child,
+.wrapper:last-child {
+    margin-bottom: 2rem;
 }
 
 *,
