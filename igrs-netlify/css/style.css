@@ -2160,3 +2160,96 @@ header nav {
 .page-wrap .services-grid {
     width: 100%;
 }
+
+/* ========================================
+   Global Anti-Overflow Guard (Mobile First)
+   ======================================== */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent long words/URLs from breaking layout */
+p,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* Unify central container width */
+.container,
+.page-wrap {
+    width: 100%;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Fix common 100vw issues */
+.full,
+.fullwidth,
+.hero,
+.section,
+.wrapper {
+    max-width: 100%;
+}
+
+/* Mobile Button & Card Fixes */
+@media (max-width: 520px) {
+
+    .btn,
+    button,
+    .cta,
+    .contact-buttons a {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .pricing-card,
+    .card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Ensure inputs don't overflow */
+    input,
+    select,
+    textarea {
+        max-width: 100% !important;
+    }
+
+    /* Fix timeline scaling on small screens */
+    .timeline-item {
+        padding-left: 2rem !important;
+    }
+}
