@@ -135,23 +135,21 @@
       height: 70vh;
       min-height: 500px;
       max-height: 700px;
-      background-image: url('/images/hero-bg.png');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
+      /* 2レイヤー背景：オーバーレイ + 画像を1つのプロパティに集約 */
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/hero-bg.png') !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
       display: flex;
       align-items: center;
       padding: 120px 2rem 80px;
       overflow: hidden;
     }
 
-    /* オーバーレイを一旦削除 */
-    /*
+    /* 擬似要素オーバーレイは不要（2レイヤー背景で実現） */
     .hero::before {
-      display: none;
+      display: none !important;
     }
-    */
 
     .hero-content h1,
     .hero-content p,
