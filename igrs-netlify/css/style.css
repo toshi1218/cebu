@@ -2445,3 +2445,62 @@ button,
 .page-wrap * {
     max-width: 100%;
 }
+
+/* === Mobile Footer Center Alignment === */
+@media (max-width: 520px) {
+
+    footer,
+    .footer-container,
+    .footer-brand,
+    .footer-links,
+    .footer-bottom {
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    footer .container,
+    footer .page-wrap,
+    .footer-container {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* リンクリストを中央寄せ（縦並び） */
+    footer ul,
+    .footer-links ul {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    footer li,
+    .footer-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    footer a,
+    .footer-links a {
+        display: inline-block;
+        text-align: center;
+    }
+
+    /* 見出しも中央寄せ */
+    footer h3,
+    footer h4,
+    .footer-links h4,
+    .footer-brand h3 {
+        text-align: center;
+        margin-top: 22px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-brand p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
