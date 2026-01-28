@@ -130,29 +130,23 @@
   <style>
     /* Hero Section - Home Specific */
     .hero {
+      position: relative;
       height: 70vh;
       min-height: 500px;
       max-height: 700px;
-      background-image: url('/images/hero-bg.png') !important;
+      background: url('/images/hero-bg.png') no-repeat center center / cover !important;
+      -webkit-background-size: cover !important;
+      -moz-background-size: cover !important;
+      -o-background-size: cover !important;
       background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
       display: flex;
       align-items: center;
       padding: 120px 2rem 80px;
-      position: relative;
       overflow: hidden;
     }
 
     .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(26, 54, 93, 0.3);
-      z-index: 1;
+      display: none;
     }
 
     .hero-content h1,
@@ -602,8 +596,7 @@
   </header>
 
   <!-- ヒーローセクション -->
-  <section class="hero"
-    style="background-image: url('/images/hero-bg.png') !important; background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <section class="hero" style="background: url('/images/hero-bg.png') no-repeat center center / cover;">
     <div class="hero-container">
       <div class="hero-content">
         <h1>フィリピンの公的書類を<br /><span>安心・確実</span>に取得します</h1>
