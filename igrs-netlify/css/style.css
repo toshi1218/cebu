@@ -2535,3 +2535,13 @@ button,
         grid-template-columns: 1fr !important;
     }
 }
+
+/* === Fix: Button overlap with Footer (Mobile) === */
+@media (max-width: 768px) {
+
+    .cta-section,
+    .inquiry-section,
+    .contact-section {
+        margin-bottom: 4rem;
+    }
+}
