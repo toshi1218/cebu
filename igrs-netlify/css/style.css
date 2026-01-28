@@ -2293,3 +2293,27 @@ body * {
         max-width: 100%;
     }
 }
+
+/* === Fix: prevent right-side clipping on mobile (titles/breadcrumb/lead) === */
+h1,
+h2,
+h3,
+.hero-title,
+.page-title,
+.section-title,
+.breadcrumb,
+.breadcrumbs,
+.lead,
+.hero p,
+.content-section p {
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* Safety: if any element still exceeds viewport, it must not force width */
+* {
+    max-width: 100%;
+}
