@@ -2161,9 +2161,7 @@ header nav {
     width: 100%;
 }
 
-/* ========================================
-   Global Anti-Overflow Guard (Mobile First)
-   ======================================== */
+/* === GLOBAL: anti overflow & consistent center line (mobile first) === */
 html,
 body {
     width: 100%;
@@ -2185,7 +2183,6 @@ canvas {
     height: auto;
 }
 
-/* Prevent long words/URLs from breaking layout */
 p,
 li,
 a,
@@ -2199,8 +2196,9 @@ h6 {
     word-break: break-word;
 }
 
-/* Unify central container width */
+/* unify center baseline */
 .container,
+.content-section,
 .page-wrap {
     width: 100%;
     max-width: 980px;
@@ -2208,48 +2206,23 @@ h6 {
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
+    box-sizing: border-box;
 }
 
-/* Fix common 100vw issues */
-.full,
-.fullwidth,
-.hero,
-.section,
-.wrapper {
-    max-width: 100%;
-}
-
-/* Mobile Button & Card Fixes */
+/* mobile: CTA/buttons/cards never overflow */
 @media (max-width: 520px) {
 
     .btn,
     button,
     .cta,
     .contact-buttons a {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+        width: 100%;
+        max-width: 100%;
     }
 
-    .pricing-card,
-    .card {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-
-    /* Ensure inputs don't overflow */
-    input,
-    select,
-    textarea {
-        max-width: 100% !important;
-    }
-
-    /* Fix timeline scaling on small screens */
-    .timeline-item {
-        padding-left: 2rem !important;
+    .card,
+    .pricing-card {
+        width: 100%;
+        max-width: 100%;
     }
 }
