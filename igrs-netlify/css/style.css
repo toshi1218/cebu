@@ -1128,8 +1128,8 @@ section:first-of-type {
 footer {
     background: var(--primary-color);
     color: var(--bg-white);
-    padding: 3rem 0 0;
-    margin-top: 4rem;
+    padding: 2.5rem 0 0;
+    margin-top: auto;
 }
 
 .footer-container {
@@ -1139,7 +1139,7 @@ footer {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-brand h3 {
@@ -1223,8 +1223,8 @@ footer .footer-section a:hover {
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+    padding: 1.25rem 0;
+    margin-top: 0;
 }
 
 .footer-copyright {
@@ -2329,6 +2329,14 @@ body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 100%;
 }
 
 *,
