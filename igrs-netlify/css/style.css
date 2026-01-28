@@ -2226,3 +2226,26 @@ h6 {
         max-width: 100%;
     }
 }
+
+/* FINAL GUARD: prevent any child from forcing x-scroll */
+body * {
+    max-width: 100%;
+}
+
+@media (max-width: 520px) {
+
+    .contact-buttons,
+    .button-group,
+    .cta-group {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .contact-buttons a,
+    .button-group a,
+    .cta-group a {
+        display: block;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
