@@ -2504,3 +2504,10 @@ button,
         margin-right: auto;
     }
 }
+
+/* === Mobile: Single Column for Pain Points (kokusai-kekkon.html) === */
+@media (max-width: 768px) {
+    .pain-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
