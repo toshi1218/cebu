@@ -2317,3 +2317,131 @@ h3,
 * {
     max-width: 100%;
 }
+
+/* === FINAL: consistent center baseline across entire site === */
+:root {
+    --wrap: 980px;
+    --pad: 20px;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+p,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* IMPORTANT: main layout wrappers should never use 100vw */
+header,
+main,
+footer,
+section,
+nav,
+.hero,
+.wrapper,
+.section,
+.content-section {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* universal center container (use existing .container/.page-wrap) */
+.container,
+.page-wrap,
+.content-inner,
+.inner,
+.wrap {
+    width: 100%;
+    max-width: var(--wrap);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+}
+
+/* If some pages use content-section directly as container, normalize it */
+.content-section {
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+}
+
+.content-section>* {
+    max-width: var(--wrap);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === CTA / buttons: fix “left clipped / right OK” bug === */
+button,
+.btn,
+.cta,
+.cta-buttons a,
+.contact-buttons a,
+.button-group a {
+    max-width: 100%;
+}
+
+@media (max-width: 520px) {
+
+    .cta-buttons,
+    .contact-buttons,
+    .button-group,
+    .cta-group {
+        width: 100%;
+        max-width: var(--wrap);
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--pad);
+        padding-right: var(--pad);
+    }
+
+    .cta-buttons a,
+    .contact-buttons a,
+    .button-group a,
+    .cta-group a,
+    .cta-buttons button,
+    .contact-buttons button,
+    .button-group button,
+    .cta-group button {
+        display: block;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Safety: if any element still causes overflow, clip it inside itself */
+.hero *,
+.content-section *,
+.container *,
+.page-wrap * {
+    max-width: 100%;
+}
