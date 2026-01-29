@@ -337,14 +337,14 @@ header nav {
     --safe-right: env(safe-area-inset-right, 0px);
 }
 
-header {
+header.site-header {
     width: 100%;
     max-width: 100%;
     overflow: visible;
 }
 
 /* Specific fix for the container used in header */
-header .header-container {
+header.site-header .header-container {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto;
@@ -354,8 +354,8 @@ header .header-container {
 }
 
 /* Remove 100vw if present inline */
-header[style*="100vw"],
-header .header-container[style*="100vw"] {
+header.site-header[style*="100vw"],
+header.site-header .header-container[style*="100vw"] {
     width: 100% !important;
 }
 
