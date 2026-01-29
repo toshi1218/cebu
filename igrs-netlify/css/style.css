@@ -331,57 +331,35 @@ header nav {
 /* ========================================
    Professional Cards Layout
    ======================================== */
-/* === Header clipping fix (global) === */
+/* === Header clipping fix (scoped) === */
 :root {
     --safe-left: env(safe-area-inset-left, 0px);
     --safe-right: env(safe-area-inset-right, 0px);
 }
 
-header,
-.site-header,
-.header {
+header {
     width: 100%;
     max-width: 100%;
     overflow: visible;
 }
 
-header *,
-.site-header *,
-.header * {
-    box-sizing: border-box;
-}
-
-/* ヘッダー内の横並びコンテナ（例: .container / .header-inner / .nav-inner） */
-header .container,
-.site-header .container,
-.header .container,
-header .header-inner,
-.site-header .header-inner,
-.header .header-inner,
-header .nav-inner,
-.site-header .nav-inner,
-.header .nav-inner {
-    width: 100%;
-    max-width: 100%;
+/* Specific fix for the container used in header */
+header .header-container {
+    width: 100% !important;
+    max-width: 100% !important;
     margin: 0 auto;
     padding-left: max(16px, var(--safe-left));
     padding-right: max(16px, var(--safe-right));
+    box-sizing: border-box;
 }
 
-/* もし header か inner に width:100vw があれば 100% に置換 */
+/* Remove 100vw if present inline */
 header[style*="100vw"],
-.site-header[style*="100vw"],
-.header[style*="100vw"] {
+header .header-container[style*="100vw"] {
     width: 100% !important;
 }
 
-header .container[style*="100vw"],
-.site-header .container[style*="100vw"],
-.header .container[style*="100vw"] {
-    width: 100% !important;
-}
-
-/* ハンバーガー/右端ボタンがはみ出す場合の保険（実クラス名に合わせて） */
+/* Menu toggle spacing */
 .hamburger,
 .menu-toggle,
 .nav-toggle {
