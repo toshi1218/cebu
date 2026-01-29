@@ -331,6 +331,64 @@ header nav {
 /* ========================================
    Professional Cards Layout
    ======================================== */
+/* === Header clipping fix (global) === */
+:root {
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+}
+
+header,
+.site-header,
+.header {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+}
+
+header *,
+.site-header *,
+.header * {
+    box-sizing: border-box;
+}
+
+/* ヘッダー内の横並びコンテナ（例: .container / .header-inner / .nav-inner） */
+header .container,
+.site-header .container,
+.header .container,
+header .header-inner,
+.site-header .header-inner,
+.header .header-inner,
+header .nav-inner,
+.site-header .nav-inner,
+.header .nav-inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: max(16px, var(--safe-left));
+    padding-right: max(16px, var(--safe-right));
+}
+
+/* もし header か inner に width:100vw があれば 100% に置換 */
+header[style*="100vw"],
+.site-header[style*="100vw"],
+.header[style*="100vw"] {
+    width: 100% !important;
+}
+
+header .container[style*="100vw"],
+.site-header .container[style*="100vw"],
+.header .container[style*="100vw"] {
+    width: 100% !important;
+}
+
+/* ハンバーガー/右端ボタンがはみ出す場合の保険（実クラス名に合わせて） */
+.hamburger,
+.menu-toggle,
+.nav-toggle {
+    flex: 0 0 auto;
+    margin-left: 12px;
+}
+
 .case-card,
 .example-card,
 .cases-grid>div,
@@ -800,7 +858,14 @@ table tr:last-child td {
 .nav-mobile a[href="/contact"] {
     background: var(--accent-color) !important;
     color: var(--bg-white) !important;
+    font-weight: bold !important;
     box-shadow: none !important;
+}
+
+.context-link {
+    font-size: 0.9em;
+    text-decoration: underline;
+    color: var(--primary-color);
 }
 
 .nav-mobile a[href="/contact"]:hover {
@@ -2579,4 +2644,30 @@ button,
 .related-links a:hover {
     color: var(--primary-color);
     text-decoration-thickness: 2px;
+}
+
+/* ========================================
+   Standardized CTA Button (Golden)
+   Based on user preference: #d69e2e
+   ======================================== */
+.btn-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #d69e2e !important;
+    color: white !important;
+    padding: 16px 40px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(214, 158, 46, 0.3) !important;
+}
+
+.btn-cta:hover {
+    background: #b7862a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(214, 158, 46, 0.4) !important;
 }
