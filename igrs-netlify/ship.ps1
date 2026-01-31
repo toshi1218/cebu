@@ -17,11 +17,16 @@ if ($name) { $branch = "ag/$name" }
 Write-Host "Shipping to $branch..."
 
 try {
-    # 0. Sync with Master
+    # 0. Sync with Master (Robust)
     Write-Host "Syncing with master..."
-    git -C .. switch master
-    git -C .. pull --ff-only origin master
-    if ($LASTEXITCODE -ne 0) { throw "Master sync failed" }
+    try {
+        git -C .. switch master 2>$null
+        if ($LASTEXITCODE -ne 0) { throw "Switch failed" }
+        git -C .. pull --ff-only origin master
+    }
+    catch {
+        Write-Host "Warning: Could not switch to master (dirty?). Proceeding from current branch."
+    }
 
     # 1. New Branch
     git -C .. checkout -b $branch
@@ -47,16 +52,19 @@ try {
     
     # 5. Auto-Merge / Wait & Merge
     Write-Host "Attempting Auto-merge..."
-    gh pr merge $prNumber --auto --squash --delete-branch 2>$null
-    
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "Auto-merge not enabled. Switching to Wait & Merge..."
+    try {
+        gh pr merge $prNumber --auto --squash --delete-branch
+        if ($LASTEXITCODE -ne 0) { throw "Auto-merge failed" }
+        Write-Host "Done! PR set to auto-merge."
+    }
+    catch {
+        Write-Host "Auto-merge disabled/failed. Switching to Wait & Merge..."
         
         Write-Host "Waiting for Quality Gate..."
         gh pr checks $prNumber --watch
         
         if ($LASTEXITCODE -ne 0) {
-            Write-Host "[X] Gate Failed. Fix and Re-run."
+            Write-Host "Gate Failed. Fix and Re-run."
             exit 1
         }
         
@@ -65,9 +73,6 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "Merge failed" }
         
         Write-Host "Done! Merged."
-    }
-    else {
-        Write-Host "Done! PR set to auto-merge."
     }
 }
 catch {
