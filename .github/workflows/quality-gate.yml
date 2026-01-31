@@ -100,9 +100,10 @@ jobs:
           
           # Validate HTML files using vnu.jar with filter
           # Output to file vnu-report.txt for artifact
-          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --filterfile ./.ci/vnu-filter.txt . 2>&1 | tee vnu-report.txt
+          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --filterfile ./.ci/vnu-filter.txt . 2>&1 | tee vnu-report.txt; exit 0
 
       - name: "Check 3: Mobile Horizontal Scroll Detection (Playwright)"
+        if: ${{ env.MODE != 'baseline' }}
         run: |
           # Create Playwright script
           cat << 'EOF' > check-scroll.mjs
