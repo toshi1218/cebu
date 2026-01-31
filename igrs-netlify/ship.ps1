@@ -17,31 +17,37 @@ if ($name) { $branch = "ag/$name" }
 Write-Host "🚀 Shipping to $branch..."
 
 try {
-    # 1. New Branch
-    git checkout -b $branch
+    # 1. New Branch (from current state)
+    # Use -C .. to execute git commands from the repository root
+    git -C .. checkout -b $branch
     if ($LASTEXITCODE -ne 0) { throw "Branch creation failed" }
 
     # 2. Commit (if changes exist)
-    if (git status --porcelain) {
-        git add .
-        git commit -m "Update $timestamp"
+    if (git -C .. status --porcelain) {
+        git -C .. add .
+        git -C .. commit -m "Update $timestamp"
         if ($LASTEXITCODE -ne 0) { throw "Commit failed" }
     }
 
     # 3. Push
-    git push origin $branch
+    git -C .. push origin $branch
     if ($LASTEXITCODE -ne 0) { throw "Push failed" }
 
     # 4. PR
-    # Use specific title and body=" " to avoid errors
-    gh pr create --base master --head $branch --title "Update $timestamp" --body " "
+    # gh automatically detects the repository root
+    gh pr create --base master --head $branch --title "ship: $branch" --body " "
     if ($LASTEXITCODE -ne 0) { throw "PR creation failed" }
 
     # 5. Auto-Merge
-    gh pr merge --auto --merge
-    if ($LASTEXITCODE -ne 0) { throw "Auto-merge set failed" }
-
-    Write-Host "✅ Done! PR set to auto-merge."
+    # Try multiple merge strategies or just use --merge. 
+    # Warning: This requires 'Allow auto-merge' to be enabled in repo settings.
+    gh pr merge --auto --merge --delete-branch
+    if ($LASTEXITCODE -ne 0) { 
+        Write-Host "⚠️ Auto-merge failed (Repo settings might disable it). Continuing..." 
+    }
+    else {
+        Write-Host "✅ Done! PR set to auto-merge."
+    }
 }
 catch {
     Write-Host "❌ Error: $_"
