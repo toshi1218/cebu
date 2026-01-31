@@ -1,0 +1,157 @@
+name: Quality Gate
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PORT: 8080
+      BASE_URL: http://127.0.0.1:8080
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java (for vnu.jar)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install dependencies
+        run: |
+          npm install -g http-server vnu-jar linkinator wait-on playwright
+          npx playwright install --with-deps chromium
+
+      - name: Start static server
+        run: |
+          # Start http-server with extension support (-e html)
+          npx http-server . -p ${{ env.PORT }} -a 127.0.0.1 -c-1 --cors -e html &
+          echo "Server PID: $!"
+          # Wait for server to be ready
+          npx wait-on ${{ env.BASE_URL }} -t 10000
+
+      - name: Check 1: Internal Link Broken
+        run: |
+          # Check for broken links, skip external links and mailto/tel
+          # --skip "^mailto:" "^tel:" --scope "${{ env.BASE_URL }}"
+          npx linkinator ${{ env.BASE_URL }} --recurse --skip "^mailto:" "^tel:" --scope "${{ env.BASE_URL }}" --concurrency 5
+
+      - name: Check 2: HTML Validator (vnu.jar)
+        run: |
+          # Validate HTML files using vnu.jar
+          # Suppress specific info/warnings if needed, but here we run strictly
+          java -jar $(npm root -g)/vnu-jar/build/dist/vnu.jar --skip-non-html --Werror .
+
+      - name: Check 3: Mobile Horizontal Scroll Detection (Playwright)
+        run: |
+          # Create Playwright script
+          cat << 'EOF' > check-scroll.mjs
+          import { chromium } from 'playwright';
+          import fs from 'fs';
+
+          const BASE_URL = process.env.BASE_URL;
+          // Target paths to check
+          const TARGET_PATHS = [
+            '/', 
+            '/contact', 
+            '/cenomar', 
+            '/personal', 
+            '/business', 
+            '/company', 
+            '/privacy', 
+            '/kokusai-kekkon'
+          ];
+
+          (async () => {
+            const browser = await chromium.launch();
+            const failures = [];
+            const results = { pass: [], fail: [] };
+
+            for (const path of TARGET_PATHS) {
+              const url = `${BASE_URL}${path}`;
+              console.log(`Checking ${url} for horizontal scroll...`);
+              
+              const page = await browser.newPage({
+                viewport: { width: 390, height: 844 }, // iPhone 12/13/14 equivalent
+                deviceScaleFactor: 3,
+                isMobile: true,
+                hasTouch: true
+              });
+
+              try {
+                const response = await page.goto(url, { waitUntil: 'networkidle' });
+                if (!response || !response.ok()) {
+                   const msg = `Failed to load ${url}: ${response ? response.status() : 'No response'}`;
+                   console.error(msg);
+                   failures.push({ url, reason: msg });
+                   results.fail.push({ url, reason: msg });
+                   continue;
+                }
+
+                // Check for horizontal scroll
+                const { scrollWidth, innerWidth } = await page.evaluate(() => {
+                    return {
+                        scrollWidth: document.documentElement.scrollWidth,
+                        innerWidth: window.innerWidth
+                    };
+                });
+                
+                if (scrollWidth > innerWidth) {
+                  const reason = `Horizontal Scroll Detected: Content(${scrollWidth}px) > Viewport(${innerWidth}px)`;
+                  console.error(`FAIL: ${url} -> ${reason}`);
+                  failures.push({ url, reason });
+                  results.fail.push({ url, reason });
+                  // Capture screenshot
+                  const safeName = path.replace(/\//g, '_') || 'root';
+                  await page.screenshot({ path: `scroll-failure-${safeName}.png`, fullPage: true });
+                } else {
+                  console.log(`PASS: ${url}`);
+                  results.pass.push(url);
+                }
+
+              } catch (e) {
+                console.error(`Error checking ${path}:`, e);
+                failures.push({ url, reason: e.message });
+                results.fail.push({ url, reason: e.message });
+              } finally {
+                await page.close();
+              }
+            }
+
+            await browser.close();
+
+            // Write report
+            fs.writeFileSync('quality-report.json', JSON.stringify(results, null, 2));
+
+            if (failures.length > 0) {
+              console.error('Validation Failed with ' + failures.length + ' errors.');
+              process.exit(1);
+            } else {
+              console.log('All checks passed!');
+            }
+          })();
+          EOF
+          
+          # Run script
+          node check-scroll.mjs
+
+      - name: Upload Artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-evidence
+          path: |
+            *.png
+            quality-report.json
