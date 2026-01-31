@@ -19,28 +19,28 @@ jobs:
       SITE_DIR: igrs-netlify
 
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: "Setup Node.js"
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Setup Java (for vnu.jar)
+      - name: "Setup Java (for vnu.jar)"
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install dependencies
+      - name: "Install dependencies"
         run: |
           # Install dependencies locally in igrs-netlify directory
           npm init -y
           npm install http-server vnu-jar linkinator wait-on playwright
           npx playwright install --with-deps chromium
 
-      - name: Start static server
+      - name: "Start static server"
         run: |
           # Start http-server with extension support (-e html)
           npx http-server . -p ${{ env.PORT }} -a 127.0.0.1 -c-1 --cors -e html &
@@ -48,19 +48,19 @@ jobs:
           # Wait for server to be ready
           npx wait-on ${{ env.BASE_URL }} -t 10000
 
-      - name: Check 1: Internal Link Broken
+      - name: "Check 1: Internal Link Broken"
         run: |
           # Check for broken links, skip external links and mailto/tel
           # --skip "^mailto:" "^tel:" --scope "${{ env.BASE_URL }}"
           npx linkinator ${{ env.BASE_URL }} --recurse --skip "^mailto:" "^tel:" --scope "${{ env.BASE_URL }}" --concurrency 5
 
-      - name: Check 2: HTML Validator (vnu.jar)
+      - name: "Check 2: HTML Validator (vnu.jar)"
         run: |
           # Validate HTML files using vnu.jar
           # vnu-jar is installed locally in node_modules
           java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --Werror .
 
-      - name: Check 3: Mobile Horizontal Scroll Detection (Playwright)
+      - name: "Check 3: Mobile Horizontal Scroll Detection (Playwright)"
         run: |
           # Create Playwright script
           cat << 'EOF' > check-scroll.mjs
@@ -153,7 +153,7 @@ jobs:
           # Run script
           node check-scroll.mjs
 
-      - name: Upload Artifacts
+      - name: "Upload Artifacts"
         if: failure()
         uses: actions/upload-artifact@v4
         with:
