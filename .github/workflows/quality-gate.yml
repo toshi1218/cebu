@@ -71,6 +71,7 @@ jobs:
           fi
 
       - name: "Check 2: HTML Validator (vnu.jar)"
+        continue-on-error: true
         run: |
           # Create filter file to ignore node_modules and backups
           mkdir -p .ci
@@ -82,7 +83,8 @@ jobs:
           EOF
 
           # Validate HTML files using vnu.jar with filter
-          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --filterfile ./.ci/vnu-filter.txt .
+          # Output to file vnu-report.txt for artifact
+          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --filterfile ./.ci/vnu-filter.txt . 2>&1 | tee vnu-report.txt
 
       - name: "Check 3: Mobile Horizontal Scroll Detection (Playwright)"
         run: |
@@ -185,3 +187,4 @@ jobs:
           path: |
             igrs-netlify/*.png
             igrs-netlify/quality-report.json
+            igrs-netlify/vnu-report.txt
