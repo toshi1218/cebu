@@ -315,19 +315,51 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          BRANCH_NAME="visual-update-$(date +%s)"
-          git checkout -b $BRANCH_NAME
+          # Fixed branch name to prevent duplicate PRs
+          BRANCH_NAME="visual-baseline"
           
-          # Force add baseline images even if ignored
-          git add -f ci/baseline/mobile
+          # Checkout proper branch (new or reset)
+          git checkout -B $BRANCH_NAME
           
-          git commit -m "ci: add visual baseline + diff gate"
-          git push origin $BRANCH_NAME
+          # 1. Check dir existence
+          if [ ! -d "ci/baseline/mobile" ]; then
+            echo "No baseline directory found. Skipping."
+            exit 0
+          fi
           
-          gh pr create --title "chore: update visual baselines" --body "Automated baseline update." --head $BRANCH_NAME --base master
+          # 2. Check file existence
+          if [ -z "$(find ci/baseline/mobile -type f -maxdepth 1 2>/dev/null | head -n 1)" ]; then
+             echo "No baseline files found. Skipping."
+             exit 0
+          fi
           
-          # Attempt auto-merge
-          gh pr merge --auto --squash --delete-branch
+          # 3. Add files
+          git add -f ci/baseline/mobile/*
+          
+          # 4. Check for changes
+          if git diff --cached --quiet; then
+            echo "No baseline changes detected."
+            exit 0
+          fi
+          
+          git commit -m "ci: update visual baselines"
+          
+          # Force push to update the branch reference
+          git push -f origin $BRANCH_NAME
+          
+          # Check if PR exists
+          PR_COUNT=$(gh pr list --head $BRANCH_NAME --base master --json number --jq 'length')
+          
+          if [ "$PR_COUNT" -eq "0" ]; then
+            echo "Creating new PR..."
+            gh pr create --title "chore: update visual baselines" --body "Automated baseline update." --head $BRANCH_NAME --base master
+          else
+            echo "Updating existing PR..."
+            gh pr edit $BRANCH_NAME --title "chore: update visual baselines" --body "Automated baseline update (updated)."
+          fi
+          
+          # Ensure auto-merge is set
+          gh pr merge $BRANCH_NAME --auto --squash --delete-branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
