@@ -72,9 +72,17 @@ jobs:
 
       - name: "Check 2: HTML Validator (vnu.jar)"
         run: |
-          # Validate HTML files using vnu.jar
-          # Removed --Werror so warnings won't fail the build
-          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html .
+          # Create filter file to ignore node_modules and backups
+          mkdir -p .ci
+          cat > .ci/vnu-filter.txt <<'EOF'
+          .*node_modules/.*
+          .*playwright-core/.*
+          .*playwright/.*
+          .*kika_v2_backup\.html
+          EOF
+
+          # Validate HTML files using vnu.jar with filter
+          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --filterfile ./.ci/vnu-filter.txt .
 
       - name: "Check 3: Mobile Horizontal Scroll Detection (Playwright)"
         run: |
