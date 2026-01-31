@@ -10,9 +10,13 @@ jobs:
   gate:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: igrs-netlify
     env:
       PORT: 8080
       BASE_URL: http://127.0.0.1:8080
+      SITE_DIR: igrs-netlify
 
     steps:
       - name: Checkout code
@@ -31,7 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install -g http-server vnu-jar linkinator wait-on playwright
+          # Install dependencies locally in igrs-netlify directory
+          npm init -y
+          npm install http-server vnu-jar linkinator wait-on playwright
           npx playwright install --with-deps chromium
 
       - name: Start static server
@@ -51,8 +57,8 @@ jobs:
       - name: Check 2: HTML Validator (vnu.jar)
         run: |
           # Validate HTML files using vnu.jar
-          # Suppress specific info/warnings if needed, but here we run strictly
-          java -jar $(npm root -g)/vnu-jar/build/dist/vnu.jar --skip-non-html --Werror .
+          # vnu-jar is installed locally in node_modules
+          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --Werror .
 
       - name: Check 3: Mobile Horizontal Scroll Detection (Playwright)
         run: |
@@ -153,5 +159,5 @@ jobs:
         with:
           name: failure-evidence
           path: |
-            *.png
-            quality-report.json
+            igrs-netlify/*.png
+            igrs-netlify/quality-report.json
