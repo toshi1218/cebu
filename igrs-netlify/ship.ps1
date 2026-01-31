@@ -1,6 +1,15 @@
 param([string]$name)
 
 $ErrorActionPreference = "Stop"
+
+# Check GitHub Auth
+gh auth status
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "❌ Not logged in to GitHub."
+    Write-Host "👉 Action: Run 'gh auth login' first and stop here."
+    exit 1
+}
+
 $timestamp = Get-Date -Format "MMdd-HHmm"
 $branch = "ag/$timestamp"
 if ($name) { $branch = "ag/$name" }
@@ -24,7 +33,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "Push failed" }
 
     # 4. PR
-    gh pr create --base master --fill --head $branch
+    # Use specific title and body=" " to avoid errors
+    gh pr create --base master --head $branch --title "Update $timestamp" --body " "
     if ($LASTEXITCODE -ne 0) { throw "PR creation failed" }
 
     # 5. Auto-Merge
