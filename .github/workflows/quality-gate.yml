@@ -315,19 +315,39 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          BRANCH_NAME="visual-update-$(date +%s)"
-          git checkout -b $BRANCH_NAME
+          # Fixed branch name to prevent duplicate PRs
+          BRANCH_NAME="visual-baseline"
+          
+          # Checkout proper branch (new or reset)
+          git checkout -B $BRANCH_NAME
           
           # Force add baseline images even if ignored
           git add -f ci/baseline/mobile
           
-          git commit -m "ci: add visual baseline + diff gate"
-          git push origin $BRANCH_NAME
+          # Check for changes
+          if git diff --staged --quiet; then
+            echo "No changes to baseline."
+            exit 0
+          fi
           
-          gh pr create --title "chore: update visual baselines" --body "Automated baseline update." --head $BRANCH_NAME --base master
+          git commit -m "ci: update visual baselines"
           
-          # Attempt auto-merge
-          gh pr merge --auto --squash --delete-branch
+          # Force push to update the branch reference
+          git push -f origin $BRANCH_NAME
+          
+          # Check if PR exists
+          PR_COUNT=$(gh pr list --head $BRANCH_NAME --base master --json number --jq 'length')
+          
+          if [ "$PR_COUNT" -eq "0" ]; then
+            echo "Creating new PR..."
+            gh pr create --title "chore: update visual baselines" --body "Automated baseline update." --head $BRANCH_NAME --base master
+          else
+            echo "Updating existing PR..."
+            gh pr edit $BRANCH_NAME --title "chore: update visual baselines" --body "Automated baseline update (updated)."
+          fi
+          
+          # Ensure auto-merge is set
+          gh pr merge $BRANCH_NAME --auto --squash --delete-branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
