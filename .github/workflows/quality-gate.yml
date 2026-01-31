@@ -321,12 +321,24 @@ jobs:
           # Checkout proper branch (new or reset)
           git checkout -B $BRANCH_NAME
           
-          # Force add baseline images even if ignored
-          git add -f ci/baseline/mobile
+          # 1. Check dir existence
+          if [ ! -d "ci/baseline/mobile" ]; then
+            echo "No baseline directory found. Skipping."
+            exit 0
+          fi
           
-          # Check for changes
-          if git diff --staged --quiet; then
-            echo "No changes to baseline."
+          # 2. Check file existence
+          if [ -z "$(find ci/baseline/mobile -type f -maxdepth 1 2>/dev/null | head -n 1)" ]; then
+             echo "No baseline files found. Skipping."
+             exit 0
+          fi
+          
+          # 3. Add files
+          git add -f ci/baseline/mobile/*
+          
+          # 4. Check for changes
+          if git diff --cached --quiet; then
+            echo "No baseline changes detected."
             exit 0
           fi
           
