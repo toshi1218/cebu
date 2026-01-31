@@ -17,6 +17,12 @@ if ($name) { $branch = "ag/$name" }
 Write-Host "🚀 Shipping to $branch..."
 
 try {
+    # 0. Sync with Master
+    Write-Host "🔄 Syncing with master..."
+    git -C .. switch master
+    git -C .. pull --ff-only origin master
+    if ($LASTEXITCODE -ne 0) { throw "Master sync failed" }
+
     # 1. New Branch (from current state)
     # Use -C .. to execute git commands from the repository root
     git -C .. checkout -b $branch
