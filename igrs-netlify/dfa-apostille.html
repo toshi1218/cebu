@@ -78,32 +78,37 @@
       }
     </script>
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "フィリピンDFAアポスティーユ認証代行",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "株式会社IGRS",
-          "taxID": "2170001016118",
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "法人番号",
-            "value": "2170001016118"
-          },
-          "sameAs": [
-            "https://www.houjin-bangou.nta.go.jp/henkan/kaito-no?houjinBangou=2170001016118"
-          ]
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://igrs.online/#org",
+          "name": "IGRS（Philippine Document Retrieval Center）",
+          "url": "https://igrs.online/"
         },
-        "serviceType": "Apostille Service",
-        "areaServed": "JP",
-        "description": "フィリピン外務省（DFA）のアポスティーユ認証を代行。PSA、NBI、LTOなどで取得した公的文書にアポスティーユ認証を付与し、日本や海外の提出先で有効な状態にします。",
-        "offers": {
-          "@type": "Offer",
-          "price": "20000",
-          "priceCurrency": "JPY"
+        {
+          "@type": "WebPage",
+          "@id": "https://igrs.online/dfa-apostille#webpage",
+          "url": "https://igrs.online/dfa-apostille",
+          "name": "フィリピンDFAアポスティーユ認証代行",
+          "description": "フィリピン外務省（DFA）のアポスティーユ認証を代行。PSA、NBI、LTOなどで取得した公的文書にアポスティーユ認証を付与し、日本や海外の提出先で有効な状態にします。",
+          "inLanguage": "ja",
+          "isPartOf": { "@id": "https://igrs.online/#website" },
+          "about": { "@id": "https://igrs.online/#org" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://igrs.online/dfa-apostille#service",
+          "name": "フィリピンDFAアポスティーユ認証代行",
+          "provider": { "@id": "https://igrs.online/#org" },
+          "url": "https://igrs.online/dfa-apostille",
+          "areaServed": ["Philippines", "Japan"],
+          "inLanguage": "ja",
+          "description": "フィリピン外務省（DFA）のアポスティーユ認証を代行。PSA、NBI、LTOなどで取得した公的文書にアポスティーユ認証を付与し、日本や海外の提出先で有効な状態にします。"
         }
-      }
+      ]
+    }
     </script>
   <script type="application/ld+json">
       {

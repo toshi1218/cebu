@@ -100,12 +100,34 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "provider": { "@id": "https://igrs.online/#org" },
-  "areaServed": ["Japan", "Philippines"],
-  "url": "https://igrs.online/translation",
-  "name": "フィリピン公的証明書の翻訳サービス",
-  "description": "フィリピンの公的書類(PSA出生証明書・婚姻証明書など)の日本語・英語翻訳サービスです。日本の役所や入管に提出可能な形式で作成します。翻訳証明書の発行も対応。"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://igrs.online/#org",
+      "name": "IGRS（Philippine Document Retrieval Center）",
+      "url": "https://igrs.online/"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://igrs.online/translation#webpage",
+      "url": "https://igrs.online/translation",
+      "name": "フィリピン公的証明書の翻訳サービス",
+      "description": "フィリピンの公的書類(PSA出生証明書・婚姻証明書など)の日本語・英語翻訳サービスです。日本の役所や入管に提出可能な形式で作成します。翻訳証明書の発行も対応。",
+      "inLanguage": "ja",
+      "isPartOf": { "@id": "https://igrs.online/#website" },
+      "about": { "@id": "https://igrs.online/#org" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://igrs.online/translation#service",
+      "name": "フィリピン公的証明書の翻訳サービス",
+      "provider": { "@id": "https://igrs.online/#org" },
+      "url": "https://igrs.online/translation",
+      "areaServed": ["Philippines", "Japan"],
+      "inLanguage": "ja",
+      "description": "フィリピンの公的書類(PSA出生証明書・婚姻証明書など)の日本語・英語翻訳サービスです。日本の役所や入管に提出可能な形式で作成します。翻訳証明書の発行も対応。"
+    }
+  ]
 }
 </script>
 </head>

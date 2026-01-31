@@ -111,17 +111,38 @@
     }
     </script>
     <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Service",
-  "@id":"https://igrs.online/marriage-certificate#service",
-  "name":"婚姻証明書（Marriage Certificate）取得代行",
-  "description":"フィリピン統計庁（PSA）発行のMarriage Certificate（婚姻証明書）の取得を代行。必要に応じてDFAアポスティーユと国際発送まで一括対応します。",
-  "url":"https://igrs.online/marriage-certificate",
-  "provider":{"@id":"https://igrs.online/#org"},
-  "areaServed":["Japan","Philippines"]
-}
-</script>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://igrs.online/#org",
+          "name": "IGRS（Philippine Document Retrieval Center）",
+          "url": "https://igrs.online/"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://igrs.online/marriage-certificate#webpage",
+          "url": "https://igrs.online/marriage-certificate",
+          "name": "婚姻証明書（Marriage Certificate）取得代行",
+          "description": "フィリピン統計庁（PSA）発行のMarriage Certificate（婚姻証明書）の取得を代行。必要に応じてDFAアポスティーユと国際発送まで一括対応します。",
+          "inLanguage": "ja",
+          "isPartOf": { "@id": "https://igrs.online/#website" },
+          "about": { "@id": "https://igrs.online/#org" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://igrs.online/marriage-certificate#service",
+          "name": "婚姻証明書（Marriage Certificate）取得代行",
+          "provider": { "@id": "https://igrs.online/#org" },
+          "url": "https://igrs.online/marriage-certificate",
+          "areaServed": ["Philippines", "Japan"],
+          "inLanguage": "ja",
+          "description": "フィリピン統計庁（PSA）発行のMarriage Certificate（婚姻証明書）の取得を代行。必要に応じてDFAアポスティーユと国際発送まで一括対応します。"
+        }
+      ]
+    }
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRN6VVHJTQ"></script>
     <script>

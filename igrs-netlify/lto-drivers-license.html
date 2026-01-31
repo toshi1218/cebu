@@ -118,30 +118,37 @@
       }
     </script>
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "フィリピンLTO運転経歴証明書取得代行",
-        "provider": {
-          "@id": "https://igrs.online/#organization"
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://igrs.online/#org",
+          "name": "IGRS（Philippine Document Retrieval Center）",
+          "url": "https://igrs.online/"
         },
-        "serviceType": "Driving Record Retrieval",
-        "areaServed": [
-          {
-            "@type": "Country",
-            "name": "Japan"
-          }
-        ],
-        "description": "フィリピンLTO運転経歴証明書（Transaction History）を取得代行。日本の運転免許への書き換え（外免切替）で必須となる書類をDFAアポスティーユ付きで手配します。",
-        "offers": {
-          "@type": "Offer",
-          "price": "100000",
-          "priceCurrency": "JPY"
+        {
+          "@type": "WebPage",
+          "@id": "https://igrs.online/lto-drivers-license#webpage",
+          "url": "https://igrs.online/lto-drivers-license",
+          "name": "フィリピンLTO運転経歴証明書取得代行",
+          "description": "フィリピンLTO運転経歴証明書（Transaction History）を取得代行。日本の運転免許への書き換え（外免切替）で必須となる書類をDFAアポスティーユ付きで手配します。",
+          "inLanguage": "ja",
+          "isPartOf": { "@id": "https://igrs.online/#website" },
+          "about": { "@id": "https://igrs.online/#org" }
         },
-        "@id": "https://igrs.online/lto-drivers-license#service",
-        "url": "https://igrs.online/lto-drivers-license",
-        "hasFAQPage": "https://igrs.online/lto-drivers-license#faq"
-      }
+        {
+          "@type": "Service",
+          "@id": "https://igrs.online/lto-drivers-license#service",
+          "name": "フィリピンLTO運転経歴証明書取得代行",
+          "provider": { "@id": "https://igrs.online/#org" },
+          "url": "https://igrs.online/lto-drivers-license",
+          "areaServed": ["Philippines", "Japan"],
+          "inLanguage": "ja",
+          "description": "フィリピンLTO運転経歴証明書（Transaction History）を取得代行。日本の運転免許への書き換え（外免切替）で必須となる書類をDFAアポスティーユ付きで手配します。"
+        }
+      ]
+    }
     </script>
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />

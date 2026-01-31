@@ -78,38 +78,37 @@
       }
     </script>
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "フィリピンCENOMAR（独身証明書）取得代行",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "株式会社IGRS",
-          "taxID": "2170001016118",
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "法人番号",
-            "value": "2170001016118"
-          },
-          "sameAs": [
-            "https://www.houjin-bangou.nta.go.jp/henkan/kaito-no?houjinBangou=2170001016118"
-          ]
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://igrs.online/#org",
+          "name": "IGRS（Philippine Document Retrieval Center）",
+          "url": "https://igrs.online/"
         },
-        "serviceType": "Public Records Retrieval",
-        "areaServed": "JP",
-        "description": "フィリピン統計庁（PSA）発行の独身証明書（CENOMAR）を日本から代理取得し、外務省認証（アポスティーユ）まで行うサービスです。",
-        "offers": {
-          "@type": "Offer",
-          "price": "60000",
-          "priceCurrency": "JPY",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "60000",
-            "priceCurrency": "JPY",
-            "unitText": "1通"
-          }
+        {
+          "@type": "WebPage",
+          "@id": "https://igrs.online/cenomar#webpage",
+          "url": "https://igrs.online/cenomar",
+          "name": "フィリピンCENOMAR（独身証明書）取得代行",
+          "description": "フィリピン統計庁（PSA）発行の独身証明書（CENOMAR）を日本から代理取得し、外務省認証（アポスティーユ）まで行うサービスです。",
+          "inLanguage": "ja",
+          "isPartOf": { "@id": "https://igrs.online/#website" },
+          "about": { "@id": "https://igrs.online/#org" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://igrs.online/cenomar#service",
+          "name": "フィリピンCENOMAR（独身証明書）取得代行",
+          "provider": { "@id": "https://igrs.online/#org" },
+          "url": "https://igrs.online/cenomar",
+          "areaServed": ["Philippines", "Japan"],
+          "inLanguage": "ja",
+          "description": "フィリピン統計庁（PSA）発行の独身証明書（CENOMAR）を日本から代理取得し、外務省認証（アポスティーユ）まで行うサービスです。"
         }
-      }
+      ]
+    }
     </script>
   <script type="application/ld+json">
       {

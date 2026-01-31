@@ -78,14 +78,35 @@
   <!-- Service schema -->
   <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Service",
-  "@id":"https://igrs.online/personal#service",
-  "name":"個人のお客様向けフィリピン書類取得代行",
-  "description":"個人のお客様向けにフィリピン公的書類を最短・安価で取得代行するBPOサービスです。",
-  "url":"https://igrs.online/personal",
-  "provider":{"@id":"https://igrs.online/#org"},
-  "areaServed":["Japan","Philippines"]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://igrs.online/#org",
+      "name": "IGRS（Philippine Document Retrieval Center）",
+      "url": "https://igrs.online/"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://igrs.online/personal#webpage",
+      "url": "https://igrs.online/personal",
+      "name": "個人のお客様向けフィリピン書類取得代行",
+      "description": "個人のお客様向けにフィリピン公的書類を最短・安価で取得代行するBPOサービスです。",
+      "inLanguage": "ja",
+      "isPartOf": { "@id": "https://igrs.online/#website" },
+      "about": { "@id": "https://igrs.online/#org" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://igrs.online/personal#service",
+      "name": "個人のお客様向けフィリピン書類取得代行",
+      "provider": { "@id": "https://igrs.online/#org" },
+      "url": "https://igrs.online/personal",
+      "areaServed": ["Philippines", "Japan"],
+      "inLanguage": "ja",
+      "description": "個人のお客様向けにフィリピン公的書類を最短・安価で取得代行するBPOサービスです。"
+    }
+  ]
 }
 </script>
   <!-- Google tag (gtag.js) -->

@@ -93,65 +93,38 @@
       }
     </script>
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "フィリピンPSA出生証明書取得代行",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "株式会社IGRS",
-          "taxID": "2170001016118",
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "法人番号",
-            "value": "2170001016118"
-          },
-          "sameAs": [
-            "https://www.houjin-bangou.nta.go.jp/henkan/kaito-no?houjinBangou=2170001016118"
-          ],
-          "image": "https://igrs.online/images/ogp.png",
-          "telephone": "+81-73-494-7110",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "和歌山市",
-            "addressRegion": "和歌山県",
-            "postalCode": "641-0034",
-            "addressCountry": "JP"
-          }
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://igrs.online/#org",
+          "name": "IGRS（Philippine Document Retrieval Center）",
+          "url": "https://igrs.online/"
         },
-        "serviceType": "Public Records Retrieval",
-        "areaServed": "JP",
-        "audience": {
-          "@type": "Audience",
-          "audienceType": "Foreign residents in Japan, International couples"
+        {
+          "@type": "WebPage",
+          "@id": "https://igrs.online/psa-birth-certificate#webpage",
+          "url": "https://igrs.online/psa-birth-certificate",
+          "name": "フィリピンPSA出生証明書取得代行",
+          "description": "フィリピン統計庁（PSA）発行の出生証明書を日本から代理取得し、外務省認証（アポスティーユ）まで行うサービスです。",
+          "inLanguage": "ja",
+          "isPartOf": { "@id": "https://igrs.online/#website" },
+          "about": { "@id": "https://igrs.online/#org" }
         },
-        "description": "フィリピン統計庁（PSA）発行の出生証明書を日本から代理取得し、外務省認証（アポスティーユ）まで行うサービスです。",
-        "offers": {
-          "@type": "Offer",
-          "price": "60000",
-          "priceCurrency": "JPY",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "60000",
-            "priceCurrency": "JPY",
-            "unitText": "1通"
-          }
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "PSA Certificate Services",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "PSA出生証明書 + アポスティーユ認証"
-              }
-            }
-          ]
+        {
+          "@type": "Service",
+          "@id": "https://igrs.online/psa-birth-certificate#service",
+          "name": "フィリピンPSA出生証明書取得代行",
+          "provider": { "@id": "https://igrs.online/#org" },
+          "url": "https://igrs.online/psa-birth-certificate",
+          "areaServed": ["Philippines", "Japan"],
+          "inLanguage": "ja",
+          "description": "フィリピン統計庁（PSA）発行の出生証明書を日本から代理取得し、外務省認証（アポスティーユ）まで行うサービスです。"
         }
-      }
-    </script>
+      ]
+    }
+  </script>
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",

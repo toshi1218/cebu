@@ -110,32 +110,37 @@
       }
     </script>
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "フィリピンNBI無犯罪証明書取得代行",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "株式会社IGRS",
-          "taxID": "2170001016118",
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "法人番号",
-            "value": "2170001016118"
-          },
-          "sameAs": [
-            "https://www.houjin-bangou.nta.go.jp/henkan/kaito-no?houjinBangou=2170001016118"
-          ]
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://igrs.online/#org",
+          "name": "IGRS（Philippine Document Retrieval Center）",
+          "url": "https://igrs.online/"
         },
-        "serviceType": "Police Clearance Retrieval",
-        "areaServed": "JP",
-        "description": "フィリピンNBI発行の無犯罪証明書（NBI Clearance）を取得代行。HIT発生時の追加対応も含め、DFAアポスティーユ・国際発送までワンストップ。",
-        "offers": {
-          "@type": "Offer",
-          "price": "55000",
-          "priceCurrency": "JPY"
+        {
+          "@type": "WebPage",
+          "@id": "https://igrs.online/nbi-clearance#webpage",
+          "url": "https://igrs.online/nbi-clearance",
+          "name": "フィリピンNBI無犯罪証明書取得代行",
+          "description": "フィリピンNBI発行の無犯罪証明書（NBI Clearance）を取得代行。HIT発生時の追加対応も含め、DFAアポスティーユ・国際発送までワンストップ。",
+          "inLanguage": "ja",
+          "isPartOf": { "@id": "https://igrs.online/#website" },
+          "about": { "@id": "https://igrs.online/#org" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://igrs.online/nbi-clearance#service",
+          "name": "フィリピンNBI無犯罪証明書取得代行",
+          "provider": { "@id": "https://igrs.online/#org" },
+          "url": "https://igrs.online/nbi-clearance",
+          "areaServed": ["Philippines", "Japan"],
+          "inLanguage": "ja",
+          "description": "フィリピンNBI発行の無犯罪証明書（NBI Clearance）を取得代行。HIT発生時の追加対応も含め、DFAアポスティーユ・国際発送までワンストップ。"
         }
-      }
+      ]
+    }
     </script>
   <script type="application/ld+json">
       {
