@@ -315,6 +315,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
+<<<<<<< HEAD
           # Fixed branch name to prevent duplicate PRs
           BRANCH_NAME="visual-baseline"
           
@@ -360,6 +361,21 @@ jobs:
           
           # Ensure auto-merge is set
           gh pr merge $BRANCH_NAME --auto --squash --delete-branch
+=======
+          BRANCH_NAME="visual-update-$(date +%s)"
+          git checkout -b $BRANCH_NAME
+          
+          # Force add baseline images even if ignored
+          git add -f ci/baseline/mobile
+          
+          git commit -m "ci: add visual baseline + diff gate"
+          git push origin $BRANCH_NAME
+          
+          gh pr create --title "chore: update visual baselines" --body "Automated baseline update." --head $BRANCH_NAME --base master
+          
+          # Attempt auto-merge
+          gh pr merge --auto --squash --delete-branch
+>>>>>>> origin/master
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
