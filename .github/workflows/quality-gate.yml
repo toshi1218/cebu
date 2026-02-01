@@ -1,95 +1,74 @@
 ﻿name: Quality Gate
-
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
   workflow_dispatch:
-
 jobs:
   gate:
     name: gate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-
-      - name: Run Quality Gate Checks
+          python-version: "3.11"
+      - name: gate checks
         run: |
           python - <<'PY'
-          import sys
-          import re
+          import sys, re, os
           import xml.etree.ElementTree as ET
-          import os
 
-          print('Running anti-gravity quality checks...')
           errors = []
 
-          # Define paths relative to repo root
-          SITEMAP_PATH = 'igrs-netlify/sitemap.xml'
-          CONTACT_PATH = 'igrs-netlify/contact.html'
+          sitemap_path = os.path.join("igrs-netlify", "sitemap.xml")
+          contact_path = os.path.join("igrs-netlify", "contact.html")
 
-          # --- Check 1: sitemap.xml ---
-          if os.path.exists(SITEMAP_PATH):
-              try:
-                  tree = ET.parse(SITEMAP_PATH)
-                  root = tree.getroot()
-                  for elem in root.iter():
-                      if elem.tag.endswith('url'):
-                          loc_found = False
-                          for child in elem:
-                              if child.tag.endswith('loc'):
-                                  loc_found = True
-                                  text = child.text
-                                  if not text or not text.strip():
-                                      errors.append(f'{SITEMAP_PATH}: Empty <loc> found')
-                          if not loc_found:
-                              errors.append(f'{SITEMAP_PATH}: <url> without <loc> found')
-              except ET.ParseError as e:
-                  errors.append(f'{SITEMAP_PATH}: XML Parse Error: {e}')
-              except Exception as e:
-                  errors.append(f'{SITEMAP_PATH}: Error analyzing file: {e}')
+          # --- sitemap.xml ---
+          if not os.path.exists(sitemap_path):
+            errors.append(f"{sitemap_path}: File not found")
           else:
-              errors.append(f'{SITEMAP_PATH}: File not found')
+            try:
+              tree = ET.parse(sitemap_path)
+              root = tree.getroot()
+              # handle namespace-agnostic
+              def is_tag(elem, name): return elem.tag.endswith(name)
+              for url in root.iter():
+                if is_tag(url, "url"):
+                  locs = [c for c in list(url) if is_tag(c, "loc")]
+                  if not locs:
+                    errors.append(f"{sitemap_path}: <url> without <loc>")
+                  else:
+                    for loc in locs:
+                      if (loc.text is None) or (not loc.text.strip()):
+                        errors.append(f"{sitemap_path}: empty <loc>")
+            except ET.ParseError as e:
+              errors.append(f"{sitemap_path}: XML ParseError: {e}")
+            except Exception as e:
+              errors.append(f"{sitemap_path}: error: {e}")
 
-          # --- Check 2: contact.html ---
-          if os.path.exists(CONTACT_PATH):
-              try:
-                  with open(CONTACT_PATH, 'r', encoding='utf-8') as f:
-                      content = f.read()
-                  
-                  # 2a: Check <title>
-                  title_match = re.search(r'<title[^>]*>(.*?)</title>', content, re.IGNORECASE | re.DOTALL)
-                  if title_match:
-                      title_text = title_match.group(1)
-                      if '.contact-grid' in title_text:
-                          errors.append(f'{CONTACT_PATH}: <title> contains ".contact-grid"')
-                      if '@media' in title_text:
-                          errors.append(f'{CONTACT_PATH}: <title> contains "@media"')
-                      if '{' in title_text:
-                          errors.append(f'{CONTACT_PATH}: <title> contains "{"')
-
-                  # 2b: Leaked CSS outside <style>
-                  content_no_style = re.sub(r'<style\b[^>]*>.*?</style>', '', content, flags=re.IGNORECASE | re.DOTALL)
-                  if '.contact-grid' in content_no_style:
-                       errors.append(f'{CONTACT_PATH}: Found ".contact-grid" string outside <style> (potential leak)')
-                  if '@media' in content_no_style:
-                       errors.append(f'{CONTACT_PATH}: Found "@media" string outside <style>')
-
-              except Exception as e:
-                  errors.append(f'{CONTACT_PATH}: Read/Process error: {e}')
+          # --- contact.html ---
+          if not os.path.exists(contact_path):
+            errors.append(f"{contact_path}: File not found")
           else:
-              errors.append(f'{CONTACT_PATH}: File not found')
+            try:
+              content = open(contact_path, "r", encoding="utf-8").read()
+              m = re.search(r"<title[^>]*>(.*?)</title>", content, flags=re.I|re.S)
+              if m:
+                t = m.group(1)
+                if ".contact-grid" in t: errors.append(f"{contact_path}: <title> contains .contact-grid")
+                if "@media" in t: errors.append(f"{contact_path}: <title> contains @media")
+                if "{" in t: errors.append(f"{contact_path}: <title> contains {{")
+              # remove style blocks then search leakage
+              no_style = re.sub(r"<style\\b[^>]*>.*?</style>", "", content, flags=re.I|re.S)
+              if ".contact-grid" in no_style: errors.append(f"{contact_path}: .contact-grid leaked outside <style>")
+              if "@media" in no_style: errors.append(f"{contact_path}: @media leaked outside <style>")
+            except Exception as e:
+              errors.append(f"{contact_path}: error: {e}")
 
           if errors:
-              print(' QUALITY GATE FAILED with the following errors:')
-              for err in errors:
-                  print(f'  - {err}')
-              sys.exit(1)
-          else:
-              print(' QUALITY GATE PASSED')
-              sys.exit(0)
+            print("❌ gate failed")
+            for e in errors: print(" -", e)
+            sys.exit(1)
+          print("✅ gate passed")
+          sys.exit(0)
           PY
