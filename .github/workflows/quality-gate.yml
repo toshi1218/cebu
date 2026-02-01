@@ -59,7 +59,7 @@ jobs:
                 if "@media" in t: errors.append(f"{contact_path}: <title> contains @media")
                 if "{" in t: errors.append(f"{contact_path}: <title> contains {{")
               # remove style blocks then search leakage
-              no_style = re.sub(r"<style\\b[^>]*>.*?</style>", "", content, flags=re.I|re.S)
+              no_style = re.sub(r"<style\b[^>]*>.*?</style>", "", content, flags=re.I|re.S)
               if ".contact-grid" in no_style: errors.append(f"{contact_path}: .contact-grid leaked outside <style>")
               if "@media" in no_style: errors.append(f"{contact_path}: @media leaked outside <style>")
             except Exception as e:
