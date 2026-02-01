@@ -1,0 +1,90 @@
+name: quality-gate
+
+on:
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  gate:
+    name: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run Quality Gate Checks
+        shell: python
+        run: |
+          import sys
+          import re
+          import xml.etree.ElementTree as ET
+          import os
+
+          print('Running anti-gravity quality checks...')
+          errors = []
+
+          # --- Check 1: sitemap.xml ---
+          if os.path.exists('sitemap.xml'):
+              try:
+                  tree = ET.parse('sitemap.xml')
+                  root = tree.getroot()
+                  for elem in root.iter():
+                      if elem.tag.endswith('url'):
+                          loc_found = False
+                          for child in elem:
+                              if child.tag.endswith('loc'):
+                                  loc_found = True
+                                  text = child.text
+                                  if not text or not text.strip():
+                                      errors.append('sitemap.xml: Empty <loc> found')
+                          if not loc_found:
+                              errors.append('sitemap.xml: <url> without <loc> found')
+              except ET.ParseError as e:
+                  errors.append(f'sitemap.xml: XML Parse Error: {e}')
+              except Exception as e:
+                  errors.append(f'sitemap.xml: Error analyzing file: {e}')
+          else:
+              errors.append('sitemap.xml: File not found')
+
+          # --- Check 2: contact.html ---
+          if os.path.exists('contact.html'):
+              try:
+                  with open('contact.html', 'r', encoding='utf-8') as f:
+                      content = f.read()
+                  
+                  # 2a: Check <title>
+                  title_match = re.search(r'<title[^>]*>(.*?)</title>', content, re.IGNORECASE | re.DOTALL)
+                  if title_match:
+                      title_text = title_match.group(1)
+                      if '.contact-grid' in title_text:
+                          errors.append('contact.html: <title> contains ".contact-grid"')
+                      if '@media' in title_text:
+                          errors.append('contact.html: <title> contains "@media"')
+                      if '{' in title_text:
+                          errors.append('contact.html: <title> contains "{"')
+
+                  # 2b: Leaked CSS outside <style>
+                  content_no_style = re.sub(r'<style\b[^>]*>.*?</style>', '', content, flags=re.IGNORECASE | re.DOTALL)
+                  if '.contact-grid' in content_no_style:
+                       errors.append('contact.html: Found ".contact-grid" string outside <style> (potential leak)')
+                  if '@media' in content_no_style:
+                       errors.append('contact.html: Found "@media" string outside <style>')
+
+              except Exception as e:
+                  errors.append(f'contact.html: Read/Process error: {e}')
+          else:
+              errors.append('contact.html: File not found')
+
+          if errors:
+              print('❌ QUALITY GATE FAILED with the following errors:')
+              for err in errors:
+                  print(f'  - {err}')
+              sys.exit(1)
+          else:
+              print('✅ QUALITY GATE PASSED')
+              sys.exit(0)
