@@ -2738,6 +2738,7 @@ button,
         overflow-x: hidden;
     }
 
+
     /* Ensure CTA buttons are full width but not overflowing */
     body .cta-group,
     body .button-group {
@@ -2745,4 +2746,17 @@ button,
         max-width: 100%;
         box-sizing: border-box;
     }
+}
+
+/* ========================================
+   Home Page Hero Restoration
+   Fix: Restore background image overwritten by global hero styles
+   ======================================== */
+.home-page .hero {
+    background:
+        linear-gradient(rgba(26, 54, 93, 0.35), rgba(26, 54, 93, 0.35)),
+        url('/images/hero-bg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
