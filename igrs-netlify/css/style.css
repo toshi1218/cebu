@@ -2658,7 +2658,6 @@ button,
 
     /* 1. Fix Horizontal Clipping & Ensure Side Padding */
     /* Target main containers that might touch edges */
-    body .container,
     body .hero-container,
     body .section,
     body .content-section,
@@ -2668,6 +2667,16 @@ button,
         padding-left: 16px !important;
         padding-right: 16px !important;
         width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Scoped Hero/Header Container Padding to avoid global side-effects */
+    .hero>.container,
+    .hero-section>.container,
+    .service-hero-section>.container,
+    .page-hero>.container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
         box-sizing: border-box;
     }
 
