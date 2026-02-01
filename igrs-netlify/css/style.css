@@ -2760,3 +2760,20 @@ button,
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
+/* ========================================
+   Home Hero Restoration (Specific) 
+   ======================================== */
+.home-hero {
+    background-image:
+        linear-gradient(rgba(26, 54, 93, 0.35), rgba(26, 54, 93, 0.35)),
+        url('../images/hero-bg.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    color: #ffffff !important;
+}
+.home-hero h1,
+.home-hero p {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+}
