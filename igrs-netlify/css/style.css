@@ -2649,3 +2649,91 @@ button,
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 12px rgba(214, 158, 46, 0.4) !important;
 }
+
+/* ========================================
+   Mobile Optimization (Feb 2025)
+   Fixes: Side clipping, Numbered list flow
+   ======================================== */
+@media (max-width: 520px) {
+
+    /* 1. Fix Horizontal Clipping & Ensure Side Padding */
+    /* Target main containers that might touch edges */
+    body .container,
+    body .hero-container,
+    body .section,
+    body .content-section,
+    body .services-grid,
+    body .benefits-grid,
+    body .use-cases-grid {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Hero Section specific adjustments */
+    body .hero {
+        padding: 80px 0 60px !important;
+        /* Reduce vertical, delegate side padding to .hero-container */
+    }
+
+    /* Prevent double padding in Hero CTA if nested */
+    body .hero-container .cta-group {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* 2. Fix "Benefits" Numbered List (1/2/3/4) */
+    /* Change from vertical stack to Grid layout [Number | Content] */
+    body .benefit-card {
+        display: grid !important;
+        grid-template-columns: 28px 1fr !important;
+        grid-template-areas:
+            "num title"
+            "num desc" !important;
+        column-gap: 12px !important;
+        text-align: left !important;
+        padding: 16px 0 !important;
+        /* Vertical spacing only */
+    }
+
+    body .benefit-number {
+        grid-area: num;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        /* Remove auto margins */
+        /* Flex centered properties inherit from original class */
+    }
+
+    body .benefit-card h3 {
+        grid-area: title;
+        margin: 0 0 4px 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+    }
+
+    body .benefit-card p {
+        grid-area: desc;
+        text-align: left !important;
+        margin: 0 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 3. Safety Cleanups */
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Ensure CTA buttons are full width but not overflowing */
+    body .cta-group,
+    body .button-group {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
