@@ -2686,10 +2686,26 @@ button,
         /* Reduce vertical, delegate side padding to .hero-container */
     }
 
-    /* Prevent double padding in Hero CTA if nested */
-    body .hero-container .cta-group {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    /* Fix: Ensure CTA groups and buttons have proper padding and sizing */
+    .contact-buttons,
+    .button-group,
+    .cta-group {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box;
+        width: 100%;
+        /* Ensure full width container */
+    }
+
+    /* Fix: Button Sizing - Prevent overflow with padding */
+    .cta-group a,
+    .button-group a,
+    .contact-buttons a,
+    .cta-group button,
+    .button-group button,
+    .contact-buttons button {
+        box-sizing: border-box !important;
+        max-width: 100%;
     }
 
     /* 2. Fix "Benefits" Numbered List (1/2/3/4) */
@@ -2760,6 +2776,7 @@ button,
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
+
 /* ========================================
    Home Hero Restoration (Specific) 
    ======================================== */
@@ -2772,8 +2789,9 @@ button,
     background-repeat: no-repeat !important;
     color: #ffffff !important;
 }
+
 .home-hero h1,
 .home-hero p {
     color: #ffffff !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
