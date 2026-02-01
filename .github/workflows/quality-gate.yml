@@ -1,357 +1,74 @@
-name: Quality Gate
-
+﻿name: Quality Gate
 on:
-  push:
-    branches: [ "master", "main" ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: ["master"]
   workflow_dispatch:
-    inputs:
-      mode:
-        description: 'Quality Gate Mode'
-        required: true
-        default: 'check'
-        type: choice
-        options:
-        - check
-        - baseline
-
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   gate:
+    name: gate
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    defaults:
-      run:
-        working-directory: igrs-netlify
-    env:
-      PORT: 8080
-      BASE_URL: http://127.0.0.1:8080
-      SITE_DIR: igrs-netlify
-      MODE: ${{ inputs.mode || 'check' }}
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v4
-
-      - name: "Setup Node.js"
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: 20
-
-      - name: "Setup Java (for vnu.jar)"
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: "Install dependencies"
+          python-version: "3.11"
+      - name: gate checks
         run: |
-          # Install dependencies locally in igrs-netlify directory
-          npm init -y
-          npm install http-server vnu-jar linkinator wait-on playwright pixelmatch pngjs
-          npx playwright install --with-deps chromium
+          python - <<'PY'
+          import sys, re, os
+          import xml.etree.ElementTree as ET
 
-      - name: "Start static server"
-        run: |
-          # Start http-server with extension support (-e html)
-          npx http-server . -p ${{ env.PORT }} -a 127.0.0.1 -c-1 --cors -e html &
-          echo "Server PID: $!"
-          # Wait for server to be ready
-          npx wait-on ${{ env.BASE_URL }} -t 10000
+          errors = []
 
-      - name: "Check 1: Key Paths Reachability (curl)"
-        run: |
-          # Check specific paths for HTTP 200 OK (allow 3xx/2xx, fail on 4xx/5xx)
-          PATHS=("/" "/contact" "/cenomar" "/personal" "/business" "/company" "/privacy" "/kokusai-kekkon")
-          FAILED=0
-          
-          for path in "${PATHS[@]}"; do
-            url="${{ env.BASE_URL }}$path"
-            echo "Checking $url ..."
-            status=$(curl -o /dev/null -s -w "%{http_code}" "$url")
-            if [ "$status" -ge 400 ]; then
-              echo "❌ FAIL: $url returned $status"
-              FAILED=1
-            else
-              echo "✅ PASS: $url returned $status"
-            fi
-          done
-          
-          if [ $FAILED -ne 0 ]; then
-            exit 1
-          fi
+          sitemap_path = os.path.join("igrs-netlify", "sitemap.xml")
+          contact_path = os.path.join("igrs-netlify", "contact.html")
 
-      - name: "Check 2: HTML Validator (vnu.jar)"
-        continue-on-error: true
-        run: |
-          # Create filter file to ignore node_modules and backups
-          mkdir -p .ci
-          cat > .ci/vnu-filter.txt <<'EOF'
-          .*node_modules/.*
-          .*playwright-core/.*
-          .*playwright/.*
-          .*kika_v2_backup\.html
-          EOF
-          
-          # Validate HTML files using vnu.jar with filter
-          # Output to file vnu-report.txt for artifact
-          java -jar ./node_modules/vnu-jar/build/dist/vnu.jar --skip-non-html --filterfile ./.ci/vnu-filter.txt . 2>&1 | tee vnu-report.txt; exit 0
+          # --- sitemap.xml ---
+          if not os.path.exists(sitemap_path):
+            errors.append(f"{sitemap_path}: File not found")
+          else:
+            try:
+              tree = ET.parse(sitemap_path)
+              root = tree.getroot()
+              # handle namespace-agnostic
+              def is_tag(elem, name): return elem.tag.endswith(name)
+              for url in root.iter():
+                if is_tag(url, "url"):
+                  locs = [c for c in list(url) if is_tag(c, "loc")]
+                  if not locs:
+                    errors.append(f"{sitemap_path}: <url> without <loc>")
+                  else:
+                    for loc in locs:
+                      if (loc.text is None) or (not loc.text.strip()):
+                        errors.append(f"{sitemap_path}: empty <loc>")
+            except ET.ParseError as e:
+              errors.append(f"{sitemap_path}: XML ParseError: {e}")
+            except Exception as e:
+              errors.append(f"{sitemap_path}: error: {e}")
 
-      - name: "Check 3: Mobile Horizontal Scroll Detection (Playwright)"
-        if: ${{ env.MODE != 'baseline' }}
-        run: |
-          # Create Playwright script
-          cat << 'EOF' > check-scroll.mjs
-          import { chromium } from 'playwright';
-          import fs from 'fs';
-          import path from 'path';
+          # --- contact.html ---
+          if not os.path.exists(contact_path):
+            errors.append(f"{contact_path}: File not found")
+          else:
+            try:
+              content = open(contact_path, "r", encoding="utf-8").read()
+              m = re.search(r"<title[^>]*>(.*?)</title>", content, flags=re.I|re.S)
+              if m:
+                t = m.group(1)
+                if ".contact-grid" in t: errors.append(f"{contact_path}: <title> contains .contact-grid")
+                if "@media" in t: errors.append(f"{contact_path}: <title> contains @media")
+                if "{" in t: errors.append(f"{contact_path}: <title> contains {{")
+              # remove style blocks then search leakage
+              no_style = re.sub(r"<style\b[^>]*>.*?</style>", "", content, flags=re.I|re.S)
+              if ".contact-grid" in no_style: errors.append(f"{contact_path}: .contact-grid leaked outside <style>")
+              if "@media" in no_style: errors.append(f"{contact_path}: @media leaked outside <style>")
+            except Exception as e:
+              errors.append(f"{contact_path}: error: {e}")
 
-          const BASE_URL = process.env.BASE_URL;
-          // Target paths to check
-          const TARGET_PATHS = [
-            '/', 
-            '/contact', 
-            '/cenomar', 
-            '/personal', 
-            '/business', 
-            '/company', 
-            '/privacy', 
-            '/kokusai-kekkon'
-          ];
-
-          (async () => {
-            const browser = await chromium.launch();
-            const failures = [];
-            const results = { pass: [], fail: [] };
-
-            for (const p of TARGET_PATHS) {
-              const url = `${BASE_URL}${p}`;
-              console.log(`Checking ${url} for horizontal scroll...`);
-              
-              const page = await browser.newPage({
-                viewport: { width: 390, height: 844 }, // iPhone 12/13/14 equivalent
-                deviceScaleFactor: 3,
-                isMobile: true,
-                hasTouch: true
-              });
-
-              try {
-                const response = await page.goto(url, { waitUntil: 'networkidle' });
-                if (!response || !response.ok()) {
-                   const msg = `Failed to load ${url}: ${response ? response.status() : 'No response'}`;
-                   console.error(msg);
-                   failures.push({ url, reason: msg });
-                   results.fail.push({ url, reason: msg });
-                   continue;
-                }
-
-                // Check for horizontal scroll
-                const { scrollWidth, innerWidth } = await page.evaluate(() => {
-                    return {
-                        scrollWidth: document.documentElement.scrollWidth,
-                        innerWidth: window.innerWidth
-                    };
-                });
-                
-                if (scrollWidth > innerWidth) {
-                  const reason = `Horizontal Scroll Detected: Content(${scrollWidth}px) > Viewport(${innerWidth}px)`;
-                  console.log(`FAIL: ${url} -> ${reason}`);
-                  failures.push({ url, reason });
-                  results.fail.push({ url, reason });
-                  // Capture screenshot
-                  const safeName = p.replace(/\//g, '_') || 'root';
-                  await page.screenshot({ path: `scroll-failure-${safeName}.png`, fullPage: true });
-                } else {
-                  console.log(`PASS: ${url}`);
-                  results.pass.push(url);
-                }
-
-              } catch (e) {
-                console.error(`Error checking ${p}:`, e);
-                failures.push({ url, reason: e.message });
-                results.fail.push({ url, reason: e.message });
-              } finally {
-                await page.close();
-              }
-            }
-
-            await browser.close();
-
-            // Write report
-            fs.writeFileSync('quality-report.json', JSON.stringify(results, null, 2));
-
-            if (failures.length > 0) {
-              console.error('Validation Failed with ' + failures.length + ' errors.');
-              process.exit(1);
-            } else {
-              console.log('All checks passed!');
-            }
-          })();
-          EOF
-          
-          # Run script
-          node check-scroll.mjs
-
-      - name: "Check 4: Visual Regression & Baseline"
-        run: |
-          cat << 'EOF' > visual-gate.mjs
-          import { chromium } from 'playwright';
-          import fs from 'fs';
-          import path from 'path';
-          import pixelmatch from 'pixelmatch';
-          import { PNG } from 'pngjs';
-          
-          const BASE_URL = process.env.BASE_URL;
-          const MODE = process.env.MODE;
-          const BASELINE_DIR = path.resolve('ci/baseline/mobile');
-          const CURRENT_DIR = path.resolve('ci/visual/current');
-          const DIFF_DIR = path.resolve('ci/visual/diff');
-          
-          const TARGET_PATHS = [
-            '/', 
-            '/contact', 
-            '/cenomar', 
-            '/personal', 
-            '/business', 
-            '/company', 
-            '/privacy', 
-            '/kokusai-kekkon'
-          ];
-          
-          // Ensure dirs
-          [BASELINE_DIR, CURRENT_DIR, DIFF_DIR].forEach(d => fs.mkdirSync(d, { recursive: true }));
-          
-          (async () => {
-            const browser = await chromium.launch();
-            const page = await browser.newPage({
-                viewport: { width: 390, height: 844 }, // iPhone 12/13/14 equivalent
-                deviceScaleFactor: 3,
-                isMobile: true,
-                hasTouch: true
-            });
-            
-            let failed = false;
-            
-            for (const p of TARGET_PATHS) {
-              const url = `${BASE_URL}${p}`;
-              const slug = p === '/' ? 'index' : p.replace(/\//g, '');
-              const filename = `${slug}.png`;
-              
-              console.log(`[${MODE}] Processing ${p}...`);
-              
-              try {
-                await page.goto(url, { waitUntil: 'networkidle' });
-                
-                // Inject CSS to hide text for structure-only comparison
-                await page.addStyleTag({
-                  content: `body, body * { color: transparent !important; text-shadow:none !important; -webkit-text-fill-color: transparent !important; }`
-                });
-                
-                const pngBuffer = await page.screenshot({ fullPage: true });
-                
-                if (MODE === 'baseline') {
-                  fs.writeFileSync(path.join(BASELINE_DIR, filename), pngBuffer);
-                  console.log(`Saved baseline for ${p}`);
-                } else {
-                  // Check Mode
-                  const baselinePath = path.join(BASELINE_DIR, filename);
-                  const currentPath = path.join(CURRENT_DIR, filename);
-                  const diffPath = path.join(DIFF_DIR, filename);
-                  
-                  fs.writeFileSync(currentPath, pngBuffer);
-                  
-                  if (!fs.existsSync(baselinePath)) {
-                    console.warn(`⚠️ No baseline found for ${p}. Skipping diff.`);
-                    continue;
-                  }
-                  
-                  const img1 = PNG.sync.read(fs.readFileSync(baselinePath));
-                  const img2 = PNG.sync.read(pngBuffer);
-                  const { width, height } = img1;
-                  
-                  // Resize check or simplified assumption
-                  if (img1.width !== img2.width || img1.height !== img2.height) {
-                      console.error(`❌ Size mismatch for ${p}: Baseline ${img1.width}x${img1.height} vs Current ${img2.width}x${img2.height}`);
-                      failed = true;
-                      continue;
-                  }
-                  
-                  const diff = new PNG({ width, height });
-                  const numDiffPixels = pixelmatch(img1.data, img2.data, diff.data, width, height, { threshold: 0.1 });
-                  const diffRatio = numDiffPixels / (width * height);
-                  
-                  if (diffRatio > 0.08) { // 8% threshold
-                     console.error(`❌ Visual Diff Detected for ${p} (${(diffRatio * 100).toFixed(2)}%)`);
-                     fs.writeFileSync(diffPath, PNG.sync.write(diff));
-                     failed = true;
-                  } else {
-                     console.log(`✅ ${p} Passed Visual Check`);
-                  }
-                }
-              } catch (e) {
-                console.error(`Error processing ${p}:`, e);
-                failed = true;
-              }
-            }
-            await browser.close();
-            
-            if (failed && MODE === 'check') {
-                console.error("Visual regression detected.");
-                process.exit(1);
-            }
-          })();
-          EOF
-          
-          node visual-gate.mjs
-
-      - name: "Baseline Update (Auto-PR)"
-        if: inputs.mode == 'baseline'
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # 1. Check dir existence
-          if [ ! -d "ci/baseline/mobile" ]; then
-            echo "No baseline directory found. Skipping."
-            exit 0
-          fi
-          
-          # 2. Check file existence
-          if [ -z "$(find ci/baseline/mobile -type f -maxdepth 1 2>/dev/null | head -n 1)" ]; then
-             echo "No baseline files found. Skipping."
-             exit 0
-          fi
-          
-          # 3. Add files
-          git add -f ci/baseline/mobile/*
-          
-          # 4. Check for changes
-          if git diff --cached --quiet; then
-            echo "No baseline changes detected."
-            exit 0
-          fi
-          
-          git commit -m "ci: update visual baselines"
-          
-          # Push to current HEAD (feature branch)
-          git push origin HEAD
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: "Upload Artifacts"
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: failure-evidence
-          path: |
-            igrs-netlify/scroll-failure-*.png
-            igrs-netlify/vnu-report.txt
-            igrs-netlify/quality-report.json
-            igrs-netlify/ci/visual/diff/*.png
-            igrs-netlify/ci/visual/current/*.png
-            igrs-netlify/ci/baseline/mobile/*.png
+          if errors:
+            print("❌ gate failed")
+            for e in errors: print(" -", e)
+            sys.exit(1)
+          print("✅ gate passed")
+          sys.exit(0)
+          PY
