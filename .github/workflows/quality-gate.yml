@@ -315,12 +315,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Fixed branch name to prevent duplicate PRs
-          BRANCH_NAME="visual-baseline"
-          
-          # Checkout proper branch (new or reset)
-          git checkout -B $BRANCH_NAME
-          
           # 1. Check dir existence
           if [ ! -d "ci/baseline/mobile" ]; then
             echo "No baseline directory found. Skipping."
@@ -344,22 +338,8 @@ jobs:
           
           git commit -m "ci: update visual baselines"
           
-          # Force push to update the branch reference
-          git push -f origin $BRANCH_NAME
-          
-          # Check if PR exists
-          PR_COUNT=$(gh pr list --head $BRANCH_NAME --base master --json number --jq 'length')
-          
-          if [ "$PR_COUNT" -eq "0" ]; then
-            echo "Creating new PR..."
-            gh pr create --title "chore: update visual baselines" --body "Automated baseline update." --head $BRANCH_NAME --base master
-          else
-            echo "Updating existing PR..."
-            gh pr edit $BRANCH_NAME --title "chore: update visual baselines" --body "Automated baseline update (updated)."
-          fi
-          
-          # Ensure auto-merge is set
-          gh pr merge $BRANCH_NAME --auto --squash --delete-branch
+          # Push to current HEAD (feature branch)
+          git push origin HEAD
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
