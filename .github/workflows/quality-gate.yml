@@ -392,12 +392,15 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
 <<<<<<< HEAD
+<<<<<<< HEAD
           # Fixed branch name to prevent duplicate PRs
           BRANCH_NAME="visual-baseline"
           
           # Checkout proper branch (new or reset)
           git checkout -B $BRANCH_NAME
           
+=======
+>>>>>>> origin/ag/mobile-cta-padding-fix
           # 1. Check dir existence
           if [ ! -d "ci/baseline/mobile" ]; then
             echo "No baseline directory found. Skipping."
@@ -421,6 +424,7 @@ jobs:
           
           git commit -m "ci: update visual baselines"
           
+<<<<<<< HEAD
           # Force push to update the branch reference
           git push -f origin $BRANCH_NAME
           
@@ -452,6 +456,10 @@ jobs:
           # Attempt auto-merge
           gh pr merge --auto --squash --delete-branch
 >>>>>>> origin/master
+=======
+          # Push to current HEAD (feature branch)
+          git push origin HEAD
+>>>>>>> origin/ag/mobile-cta-padding-fix
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
