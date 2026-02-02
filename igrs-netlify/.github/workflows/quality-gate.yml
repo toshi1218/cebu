@@ -2,9 +2,7 @@
 on:
   pull_request:
     branches: ["master"]
-  workflow_dispatch:
-
-jobs:
+  workflow_dispatch:jobs:
   gate:
     name: gate
     runs-on: ubuntu-latest
@@ -74,3 +72,4 @@ jobs:
           print("✅ gate passed")
           sys.exit(0)
           PY
+
