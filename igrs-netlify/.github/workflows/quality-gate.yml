@@ -3,6 +3,7 @@ on:
   pull_request:
     branches: ["master"]
   workflow_dispatch:
+
 jobs:
   gate:
     name: gate
@@ -25,50 +26,51 @@ jobs:
 
           # --- sitemap.xml ---
           if not os.path.exists(sitemap_path):
-            errors.append(f"{sitemap_path}: File not found")
+              errors.append(f"{sitemap_path}: File not found")
           else:
-            try:
-              tree = ET.parse(sitemap_path)
-              root = tree.getroot()
-              # handle namespace-agnostic
-              def is_tag(elem, name): return elem.tag.endswith(name)
-              for url in root.iter():
-                if is_tag(url, "url"):
-                  locs = [c for c in list(url) if is_tag(c, "loc")]
-                  if not locs:
-                    errors.append(f"{sitemap_path}: <url> without <loc>")
-                  else:
-                    for loc in locs:
-                      if (loc.text is None) or (not loc.text.strip()):
-                        errors.append(f"{sitemap_path}: empty <loc>")
-            except ET.ParseError as e:
-              errors.append(f"{sitemap_path}: XML ParseError: {e}")
-            except Exception as e:
-              errors.append(f"{sitemap_path}: error: {e}")
+              try:
+                  tree = ET.parse(sitemap_path)
+                  root = tree.getroot()
+                  def is_tag(elem, name): return elem.tag.endswith(name)
+                  for url in root.iter():
+                      if is_tag(url, "url"):
+                          locs = [c for c in list(url) if is_tag(c, "loc")]
+                          if not locs:
+                              errors.append(f"{sitemap_path}: <url> without <loc>")
+                          else:
+                              for loc in locs:
+                                  if (loc.text is None) or (not loc.text.strip()):
+                                      errors.append(f"{sitemap_path}: empty <loc>")
+              except ET.ParseError as e:
+                  errors.append(f"{sitemap_path}: XML ParseError: {e}")
+              except Exception as e:
+                  errors.append(f"{sitemap_path}: error: {e}")
 
-          # --- contact.html ---
+          # --- contact.html (CSS漏れ検知) ---
           if not os.path.exists(contact_path):
-            errors.append(f"{contact_path}: File not found")
+              errors.append(f"{contact_path}: File not found")
           else:
-            try:
-              content = open(contact_path, "r", encoding="utf-8").read()
-              m = re.search(r"<title[^>]*>(.*?)</title>", content, flags=re.I|re.S)
-              if m:
-                t = m.group(1)
-                if ".contact-grid" in t: errors.append(f"{contact_path}: <title> contains .contact-grid")
-                if "@media" in t: errors.append(f"{contact_path}: <title> contains @media")
-                if "{" in t: errors.append(f"{contact_path}: <title> contains {{")
-              # remove style blocks then search leakage
-              no_style = re.sub(r"<style\b[^>]*>.*?</style>", "", content, flags=re.I|re.S)
-              if ".contact-grid" in no_style: errors.append(f"{contact_path}: .contact-grid leaked outside <style>")
-              if "@media" in no_style: errors.append(f"{contact_path}: @media leaked outside <style>")
-            except Exception as e:
-              errors.append(f"{contact_path}: error: {e}")
+              try:
+                  content = open(contact_path, "r", encoding="utf-8").read()
+                  m = re.search(r"<title[^>]*>(.*?)</title>", content, flags=re.I|re.S)
+                  if m:
+                      t = m.group(1)
+                      if ".contact-grid" in t: errors.append(f"{contact_path}: <title> contains .contact-grid")
+                      if "@media" in t: errors.append(f"{contact_path}: <title> contains @media")
+                      if "{" in t: errors.append(f"{contact_path}: <title> contains {{")
+
+                  no_style = re.sub(r"<style\b[^>]*>.*?</style>", "", content, flags=re.I|re.S)
+                  if ".contact-grid" in no_style: errors.append(f"{contact_path}: .contact-grid leaked outside <style>")
+                  if "@media" in no_style: errors.append(f"{contact_path}: @media leaked outside <style>")
+              except Exception as e:
+                  errors.append(f"{contact_path}: error: {e}")
 
           if errors:
-            print("❌ gate failed")
-            for e in errors: print(" -", e)
-            sys.exit(1)
+              print("❌ gate failed")
+              for e in errors:
+                  print(" -", e)
+              sys.exit(1)
+
           print("✅ gate passed")
           sys.exit(0)
           PY
