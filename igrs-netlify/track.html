@@ -215,6 +215,76 @@
                 width: 100% !important;
             }
         }
+
+        /* Status Definition Card */
+        .status-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .status-card h3 {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #edf2f7;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-item {
+            background: #f8fafc;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border-left: 3px solid #cbd5e0;
+        }
+
+        .status-item strong {
+            display: block;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .status-item span {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        .status-footer {
+            background: #ebf8ff;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #2c5282;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .status-footer a {
+            color: #2b6cb0;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -224,6 +294,48 @@
 
     <div class="track-container">
         <h1 style="text-align: center; margin-bottom: 2rem; color: #1a5490;">書類進捗確認</h1>
+
+        <div class="status-card">
+            <h3>📌 進捗ステータスの定義</h3>
+            <div class="status-grid">
+                <div class="status-item" style="border-left-color: #a0aec0;">
+                    <strong>受付</strong>
+                    <span>お申し込みを受領確認したら次へ</span>
+                </div>
+                <div class="status-item" style="border-left-color: #ed8936;">
+                    <strong>必要情報確認</strong>
+                    <span>申請に必要な情報・書類が揃ったら次へ</span>
+                </div>
+                <div class="status-item" style="border-left-color: #4299e1;">
+                    <strong>代理申請</strong>
+                    <span>現地機関での申請手続きが完了したら次へ</span>
+                </div>
+                <div class="status-item" style="border-left-color: #48bb78;">
+                    <strong>取得完了</strong>
+                    <span>公的書類を現地で受領したら次へ</span>
+                </div>
+                <div class="status-item" style="border-left-color: #805ad5;">
+                    <strong>翻訳・検証</strong>
+                    <span>翻訳および内容の確認が完了したら次へ</span>
+                </div>
+                <div class="status-item" style="border-left-color: #d69e2e;">
+                    <strong>発送準備</strong>
+                    <span>日本への発送手配が完了したら次へ</span>
+                </div>
+                <div class="status-item" style="border-left-color: #38b2ac;">
+                    <strong>発送済み</strong>
+                    <span>追跡番号（DHL等）が発行されたら次へ</span>
+                </div>
+                <div class="status-item" style="border-left-color: #319795;">
+                    <strong>完了</strong>
+                    <span>お客様のお手元へお届け完了</span>
+                </div>
+            </div>
+            <div class="status-footer">
+                <div>🔄 <strong>更新頻度：</strong> 原則、平日24時間以内の更新（現地祝日を除く）</div>
+                <div>⚠️ <strong>遅延時の連絡：</strong> 48時間以上ステータスに変化がない場合は <a href="/contact">お問い合わせ</a> ください</div>
+            </div>
+        </div>
 
         <div class="track-form">
             <label for="trackingNumber" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">追跡番号を入力</label>
