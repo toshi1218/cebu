@@ -32,14 +32,18 @@ try {
     # 1. New Branch
 =======
     # 0. Sync with Master
-    Write-Host "🔄 Syncing with master..."
+    Write-Host "Syncing with master..."
     git -C .. switch master
     git -C .. pull --ff-only origin master
     if ($LASTEXITCODE -ne 0) { throw "Master sync failed" }
 
+<<<<<<< HEAD
     # 1. New Branch (from current state)
     # Use -C .. to execute git commands from the repository root
 >>>>>>> origin/ag/0201-0312
+=======
+    # 1. New Branch
+>>>>>>> origin/ag/0201-0319
     git -C .. checkout -b $branch
     if ($LASTEXITCODE -ne 0) { throw "Branch creation failed" }
 
@@ -63,6 +67,7 @@ try {
     
     # 5. Auto-Merge / Wait & Merge
     Write-Host "Attempting Auto-merge..."
+<<<<<<< HEAD
     try {
         gh pr merge $prNumber --auto --squash --delete-branch
         if ($LASTEXITCODE -ne 0) { throw "Auto-merge failed" }
@@ -84,6 +89,29 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "Merge failed" }
         
         Write-Host "Done! Merged."
+=======
+    gh pr merge $prNumber --auto --squash --delete-branch 2>$null
+    
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Auto-merge not enabled. Switching to Wait & Merge..."
+        
+        Write-Host "Waiting for Quality Gate..."
+        gh pr checks $prNumber --watch
+        
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "[X] Gate Failed. Fix and Re-run."
+            exit 1
+        }
+        
+        Write-Host "Merging..."
+        gh pr merge $prNumber --squash --delete-branch
+        if ($LASTEXITCODE -ne 0) { throw "Merge failed" }
+        
+        Write-Host "Done! Merged."
+    }
+    else {
+        Write-Host "Done! PR set to auto-merge."
+>>>>>>> origin/ag/0201-0319
     }
 }
 catch {
