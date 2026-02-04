@@ -40,6 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const resp = await fetch(getPath('partials/' + file));
             if (resp.ok) {
                 const html = await resp.text();
+                // Avoid overwriting if SEO content is already present (e.g. from static build)
+                if (id === 'site-header' && el.querySelector('header')) return;
+                if (id === 'site-footer' && el.querySelector('footer')) return;
+
                 el.innerHTML = html;
                 if (id === 'site-header') {
                     // Initialize navigation after header injection
