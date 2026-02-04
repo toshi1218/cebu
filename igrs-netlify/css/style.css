@@ -541,6 +541,26 @@ header.site-header .header-container[style*="100vw"] {
     transform: translateY(-1px) !important;
 }
 
+.btn.btn-cta {
+    background: var(--accent-color) !important;
+    color: var(--bg-white) !important;
+}
+
+.btn.btn-cta:hover {
+    background: var(--accent-hover) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* Hero text styling */
+.heroTextWhite {
+    color: #ffffff !important;
+}
+
+.heroTextShadow {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
 /* ========================================
    Remove Pop Elements & Emojis
    ======================================== */
@@ -2686,208 +2706,209 @@ button,
         /* Reduce vertical, delegate side padding to .hero-container */
     }
 
-<<<<<<< HEAD
+    <<<<<<< HEAD
+
     /* Prevent double padding in Hero CTA if nested */
     body .hero-container .cta-group {
         padding-left: 0 !important;
         padding-right: 0 !important;
-=======
-    /* Fix: Ensure CTA groups and buttons have proper padding and sizing */
-    .contact-buttons,
-    .button-group,
-    .cta-group {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-        box-sizing: border-box;
-        width: 100%;
-        /* Ensure full width container */
+        =======
+
+        /* Fix: Ensure CTA groups and buttons have proper padding and sizing */
+        .contact-buttons,
+        .button-group,
+        .cta-group {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            box-sizing: border-box;
+            width: 100%;
+            /* Ensure full width container */
+        }
+
+        /* Fix: Button Sizing - Prevent overflow with padding */
+        .cta-group a,
+        .button-group a,
+        .contact-buttons a,
+        .cta-group button,
+        .button-group button,
+        .contact-buttons button {
+            box-sizing: border-box !important;
+            max-width: 100%;
+            >>>>>>>origin/ag/mobile-cta-padding-fix
+        }
+
+        /* 2. Fix "Benefits" Numbered List (1/2/3/4) */
+        /* Change from vertical stack to Grid layout [Number | Content] */
+        body .benefit-card {
+            display: grid !important;
+            grid-template-columns: 28px 1fr !important;
+            grid-template-areas:
+                "num title"
+                "num desc" !important;
+            column-gap: 12px !important;
+            text-align: left !important;
+            padding: 16px 0 !important;
+            /* Vertical spacing only */
+        }
+
+        body .benefit-number {
+            grid-area: num;
+            width: 28px !important;
+            height: 28px !important;
+            font-size: 14px !important;
+            margin: 0 !important;
+            /* Remove auto margins */
+            /* Flex centered properties inherit from original class */
+        }
+
+        body .benefit-card h3 {
+            grid-area: title;
+            margin: 0 0 4px 0 !important;
+            text-align: left !important;
+            font-size: 1.1rem !important;
+            line-height: 1.3 !important;
+        }
+
+        body .benefit-card p {
+            grid-area: desc;
+            text-align: left !important;
+            margin: 0 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+        }
+
+        /* 3. Safety Cleanups */
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+
+        /* Ensure CTA buttons are full width but not overflowing */
+        body .cta-group,
+        body .button-group {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 4. Fix: Hero Heading Size (Mobile) */
+        .home-hero h1,
+        .hero-content h1 {
+            font-size: clamp(1.6rem, 6.5vw, 2.1rem) !important;
+            line-height: 1.15 !important;
+            letter-spacing: 0.02em !important;
+        }
+
+        .home-hero p,
+        .hero-content p {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+        }
+
+        /* 5. Fix: Reduce Section Spacing (Mobile) */
+        body .section,
+        body section,
+        #benefits,
+        #use-cases,
+        #services,
+        .related-links {
+            padding-top: 32px !important;
+            padding-bottom: 32px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .benefits-grid,
+        .use-cases-grid {
+            margin-bottom: 16px !important;
+        }
+
+        /* 6. Fix: Mobile Sticky Bottom Nav */
+        .mobile-bottom-nav {
+            display: flex !important;
+            position: fixed !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            z-index: 9999 !important;
+            background: #ffffff !important;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+            padding-bottom: env(safe-area-inset-bottom, 20px) !important;
+            justify-content: space-between !important;
+            align-items: stretch !important;
+            gap: 0 !important;
+            border-top: 1px solid #e2e8f0 !important;
+            margin: 0 !important;
+        }
+
+        .mobile-bottom-nav-item {
+            flex: 1 1 50% !important;
+            width: 50% !important;
+            max-width: 50% !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            padding: 8px 0 !important;
+            height: auto !important;
+            min-height: 56px !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            color: #4a5568 !important;
+        }
+
+        .mobile-bottom-nav-item[href*="contact"] {
+            background: var(--accent-color) !important;
+            color: #ffffff !important;
+        }
+
+        body {
+            padding-bottom: 80px !important;
+        }
     }
 
-    /* Fix: Button Sizing - Prevent overflow with padding */
-    .cta-group a,
-    .button-group a,
-    .contact-buttons a,
-    .cta-group button,
-    .button-group button,
-    .contact-buttons button {
-        box-sizing: border-box !important;
-        max-width: 100%;
->>>>>>> origin/ag/mobile-cta-padding-fix
-    }
-
-    /* 2. Fix "Benefits" Numbered List (1/2/3/4) */
-    /* Change from vertical stack to Grid layout [Number | Content] */
-    body .benefit-card {
-        display: grid !important;
-        grid-template-columns: 28px 1fr !important;
-        grid-template-areas:
-            "num title"
-            "num desc" !important;
-        column-gap: 12px !important;
-        text-align: left !important;
-        padding: 16px 0 !important;
-        /* Vertical spacing only */
-    }
-
-    body .benefit-number {
-        grid-area: num;
-        width: 28px !important;
-        height: 28px !important;
-        font-size: 14px !important;
-        margin: 0 !important;
-        /* Remove auto margins */
-        /* Flex centered properties inherit from original class */
-    }
-
-    body .benefit-card h3 {
-        grid-area: title;
-        margin: 0 0 4px 0 !important;
-        text-align: left !important;
-        font-size: 1.1rem !important;
-        line-height: 1.3 !important;
-    }
-
-    body .benefit-card p {
-        grid-area: desc;
-        text-align: left !important;
-        margin: 0 !important;
-        font-size: 0.95rem !important;
-        line-height: 1.5 !important;
-    }
-
-    /* 3. Safety Cleanups */
-    html,
-    body {
-        overflow-x: hidden;
-    }
-
-
-    /* Ensure CTA buttons are full width but not overflowing */
-    body .cta-group,
-    body .button-group {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* 4. Fix: Hero Heading Size (Mobile) */
-    .home-hero h1,
-    .hero-content h1 {
-        font-size: clamp(1.6rem, 6.5vw, 2.1rem) !important;
-        line-height: 1.15 !important;
-        letter-spacing: 0.02em !important;
-    }
-
-    .home-hero p,
-    .hero-content p {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
-    }
-
-    /* 5. Fix: Reduce Section Spacing (Mobile) */
-    body .section,
-    body section,
-    #benefits,
-    #use-cases,
-    #services,
-    .related-links {
-        padding-top: 32px !important;
-        padding-bottom: 32px !important;
-        margin-bottom: 0 !important;
-    }
-
-    .benefits-grid,
-    .use-cases-grid {
-        margin-bottom: 16px !important;
-    }
-
-    /* 6. Fix: Mobile Sticky Bottom Nav */
-    .mobile-bottom-nav {
-        display: flex !important;
-        position: fixed !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        z-index: 9999 !important;
-        background: #ffffff !important;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
-        padding-bottom: env(safe-area-inset-bottom, 20px) !important;
-        justify-content: space-between !important;
-        align-items: stretch !important;
-        gap: 0 !important;
-        border-top: 1px solid #e2e8f0 !important;
-        margin: 0 !important;
-    }
-
-    .mobile-bottom-nav-item {
-        flex: 1 1 50% !important;
-        width: 50% !important;
-        max-width: 50% !important;
-        border-radius: 0 !important;
-        margin: 0 !important;
-        padding: 8px 0 !important;
-        height: auto !important;
-        min-height: 56px !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        color: #4a5568 !important;
-    }
-
-    .mobile-bottom-nav-item[href*="contact"] {
-        background: var(--accent-color) !important;
-        color: #ffffff !important;
-    }
-
-    body {
-        padding-bottom: 80px !important;
-    }
-}
-
-/* ========================================
+    /* ========================================
    Home Page Hero Restoration
    Fix: Restore background image overwritten by global hero styles
    ======================================== */
-.home-page .hero {
-    background:
-        linear-gradient(rgba(26, 54, 93, 0.35), rgba(26, 54, 93, 0.35)),
-        url('/images/hero-bg.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-<<<<<<< HEAD
-=======
+    .home-page .hero {
+        background:
+            linear-gradient(rgba(26, 54, 93, 0.35), rgba(26, 54, 93, 0.35)),
+            url('/images/hero-bg.png') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
 
->>>>>>> origin/ag/mobile-cta-padding-fix
-/* ========================================
+    <<<<<<< HEAD=======>>>>>>>origin/ag/mobile-cta-padding-fix
+
+    /* ========================================
    Home Hero Restoration (Specific) 
    ======================================== */
-.home-hero {
-    background-image:
-        linear-gradient(rgba(26, 54, 93, 0.35), rgba(26, 54, 93, 0.35)),
-        url('../images/hero-bg.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    color: #ffffff !important;
-}
-<<<<<<< HEAD
-.home-hero h1,
-.home-hero p {
-    color: #ffffff !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
-}
-=======
+    .home-hero {
+        background-image:
+            linear-gradient(rgba(26, 54, 93, 0.35), rgba(26, 54, 93, 0.35)),
+            url('../images/hero-bg.png') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        color: #ffffff !important;
+    }
 
-.home-hero h1,
-.home-hero p {
-    color: #ffffff !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
-}
->>>>>>> origin/ag/mobile-cta-padding-fix
+    <<<<<<< HEAD .home-hero h1,
+    .home-hero p {
+        color: #ffffff !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    =======.home-hero h1,
+    .home-hero p {
+        color: #ffffff !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    >>>>>>>origin/ag/mobile-cta-padding-fix
