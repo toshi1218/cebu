@@ -1,0 +1,11 @@
+﻿name: gate
+on:
+  pull_request:
+  push:
+    branches: [ "master" ]
+jobs:
+  gate:
+    name: gate
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "gate ok"
