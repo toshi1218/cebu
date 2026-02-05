@@ -1,0 +1,15 @@
+﻿
+index.html:65:      display: none !important;
+index.html:394:        display: none;
+track.html:87:            display: none;
+track.html:194:            display: none;
+track.html:373:            <div id="photoContainer" class="progress-photo" style="display:
+ none;">
+personal\index.html:353:              style="display: none; flex-direction: column; align-
+items: center; gap: 0.5rem; color: var(--text-light);">
+personal\index.html:372:              style="display: none; flex-direction: column; align-
+items: center; gap: 0.5rem; color: var(--text-light);">
+personal\index.html:391:              style="display: none; flex-direction: column; align-
+items: center; gap: 0.5rem; color: var(--text-light);">
+
+

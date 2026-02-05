@@ -1,0 +1,6 @@
+﻿
+deploy_personal.html:11:  <link rel="canonical" href="https://igrs.online/personal" />
+deploy_personal.html:21:  <meta property="og:url" content="https://igrs.online/personal"
+ />
+
+

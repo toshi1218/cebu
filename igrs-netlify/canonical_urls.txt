@@ -1,0 +1,32 @@
+﻿404.html:<link rel="canonical" href="https://igrs.online/404" />
+blog-data-verification-guide.html:<link rel="canonical" href="https://igrs.online/blog-data-verification-guide" />
+blog-granway-compliance.html:<link rel="canonical" href="https://igrs.online/blog-granway-compliance" />
+blog-nbi-hit-guide.html:<link rel="canonical" href="https://igrs.online/blog-nbi-hit-guide" />
+blog-philippines-documents-complexity.html:<link rel="canonical" href="https://igrs.online/blog-philippines-documents-complexity" />
+blog-philippines-japan-international-marriage-documents-2026.html:<link rel="canonical" href="https://igrs.online/blog-philippines-japan-international-marriage-documents-2026" />
+blog.html:<link rel="canonical" href="https://igrs.online/blog" />
+business.html:<link rel="canonical" href="https://igrs.online/business.html" />
+cenomar.html:<link rel="canonical" href="https://igrs.online/cenomar" />
+company.html:<link rel="canonical" href="https://igrs.online/company" />
+contact.html:<link rel="canonical" href="https://igrs.online/contact" />
+dfa-apostille.html:<link rel="canonical" href="https://igrs.online/dfa-apostille.html" />
+gaimen-kirikae.html:<link rel="canonical" href="https://igrs.online/gaimen-kirikae" />
+gyoseishoshi.html:<link rel="canonical" href="https://igrs.online/gyoseishoshi" />
+haigusha-visa.html:<link rel="canonical" href="https://igrs.online/haigusha-visa">
+index.html:<link rel="canonical" href="https://igrs.online/" />
+kika_v2.html:<link rel="canonical" href="https://igrs.online/kika_v2">
+kokusai-kekkon.html:<link rel="canonical" href="https://igrs.online/kokusai-kekkon" />
+lto-drivers-license.html:<link rel="canonical" href="https://igrs.online/lto-drivers-license" />
+lto-transaction-history.html:<link rel="canonical" href="https://igrs.online/lto-transaction-history.html" />
+marriage-certificate.html:<link rel="canonical" href="https://igrs.online/marriage-certificate">
+nbi-clearance.html:<link rel="canonical" href="https://igrs.online/nbi-clearance.html" />
+personal.html:<link rel="canonical" href="https://igrs.online/personal.html" />
+philippine-marriage-doc-cost-comparison-original.html:<link rel="canonical" href="https://igrs.online/philippine-marriage-doc-cost-comparison" />
+philippine-marriage-doc-cost-comparison.html:<link rel="canonical" href="https://igrs.online/philippine-marriage-doc-cost-comparison" />
+privacy.html:<link rel="canonical" href="https://igrs.online/privacy" />
+psa-birth-certificate.html:<link rel="canonical" href="https://igrs.online/psa-birth-certificate.html" />
+thank-you.html:<link rel="canonical" href="https://igrs.online/thank-you" />
+track.html:<link rel="canonical" href="https://igrs.online/track" />
+translation.html:<link rel="canonical" href="https://igrs.online/translation" />
+index.html:<link rel="canonical" href="https://igrs.online/kika" />
+index.html:<link rel="canonical" href="https://igrs.online/personal" />
