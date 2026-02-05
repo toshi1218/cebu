@@ -2,3 +2,11 @@
 /services.html https://igrs.online/ 301
 /services-v2 https://igrs.online/ 301
 /services-v2.html https://igrs.online/ 301
+/lto-driver-license /lto-drivers-license 301
+
+# Legacy URL redirects (Google indexed old URLs)
+/lto-driver-license.html /lto-drivers-license 301
+/psa-certificate /psa-birth-certificate 301
+/psa-certificate.html /psa-birth-certificate 301
+/contact-us /contact 301
+/about-us /company 301
