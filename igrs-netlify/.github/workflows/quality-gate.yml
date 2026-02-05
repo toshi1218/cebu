@@ -19,8 +19,8 @@ on:
 
           errors = []
 
-          sitemap_path = os.path.join("igrs-netlify", "sitemap.xml")
-          contact_path = os.path.join("igrs-netlify", "contact.html")
+          sitemap_path = os.path.join("sitemap.xml")
+          contact_path = os.path.join("contact.html")
 
           # --- sitemap.xml ---
           if not os.path.exists(sitemap_path):
