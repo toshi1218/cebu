@@ -1,0 +1,23 @@
+﻿
+deploy_kika.html:13:      "url": "https://igrs.online/",
+deploy_kika.html:18:          "url": "https://igrs.online/contact",
+deploy_kika.html:28:      "url": "https://igrs.online/",
+deploy_kika.html:44:    <link rel="canonical" href="https://igrs.online/kika-shinsei/" /
+>
+deploy_kika.html:55:    <meta property="og:url" content="https://igrs.online/kika-shinse
+i/" />
+deploy_kika.html:78:    "itemListElement": [
+deploy_kika.html:80:        "@type": "ListItem",
+deploy_kika.html:83:        "item": "https://igrs.online/"
+deploy_kika.html:86:        "@type": "ListItem",
+deploy_kika.html:89:        "item": "https://igrs.online/kika-shinsei/"
+deploy_kika.html:102:  "url":"https://igrs.online/kika-shinsei/",
+deploy_kika.html:211:                    <div class="timeline-item">
+deploy_kika.html:215:                    <div class="timeline-item">
+deploy_kika.html:219:                    <div class="timeline-item">
+deploy_kika.html:223:                    <div class="timeline-item">
+deploy_kika.html:241:                <div class="faq-item">
+deploy_kika.html:245:                <div class="faq-item">
+deploy_kika.html:249:                <div class="faq-item">
+
+

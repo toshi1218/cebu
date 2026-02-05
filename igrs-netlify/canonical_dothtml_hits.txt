@@ -1,0 +1,6 @@
+﻿C:\Users\toshiyuki\cebu\igrs-netlify\business.html:11:<link rel="canonical" href="https://igrs.online/business.html" />
+C:\Users\toshiyuki\cebu\igrs-netlify\dfa-apostille.html:12:<link rel="canonical" href="https://igrs.online/dfa-apostille.html" />
+C:\Users\toshiyuki\cebu\igrs-netlify\lto-transaction-history.html:11:<link rel="canonical" href="https://igrs.online/lto-transaction-history.html" />
+C:\Users\toshiyuki\cebu\igrs-netlify\nbi-clearance.html:12:<link rel="canonical" href="https://igrs.online/nbi-clearance.html" />
+C:\Users\toshiyuki\cebu\igrs-netlify\personal.html:11:<link rel="canonical" href="https://igrs.online/personal.html" />
+C:\Users\toshiyuki\cebu\igrs-netlify\psa-birth-certificate.html:11:<link rel="canonical" href="https://igrs.online/psa-birth-certificate.html" />
