@@ -15,4 +15,4 @@ http://www.igrs.online/* https://igrs.online/:splat 301!
 /お問い合わせ /contact 301
 /プライバシーポリシー /privacy 301
 
-/services /personal 301
+/services / 410
