@@ -54,30 +54,20 @@
       "@graph": [
         {
           "@type": "Service",
-          "@id": "https://igrs.online/haigusha-visa#service",
-          "serviceType": "配偶者ビザ申請サポート",
-          "name": "フィリピン人配偶者ビザ申請サポート",
-          "description": "フィリピン人配偶者との在留資格（配偶者ビザ）申請に必要な書類取得・翻訳・アポスティーユまで一括サポート。日本語で安心して進められます。",
+          "name": "配偶者ビザ申請 書類取得パッケージ",
+          "serviceType": "配偶者ビザ書類取得代行",
+          "description": "配偶者ビザ申請に必要な出生証明書・婚姻証明書・CENOMAR・DFAアポスティーユを一括取得。在留資格認定・変更申請をサポート。",
           "provider": {
-            "@type": "Organization",
-            "name": "IGRS Corporation",
-            "url": "https://igrs.online",
-            "logo": "https://igrs.online/images/logo.png",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Cebu City",
-              "addressRegion": "Cebu",
-              "addressCountry": "PH"
-            }
+            "@id": "https://igrs.online/#organization"
           },
           "areaServed": {
             "@type": "Country",
             "name": "Japan"
           },
-          "availableChannel": {
-            "@type": "ServiceChannel",
-            "serviceUrl": "https://igrs.online/haigusha-visa",
-            "availableLanguage": ["ja", "en"]
+          "offers": {
+            "@type": "Offer",
+            "price": "120000",
+            "priceCurrency": "JPY"
           }
         },
         {

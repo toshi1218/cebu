@@ -5,32 +5,22 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://igrs.online/#org",
-      "name": "IGRS",
-      "url": "https://igrs.online/",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "url": "https://igrs.online/contact",
-          "availableLanguage": ["Japanese", "English"]
-        }
-      ],
-      "areaServed": ["Japan", "Philippines"],
-      "sameAs": ["https://twitter.com/GswCnxL7Sg15778"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://igrs.online/#website",
-      "url": "https://igrs.online/",
-      "name": "IGRS - フィリピン書類取得代行センター",
-      "publisher": { "@id": "https://igrs.online/#org" },
-      "inLanguage": "ja"
-    }
-  ]
+  "@type": "Service",
+  "name": "フィリピン人との国際結婚 書類取得パッケージ",
+  "serviceType": "国際結婚書類取得代行",
+  "description": "フィリピン人との国際結婚に必要なCENOMAR・出生証明書・DFAアポスティーユを一括取得。婚姻届提出から配偶者ビザ申請までサポート。",
+  "provider": {
+    "@id": "https://igrs.online/#organization"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Japan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "120000",
+    "priceCurrency": "JPY"
+  }
 }
 </script>
     <meta charset="UTF-8" />

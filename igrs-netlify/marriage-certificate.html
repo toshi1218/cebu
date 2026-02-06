@@ -5,32 +5,22 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://igrs.online/#org",
-      "name": "IGRS",
-      "url": "https://igrs.online/",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "url": "https://igrs.online/contact",
-          "availableLanguage": ["Japanese", "English"]
-        }
-      ],
-      "areaServed": ["Japan", "Philippines"],
-      "sameAs": ["https://twitter.com/GswCnxL7Sg15778"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://igrs.online/#website",
-      "url": "https://igrs.online/",
-      "name": "IGRS - フィリピン書類取得代行センター",
-      "publisher": { "@id": "https://igrs.online/#org" },
-      "inLanguage": "ja"
-    }
-  ]
+  "@type": "Service",
+  "name": "PSA婚姻証明書取得代行",
+  "serviceType": "フィリピンPSA婚姻証明書取得代行",
+  "description": "フィリピン統計局（PSA）発行の婚姻証明書をDFAアポスティーユ付きで取得代行。",
+  "provider": {
+    "@id": "https://igrs.online/#organization"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Japan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "60000",
+    "priceCurrency": "JPY"
+  }
 }
 </script>
     <meta charset="UTF-8">
