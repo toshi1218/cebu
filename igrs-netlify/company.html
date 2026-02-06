@@ -5,30 +5,28 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "Organization",
+  "name": "株式会社IGRS",
+  "alternateName": "IGRS Corporation",
+  "url": "https://igrs.online",
+  "logo": "https://igrs.online/images/logo.png",
+  "description": "2020年設立。フィリピン・セブ島拠点でPSA・NBI・LTO・DFA書類取得代行のBPOサービスを提供する日本法人。",
+  "foundingDate": "2020-06-01",
+  "founder": {
+    "@type": "Person",
+    "name": "代表 五十嵐"
+  },
+  "address": [
     {
-      "@type": "Organization",
-      "@id": "https://igrs.online/#org",
-      "name": "IGRS",
-      "url": "https://igrs.online/",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "url": "https://igrs.online/contact",
-          "availableLanguage": ["Japanese", "English"]
-        }
-      ],
-      "areaServed": ["Japan", "Philippines"],
-      "sameAs": ["https://twitter.com/GswCnxL7Sg15778"]
+      "@type": "PostalAddress",
+      "addressLocality": "和歌山市",
+      "addressRegion": "和歌山県",
+      "addressCountry": "JP"
     },
     {
-      "@type": "WebSite",
-      "@id": "https://igrs.online/#website",
-      "url": "https://igrs.online/",
-      "name": "IGRS - フィリピン書類取得代行センター",
-      "publisher": { "@id": "https://igrs.online/#org" },
-      "inLanguage": "ja"
+      "@type": "PostalAddress",
+      "addressLocality": "セブ市",
+      "addressCountry": "PH"
     }
   ]
 }
