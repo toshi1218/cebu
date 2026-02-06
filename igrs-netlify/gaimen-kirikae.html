@@ -5,32 +5,22 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://igrs.online/#org",
-      "name": "IGRS",
-      "url": "https://igrs.online/",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "url": "https://igrs.online/contact",
-          "availableLanguage": ["Japanese", "English"]
-        }
-      ],
-      "areaServed": ["Japan", "Philippines"],
-      "sameAs": ["https://twitter.com/GswCnxL7Sg15778"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://igrs.online/#website",
-      "url": "https://igrs.online/",
-      "name": "IGRS - フィリピン書類取得代行センター",
-      "publisher": { "@id": "https://igrs.online/#org" },
-      "inLanguage": "ja"
-    }
-  ]
+  "@type": "Service",
+  "name": "外国免許切替（外免切替）書類取得パッケージ",
+  "serviceType": "外免切替書類取得代行",
+  "description": "外国免許切替に必要なLTO運転経歴証明書・取引履歴・DFAアポスティーユを一括取得。日本の運転免許センター提出用。",
+  "provider": {
+    "@id": "https://igrs.online/#organization"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Japan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "120000",
+    "priceCurrency": "JPY"
+  }
 }
 </script>
     <meta charset="UTF-8" />

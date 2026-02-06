@@ -13,32 +13,22 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://igrs.online/#org",
-      "name": "IGRS",
-      "url": "https://igrs.online/",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "url": "https://igrs.online/contact",
-          "availableLanguage": ["Japanese", "English"]
-        }
-      ],
-      "areaServed": ["Japan", "Philippines"],
-      "sameAs": ["https://twitter.com/GswCnxL7Sg15778"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://igrs.online/#website",
-      "url": "https://igrs.online/",
-      "name": "IGRS - フィリピン書類取得代行センター",
-      "publisher": { "@id": "https://igrs.online/#org" },
-      "inLanguage": "ja"
-    }
-  ]
+  "@type": "Service",
+  "name": "LTO運転経歴証明書 + DFAアポスティーユ取得代行",
+  "serviceType": "フィリピンLTO運転経歴証明書取得代行",
+  "description": "フィリピン陸運局（LTO）発行の運転経歴証明書をDFAアポスティーユ付きで取得代行。外国免許切替（外免切替）申請に必要。",
+  "provider": {
+    "@id": "https://igrs.online/#organization"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Japan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "100000",
+    "priceCurrency": "JPY"
+  }
 }
 </script>
   <script type="application/ld+json">

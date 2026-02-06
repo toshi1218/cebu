@@ -424,49 +424,80 @@
     gtag('config', 'G-KRN6VVHJTQ');
   </script>
   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "Organization",
+      "@id": "https://igrs.online/#organization",
+      "name": "株式会社IGRS",
+      "alternateName": "IGRS Corporation",
+      "url": "https://igrs.online",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://igrs.online/images/logo.png"
+      },
+      "description": "フィリピン公文書（PSA・NBI・LTO・DFA）取得代行サービス。セブ島拠点の日本法人。",
+      "foundingDate": "2020-06-01",
+      "founder": {
+        "@type": "Person",
+        "name": "代表 五十嵐"
+      },
+      "address": [
         {
-          "@type": "Organization",
-          "@id": "https://igrs.online/#org",
-          "name": "IGRS（Philippine Document Retrieval Center）",
-          "url": "https://igrs.online/",
-          "description": "フィリピン公的書類の取得支援と、日本側提出向け手続きサポート",
-          "areaServed": ["Philippines", "Japan"]
+          "@type": "PostalAddress",
+          "addressLocality": "和歌山市",
+          "addressRegion": "和歌山県",
+          "addressCountry": "JP"
         },
         {
-          "@type": "ProfessionalService",
-          "@id": "https://igrs.online/#service",
-          "name": "IGRS フィリピン書類取得代行センター",
-          "provider": { "@id": "https://igrs.online/#org" },
-          "url": "https://igrs.online/",
-          "inLanguage": "ja",
-          "serviceType": "Philippine government document retrieval and submission support for Japan",
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Services",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PSA Birth Certificate", "url": "https://igrs.online/psa-birth-certificate" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marriage Certificate", "url": "https://igrs.online/marriage-certificate" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CENOMAR", "url": "https://igrs.online/cenomar" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "NBI Clearance", "url": "https://igrs.online/nbi-clearance" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LTO Drivers License", "url": "https://igrs.online/lto-drivers-license" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DFA Apostille", "url": "https://igrs.online/dfa-apostille" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Translation Service", "url": "https://igrs.online/translation" } }
-            ]
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://igrs.online/#website",
-          "url": "https://igrs.online/",
-          "name": "フィリピン書類取得代行｜CENOMAR・PSA・NBI・DFAアポスティーユ｜IGRS.online",
-          "inLanguage": "ja",
-          "publisher": { "@id": "https://igrs.online/#org" }
+          "@type": "PostalAddress",
+          "addressLocality": "セブ市",
+          "addressCountry": "PH"
         }
+      ],
+      "sameAs": [
+        "https://twitter.com/GswCnxL7Sg15778"
       ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://igrs.online/#localbusiness",
+      "name": "株式会社IGRS フィリピン書類取得代行センター",
+      "image": "https://igrs.online/images/logo.png",
+      "url": "https://igrs.online",
+      "priceRange": "¥55,000〜¥120,000",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "和歌山市",
+          "addressRegion": "和歌山県",
+          "addressCountry": "JP"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "セブ市",
+          "addressCountry": "PH"
+        }
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Japan"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://igrs.online/#website",
+      "url": "https://igrs.online",
+      "name": "IGRS.online｜フィリピン書類取得代行センター",
+      "description": "フィリピン公文書（PSA・NBI・LTO・DFA）の取得代行サービス",
+      "publisher": {
+        "@id": "https://igrs.online/#organization"
+      },
+      "inLanguage": "ja"
     }
+  ]
+}
   </script>
 </head>
 
