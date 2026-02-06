@@ -1,7 +1,7 @@
-/services https://igrs.online/ 301
-/services.html https://igrs.online/ 301
-/services-v2 https://igrs.online/ 301
-/services-v2.html https://igrs.online/ 301
+/services / 410
+/services.html / 410
+/services-v2 / 410
+/services-v2.html / 410
 /lto-driver-license /lto-drivers-license 301
 
 # Legacy URL redirects (Google indexed old URLs)
