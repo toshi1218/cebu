@@ -582,7 +582,6 @@ header.site-header .header-container[style*="100vw"] {
 /* ========================================
    Hero Sections - Professional
    ======================================== */
-.hero,
 .page-hero,
 section:first-of-type {
     margin-top: 0 !important;
@@ -591,14 +590,12 @@ section:first-of-type {
     color: var(--text-dark) !important;
 }
 
-.hero h1,
 .page-hero h1 {
     color: var(--primary-color) !important;
     font-weight: var(--font-weight-bold) !important;
     text-align: center !important;
 }
 
-.hero p,
 .page-hero p {
     color: var(--text-light) !important;
     font-size: 1.1rem !important;
