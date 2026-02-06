@@ -2390,7 +2390,10 @@ h3,
     --pad: 20px;
 }
 
-html,
+html {
+    height: 100%;
+}
+
 body {
     width: 100%;
     max-width: 100%;
@@ -2398,17 +2401,29 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
 }
 
-/* Main wrapping elements that push the footer down (avoid .container) */
+/* Main wrapping elements that push the footer down */
 main,
 .page-wrap,
 .content,
 .wrapper,
 #root,
-#app {
-    flex: 1;
+#app,
+.main-content {
+    flex: 1 0 auto;
     width: 100%;
+}
+
+/* Force footer to be auto height and not grow */
+footer,
+#site-footer,
+.site-footer {
+    flex-shrink: 0;
+    height: auto !important;
+    min-height: 0 !important;
+    display: block;
 }
 
 
