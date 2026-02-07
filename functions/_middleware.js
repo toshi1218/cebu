@@ -1,4 +1,55 @@
+// Test middleware - minimal implementation to verify execution
 export async function onRequest(context) {
+  const url = new URL(context.request.url);
+  
+  // Debug: Log all requests (will appear in Cloudflare Real-time Logs)
+  console.log(`Middleware triggered: ${url.href}`);
+  
   // Test: Force redirect to verify middleware is working
-  return Response.redirect('https://igrs.online/test-middleware-working', 301);
+  if (url.pathname.includes('/test-middleware')) {
+    return Response.redirect('https://igrs.online/test-middleware-working', 301);
+  }
+  
+  // Original logic for URL normalization
+  let { protocol, hostname, pathname, search } = url;
+  let redirect = false;
+  
+  // 1. Force HTTPS
+  if (protocol === 'http:') {
+    protocol = 'https:';
+    redirect = true;
+  }
+  
+  // 2. Remove WWW
+  if (hostname === 'www.igrs.online') {
+    hostname = 'igrs.online';
+    redirect = true;
+  }
+  
+  // 3. Remove .html
+  if (pathname.endsWith('.html')) {
+    pathname = pathname.slice(0, -5);
+    redirect = true;
+  }
+  
+  // 4. Legacy mappings
+  const legacyMap = {
+    '/lto-driver-license': '/lto-drivers-license',
+    '/psa-certificate': '/psa-birth-certificate',
+    '/contact-us': '/contact',
+    '/about-us': '/company'
+  };
+  
+  if (legacyMap[pathname]) {
+    pathname = legacyMap[pathname];
+    redirect = true;
+  }
+  
+  if (redirect) {
+    const newUrl = `${protocol}//${hostname}${pathname}${search}`;
+    console.log(`Redirecting to: ${newUrl}`);
+    return Response.redirect(newUrl, 301);
+  }
+  
+  return context.next();
 }
