@@ -157,11 +157,4 @@ http://www.igrs.online/blog-philippines-japan-international-marriage-documents-2
 http://igrs.online/blog-philippines-japan-international-marriage-documents-2026.html https://igrs.online/blog-philippines-japan-international-marriage-documents-2026 301
 https://www.igrs.online/blog-philippines-japan-international-marriage-documents-2026.html https://igrs.online/blog-philippines-japan-international-marriage-documents-2026 301
 
-# Wildcard rules (fallback)
-http://www.igrs.online/*.html https://igrs.online/:splat 301
-http://www.igrs.online/* https://igrs.online/:splat 301
-http://igrs.online/*.html https://igrs.online/:splat 301
-http://igrs.online/* https://igrs.online/:splat 301
-https://www.igrs.online/*.html https://igrs.online/:splat 301
-https://www.igrs.online/* https://igrs.online/:splat 301
-/*.html /:splat 301
+# Wildcard rules (fallback - DISABLED for debugging Test 5)
