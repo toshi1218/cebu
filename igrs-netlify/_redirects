@@ -1,8 +1,6 @@
 # Middleware handles all 301s (http/www/.html/trailing-slash/legacy-slugs).
 # This file contains 200 rewrites only (/slug -> /slug.html).
 
-/pages-sitemap.xml  /sitemap.xml  301
-
 /  /index.html  200
 
 /anshin-pack  /anshin-pack.html  200

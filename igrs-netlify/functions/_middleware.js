@@ -1,45 +1,54 @@
-
 export async function onRequest(context) {
-    const url = new URL(context.request.url);
-    let { protocol, hostname, pathname, search } = url;
+    const { request, next } = context;
+    const url = new URL(request.url);
 
-    let redirect = false;
+    let changed = false;
 
-    // 1. Force HTTPS
-    if (protocol === 'http:') {
-        protocol = 'https:';
-        redirect = true;
+    // 1. www -> non-www
+    if (url.hostname === "www.igrs.online") {
+        url.hostname = "igrs.online";
+        changed = true;
     }
 
-    // 2. Remove WWW
-    if (hostname === 'www.igrs.online') {
-        hostname = 'igrs.online';
-        redirect = true;
+    let p = url.pathname;
+
+    // 2. index.html -> parent /
+    if (p === "/index.html" || p.endsWith("/index.html")) {
+        p = p.replace(/\/index\.html$/, "/");
+        if (p === "") p = "/";
+        changed = true;
     }
 
-    // 3. Remove .html
-    if (pathname.endsWith('.html')) {
-        pathname = pathname.slice(0, -5);
-        redirect = true;
+    // 3. .html -> remove
+    if (p.endsWith(".html")) {
+        p = p.slice(0, -5);
+        if (p === "") p = "/";
+        changed = true;
     }
 
-    // 4. Legacy mappings
+    // 4. trailing slash remove (except "/")
+    if (p.length > 1 && p.endsWith("/")) {
+        p = p.slice(0, -1);
+        changed = true;
+    }
+
+    // 5. legacy slug map
     const legacyMap = {
-        '/lto-driver-license': '/lto-drivers-license',
-        '/psa-certificate': '/psa-birth-certificate',
-        '/contact-us': '/contact',
-        '/about-us': '/company'
+        "/lto-driver-license": "/lto-drivers-license",
+        "/psa-certificate": "/psa-birth-certificate",
+        "/contact-us": "/contact",
+        "/about-us": "/company",
+        "/pages-sitemap.xml": "/sitemap.xml",
     };
-
-    if (legacyMap[pathname]) {
-        pathname = legacyMap[pathname];
-        redirect = true;
+    if (legacyMap[p]) {
+        p = legacyMap[p];
+        changed = true;
     }
 
-    if (redirect) {
-        const newUrl = `${protocol}//${hostname}${pathname}${search}`;
-        return Response.redirect(newUrl, 301);
+    if (changed) {
+        url.pathname = p;
+        return Response.redirect(url.toString(), 301);
     }
 
-    return context.next();
+    return next();
 }
