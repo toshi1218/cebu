@@ -1,89 +1,54 @@
-
 export async function onRequest(context) {
-    const url = new URL(context.request.url);
-    const { pathname, search, protocol, hostname } = url;
+    const { request, next } = context;
+    const url = new URL(request.url);
 
-    // Skip non-GET/HEAD requests
-    // HEAD requests are handled by Cloudflare automatically for GET, but good to be explicit for middleware?
-    // User code explicitly allows GET and HEAD.
-    if (context.request.method !== 'GET' && context.request.method !== 'HEAD') {
-        return context.next();
+    let changed = false;
+
+    // 1. www -> non-www
+    if (url.hostname === "www.igrs.online") {
+        url.hostname = "igrs.online";
+        changed = true;
     }
 
-    let needsRedirect = false;
-    let newProtocol = protocol;
-    let newHostname = hostname;
-    let newPathname = pathname;
+    let p = url.pathname;
 
-    // 1. Force HTTPS
-    if (protocol === 'http:') {
-        newProtocol = 'https:';
-        needsRedirect = true;
+    // 2. index.html -> parent /
+    if (p === "/index.html" || p.endsWith("/index.html")) {
+        p = p.replace(/\/index\.html$/, "/");
+        if (p === "") p = "/";
+        changed = true;
     }
 
-    // 2. Remove WWW
-    if (hostname === 'www.igrs.online') {
-        newHostname = 'igrs.online';
-        needsRedirect = true;
+    // 3. .html -> remove
+    if (p.endsWith(".html")) {
+        p = p.slice(0, -5);
+        if (p === "") p = "/";
+        changed = true;
     }
 
-    // 3. Remove .html extension
-    if (newPathname.endsWith('/index.html')) {
-        newPathname = newPathname.substring(0, newPathname.length - 10) || '/';
-        needsRedirect = true;
-    } else if (newPathname.endsWith('.html')) {
-        newPathname = newPathname.substring(0, newPathname.length - 5);
-        needsRedirect = true;
+    // 4. trailing slash remove (except "/")
+    if (p.length > 1 && p.endsWith("/")) {
+        p = p.slice(0, -1);
+        changed = true;
     }
 
-    // 4. Legacy URL mappings
-    // Map OLD path (WITHOUT .html if already stripped, or WITH .html if strictly matching?)
-    // The logic below: `if (newPathname === oldPath || newPathname === oldPath + '.html')`
-    // `newPathname` at this point has `.html` stripped by step 3.
-    // So if original was `/lto-driver-license.html`, step 3 made it `/lto-driver-license`.
-    // `oldPath` in map is `/lto-driver-license`.
-    // So `newPathname === oldPath` will match.
-    // If original was `/lto-driver-license` (no extension), step 3 did nothing.
-    // `newPathname` is `/lto-driver-license`. Match.
-
-    // Wait, legacy map keys in user prompt:
-    // '/lto-driver-license': '/lto-drivers-license'
-    // My check `newPathname === oldPath` covers `/lto-driver-license` (stripped or raw).
-
+    // 5. legacy slug map
     const legacyMap = {
-        '/lto-driver-license': '/lto-drivers-license',
-        '/psa-certificate': '/psa-birth-certificate',
-        '/contact-us': '/contact',
-        '/about-us': '/company'
+        "/lto-driver-license": "/lto-drivers-license",
+        "/psa-certificate": "/psa-birth-certificate",
+        "/contact-us": "/contact",
+        "/about-us": "/company",
+        "/pages-sitemap.xml": "/sitemap.xml",
     };
-
-    // Optimization: Direct lookup might be faster than iteration, but iteration with 4 items is negligible.
-    // Code follows user prompt exactly.
-
-    for (const [oldPath, newPath] of Object.entries(legacyMap)) {
-        // Check if current path matches old path or old path + .html 
-        // (Though step 3 already stripped .html, so usually just oldPath is enough if we trust step 3)
-        // Actually, if step 3 runs, newPathname doesn't have .html.
-        // So the check `newPathname === oldPath + '.html'` is redundant but harmless.
-        if (newPathname === oldPath || newPathname === oldPath + '.html') {
-            newPathname = newPath;
-            needsRedirect = true;
-            break;
-        }
+    if (legacyMap[p]) {
+        p = legacyMap[p];
+        changed = true;
     }
 
-    if (needsRedirect) {
-        // Construct final URL
-        // Ensure we don't double slash if newPathname starts with /
-        // URL constructor handles protocol/host, but we are building string.
-        // template: `${newProtocol}//${newHostname}${newPathname}${search}`
-        // newProtocol has : (e.g. 'https:')
-        // newHostname is 'igrs.online'
-        // newPathname starts with / (e.g. '/blog')
-        // search includes ? (e.g. '?foo=bar') or empty
-        const finalUrl = `${newProtocol}//${newHostname}${newPathname}${search}`;
-        return Response.redirect(finalUrl, 301);
+    if (changed) {
+        url.pathname = p;
+        return Response.redirect(url.toString(), 301);
     }
 
-    return context.next();
+    return next();
 }

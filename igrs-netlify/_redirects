@@ -1,5 +1,51 @@
+# Middleware handles all 301s (http/www/.html/trailing-slash/legacy-slugs).
+# This file contains 200 rewrites only (/slug -> /slug.html).
 
-/services / 410
-/services.html / 410
-/services-v2 / 410
-/services-v2.html / 410
+/  /index.html  200
+
+/anshin-pack  /anshin-pack.html  200
+/audit_business  /audit_business.html  200
+/audit_cenomar  /audit_cenomar.html  200
+/audit_company  /audit_company.html  200
+/audit_contact  /audit_contact.html  200
+/audit_dfa  /audit_dfa.html  200
+/audit_home  /audit_home.html  200
+/audit_lto  /audit_lto.html  200
+/audit_nbi  /audit_nbi.html  200
+/audit_personal  /audit_personal.html  200
+/audit_privacy  /audit_privacy.html  200
+/audit_psa  /audit_psa.html  200
+/blog  /blog.html  200
+/blog-data-verification-guide  /blog-data-verification-guide.html  200
+/blog-granway-compliance  /blog-granway-compliance.html  200
+/blog-nbi-hit-guide  /blog-nbi-hit-guide.html  200
+/blog-philippines-documents-complexity  /blog-philippines-documents-complexity.html  200
+/blog-philippines-japan-international-marriage-documents-2026  /blog-philippines-japan-international-marriage-documents-2026.html  200
+/business  /business.html  200
+/cenomar  /cenomar.html  200
+/company  /company.html  200
+/contact  /contact.html  200
+/deploy_dfa  /deploy_dfa.html  200
+/deploy_kika  /deploy_kika.html  200
+/deploy_personal  /deploy_personal.html  200
+/dfa-apostille  /dfa-apostille.html  200
+/gaimen-kirikae  /gaimen-kirikae.html  200
+/gyoseishoshi  /gyoseishoshi.html  200
+/haigusha-visa  /haigusha-visa.html  200
+/kika-shinsei  /kika-shinsei.html  200
+/kika_v2  /kika_v2.html  200
+/kika_v2_backup  /kika_v2_backup.html  200
+/kokusai-kekkon  /kokusai-kekkon.html  200
+/lto-drivers-license  /lto-drivers-license.html  200
+/lto-transaction-history  /lto-transaction-history.html  200
+/marriage-certificate  /marriage-certificate.html  200
+/nbi-clearance  /nbi-clearance.html  200
+/personal  /personal.html  200
+/philippine-marriage-doc-cost-comparison  /philippine-marriage-doc-cost-comparison.html  200
+/philippine-marriage-doc-cost-comparison-original  /philippine-marriage-doc-cost-comparison-original.html  200
+/premium-package  /premium-package.html  200
+/privacy  /privacy.html  200
+/psa-birth-certificate  /psa-birth-certificate.html  200
+/thank-you  /thank-you.html  200
+/track  /track.html  200
+/translation  /translation.html  200
