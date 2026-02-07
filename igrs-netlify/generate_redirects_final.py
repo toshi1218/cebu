@@ -87,14 +87,14 @@ for page in pages:
 redirects.append('')
 
 # 汎用ワイルドカード（優先順位: 具体的 → 汎用）
-redirects.append('# Wildcard rules (fallback)')
-redirects.append('http://www.igrs.online/*.html https://igrs.online/:splat 301')
-redirects.append('http://www.igrs.online/* https://igrs.online/:splat 301')
-redirects.append('http://igrs.online/*.html https://igrs.online/:splat 301')
-redirects.append('http://igrs.online/* https://igrs.online/:splat 301')
-redirects.append('https://www.igrs.online/*.html https://igrs.online/:splat 301')
-redirects.append('https://www.igrs.online/* https://igrs.online/:splat 301')
-redirects.append('/*.html /:splat 301')
+redirects.append('# Wildcard rules (fallback - DISABLED for debugging Test 5)')
+# redirects.append('http://www.igrs.online/*.html https://igrs.online/:splat 301')
+# redirects.append('http://www.igrs.online/* https://igrs.online/:splat 301')
+# redirects.append('http://igrs.online/*.html https://igrs.online/:splat 301')
+# redirects.append('http://igrs.online/* https://igrs.online/:splat 301')
+# redirects.append('https://www.igrs.online/*.html https://igrs.online/:splat 301')
+# redirects.append('https://www.igrs.online/* https://igrs.online/:splat 301')
+# redirects.append('/*.html /:splat 301')
 
 # UTF-8で出力
 with open('_redirects', 'w', encoding='utf-8') as f:
