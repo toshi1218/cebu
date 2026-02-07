@@ -52,10 +52,10 @@ npm install
 2. **ローカル開発**: `npm run format` で整形、`npm run check` でチェック
 3. **Push & PR作成**: GitHub にプッシュし、Pull Request を作成
 4. **自動チェック**: GitHub Actions で `npm run lint` が自動実行
-5. **Deploy Preview**: Netlify が自動的にプレビュー環境を作成
+5. **Deploy Preview**: Cloudflare Pages が自動的にプレビュー環境を作成
 6. **レビュー**: プレビューを確認し、問題なければ承認
 7. **マージ**: main ブランチにマージ
-8. **本番デプロイ**: Netlify が自動的に本番環境にデプロイ
+8. **本番デプロイ**: Cloudflare Pages が自動的に本番環境にデプロイ
 
 ### 禁止事項
 
@@ -76,7 +76,7 @@ GitHub リポジトリ設定で以下を有効化することを推奨：
 
 ```
 cebu/
-├── igrs-netlify/        # 静的サイト（Netlifyデプロイ対象）
+├── igrs-netlify/        # 静的サイト（Cloudflare Pagesデプロイ対象）
 │   ├── css/             # スタイルシート
 │   ├── images/          # 画像ファイル
 │   └── *.html           # HTMLページ
@@ -88,12 +88,12 @@ cebu/
 │   ├── check-title-h1.js# title/H1 チェック
 │   └── check-jsonld.js  # JSON-LD チェック
 ├── .github/workflows/   # GitHub Actions 設定
-├── netlify.toml         # Netlify 設定
+├── _redirects           # Cloudflare Pages 互換リダイレクト設定
 ├── package.json         # npm 設定
 └── README.md            # このファイル
 ```
 
-## Netlify設定
+## Cloudflare Pages設定
 
 - **Publish directory**: `igrs-netlify`
 - **Build command**: `echo 'Static site - no build needed'`

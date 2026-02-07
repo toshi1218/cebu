@@ -44,11 +44,11 @@ export async function onRequest(context) {
         changed = true;
     }
 
-    // trailing slash remove (except "/")
-    if (p.length > 1 && p.endsWith("/")) {
-        p = p.slice(0, -1);
-        changed = true;
-    }
+    // NOTE:
+    // Do NOT force-remove trailing slash globally.
+    // Cloudflare Pages may canonicalize real directories (e.g. /personal -> /personal/)
+    // before this middleware, while this middleware used to canonicalize /personal/ -> /personal.
+    // That opposite behavior can create a redirect loop in production.
 
     // legacy slugs
     const legacyMap = {
@@ -68,12 +68,15 @@ export async function onRequest(context) {
         return Response.redirect(url.toString(), 301);
     }
 
-    // 5) Internal rewrite: /slug -> serve /slug.html (browser URL stays /slug)
+    // 5) Internal rewrite for static HTML on Cloudflare Pages
+    //    /slug   -> /slug.html
+    //    /slug/  -> /slug.html
     const path = url.pathname;
     const isExtensionless = !path.includes(".");
     if (path !== "/" && isExtensionless) {
         const rewriteUrl = new URL(url.toString());
-        rewriteUrl.pathname = `${path}.html`;
+        const normalizedPath = path.endsWith("/") ? path.slice(0, -1) : path;
+        rewriteUrl.pathname = `${normalizedPath}.html`;
         const rewriteReq = new Request(rewriteUrl.toString(), req);
         return context.next(rewriteReq);
     }

@@ -36,10 +36,12 @@ function extractInternalLinks(content) {
 }
 
 function resolveLink(link, currentFile) {
+  const cleanLink = link.split('#')[0].split('?')[0];
+
   // 絶対パス（/で始まる）の場合
-  if (link.startsWith('/')) {
+  if (cleanLink.startsWith('/')) {
     // 末尾が / または拡張子なしの場合は .html を補完
-    let resolved = link;
+    let resolved = cleanLink;
     if (resolved.endsWith('/')) {
       resolved += 'index.html';
     } else if (!path.extname(resolved)) {
@@ -50,7 +52,7 @@ function resolveLink(link, currentFile) {
 
   // 相対パスの場合
   const dir = path.dirname(currentFile);
-  let resolved = path.join(dir, link);
+  let resolved = path.join(dir, cleanLink);
   if (!path.extname(resolved)) {
     resolved += '.html';
   }
