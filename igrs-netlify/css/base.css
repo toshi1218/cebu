@@ -1,0 +1,11 @@
+/* ========================================
+   Global Styles & Typography
+   ======================================== */
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-normal);
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    padding-top: 70px !important;
+}
