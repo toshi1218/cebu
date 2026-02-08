@@ -17,11 +17,9 @@ export async function onRequest(context) {
 
     let changed = false;
 
-    // 1) Force HTTPS
-    if (url.protocol !== "https:") {
-        url.protocol = "https:";
-        changed = true;
-    }
+    // 1) HTTPS is enforced by Cloudflare at the edge — do NOT redirect here.
+    //    Custom domains (igrs.online) may receive requests as http:// internally,
+    //    causing an infinite redirect loop if we try to force https:// in middleware.
 
     // 2) Remove www
     if (url.hostname === "www.igrs.online") {
