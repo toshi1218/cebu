@@ -1647,6 +1647,7 @@ body * {
 /* === CTA lead text alignment fix (global) === */
 .cta-section {
     text-align: center;
+    margin-bottom: 60px;
 }
 
 .cta-lead {
