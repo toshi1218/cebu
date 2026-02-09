@@ -37,34 +37,9 @@
 /privacy-policy /privacy 301
 
 # --- D. .html extension normalization ---
-/blog.html /blog 301
-/personal.html /personal 301
-/business.html /business 301
-/dfa-apostille.html /dfa-apostille 301
-/translation.html /translation 301
-/nbi-clearance.html /nbi-clearance 301
-/marriage-certificate.html /marriage-certificate 301
-/psa-birth-certificate.html /psa-birth-certificate 301
-/cenomar.html /cenomar 301
-/contact.html /contact 301
-/company.html /company 301
-/lto-drivers-license.html /lto-drivers-license 301
-/kika-shinsei.html /kika-shinsei 301
-/gaimen-kirikae.html /gaimen-kirikae 301
-/kokusai-kekkon.html /kokusai-kekkon 301
-/haigusha-visa.html /haigusha-visa 301
-/gyoseishoshi.html /gyoseishoshi 301
-/anshin-pack.html /anshin-pack 301
-/thank-you.html /thank-you 301
-/privacy.html /privacy 301
-/track.html /track 301
-/lto-transaction-history.html /lto-transaction-history 301
-/philippine-marriage-doc-cost-comparison.html /philippine-marriage-doc-cost-comparison 301
-/blog-data-verification-guide.html /blog-data-verification-guide 301
-/blog-granway-compliance.html /blog-granway-compliance 301
-/blog-nbi-hit-guide.html /blog-nbi-hit-guide 301
-/blog-philippines-documents-complexity.html /blog-philippines-documents-complexity 301
-/blog-philippines-japan-international-marriage-documents-2026.html /blog-philippines-japan-international-marriage-documents-2026 301
+# REMOVED: Conflicts with middleware internal rewrite logic
+# Middleware handles .html stripping via context.next() rewrite
+# See functions/_middleware.js lines 72-79
 
 # --- E. Legacy English .html variants ---
 /lto-driver-license.html /lto-drivers-license 301
