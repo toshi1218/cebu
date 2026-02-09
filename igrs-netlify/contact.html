@@ -173,7 +173,17 @@
 
               <div class="form-group">
                 <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-                <p class="form-note">※法人・士業様は、提出先・期限・件数もご記入ください。</p>
+                <div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 0.5rem; font-size: 0.85rem; line-height: 1.6;">
+                  <p style="margin: 0 0 0.5rem; font-weight: 600; color: var(--primary-color, #1a3365);">入力の目安（コピーしてお使いください）</p>
+                  <details style="margin-bottom: 0.4rem;">
+                    <summary style="cursor: pointer; font-weight: 500;">個人のお客様</summary>
+                    <p style="margin: 0.3rem 0 0 1rem; color: #555;">目的（例：配偶者ビザ申請）／必要書類（例：CENOMAR・PSA出生証明書）／提出期限／本人情報（氏名ローマ字・生年月日）／希望連絡方法</p>
+                  </details>
+                  <details>
+                    <summary style="cursor: pointer; font-weight: 500;">法人・士業様</summary>
+                    <p style="margin: 0.3rem 0 0 1rem; color: #555;">依頼種別（スポット or 継続）／人数／書類種類／希望納期／請求条件（請求書払い可否）／担当者連絡先</p>
+                  </details>
+                </div>
                 <textarea
                   id="message"
                   name="message"
