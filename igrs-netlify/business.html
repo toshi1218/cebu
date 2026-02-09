@@ -43,7 +43,7 @@
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://igrs.online/#org",
+          "@id": "https://igrs.online/#organization",
           "name": "IGRS（Philippine Document Retrieval Center）",
           "url": "https://igrs.online/"
         },
@@ -55,7 +55,7 @@
           "description": "フィリピン書類取得代行BPO。株式会社IGRSが、行政書士・登録支援機関・法人様向けに確実・スムーズな書類収集をサポート。IGRS.online",
           "inLanguage": "ja",
           "isPartOf": { "@id": "https://igrs.online/#website" },
-          "about": { "@id": "https://igrs.online/#org" }
+          "about": { "@id": "https://igrs.online/#organization" }
         }
       ]
     }
@@ -98,6 +98,22 @@
         }
       }
     ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "フィリピン書類取得代行 法人・士業向けBPOプラン",
+    "description": "行政書士事務所・登録支援機関・企業向けのフィリピン公的書類取得代行サービス。PSA・NBI・LTO・DFA書類の一括取得、案件台帳による進捗管理に対応。",
+    "provider": {
+      "@id": "https://igrs.online/#organization"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "JP"
+    },
+    "serviceType": "Business Process Outsourcing"
   }
   </script>
 </head>

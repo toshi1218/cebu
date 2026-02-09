@@ -12,7 +12,8 @@
     "check:title-h1": "node scripts/check-title-h1.js",
     "check:jsonld": "node scripts/check-jsonld.js",
     "lint": "npm run format:check && npm run check",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "check:html-audit": "node scripts/check-html-audit.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",

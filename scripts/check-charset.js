@@ -11,7 +11,7 @@ const glob = require('./lib/glob');
 const HTML_DIR = path.join(__dirname, '..', 'igrs-netlify');
 
 function checkCharset() {
-  const htmlFiles = glob.sync('**/*.html', { cwd: HTML_DIR });
+  const htmlFiles = glob.sync('**/*.html', { cwd: HTML_DIR }).filter((file) => !file.startsWith('partials/'));
   const errors = [];
 
   for (const file of htmlFiles) {

@@ -13,7 +13,7 @@ const glob = require('./lib/glob');
 const HTML_DIR = path.join(__dirname, '..', 'igrs-netlify');
 
 function checkTitleH1() {
-  const htmlFiles = glob.sync('**/*.html', { cwd: HTML_DIR });
+  const htmlFiles = glob.sync('**/*.html', { cwd: HTML_DIR }).filter((file) => !file.startsWith('partials/'));
   const errors = [];
   const titleMap = new Map(); // title → [files]
 

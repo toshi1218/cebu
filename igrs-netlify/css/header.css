@@ -1,0 +1,95 @@
+/* ========================================
+   Header - Professional Style
+   ======================================== */
+header,
+header.scrolled,
+header.transparent,
+header[style*="background"],
+.header {
+    background: var(--bg-white) !important;
+    background-color: var(--bg-white) !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: none !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+header *,
+header a,
+header span,
+header .logo span,
+header nav a,
+.nav-link,
+.nav-item>a {
+    color: var(--primary-color) !important;
+    text-shadow: none !important;
+    font-weight: var(--font-weight-medium) !important;
+}
+
+header a:hover,
+header nav a:hover,
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    text-decoration: underline !important;
+}
+
+/* ヘッダー右上ナビの箇条書き（・）を消す */
+header ul,
+header nav ul,
+.header-container ul,
+.header-container nav ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+header li,
+.header-container li {
+    list-style: none !important;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: var(--bg-white) !important;
+    box-shadow: var(--shadow-md) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius-md) !important;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    color: var(--text-dark) !important;
+    font-weight: var(--font-weight-normal) !important;
+}
+
+.dropdown-menu a:hover {
+    background: var(--bg-light) !important;
+    color: var(--primary-color) !important;
+}
+
+/* ホバー時にドロップダウンを表示 */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* ナビゲーションを横並びに */
+header nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+}
+
+/* ナビアイテムも横並び */
+.nav-item {
+    position: relative !important;
+    display: inline-block !important;
+}
