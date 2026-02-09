@@ -38,11 +38,13 @@ export async function onRequest(context) {
         changed = true;
     }
 
-    // .html -> remove
-    if (p.endsWith(".html")) {
-        p = p.slice(0, -5) || "/";
-        changed = true;
-    }
+    // .html -> remove (DISABLED: conflicts with internal rewrite logic)
+    // Internal rewrite handles extensionless URLs by serving .html files
+    // Stripping .html here causes redirect loop with rewrite
+    // if (p.endsWith(".html")) {
+    //     p = p.slice(0, -5) || "/";
+    //     changed = true;
+    // }
 
     // trailing slash remove (except "/")
     if (p.length > 1 && p.endsWith("/")) {
