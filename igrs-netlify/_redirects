@@ -1,4 +1,76 @@
-/services          /services          410
-/services-v2       /services-v2       410
-/services.js       /services.js       410
-/services.html.js  /services.html.js  410
+# ===========================================
+# IGRS _redirects (Cloudflare Pages)
+# NOTE: www/HTTPS redirects are handled by
+#       Cloudflare Redirect Rules — not here.
+# ===========================================
+
+# --- A. Wix legacy Japanese paths (raw) ---
+/プロジェクト /company 301
+/概要 /company 301
+/お問い合わせ /contact 301
+/プライバシーポリシー /privacy 301
+/ブログ /blog 301
+/プロフィール /company 301
+/サービス内容／料金 /personal 301
+/設定 / 301
+/通知 / 301
+
+# --- B. Wix legacy Japanese paths (URL-encoded) ---
+/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 /company 301
+/%E6%A6%82%E8%A6%81 /company 301
+/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B /contact 301
+/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC /privacy 301
+/%E3%83%96%E3%83%AD%E3%82%B0 /blog 301
+/%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB /company 301
+/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%86%85%E5%AE%B9%EF%BC%8F%E6%96%99%E9%87%91 /personal 301
+/%E8%A8%AD%E5%AE%9A / 301
+/%E9%80%9A%E7%9F%A5 / 301
+
+# --- C. Legacy English paths ---
+/lto-driver-license /lto-drivers-license 301
+/psa-certificate /psa-birth-certificate 301
+/contact-us /contact 301
+/about-us /company 301
+/about /company 301
+/services /personal 301
+/services-v2 /personal 301
+/privacy-policy /privacy 301
+
+# --- D. .html extension normalization ---
+/blog.html /blog 301
+/personal.html /personal 301
+/business.html /business 301
+/dfa-apostille.html /dfa-apostille 301
+/translation.html /translation 301
+/nbi-clearance.html /nbi-clearance 301
+/marriage-certificate.html /marriage-certificate 301
+/psa-birth-certificate.html /psa-birth-certificate 301
+/cenomar.html /cenomar 301
+/contact.html /contact 301
+/company.html /company 301
+/lto-drivers-license.html /lto-drivers-license 301
+/kika-shinsei.html /kika-shinsei 301
+/gaimen-kirikae.html /gaimen-kirikae 301
+/kokusai-kekkon.html /kokusai-kekkon 301
+/haigusha-visa.html /haigusha-visa 301
+/gyoseishoshi.html /gyoseishoshi 301
+/anshin-pack.html /anshin-pack 301
+/thank-you.html /thank-you 301
+/privacy.html /privacy 301
+/track.html /track 301
+/lto-transaction-history.html /lto-transaction-history 301
+/philippine-marriage-doc-cost-comparison.html /philippine-marriage-doc-cost-comparison 301
+/blog-data-verification-guide.html /blog-data-verification-guide 301
+/blog-granway-compliance.html /blog-granway-compliance 301
+/blog-nbi-hit-guide.html /blog-nbi-hit-guide 301
+/blog-philippines-documents-complexity.html /blog-philippines-documents-complexity 301
+/blog-philippines-japan-international-marriage-documents-2026.html /blog-philippines-japan-international-marriage-documents-2026 301
+
+# --- E. Legacy English .html variants ---
+/lto-driver-license.html /lto-drivers-license 301
+/psa-certificate.html /psa-birth-certificate 301
+/contact-us.html /contact 301
+/about-us.html /company 301
+/about.html /company 301
+/services.html /personal 301
+/privacy-policy.html /privacy 301
