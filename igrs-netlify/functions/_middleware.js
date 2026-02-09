@@ -2,6 +2,11 @@ export async function onRequest(context) {
     const req = context.request;
     const url = new URL(req.url);
 
+    // Skip middleware if already processed (prevents rewrite loop)
+    if (req.headers.get('X-Middleware-Processed')) {
+        return context.next();
+    }
+
     // --- 0) 410 Gone paths
     const gone = new Set([
         "/services",
@@ -76,7 +81,13 @@ export async function onRequest(context) {
     if (path !== "/" && isExtensionless) {
         const rewriteUrl = new URL(url.toString());
         rewriteUrl.pathname = `${path}.html`;
-        const rewriteReq = new Request(rewriteUrl.toString(), req);
+        const headers = new Headers(req.headers);
+        headers.set('X-Middleware-Processed', 'true');
+        const rewriteReq = new Request(rewriteUrl.toString(), {
+            method: req.method,
+            headers: headers,
+            body: req.body,
+        });
         return context.next(rewriteReq);
     }
 
