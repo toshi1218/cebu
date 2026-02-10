@@ -39,9 +39,7 @@
 # --- D. .html extension normalization ---
 # REMOVED: Conflicts with middleware internal rewrite logic
 # Middleware handles .html stripping via context.next() rewrite
-# See functions/_middleware.js lines 72-79
-
-# --- E. Legacy English .html variants ---
+# See functions/_middleware.js lines 72-79# --- E. Legacy English .html variants ---
 /lto-driver-license.html /lto-drivers-license 301
 /psa-certificate.html /psa-birth-certificate 301
 /contact-us.html /contact 301
