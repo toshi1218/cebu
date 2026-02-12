@@ -339,22 +339,7 @@
   </section>
 
   <!-- フッター -->
-  <div id="site-footer"></div>
-
-  <script>
-    function toggleMobileNav() {
-      document.getElementById('navMobile').classList.toggle('active');
-    }
-
-    function toggleMobileDropdown(button) {
-      button.classList.toggle('open');
-      const submenu = button.nextElementSibling;
-      submenu.classList.toggle('open');
-    }
-  </script>
-  <script src="/js/nav-menu.js" defer></script>
-  <script src="/js/layout-inject.js"></script>
-<section class="container" id="hq-diff-personal" style="margin:2rem auto;">
+  <section class="container" id="hq-diff-personal" style="margin:2rem auto;">
   <h2>ケース別費用モデル</h2>
   <p>単体取得、認証付き、複数書類同時依頼で費用構成が変わります。希望用途に合わせて見積します。</p>
   <h3>追加費用が出る条件</h3>
@@ -376,7 +361,24 @@
     <dd>A. 可能です。提出先要件整理のみの相談にも対応します。</dd>
   </dl>
 </section>
+<div id="site-footer"></div>
+
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('navMobile').classList.toggle('active');
+    }
+
+    function toggleMobileDropdown(button) {
+      button.classList.toggle('open');
+      const submenu = button.nextElementSibling;
+      submenu.classList.toggle('open');
+    }
+  </script>
+  <script src="/js/nav-menu.js" defer></script>
+  <script src="/js/layout-inject.js"></script>
+
 </body>
 
 </html>
+
 
