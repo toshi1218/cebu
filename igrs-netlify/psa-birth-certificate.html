@@ -439,22 +439,7 @@
   </section>
 
   <!-- フッター -->
-  <div id="site-footer"></div>
-
-  <script>
-    function toggleMobileNav() {
-      document.getElementById('navMobile').classList.toggle('active');
-    }
-
-    function toggleMobileDropdown(button) {
-      button.classList.toggle('open');
-      const submenu = button.nextElementSibling;
-      submenu.classList.toggle('open');
-    }
-  </script>
-  <script src="/js/nav-menu.js" defer></script>
-  <script src="/js/layout-inject.js"></script>
-<section class="container" id="hq-diff-psa-birth" style="margin:2rem auto;">
+  <section class="container" id="hq-diff-psa-birth" style="margin:2rem auto;">
   <h2>申請情報の一致条件</h2>
   <p>氏名、出生年月日、出生地の一致性が低いと照合工程が増えるため、提出前確認を実施します。</p>
   <h3>再取得時の注意点</h3>
@@ -472,7 +457,24 @@
     <dd>A. 可能です。提出期限に間に合うよう工程を再設計します。</dd>
   </dl>
 </section>
+<div id="site-footer"></div>
+
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('navMobile').classList.toggle('active');
+    }
+
+    function toggleMobileDropdown(button) {
+      button.classList.toggle('open');
+      const submenu = button.nextElementSibling;
+      submenu.classList.toggle('open');
+    }
+  </script>
+  <script src="/js/nav-menu.js" defer></script>
+  <script src="/js/layout-inject.js"></script>
+
 </body>
 
 </html>
+
 

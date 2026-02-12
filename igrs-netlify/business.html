@@ -347,22 +347,7 @@
   </section>
 
   <!-- フッター -->
-  <div id="site-footer"></div>
-
-  <script>
-    function toggleMobileNav() {
-      document.getElementById('navMobile').classList.toggle('active');
-    }
-
-    function toggleMobileDropdown(button) {
-      button.classList.toggle('open');
-      const submenu = button.nextElementSibling;
-      submenu.classList.toggle('open');
-    }
-  </script>
-  <script src="/js/nav-menu.js" defer></script>
-  <script src="/js/layout-inject.js"></script>
-<section class="container" id="hq-diff-business" style="margin:2rem auto;">
+  <section class="container" id="hq-diff-business" style="margin:2rem auto;">
   <h2>月次運用フロー（法人・士業）</h2>
   <p>案件受付、要件確認、取得、認証、納品、請求までを月次で標準化し、担当者交代時の引き継ぎ負荷を下げます。</p>
   <h3>案件台帳の持ち方</h3>
@@ -380,7 +365,24 @@
     <dd>A. 進捗履歴を共有し、引き継ぎ時に必要な情報を一覧化して渡します。</dd>
   </dl>
 </section>
+<div id="site-footer"></div>
+
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('navMobile').classList.toggle('active');
+    }
+
+    function toggleMobileDropdown(button) {
+      button.classList.toggle('open');
+      const submenu = button.nextElementSibling;
+      submenu.classList.toggle('open');
+    }
+  </script>
+  <script src="/js/nav-menu.js" defer></script>
+  <script src="/js/layout-inject.js"></script>
+
 </body>
 
 </html>
+
 
