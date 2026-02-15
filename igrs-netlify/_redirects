@@ -36,10 +36,12 @@
 /services-v2 /personal 301
 /privacy-policy /privacy 301
 
-# --- D. .html extension normalization ---
-# REMOVED: Conflicts with middleware internal rewrite logic
-# Middleware handles .html stripping via context.next() rewrite
-# See functions/_middleware.js lines 72-79# --- E. Legacy English .html variants ---
+# --- D. Retired pages → proper 301 to canonical destination ---
+/anshin-pack /personal 301
+/premium-package /personal 301
+/kika_v2 /kika-shinsei 301
+
+# --- E. Legacy English .html variants ---
 /lto-driver-license.html /lto-drivers-license 301
 /psa-certificate.html /psa-birth-certificate 301
 /contact-us.html /contact 301
