@@ -43,13 +43,13 @@ export async function onRequest(context) {
         changed = true;
     }
 
-    // .html -> remove (DISABLED: conflicts with internal rewrite logic)
-    // Internal rewrite handles extensionless URLs by serving .html files
-    // Stripping .html here causes redirect loop with rewrite
-    // if (p.endsWith(".html")) {
-    //     p = p.slice(0, -5) || "/";
-    //     changed = true;
-    // }
+    // .html -> strip extension (301 redirect to clean URL)
+    // The internal rewrite in step 5 adds .html back transparently;
+    // X-Middleware-Processed header prevents re-processing the rewritten request.
+    if (p.endsWith(".html")) {
+        p = p.slice(0, -5) || "/";
+        changed = true;
+    }
 
     // trailing slash remove (except "/")
     if (p.length > 1 && p.endsWith("/")) {
@@ -63,6 +63,8 @@ export async function onRequest(context) {
         "/psa-certificate": "/psa-birth-certificate",
         "/contact-us": "/contact",
         "/about-us": "/company",
+        "/anshin-pack": "/personal",
+        "/premium-package": "/personal",
     };
     if (legacyMap[p]) {
         p = legacyMap[p];
