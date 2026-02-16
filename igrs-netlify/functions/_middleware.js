@@ -7,12 +7,8 @@ export async function onRequest(context) {
         return context.next();
     }
 
-    // --- 0) 410 Gone paths
+    // --- 0) 410 Gone paths (only truly dead endpoints with no replacement)
     const gone = new Set([
-        "/services",
-        "/services.html",
-        "/services-v2",
-        "/services-v2.html",
         "/services.js",
         "/services.html.js",
     ]);
@@ -57,18 +53,46 @@ export async function onRequest(context) {
         changed = true;
     }
 
-    // legacy slugs
+    // legacy slugs — includes old English paths + Wix Japanese paths
+    // NOTE: _redirects is NOT evaluated when middleware handles the request,
+    //       so ALL redirect rules must live here.
     const legacyMap = {
+        // English legacy
         "/lto-driver-license": "/lto-drivers-license",
         "/psa-certificate": "/psa-birth-certificate",
         "/contact-us": "/contact",
         "/about-us": "/company",
+        "/about": "/company",
+        "/services": "/personal",
+        "/services-v2": "/personal",
+        "/privacy-policy": "/privacy",
         "/anshin-pack": "/personal",
         "/premium-package": "/personal",
+        "/kika_v2": "/kika-shinsei",
+
+        // Wix Japanese paths (raw Unicode)
+        "/\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8": "/company",          // プロジェクト
+        "/\u6982\u8981": "/company",                                    // 概要
+        "/\u304A\u554F\u3044\u5408\u308F\u305B": "/contact",           // お問い合わせ
+        "/\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC": "/privacy", // プライバシーポリシー
+        "/\u30D6\u30ED\u30B0": "/blog",                                 // ブログ
+        "/\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB": "/company",           // プロフィール
+        "/\u30B5\u30FC\u30D3\u30B9\u5185\u5BB9\uFF0F\u6599\u91D1": "/personal", // サービス内容／料金
+        "/\u8A2D\u5B9A": "/",                                           // 設定
+        "/\u901A\u77E5": "/",                                           // 通知
     };
+    // Try lookup with raw path first, then decoded (for %E6%A6%82%E8%A6%81 → 概要 etc.)
     if (legacyMap[p]) {
         p = legacyMap[p];
         changed = true;
+    } else {
+        try {
+            const decoded = decodeURIComponent(p);
+            if (decoded !== p && legacyMap[decoded]) {
+                p = legacyMap[decoded];
+                changed = true;
+            }
+        } catch (e) { /* malformed URI — ignore */ }
     }
 
     // 4) If any canonical change is needed -> 301 (1 hop)
