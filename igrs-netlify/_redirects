@@ -2,6 +2,9 @@
 # IGRS _redirects (Cloudflare Pages)
 # NOTE: www/HTTPS redirects are handled by
 #       Cloudflare Redirect Rules — not here.
+# NOTE: All redirect rules are ALSO in
+#       functions/_middleware.js (which runs first).
+#       This file serves as fallback documentation.
 # ===========================================
 
 # --- A. Wix legacy Japanese paths (raw) ---
