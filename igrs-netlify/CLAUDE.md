@@ -20,12 +20,13 @@ Static HTML website for **igrs.online** (フィリピン書類取得代行セン
 
 ### Middleware (`functions/_middleware.js`)
 Single edge middleware handles all URL canonicalization in one hop:
-1. 410 Gone for deprecated `/services*` paths
+1. 410 Gone for dead endpoints (`/services.js` etc.)
 2. HTTPS enforcement
 3. www → non-www redirect
 4. `/index.html` → `/`, strip `.html` extensions, remove trailing slashes
-5. Legacy slug redirects (e.g. `/contact-us` → `/contact`)
-6. Internal rewrite: extensionless URLs serve the corresponding `.html` file
+5. Legacy slug redirects — **all redirect rules must live here** (not in `_redirects`), because middleware runs before `_redirects` on Cloudflare Pages
+6. `decodeURIComponent` fallback for percent-encoded legacy URLs (旧Wix日本語パス)
+7. Internal rewrite: extensionless URLs serve the corresponding `.html` file
 
 All canonical changes produce a single 301 redirect (SEO best practice).
 
@@ -53,9 +54,15 @@ There is no linter, formatter, or test runner configured.
 ## Deployment
 
 - **master** — main development branch
-- **production** — Netlify deploys from this branch
-- Merge `master` → `production` to trigger a deploy
-- Netlify config files at root: `_routes.json`, `_headers`, `_redirects`
+- **production** — Cloudflare Pages deploys from this branch
+- **Auto-deploy**: `.github/workflows/auto-deploy.yml` automatically merges `master` → `production` on every push to master, then runs SEO smoke tests against the live site
+- No manual merge to `production` is needed — just merge PRs to `master`
+- Config files at root: `_routes.json`, `_headers`, `_redirects`
+- **`_redirects` is fallback only** — all redirect rules must also be in `functions/_middleware.js` (middleware runs first on Cloudflare Pages)
+
+### Post-deploy verification
+- `scripts/seo-smoke.sh` runs automatically after deploy (via `auto-deploy.yml`)
+- Checks: www→non-www, .html stripping, robots.txt, sitemap.xml, legacy URL redirects
 
 ## Conventions
 
@@ -63,4 +70,6 @@ There is no linter, formatter, or test runner configured.
 - All canonical URLs use `https://igrs.online/` (no www, no `.html`, no trailing slash).
 - Every HTML page must have a `<link rel="canonical">` tag and OG/Twitter meta tags.
 - Structured data (JSON-LD) is embedded inline in pages that need it.
-- The `sitemap.xml` lists all public pages (currently 18) and must stay in sync with actual pages.
+- The `sitemap.xml` lists all public pages (currently 26) and must stay in sync with actual pages.
+- Every HTML page must have `<meta name="robots" content="index,follow" />`.
+- Shell scripts (`*.sh`) and workflow files (`*.yml`) must use LF line endings (enforced by `.gitattributes`).

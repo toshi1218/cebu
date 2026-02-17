@@ -1,0 +1,41 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches: ["master"]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge master into production
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout production
+          git merge origin/master --no-edit
+          git push origin production
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait for Cloudflare Pages deploy
+        run: sleep 90
+
+      - name: Run SEO smoke tests
+        run: |
+          chmod +x scripts/seo-smoke.sh
+          scripts/seo-smoke.sh
