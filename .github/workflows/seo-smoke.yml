@@ -1,0 +1,22 @@
+name: SEO Smoke
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      # Wait for Cloudflare Pages deploy to propagate
+      - name: Wait for deploy propagation
+        run: sleep 60
+
+      - name: Run SEO smoke tests
+        run: |
+          chmod +x scripts/seo-smoke.sh
+          scripts/seo-smoke.sh
