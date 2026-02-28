@@ -7,7 +7,29 @@
 #       This file serves as fallback documentation.
 # ===========================================
 
-# --- A. Wix legacy Japanese paths (raw) ---
+# --- A. /ja prefix removal (old locale paths → canonical root) ---
+/ja/* /:splat 301
+/ja / 301
+
+# --- B. Old Japanese-style slugs → current canonical slugs ---
+/psa-shussei-shomeisho /psa-birth-certificate 301
+/psa-shussei-cost /psa-birth-certificate 301
+/psa-kekkon-shomeisho /marriage-certificate 301
+/cenomar-apostille /cenomar 301
+/cenomar-koyukigen /cenomar 301
+/apostille /dfa-apostille 301
+/apostille-shori-kikan /dfa-apostille 301
+/apostille-ryokin /dfa-apostille 301
+/nbi-hit /nbi-clearance 301
+/nbi-koyukigen /nbi-clearance 301
+/kokusai-kekkon-guide /kokusai-kekkon 301
+/gaimen-kirikae-guide /gaimen-kirikae 301
+/driver-record /lto-drivers-license 301
+/kika-shinsei-guide /kika-shinsei 301
+/guides /personal 301
+/ryokin /personal 301
+
+# --- C. Wix legacy Japanese paths (raw) ---
 /プロジェクト /company 301
 /概要 /company 301
 /お問い合わせ /contact 301
@@ -18,7 +40,7 @@
 /設定 / 301
 /通知 / 301
 
-# --- B. Wix legacy Japanese paths (URL-encoded) ---
+# --- D. Wix legacy Japanese paths (URL-encoded) ---
 /%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88 /company 301
 /%E6%A6%82%E8%A6%81 /company 301
 /%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B /contact 301
@@ -29,7 +51,7 @@
 /%E8%A8%AD%E5%AE%9A / 301
 /%E9%80%9A%E7%9F%A5 / 301
 
-# --- C. Legacy English paths ---
+# --- E. Legacy English paths ---
 /lto-driver-license /lto-drivers-license 301
 /psa-certificate /psa-birth-certificate 301
 /contact-us /contact 301
@@ -39,12 +61,12 @@
 /services-v2 /personal 301
 /privacy-policy /privacy 301
 
-# --- D. Retired pages → proper 301 to canonical destination ---
+# --- F. Retired pages → proper 301 to canonical destination ---
 /anshin-pack /personal 301
 /premium-package /personal 301
 /kika_v2 /kika-shinsei 301
 
-# --- E. Legacy English .html variants ---
+# --- G. Legacy English .html variants ---
 /lto-driver-license.html /lto-drivers-license 301
 /psa-certificate.html /psa-birth-certificate 301
 /contact-us.html /contact 301

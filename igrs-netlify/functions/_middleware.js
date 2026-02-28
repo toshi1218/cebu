@@ -53,6 +53,16 @@ export async function onRequest(context) {
         changed = true;
     }
 
+    // Strip /ja prefix — old locale path → canonical root path (one-way 301)
+    // e.g. /ja/cenomar → /cenomar, /ja → /
+    if (p === "/ja") {
+        p = "/";
+        changed = true;
+    } else if (p.startsWith("/ja/")) {
+        p = p.slice(3); // "/ja/cenomar" → "/cenomar"
+        changed = true;
+    }
+
     // legacy slugs — includes old English paths + Wix Japanese paths
     // NOTE: _redirects is NOT evaluated when middleware handles the request,
     //       so ALL redirect rules must live here.
@@ -69,6 +79,23 @@ export async function onRequest(context) {
         "/anshin-pack": "/personal",
         "/premium-package": "/personal",
         "/kika_v2": "/kika-shinsei",
+        // Old Japanese-style slugs → current canonical English slugs
+        "/psa-shussei-shomeisho": "/psa-birth-certificate",
+        "/psa-shussei-cost": "/psa-birth-certificate",
+        "/psa-kekkon-shomeisho": "/marriage-certificate",
+        "/cenomar-apostille": "/cenomar",
+        "/cenomar-koyukigen": "/cenomar",
+        "/apostille": "/dfa-apostille",
+        "/apostille-shori-kikan": "/dfa-apostille",
+        "/apostille-ryokin": "/dfa-apostille",
+        "/nbi-hit": "/nbi-clearance",
+        "/nbi-koyukigen": "/nbi-clearance",
+        "/kokusai-kekkon-guide": "/kokusai-kekkon",
+        "/gaimen-kirikae-guide": "/gaimen-kirikae",
+        "/driver-record": "/lto-drivers-license",
+        "/kika-shinsei-guide": "/kika-shinsei",
+        "/guides": "/personal",
+        "/ryokin": "/personal",
         // Wix Japanese paths (raw Unicode)
         "/\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8": "/company",
         "/\u6982\u8981": "/company",
