@@ -1,0 +1,565 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+const lang = "ja";
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t("site.title")}
+  description={t("site.description")}
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main>
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div class="container">
+        <h1>{t("services.page.title")}</h1>
+        <p>{t("services.page.subtitle")}</p>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <section>
+      <div class="container">
+        <div class="intro-text">
+          <p>
+            IGRSは行政書士事務所・登録支援機関を対象に、フィリピン公的書類の取得代行BPOサービスを提供しています。現地セブ島拠点のスタッフが、PSA・NBI・LTO・DFA各窓口へ直接出向き、確実・迅速に書類を取得します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PSA -->
+    <section class="bg-light" id="psa">
+      <div class="container">
+        <div class="service-section">
+          <div class="service-header">
+            <span class="service-badge-lg">PSA</span>
+            <h2 class="service-section-title">{t("services.psa.title")}</h2>
+          </div>
+          <div class="service-body">
+            <div class="service-detail">
+              <p class="service-lead">
+                フィリピン統計局（Philippine Statistics Authority）が発行する公式証明書です。国際結婚・帰化申請・配偶者ビザ申請など、ほぼすべての在留資格手続きに必要とされます。
+              </p>
+              <div class="service-subsections">
+                <div class="service-subsection">
+                  <h3>取得可能な書類</h3>
+                  <ul class="service-list">
+                    <li>出生証明書（Birth Certificate / NSO）</li>
+                    <li>婚姻証明書（Marriage Certificate）</li>
+                    <li>CENOMAR（Certificate of No Marriage / 独身証明書）</li>
+                    <li>死亡証明書（Death Certificate）</li>
+                  </ul>
+                </div>
+                <div class="service-subsection">
+                  <h3>主な活用場面</h3>
+                  <ul class="service-list">
+                    <li>国際結婚手続き（婚姻届・婚姻要件具備証明書）</li>
+                    <li>配偶者ビザ（在留資格認定証明書）申請</li>
+                    <li>帰化許可申請</li>
+                    <li>特定技能・技能実習 在留資格申請</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="service-pricing-box">
+              <div class="service-price-title">料金目安</div>
+              <div class="service-price">
+                <span class="service-price-amount">50,000</span>
+                <span class="service-price-unit">円（税込）〜</span>
+              </div>
+              <p class="service-price-desc">PSA書類1種 + DFAアポスティーユ + DHL発送</p>
+              <div class="service-price-delivery">納期：4週間</div>
+              <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta service-cta-btn">
+                お見積もり・お問い合わせ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NBI -->
+    <section id="nbi">
+      <div class="container">
+        <div class="service-section">
+          <div class="service-header">
+            <span class="service-badge-lg">NBI</span>
+            <h2 class="service-section-title">{t("services.nbi.title")}</h2>
+          </div>
+          <div class="service-body">
+            <div class="service-detail">
+              <p class="service-lead">
+                フィリピン国家捜査局（National Bureau of Investigation）が発行する無犯罪証明書です。特定技能・就労ビザ申請など、就労系在留資格の申請で広く求められます。
+              </p>
+              <div class="service-subsections">
+                <div class="service-subsection">
+                  <h3>取得可能な書類</h3>
+                  <ul class="service-list">
+                    <li>NBI無犯罪証明書（NBI Clearance）</li>
+                    <li>DFAアポスティーユ付き NBI証明書</li>
+                  </ul>
+                </div>
+                <div class="service-subsection">
+                  <h3>主な活用場面</h3>
+                  <ul class="service-list">
+                    <li>特定技能（1号・2号）在留資格申請</li>
+                    <li>技能実習 在留資格申請</li>
+                    <li>就労ビザ（技術・人文知識・国際業務等）申請</li>
+                    <li>帰化許可申請</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="service-pricing-box">
+              <div class="service-price-title">料金目安</div>
+              <div class="service-price">
+                <span class="service-price-amount">55,000</span>
+                <span class="service-price-unit">円（税込）</span>
+              </div>
+              <p class="service-price-desc">NBI無犯罪証明書 + DFAアポスティーユ + DHL発送</p>
+              <div class="service-price-delivery">納期：4週間</div>
+              <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta service-cta-btn">
+                お見積もり・お問い合わせ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LTO -->
+    <section class="bg-light" id="lto">
+      <div class="container">
+        <div class="service-section">
+          <div class="service-header">
+            <span class="service-badge-lg">LTO</span>
+            <h2 class="service-section-title">{t("services.lto.title")}</h2>
+          </div>
+          <div class="service-body">
+            <div class="service-detail">
+              <p class="service-lead">
+                フィリピン陸運局（Land Transportation Office）が発行する運転経歴証明書・免許証です。フィリピン運転免許証を日本の免許証に切り替える「外国免許切替」手続きで必要とされます。
+              </p>
+              <div class="service-subsections">
+                <div class="service-subsection">
+                  <h3>取得可能な書類</h3>
+                  <ul class="service-list">
+                    <li>運転経歴証明書（Driving Record）</li>
+                    <li>フィリピン運転免許証（Driver's License）</li>
+                    <li>DFAアポスティーユ付き証明書</li>
+                  </ul>
+                </div>
+                <div class="service-subsection">
+                  <h3>主な活用場面</h3>
+                  <ul class="service-list">
+                    <li>外国免許切替（外免切替）申請</li>
+                    <li>在日フィリピン人の日本免許取得支援</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="service-pricing-box">
+              <div class="service-price-title">料金目安</div>
+              <div class="service-price">
+                <span class="service-price-amount">50,000</span>
+                <span class="service-price-unit">円（税込）〜</span>
+              </div>
+              <p class="service-price-desc">LTO書類 + DFAアポスティーユ + DHL発送</p>
+              <div class="service-price-delivery">納期：4週間</div>
+              <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta service-cta-btn">
+                お見積もり・お問い合わせ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DFA -->
+    <section id="dfa">
+      <div class="container">
+        <div class="service-section">
+          <div class="service-header">
+            <span class="service-badge-lg">DFA</span>
+            <h2 class="service-section-title">{t("services.dfa.title")}</h2>
+          </div>
+          <div class="service-body">
+            <div class="service-detail">
+              <p class="service-lead">
+                フィリピン外務省（Department of Foreign Affairs）によるアポスティーユ認証・公印確認です。フィリピン公文書を日本の行政機関・裁判所に提出する際に必要となります。
+              </p>
+              <div class="service-subsections">
+                <div class="service-subsection">
+                  <h3>対応する認証</h3>
+                  <ul class="service-list">
+                    <li>アポスティーユ認証（Apostille）</li>
+                    <li>公印確認（Authentication）</li>
+                  </ul>
+                </div>
+                <div class="service-subsection">
+                  <h3>主な活用場面</h3>
+                  <ul class="service-list">
+                    <li>日本の市区町村窓口への書類提出</li>
+                    <li>在留資格申請（出入国在留管理庁）</li>
+                    <li>帰化許可申請（法務局）</li>
+                    <li>各種公的手続きへの添付</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="info-box">
+                <p>
+                  <strong>ポイント：</strong>PSA・NBI・LTO書類の取得と同時にDFAアポスティーユもまとめて代行します。「書類取得 + 認証 + 国際発送」をワンストップでご依頼いただけます。
+                </p>
+              </div>
+            </div>
+            <div class="service-pricing-box">
+              <div class="service-price-title">料金目安</div>
+              <p class="service-price-desc" style="margin-top:0.5rem;">各サービスプランに含まれます</p>
+              <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta service-cta-btn">
+                お見積もり・お問い合わせ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Translation -->
+    <section class="bg-light" id="translation">
+      <div class="container">
+        <div class="service-section">
+          <div class="service-header">
+            <span class="service-badge-lg">翻訳</span>
+            <h2 class="service-section-title">{t("services.translation.title")}</h2>
+          </div>
+          <div class="service-body">
+            <div class="service-detail">
+              <p class="service-lead">
+                フィリピン公文書の日本語翻訳サービスです。行政書士事務所・登録支援機関が申請書類に添付する翻訳文の作成を代行します。
+              </p>
+              <div class="service-subsections">
+                <div class="service-subsection">
+                  <h3>翻訳対応書類</h3>
+                  <ul class="service-list">
+                    <li>PSA出生証明書 → 日本語翻訳</li>
+                    <li>PSA婚姻証明書 → 日本語翻訳</li>
+                    <li>PSA CENOMAR → 日本語翻訳</li>
+                    <li>NBI無犯罪証明書 → 日本語翻訳</li>
+                    <li>LTO運転経歴証明書 → 日本語翻訳</li>
+                  </ul>
+                </div>
+                <div class="service-subsection">
+                  <h3>主な活用場面</h3>
+                  <ul class="service-list">
+                    <li>在留資格申請時の翻訳文添付</li>
+                    <li>帰化申請時の翻訳文添付</li>
+                    <li>婚姻届・各種届出時の翻訳文添付</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="service-pricing-box">
+              <div class="service-price-title">料金目安</div>
+              <p class="service-price-desc" style="margin-top:0.5rem;">書類取得と同時依頼で割引対応。まずはお問い合わせください。</p>
+              <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta service-cta-btn">
+                お見積もり・お問い合わせ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Summary -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">料金一覧</h2>
+        <div class="pricing-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>プラン</th>
+                <th>内容</th>
+                <th>料金（税込）</th>
+                <th>納期</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>{t("pricing.light.name")}</strong></td>
+                <td>{t("pricing.light.desc")}</td>
+                <td class="price-amount">{t("pricing.light.price")} {t("pricing.light.unit")}</td>
+                <td>4週間</td>
+              </tr>
+              <tr>
+                <td><strong>{t("pricing.pack.name")}</strong></td>
+                <td>{t("pricing.pack.desc")}</td>
+                <td class="price-amount">{t("pricing.pack.price")} {t("pricing.pack.unit")}</td>
+                <td>4週間</td>
+              </tr>
+              <tr>
+                <td><strong>{t("pricing.nbi.name")}</strong></td>
+                <td>{t("pricing.nbi.desc")}</td>
+                <td class="price-amount">{t("pricing.nbi.price")} {t("pricing.nbi.unit")}</td>
+                <td>4週間</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">{t("pricing.note")}</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <h2 class="cta-heading">{t("cta.title")}</h2>
+        <p class="cta-text">{t("cta.text")}</p>
+        <div class="cta-group">
+          <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta btn-lg">
+            {t("cta.button")}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+
+  /* Service Section Layout */
+  .service-section {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-badge-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.9rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .service-section-title {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+  }
+
+  .service-body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .service-lead {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-subsections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-subsection h3 {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .service-list li {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .service-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+  }
+
+  /* Pricing box */
+  .service-pricing-box {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    position: sticky;
+    top: 90px;
+  }
+
+  .service-price-title {
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-price {
+    margin-bottom: 0.5rem;
+  }
+
+  .service-price-amount {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    line-height: 1.1;
+  }
+
+  .service-price-unit {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .service-price-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .service-price-delivery {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--secondary-color);
+    background-color: var(--bg-light);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 1.25rem;
+  }
+
+  .service-cta-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Pricing table */
+  .pricing-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1rem;
+  }
+
+  .pricing-note {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background-color: var(--primary-color);
+    padding: 4rem 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-heading {
+    color: #ffffff;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .service-body {
+      grid-template-columns: 1fr;
+    }
+
+    .service-pricing-box {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .service-header {
+      flex-wrap: wrap;
+    }
+
+    .service-section-title {
+      font-size: 1.3rem;
+    }
+
+    .service-subsections {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
