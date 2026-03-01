@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Japanese pages -->
+  <url>
+    <loc>https://igrs.online/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/ja/services</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/ja/about</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/ja/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- English pages -->
+  <url>
+    <loc>https://igrs.online/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
