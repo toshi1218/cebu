@@ -4,16 +4,12 @@
   "description": "IGRS Online - フィリピン公的書類取得代行サービス",
   "private": true,
   "scripts": {
-    "format": "prettier --write \"igrs-netlify/**/*.{html,css,js}\"",
-    "format:check": "prettier --check \"igrs-netlify/**/*.{html,css,js}\"",
-    "check": "node scripts/check-all.js",
-    "check:charset": "node scripts/check-charset.js",
-    "check:links": "node scripts/check-links.js",
-    "check:title-h1": "node scripts/check-title-h1.js",
-    "check:jsonld": "node scripts/check-jsonld.js",
-    "lint": "npm run format:check && npm run check",
-    "test:e2e": "playwright test",
-    "check:html-audit": "node scripts/check-html-audit.js"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write \"src/**/*.{astro,ts,css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{astro,ts,css,js}\"",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",
@@ -24,7 +20,9 @@
     "node": ">=18"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@supabase/supabase-js": "^2.90.1",
+    "astro": "^5.18.0",
     "googleapis": "^170.1.0",
     "lucide-react": "^0.562.0",
     "uuid": "^13.0.0"

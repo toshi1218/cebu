@@ -1,0 +1,266 @@
+---
+import { useTranslations, getLocalizedPath } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang as Lang);
+
+const serviceLinks = [
+  { label: "PSA", path: "/services#psa" },
+  { label: "NBI", path: "/services#nbi" },
+  { label: "LTO", path: "/services#lto" },
+  { label: "DFA", path: "/services#dfa" },
+  { label: lang === "ja" ? "翻訳" : "Translation", path: "/services#translation" },
+];
+
+const companyLinks = [
+  { key: "nav.about" as const, path: "/about" },
+  { key: "nav.contact" as const, path: "/contact" },
+  { key: "footer.privacy" as const, path: "/privacy" },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container footer-grid">
+      <!-- Brand -->
+      <div class="footer-col footer-brand">
+        <a href={getLocalizedPath("/", lang as Lang)} class="footer-logo">IGRS</a>
+        <p class="footer-brand-name">{t("footer.brand")}</p>
+        <p class="footer-tagline">{t("footer.tagline")}</p>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h3 class="footer-heading">{t("footer.services")}</h3>
+        <ul class="footer-links">
+          {serviceLinks.map(({ label, path }) => (
+            <li>
+              <a href={getLocalizedPath(path, lang as Lang)} class="footer-link">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div class="footer-col">
+        <h3 class="footer-heading">{t("footer.company")}</h3>
+        <ul class="footer-links">
+          {companyLinks.map(({ key, path }) => (
+            <li>
+              <a href={getLocalizedPath(path, lang as Lang)} class="footer-link">
+                {t(key)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company Info -->
+      <div class="footer-col">
+        <h3 class="footer-heading">{t("footer.company")}</h3>
+        <dl class="footer-info-list">
+          <div class="footer-info-row">
+            <dt>{t("footer.operator")}</dt>
+            <dd>{t("footer.operator.value")}</dd>
+          </div>
+          <div class="footer-info-row">
+            <dt>{t("footer.japan.hq")}</dt>
+            <dd>{t("footer.japan.hq.value")}</dd>
+          </div>
+          <div class="footer-info-row">
+            <dt>{t("footer.ph.office")}</dt>
+            <dd>{t("footer.ph.office.value")}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright bar -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="copyright">&copy; {t("footer.copyright")}</p>
+      <a href={getLocalizedPath("/privacy", lang as Lang)} class="footer-bottom-link">
+        {t("footer.privacy")}
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Main footer area */
+  .footer-main {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* Brand column */
+  .footer-logo {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo:hover {
+    color: var(--accent-color);
+  }
+
+  .footer-brand-name {
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-semibold);
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 0.75rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+  }
+
+  /* Column headings */
+  .footer-heading {
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  /* Nav links */
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--accent-color);
+  }
+
+  /* Company info */
+  .footer-info-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .footer-info-row dt {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-info-row dd {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  /* Copyright bar */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem 0;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+  }
+
+  .footer-bottom-link {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-bottom-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-main {
+      padding: 2.5rem 0 2rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .footer-brand {
+      grid-column: auto;
+    }
+
+    .footer-bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+</style>
