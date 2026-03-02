@@ -1,0 +1,299 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+const lang = "en";
+const t = useTranslations(lang);
+---
+
+<Layout title={t("cases.title") + " | IGRS"} description={t("site.description")} lang={lang}>
+  <Header lang={lang} />
+  <main>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div class="container">
+        <h1>{t("cases.title")}</h1>
+        <p>Philippine document procurement for every immigration case type — K-1, CR-1, student visas, work permits, and naturalization.</p>
+      </div>
+    </div>
+
+    <!-- Cases Grid -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Case Types We Handle</h2>
+          <p>We work with immigration law firms in the US, Canada, and Australia handling Philippine national clients across all major visa categories.</p>
+        </div>
+        <div class="grid-2">
+
+          <!-- K-1 Fiancé Visa -->
+          <div class="card case-card">
+            <div class="case-badge">USCIS · K-1</div>
+            <h3>{t("cases.1.title")}</h3>
+            <p class="case-desc">The K-1 fiancé visa allows a US citizen to bring their Philippine fiancé(e) to the United States for marriage. USCIS requires extensive Philippine civil documentation as part of the I-129F petition and the DS-160 consular interview process.</p>
+            <div class="case-section">
+              <h4>Required Philippine Documents</h4>
+              <ul class="case-list">
+                <li>PSA Birth Certificate (with DFA apostille)</li>
+                <li>CENOMAR — Certificate of No Marriage Record (PSA)</li>
+                <li>NBI Clearance (with DFA apostille)</li>
+                <li>PSA Marriage Certificate from any prior marriages (if applicable)</li>
+                <li>PSA Death Certificate of former spouse (if widowed)</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>IGRS Services Applied</h4>
+              <ul class="case-services">
+                <li><span class="tag">PSA Certificates</span></li>
+                <li><span class="tag">NBI Clearance</span></li>
+                <li><span class="tag">DFA Apostille</span></li>
+                <li><span class="tag">DHL Delivery</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CR-1 / IR-1 Spouse Visa -->
+          <div class="card case-card">
+            <div class="case-badge">USCIS · CR-1 / IR-1</div>
+            <h3>{t("cases.2.title")}</h3>
+            <p class="case-desc">The CR-1 (Conditional Resident) and IR-1 (Immediate Relative) spouse visas allow US citizens and lawful permanent residents to petition for their Philippine spouse's immigration. These cases require a full Philippine civil document package submitted with Form I-130.</p>
+            <div class="case-section">
+              <h4>Required Philippine Documents</h4>
+              <ul class="case-list">
+                <li>PSA Birth Certificate of the Philippine spouse</li>
+                <li>PSA Marriage Certificate (with DFA apostille)</li>
+                <li>NBI Clearance (with DFA apostille)</li>
+                <li>CENOMAR (if required by NVC or consulate)</li>
+                <li>PSA documents for any children included in the petition</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>IGRS Services Applied</h4>
+              <ul class="case-services">
+                <li><span class="tag">PSA Certificates</span></li>
+                <li><span class="tag">NBI Clearance</span></li>
+                <li><span class="tag">DFA Apostille</span></li>
+                <li><span class="tag">DHL Delivery</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Student & Exchange Visas -->
+          <div class="card case-card">
+            <div class="case-badge">F-1 · J-1 · Student Visas</div>
+            <h3>{t("cases.3.title")}</h3>
+            <p class="case-desc">F-1 student visa and J-1 exchange visitor program applications for Philippine nationals often require civil documentation and background clearances. Requirements vary by university, exchange program sponsor, and consular post — we provide the full range of procurable Philippine documents.</p>
+            <div class="case-section">
+              <h4>Required Philippine Documents</h4>
+              <ul class="case-list">
+                <li>PSA Birth Certificate</li>
+                <li>NBI Clearance (required by many consulates and programs)</li>
+                <li>CENOMAR or other PSA civil status documents (if required)</li>
+                <li>DFA apostille authentication (when required by receiving institution)</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>IGRS Services Applied</h4>
+              <ul class="case-services">
+                <li><span class="tag">PSA Certificates</span></li>
+                <li><span class="tag">NBI Clearance</span></li>
+                <li><span class="tag">DFA Apostille</span></li>
+                <li><span class="tag">Translation</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Work Visas -->
+          <div class="card case-card">
+            <div class="case-badge">H-1B · L-1 · Work Permits</div>
+            <h3>{t("cases.4.title")}</h3>
+            <p class="case-desc">Employment-based immigration cases for Philippine nationals — including H-1B specialty occupation visas, L-1 intracompany transfers, Canadian work permits, and Australian skilled worker visas — frequently require Philippine background clearances and civil documents.</p>
+            <div class="case-section">
+              <h4>Required Philippine Documents</h4>
+              <ul class="case-list">
+                <li>NBI Clearance (standard requirement for most work visa categories)</li>
+                <li>PSA Birth Certificate</li>
+                <li>LTO Driver's Record (for roles requiring driving history)</li>
+                <li>DFA apostille on all Philippine-issued documents</li>
+                <li>Certified translations where required</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>IGRS Services Applied</h4>
+              <ul class="case-services">
+                <li><span class="tag">NBI Clearance</span></li>
+                <li><span class="tag">PSA Certificates</span></li>
+                <li><span class="tag">LTO Records</span></li>
+                <li><span class="tag">DFA Apostille</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Naturalization -->
+          <div class="card case-card">
+            <div class="case-badge">Naturalization · Citizenship</div>
+            <h3>{t("cases.5.title")}</h3>
+            <p class="case-desc">Naturalization applications in the US (N-400), Canada, and Australia require applicants to submit comprehensive documentation of their civil and criminal history in any country of prior residence or citizenship — including the Philippines. These cases often need the most complete Philippine document packages.</p>
+            <div class="case-section">
+              <h4>Required Philippine Documents</h4>
+              <ul class="case-list">
+                <li>PSA Birth Certificate (with DFA apostille)</li>
+                <li>NBI Clearance (with DFA apostille)</li>
+                <li>PSA Marriage Certificate (if applicable)</li>
+                <li>CENOMAR (proof of single status, if applicable)</li>
+                <li>PSA documents for all family members listed in the application</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>IGRS Services Applied</h4>
+              <ul class="case-services">
+                <li><span class="tag">PSA Certificates</span></li>
+                <li><span class="tag">NBI Clearance</span></li>
+                <li><span class="tag">DFA Apostille</span></li>
+                <li><span class="tag">Translation</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Multi-Case Partnerships -->
+          <div class="card case-card">
+            <div class="case-badge">Ongoing Partnership</div>
+            <h3>High-Volume Law Firm Support</h3>
+            <p class="case-desc">Immigration law firms handling a steady volume of Philippine clients benefit from establishing IGRS as their dedicated procurement partner. We manage ongoing case queues, provide consolidated billing, and offer volume pricing for firms with recurring document needs.</p>
+            <div class="case-section">
+              <h4>Partnership Benefits</h4>
+              <ul class="case-list">
+                <li>Dedicated account management for your firm</li>
+                <li>Consolidated invoicing across all active cases</li>
+                <li>Volume discounts for 10+ simultaneous cases</li>
+                <li>Priority processing for urgent matters</li>
+                <li>Flexible billing arrangements to fit your firm's cycle</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>IGRS Services Applied</h4>
+              <ul class="case-services">
+                <li><span class="tag">All Document Types</span></li>
+                <li><span class="tag">Volume Pricing</span></li>
+                <li><span class="tag">Invoice Billing</span></li>
+                <li><span class="tag">Account Management</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Country-Specific Note -->
+    <section class="bg-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Country-Specific Requirements</h2>
+          <p>We are familiar with the Philippine document requirements for immigration authorities in each country we serve.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>United States (USCIS / NVC / DOS)</h3>
+            <p>USCIS, the National Visa Center, and US consular officers follow the Foreign Affairs Manual (FAM) for Philippine document requirements. We supply documents that meet these standards — original PSA security paper, apostilled NBI clearances — for all immigrant and nonimmigrant visa categories.</p>
+          </div>
+          <div class="card">
+            <h3>Canada (IRCC)</h3>
+            <p>Immigration, Refugees and Citizenship Canada requires original Philippine civil documents for spousal sponsorships, work permits, and permanent residency applications. DFA apostille is accepted for Philippine documents submitted to IRCC. We handle the full procurement and authentication chain.</p>
+          </div>
+          <div class="card">
+            <h3>Australia (Home Affairs)</h3>
+            <p>The Australian Department of Home Affairs requires Philippine civil documents for partner visas (subclass 309/100, 820/801), skilled worker visas, and citizenship applications. We supply apostilled PSA and NBI documents meeting Australian requirements.</p>
+          </div>
+          <div class="card">
+            <h3>Other Jurisdictions</h3>
+            <p>IGRS documents are procured with DFA apostille, making them legally recognized in all Hague Convention member states. If your client is applying in a jurisdiction not listed here, contact us to discuss specific requirements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="container">
+        <h2>{t("cta.title")}</h2>
+        <p>{t("cta.text")}</p>
+        <a href={getLocalizedPath("/contact", lang)} class="btn btn-primary">{t("cta.button")}</a>
+      </div>
+    </div>
+
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .case-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .case-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+  .case-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+  .case-section h4 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .case-list {
+    list-style: none;
+  }
+  .case-list li {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 14px;
+    position: relative;
+  }
+  .case-list li:last-child {
+    border-bottom: none;
+  }
+  .case-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .case-services {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+  }
+</style>

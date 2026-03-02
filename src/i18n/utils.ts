@@ -1,5 +1,4 @@
-import { ui, defaultLang } from "./ui";
-import type { Lang } from "./ui";
+import { ui, defaultLang, type Lang } from "./ui";
 
 export function getLangFromUrl(url: URL): Lang {
   const [, lang] = url.pathname.split("/");
@@ -9,11 +8,10 @@ export function getLangFromUrl(url: URL): Lang {
 
 export function useTranslations(lang: Lang) {
   return function t(key: keyof (typeof ui)[typeof defaultLang]): string {
-    return (ui[lang] as Record<string, string>)[key] ?? (ui[defaultLang] as Record<string, string>)[key] ?? key;
+    return ui[lang]?.[key] ?? ui[defaultLang][key] ?? key;
   };
 }
 
 export function getLocalizedPath(path: string, lang: Lang): string {
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return `/${lang}${normalizedPath}`;
+  return `/${lang}${path.startsWith("/") ? path : "/" + path}`;
 }

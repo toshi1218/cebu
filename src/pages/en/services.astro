@@ -8,589 +8,314 @@ const lang = "en";
 const t = useTranslations(lang);
 ---
 
-<Layout
-  title="Our Services | Philippine Document Procurement — IGRS"
-  description="Detailed service information: PSA certificates, NBI clearance, LTO records, DFA apostille, and certified translation for US immigration law firms handling Philippine nationals."
-  lang="en"
->
-  <Header lang="en" />
-
+<Layout title={t("services.title") + " | IGRS"} description={t("site.description")} lang={lang}>
+  <Header lang={lang} />
   <main>
+
     <!-- Page Hero -->
     <div class="page-hero">
       <div class="container">
-        <h1>{t("services.page.title")}</h1>
-        <p>{t("services.page.subtitle")}</p>
+        <h1>{t("services.title")}</h1>
+        <p>Complete Philippine government document procurement for immigration law firms in the US, Canada, and Australia.</p>
       </div>
     </div>
 
-    <!-- Services Overview -->
+    <!-- PSA Certificates -->
     <section>
       <div class="container">
-        <div class="info-box">
-          <p>All services include professional handling at Philippine government offices, quality review before shipping, and DHL international delivery with tracking. Every document package is carefully checked for completeness and authenticity before dispatch.</p>
-        </div>
-
-        <!-- Quick Nav -->
-        <nav class="services-quicknav" aria-label="Jump to service">
-          <span class="quicknav-label">Jump to:</span>
-          <a href="#psa" class="quicknav-link">PSA Certificates</a>
-          <a href="#nbi" class="quicknav-link">NBI Clearance</a>
-          <a href="#lto" class="quicknav-link">LTO Records</a>
-          <a href="#dfa" class="quicknav-link">DFA Apostille</a>
-          <a href="#translation" class="quicknav-link">Translation</a>
-        </nav>
-      </div>
-    </section>
-
-    <!-- PSA Certificates -->
-    <section id="psa" class="bg-light">
-      <div class="container">
-        <div class="service-section">
-          <div class="service-section-header">
-            <div class="service-section-badge">PSA</div>
-            <h2 class="service-section-title">{t("services.psa.title")}</h2>
-            <p class="service-section-subtitle">Philippine Statistics Authority — Official Civil Registry Documents</p>
+        <div class="service-detail">
+          <div class="service-header">
+            <span class="service-tag">PSA</span>
+            <h2>{t("services.psa.title")}</h2>
           </div>
-
-          <div class="service-section-body">
-            <div class="service-desc-block">
-              <h3>What Are PSA Certificates?</h3>
-              <p>PSA (Philippine Statistics Authority) certificates are the official civil registry documents issued by the Philippine government. These are the only documents accepted by USCIS, US consulates, and US immigration courts as proof of vital events for Philippine nationals. PSA documents are printed on security paper with anti-fraud features and bear the PSA seal.</p>
-              <p>All PSA documents procured by IGRS are obtained directly from PSA offices or authorized PSA Serbilis outlets in the Philippines. We do not use photocopied or digitally-reproduced documents.</p>
-            </div>
-
-            <div class="service-docs-grid">
-              <div class="service-doc-card card">
-                <h4>PSA Birth Certificate</h4>
-                <p>The primary identity document for Philippine nationals. Required for virtually all US immigration petitions involving a Philippine beneficiary.</p>
-                <div class="doc-tag-group">
-                  <span class="doc-tag">K-1 Fiancé Visa</span>
-                  <span class="doc-tag">CR-1 / IR-1 Spouse Visa</span>
-                  <span class="doc-tag">F-1 / J-1 Student Visa</span>
-                  <span class="doc-tag">H-1B / L-1 Work Visa</span>
-                  <span class="doc-tag">Naturalization (N-400)</span>
-                </div>
-              </div>
-              <div class="service-doc-card card">
-                <h4>PSA Marriage Certificate</h4>
-                <p>Proof of marriage in the Philippines. Required for spouse-based immigration petitions and cases where marital status affects the application.</p>
-                <div class="doc-tag-group">
-                  <span class="doc-tag">CR-1 / IR-1 Spouse Visa</span>
-                  <span class="doc-tag">Naturalization (N-400)</span>
-                  <span class="doc-tag">Derivative Beneficiaries</span>
-                </div>
-              </div>
-              <div class="service-doc-card card">
-                <h4>CENOMAR (Certificate of No Marriage)</h4>
-                <p>Certifies that the individual has no record of marriage in the Philippine civil registry. Required for K-1 fiancé visa petitions to establish that the beneficiary is legally free to marry.</p>
-                <div class="doc-tag-group">
-                  <span class="doc-tag">K-1 Fiancé Visa</span>
-                  <span class="doc-tag">Marriage-Based Petitions</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-includes card">
+          <p class="service-lead">Philippine Statistics Authority (PSA) certificates are the foundational documents required in nearly every Philippine immigration case. All PSA documents are issued directly by the Philippine government and carry official security paper and seals.</p>
+          <div class="grid-2" style="margin-top: 32px;">
+            <div class="card">
               <h3>What's Included</h3>
-              <ul class="includes-list">
-                <li>In-person procurement from PSA office or authorized outlet</li>
-                <li>Quality verification (correct name spelling, complete entries, security features intact)</li>
-                <li>DFA Apostille authentication (included in bundle, available as add-on)</li>
-                <li>DHL international shipping with tracking number</li>
-                <li>Weekly progress updates</li>
+              <ul class="doc-list">
+                <li>PSA Birth Certificate (original security paper)</li>
+                <li>PSA Marriage Certificate</li>
+                <li>CENOMAR — Certificate of No Marriage Record</li>
+                <li>PSA Death Certificate (if applicable)</li>
+                <li>DFA apostille authentication (add-on)</li>
+                <li>DHL international shipping to your office</li>
               </ul>
             </div>
-
-            <div class="service-pricing-row">
-              <div class="service-price-card">
-                <div class="spc-label">Standard (1 PSA + DFA Apostille + DHL)</div>
-                <div class="spc-price">$350 USD</div>
-                <div class="spc-delivery">4-week delivery</div>
-              </div>
-              <div class="service-price-card featured">
-                <div class="spc-badge">Best Value</div>
-                <div class="spc-label">Bundle (Multiple PSA documents + DFA Apostille + DHL)</div>
-                <div class="spc-price">$650 USD</div>
-                <div class="spc-delivery">4-week delivery</div>
-              </div>
+            <div class="card">
+              <h3>Required For</h3>
+              <ul class="doc-list">
+                <li>K-1 Fiancé Visa petitions (USCIS)</li>
+                <li>CR-1 / IR-1 Spouse Visa applications</li>
+                <li>F-1 and J-1 student visa applications</li>
+                <li>Naturalization and citizenship cases</li>
+                <li>Spousal sponsorship (Canada PR, Australia PMV)</li>
+                <li>Any immigration case requiring proof of civil status</li>
+              </ul>
             </div>
+          </div>
+          <div class="service-pricing card" style="margin-top: 24px;">
+            <div class="pricing-row">
+              <span class="pricing-item">PSA Certificate + DFA Apostille + DHL</span>
+              <span class="pricing-amount">From $350</span>
+            </div>
+            <p class="pricing-sub">Turnaround: approximately 4 weeks from order. Volume pricing available for 10+ cases.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- NBI Clearance -->
-    <section id="nbi">
+    <section class="bg-alt">
       <div class="container">
-        <div class="service-section">
-          <div class="service-section-header">
-            <div class="service-section-badge">NBI</div>
-            <h2 class="service-section-title">{t("services.nbi.title")}</h2>
-            <p class="service-section-subtitle">National Bureau of Investigation — Philippine Police Clearance Equivalent</p>
+        <div class="service-detail">
+          <div class="service-header">
+            <span class="service-tag">NBI</span>
+            <h2>{t("services.nbi.title")}</h2>
           </div>
-
-          <div class="service-section-body">
-            <div class="service-desc-block">
-              <h3>What Is NBI Clearance?</h3>
-              <p>NBI (National Bureau of Investigation) Clearance is the Philippines' national-level background check document, equivalent to a police clearance or criminal background check. It is issued by the Philippine Department of Justice's National Bureau of Investigation and certifies that the individual has no pending criminal cases or derogatory records in the Philippines.</p>
-              <p>USCIS and US consulates routinely require NBI Clearance for Philippine nationals in immigration applications. It is considered more comprehensive than local police clearances because it covers the entire Philippines, not just a specific city or municipality.</p>
-            </div>
-
-            <div class="service-docs-grid single">
-              <div class="service-doc-card card">
-                <h4>NBI Clearance</h4>
-                <p>The NBI Clearance must be current (typically within 6 months) at the time of submission. IGRS procures the clearance directly from NBI offices and can process apostille authentication for international use.</p>
-                <p>For applicants who have never registered with NBI or whose records require in-person verification, we handle the complete process including biometric enrollment.</p>
-                <div class="doc-tag-group">
-                  <span class="doc-tag">K-1 Fiancé Visa</span>
-                  <span class="doc-tag">CR-1 / IR-1 Spouse Visa</span>
-                  <span class="doc-tag">F-1 / J-1 Student Visa</span>
-                  <span class="doc-tag">H-1B / L-1 Work Visa</span>
-                  <span class="doc-tag">Naturalization (N-400)</span>
-                  <span class="doc-tag">DS-260 Immigrant Visa</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-includes card">
+          <p class="service-lead">NBI (National Bureau of Investigation) Clearance is the Philippine equivalent of a criminal background check. It is required for nearly all immigration applications involving Philippine nationals, including work visas, spouse visas, and naturalization.</p>
+          <div class="grid-2" style="margin-top: 32px;">
+            <div class="card">
               <h3>What's Included</h3>
-              <ul class="includes-list">
-                <li>NBI appointment booking and in-person processing</li>
-                <li>Biometric enrollment assistance if required</li>
-                <li>DFA Apostille authentication</li>
-                <li>DHL international shipping with tracking number</li>
-                <li>Weekly progress updates</li>
+              <ul class="doc-list">
+                <li>NBI Clearance (official government-issued)</li>
+                <li>In-person representation at NBI offices in Cebu</li>
+                <li>Coordination with applicant for biometric requirements</li>
+                <li>DFA apostille authentication (add-on)</li>
+                <li>DHL international shipping to your office</li>
+                <li>Weekly status updates throughout procurement</li>
               </ul>
             </div>
-
-            <div class="service-pricing-row">
-              <div class="service-price-card featured">
-                <div class="spc-badge">Standalone</div>
-                <div class="spc-label">NBI Clearance + DFA Apostille + DHL</div>
-                <div class="spc-price">$375 USD</div>
-                <div class="spc-delivery">4-week delivery</div>
-              </div>
+            <div class="card">
+              <h3>Required For</h3>
+              <ul class="doc-list">
+                <li>K-1 Fiancé Visa petitions</li>
+                <li>H-1B, L-1, and employment-based visas</li>
+                <li>F-1 student visa applications (some consulates)</li>
+                <li>Canadian work permits and PR applications</li>
+                <li>Australian partner and skilled worker visas</li>
+                <li>Naturalization and citizenship applications</li>
+              </ul>
             </div>
+          </div>
+          <div class="service-pricing card" style="margin-top: 24px;">
+            <div class="pricing-row">
+              <span class="pricing-item">NBI Clearance + DFA Apostille + DHL</span>
+              <span class="pricing-amount">$375</span>
+            </div>
+            <p class="pricing-sub">Turnaround: approximately 4 weeks from order. Bulk pricing available for multiple applicants.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LTO Records -->
-    <section id="lto" class="bg-light">
+    <!-- LTO Driver's Records -->
+    <section>
       <div class="container">
-        <div class="service-section">
-          <div class="service-section-header">
-            <div class="service-section-badge">LTO</div>
-            <h2 class="service-section-title">{t("services.lto.title")}</h2>
-            <p class="service-section-subtitle">Land Transportation Office — Driver's License Records</p>
+        <div class="service-detail">
+          <div class="service-header">
+            <span class="service-tag">LTO</span>
+            <h2>{t("services.lto.title")}</h2>
           </div>
-
-          <div class="service-section-body">
-            <div class="service-desc-block">
-              <h3>What Are LTO Records?</h3>
-              <p>LTO (Land Transportation Office) records are official documents issued by the Philippine Land Transportation Office certifying a person's driving history and license status in the Philippines. These records are relevant to immigration cases where a driving history or license conversion is part of the application or supporting documentation.</p>
-            </div>
-
-            <div class="service-docs-grid single">
-              <div class="service-doc-card card">
-                <h4>LTO Driver's Record &amp; License Verification</h4>
-                <p>Includes the official LTO certification of driving records, license validity status, and license category. Useful for cases where the beneficiary's driving record is relevant to the immigration matter or where conversion of a Philippine driver's license is involved.</p>
-                <div class="doc-tag-group">
-                  <span class="doc-tag">H-1B / L-1 Work Visa</span>
-                  <span class="doc-tag">Employment-Based Cases</span>
-                  <span class="doc-tag">License Conversion</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-includes card">
+          <p class="service-lead">Land Transportation Office (LTO) records are needed when a Philippine national wishes to convert their Philippine driver's license in their destination country, or when driving history is required as part of an immigration or background verification process.</p>
+          <div class="grid-2" style="margin-top: 32px;">
+            <div class="card">
               <h3>What's Included</h3>
-              <ul class="includes-list">
-                <li>In-person procurement from LTO office</li>
-                <li>Official LTO certification of records</li>
-                <li>DFA Apostille authentication (on request)</li>
-                <li>DHL international shipping with tracking number</li>
-                <li>Weekly progress updates</li>
+              <ul class="doc-list">
+                <li>Official LTO Driver's Record (driving history)</li>
+                <li>License verification and status confirmation</li>
+                <li>Direct coordination with LTO regional offices</li>
+                <li>DFA apostille authentication (add-on)</li>
+                <li>DHL international shipping</li>
               </ul>
             </div>
-
-            <div class="service-pricing-row">
-              <div class="service-price-card">
-                <div class="spc-label">LTO Records (pricing available on request)</div>
-                <div class="spc-price">Contact Us</div>
-                <div class="spc-delivery">Typically included in bundle packages</div>
-              </div>
+            <div class="card">
+              <h3>Required For</h3>
+              <ul class="doc-list">
+                <li>Foreign license conversion in US, Canada, Australia</li>
+                <li>Employment-based immigration cases requiring driving history</li>
+                <li>Background verification for professional visa applications</li>
+                <li>Insurance and employment background checks</li>
+              </ul>
             </div>
+          </div>
+          <div class="service-pricing card" style="margin-top: 24px;">
+            <div class="pricing-row">
+              <span class="pricing-item">LTO Records + DFA Apostille + DHL</span>
+              <span class="pricing-amount">Contact for quote</span>
+            </div>
+            <p class="pricing-sub">Pricing varies based on specific documentation required. Contact us with your case details.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- DFA Apostille -->
-    <section id="dfa">
+    <section class="bg-alt">
       <div class="container">
-        <div class="service-section">
-          <div class="service-section-header">
-            <div class="service-section-badge">DFA</div>
-            <h2 class="service-section-title">{t("services.dfa.title")}</h2>
-            <p class="service-section-subtitle">Department of Foreign Affairs — Hague Apostille Authentication</p>
+        <div class="service-detail">
+          <div class="service-header">
+            <span class="service-tag">DFA</span>
+            <h2>{t("services.dfa.title")}</h2>
           </div>
-
-          <div class="service-section-body">
-            <div class="service-desc-block">
-              <h3>What Is DFA Apostille?</h3>
-              <p>The DFA (Department of Foreign Affairs) Apostille is the Philippines' implementation of the Hague Convention Abolishing the Requirement of Legalisation for Foreign Public Documents. The apostille is a standardized certification that authenticates the origin of a public document so it can be legally recognized in other countries that are party to the Hague Convention, including the United States.</p>
-              <p>USCIS and US consulates require Philippine documents submitted in immigration proceedings to be authenticated. Apostille is the accepted method for documents from the Philippines. Without apostille, PSA and NBI documents may be rejected as unauthenticated.</p>
-              <p>IGRS handles DFA apostille in-house as part of our document procurement pipeline, eliminating the need for law firms to coordinate a separate authentication step.</p>
-            </div>
-
-            <div class="service-includes card">
+          <p class="service-lead">DFA (Department of Foreign Affairs) apostille authentication is required to make Philippine government documents legally recognized in countries party to the Hague Apostille Convention — including the United States, Canada, and Australia. Without apostille, Philippine documents may be rejected by immigration authorities.</p>
+          <div class="grid-2" style="margin-top: 32px;">
+            <div class="card">
               <h3>What's Included</h3>
-              <ul class="includes-list">
-                <li>DFA apostille appointment booking</li>
-                <li>In-person submission at DFA apostille center</li>
-                <li>Quality verification of apostille certificate</li>
-                <li>Combined shipment with other documents (reduces cost)</li>
-                <li>DHL international shipping with tracking number</li>
+              <ul class="doc-list">
+                <li>DFA apostille stamp on PSA, NBI, and other government documents</li>
+                <li>Authentication of translated documents</li>
+                <li>Coordination between DFA offices and document issuers</li>
+                <li>Quality check before shipping</li>
+                <li>DHL international shipping with tracking</li>
               </ul>
             </div>
-
-            <div class="info-box">
-              <p><strong>Important for attorneys:</strong> DFA Apostille is included by default in our Standard and Bundle packages. If your firm only needs apostille on documents already in your possession (obtained through other means), we can handle apostille-only requests. Please contact us to discuss.</p>
+            <div class="card">
+              <h3>Why It Matters</h3>
+              <ul class="doc-list">
+                <li>Required by USCIS for foreign document submissions</li>
+                <li>Mandatory for Canadian immigration (IRCC) submissions</li>
+                <li>Required for Australian Department of Home Affairs</li>
+                <li>Ensures documents are accepted without additional verification</li>
+                <li>Prevents delays and rejections due to unauthenticated documents</li>
+              </ul>
             </div>
+          </div>
+          <div class="service-pricing card" style="margin-top: 24px;">
+            <div class="pricing-row">
+              <span class="pricing-item">DFA Apostille (standalone)</span>
+              <span class="pricing-amount">Included in all packages</span>
+            </div>
+            <p class="pricing-sub">All IGRS document packages include DFA apostille authentication. We handle the full chain: document procurement → apostille → international delivery.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Translation -->
-    <section id="translation" class="bg-light">
+    <section>
       <div class="container">
-        <div class="service-section">
-          <div class="service-section-header">
-            <div class="service-section-badge">Translation</div>
-            <h2 class="service-section-title">{t("services.translation.title")}</h2>
-            <p class="service-section-subtitle">Certified English Translation of Philippine Government Documents</p>
+        <div class="service-detail">
+          <div class="service-header">
+            <span class="service-tag">Translation</span>
+            <h2>{t("services.translation.title")}</h2>
           </div>
-
-          <div class="service-section-body">
-            <div class="service-desc-block">
-              <h3>About Our Translation Service</h3>
-              <p>Philippine PSA documents (birth certificates, marriage certificates, CENOMAR) are issued in English, but older documents or those with handwritten entries may require certified translation or transcription to ensure accuracy and readability for USCIS review.</p>
-              <p>Our translation service provides certified English translations of Philippine government documents including PSA civil registry records, LTO records, and other official documents. Translations include a certification statement attesting to accuracy and the translator's qualifications.</p>
-            </div>
-
-            <div class="service-docs-grid">
-              <div class="service-doc-card card">
-                <h4>Civil Registry Document Translation</h4>
-                <p>Certified English translation of PSA birth certificates, marriage certificates, and CENOMAR. Includes certification statement for USCIS submission.</p>
-                <div class="doc-tag-group">
-                  <span class="doc-tag">All Visa Categories</span>
-                  <span class="doc-tag">USCIS Submissions</span>
-                </div>
-              </div>
-              <div class="service-doc-card card">
-                <h4>Other Official Document Translation</h4>
-                <p>Certified translation of LTO records, court documents, and other Philippine government documents required for immigration proceedings.</p>
-                <div class="doc-tag-group">
-                  <span class="doc-tag">LTO Records</span>
-                  <span class="doc-tag">Court Documents</span>
-                  <span class="doc-tag">Government Certifications</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-includes card">
+          <p class="service-lead">Philippine government documents are issued in Filipino or English. While English documents are typically accepted directly, some immigration filings require certified translations or explanatory notes for non-English portions. IGRS provides translation services as part of our full-service offering.</p>
+          <div class="grid-2" style="margin-top: 32px;">
+            <div class="card">
               <h3>What's Included</h3>
-              <ul class="includes-list">
-                <li>Certified English translation by qualified translator</li>
-                <li>Translator certification statement (name, qualifications, date)</li>
-                <li>Formatted for USCIS and US consulate submission standards</li>
-                <li>Digital delivery (PDF) and/or physical copy</li>
-                <li>Available as add-on to any procurement package</li>
+              <ul class="doc-list">
+                <li>Certified translation of PSA certificates</li>
+                <li>Translation of NBI Clearance annotations</li>
+                <li>Notarized translations where required</li>
+                <li>Translation review for accuracy and completeness</li>
+                <li>Delivered together with original documents</li>
               </ul>
             </div>
-
-            <div class="service-pricing-row">
-              <div class="service-price-card">
-                <div class="spc-label">Translation (per document — contact for exact pricing)</div>
-                <div class="spc-price">Contact Us</div>
-                <div class="spc-delivery">Available as add-on to any package</div>
-              </div>
+            <div class="card">
+              <h3>When You Need It</h3>
+              <ul class="doc-list">
+                <li>Documents with Filipino-language annotations</li>
+                <li>Cases requiring explanatory translation for adjudicators</li>
+                <li>Canadian immigration filings requiring French or certified English</li>
+                <li>Any case where your client's documents contain non-English text</li>
+              </ul>
             </div>
+          </div>
+          <div class="service-pricing card" style="margin-top: 24px;">
+            <div class="pricing-row">
+              <span class="pricing-item">Translation (per document)</span>
+              <span class="pricing-amount">Contact for quote</span>
+            </div>
+            <p class="pricing-sub">Translation is available as an add-on to any document procurement order. Ask about bundled pricing.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section">
-      <div class="container cta-inner">
-        <h2 class="cta-heading">{t("cta.title")}</h2>
-        <p class="cta-text">{t("cta.text")}</p>
-        <div class="cta-group">
-          <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta btn-lg">
-            {t("cta.button")}
-          </a>
-        </div>
+    <div class="cta-section">
+      <div class="container">
+        <h2>{t("cta.title")}</h2>
+        <p>{t("cta.text")}</p>
+        <a href={getLocalizedPath("/contact", lang)} class="btn btn-primary">{t("cta.button")}</a>
       </div>
-    </section>
-  </main>
+    </div>
 
-  <Footer lang="en" />
+  </main>
+  <Footer lang={lang} />
 </Layout>
 
 <style>
-  /* Services Quick Nav */
-  .services-quicknav {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 1rem 1.25rem;
-    background-color: var(--bg-light);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    margin-top: 0.5rem;
-  }
-
-  .quicknav-label {
-    font-size: 0.85rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-muted);
-    margin-right: 0.25rem;
-  }
-
-  .quicknav-link {
-    font-size: 0.875rem;
-    font-weight: var(--font-weight-medium);
-    color: var(--primary-color);
-    text-decoration: none;
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--border-radius-sm);
-    transition: background-color 0.15s ease, color 0.15s ease;
-  }
-
-  .quicknav-link:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-  }
-
-  /* Service Section Layout */
-  .service-section {
+  .service-detail {
     max-width: 900px;
     margin: 0 auto;
   }
-
-  .service-section-header {
-    margin-bottom: 2.5rem;
-  }
-
-  .service-section-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: var(--border-radius-sm);
-    font-size: 0.85rem;
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.75rem;
-  }
-
-  .service-section-title {
-    color: var(--primary-color);
-    margin-bottom: 0.35rem;
-  }
-
-  .service-section-subtitle {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 0;
-  }
-
-  .service-section-body {
+  .service-header {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
   }
-
-  .service-desc-block h3 {
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    margin-bottom: 0.75rem;
-  }
-
-  /* Document cards grid */
-  .service-docs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .service-docs-grid.single {
-    grid-template-columns: 1fr;
-  }
-
-  .service-doc-card h4 {
-    font-size: 1rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-  }
-
-  .service-doc-card p {
-    font-size: 0.9rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .service-doc-card p:last-child {
-    margin-bottom: 0;
-  }
-
-  .doc-tag-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.75rem;
-  }
-
-  .doc-tag {
-    display: inline-block;
+  .service-tag {
+    background: var(--accent);
+    color: #fff;
     font-size: 0.75rem;
-    font-weight: var(--font-weight-medium);
-    color: var(--primary-color);
-    background-color: rgba(26, 54, 93, 0.07);
-    border: 1px solid rgba(26, 54, 93, 0.15);
-    border-radius: var(--border-radius-sm);
-    padding: 0.15rem 0.5rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
-
-  /* What's included */
-  .service-includes h3 {
-    font-size: 1rem;
-    color: var(--text-dark);
-    margin-bottom: 0.75rem;
-  }
-
-  .includes-list {
-    margin: 0;
-    padding-left: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .includes-list li {
-    font-size: 0.9rem;
+  .service-lead {
+    font-size: 1.05rem;
     color: var(--text-light);
-    line-height: 1.5;
+    line-height: 1.8;
   }
-
-  /* Service pricing row */
-  .service-pricing-row {
+  .doc-list {
+    list-style: none;
+    margin-top: 12px;
+  }
+  .doc-list li {
+    padding: 6px 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border);
+    padding-left: 16px;
+    position: relative;
+  }
+  .doc-list li:last-child {
+    border-bottom: none;
+  }
+  .doc-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .service-pricing {
+    background: var(--bg-alt);
+  }
+  .pricing-row {
     display: flex;
-    gap: 1.25rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
     flex-wrap: wrap;
+    gap: 8px;
   }
-
-  .service-price-card {
-    flex: 1;
-    min-width: 220px;
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
+  .pricing-item {
+    font-weight: 600;
+    font-size: 1rem;
   }
-
-  .service-price-card.featured {
-    border-color: var(--accent-color);
-    border-width: 2px;
+  .pricing-amount {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
   }
-
-  .spc-badge {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: #000000;
-    font-size: 0.7rem;
-    font-weight: var(--font-weight-bold);
-    padding: 0.1rem 0.45rem;
-    border-radius: var(--border-radius-sm);
-    margin-bottom: 0.5rem;
-  }
-
-  .spc-label {
-    font-size: 0.85rem;
+  .pricing-sub {
+    font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 0.4rem;
-    line-height: 1.4;
-  }
-
-  .spc-price {
-    font-size: 1.75rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--primary-color);
-    line-height: 1.1;
-    margin-bottom: 0.4rem;
-  }
-
-  .spc-delivery {
-    font-size: 0.8rem;
-    font-weight: var(--font-weight-medium);
-    color: var(--text-muted);
-    background-color: var(--bg-light);
-    display: inline-block;
-    padding: 0.2rem 0.5rem;
-    border-radius: var(--border-radius-sm);
-  }
-
-  /* CTA Section */
-  .cta-section {
-    background-color: var(--primary-color);
-    padding: 4rem 0;
-  }
-
-  .cta-inner {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .cta-heading {
-    color: #ffffff;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .cta-text {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
-  }
-
-  .btn-lg {
-    padding: 1rem 2.5rem;
-    font-size: 1.05rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .services-quicknav {
-      gap: 0.4rem;
-    }
-
-    .service-pricing-row {
-      flex-direction: column;
-    }
-
-    .service-price-card {
-      min-width: unset;
-    }
-
-    .cta-heading {
-      font-size: 1.4rem;
-    }
   }
 </style>
