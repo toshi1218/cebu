@@ -8,395 +8,150 @@ const lang = "en";
 const t = useTranslations(lang);
 ---
 
-<Layout
-  title="About IGRS — Philippine Document Procurement Partner"
-  description="IGRS Corporation is a Japanese company with a Cebu-based office, specializing in Philippine government document procurement for immigration law firms and legal professionals."
-  lang="en"
->
-  <Header lang="en" />
-
+<Layout title={t("about.title") + " | IGRS"} description={t("site.description")} lang={lang}>
+  <Header lang={lang} />
   <main>
+
     <!-- Page Hero -->
     <div class="page-hero">
       <div class="container">
         <h1>{t("about.title")}</h1>
-        <p>{t("about.subtitle")}</p>
+        <p>{t("about.sub")}</p>
       </div>
     </div>
 
-    <!-- Company Info -->
+    <!-- Company Information -->
     <section>
       <div class="container">
-        <div class="about-layout">
-          <div class="about-main">
-            <h2 class="section-title-left">{t("about.info.title")}</h2>
-            <div class="company-info-table">
-              <div class="company-info-row">
-                <span class="info-label">{t("about.name.label")}</span>
-                <span class="info-value">{t("about.name.value")}</span>
-              </div>
-              <div class="company-info-row">
-                <span class="info-label">{t("about.founded.label")}</span>
-                <span class="info-value">{t("about.founded.value")}</span>
-              </div>
-              <div class="company-info-row">
-                <span class="info-label">{t("about.hq.label")}</span>
-                <span class="info-value">{t("about.hq.value")}</span>
-              </div>
-              <div class="company-info-row">
-                <span class="info-label">{t("about.cebu.label")}</span>
-                <span class="info-value">{t("about.cebu.value")}</span>
-              </div>
-              <div class="company-info-row">
-                <span class="info-label">{t("about.business.label")}</span>
-                <span class="info-value">{t("about.business.value")}</span>
-              </div>
-              <div class="company-info-row">
-                <span class="info-label">{t("about.ceo.label")}</span>
-                <span class="info-value">{t("about.ceo.value")}</span>
-              </div>
-              <div class="company-info-row">
-                <span class="info-label">{t("about.email.label")}</span>
-                <span class="info-value">
-                  <a href="mailto:igrs20200601@gmail.com">{t("contact.email.address")}</a>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-sidebar">
-            <div class="card about-intro-card">
-              <h3>Our Mission</h3>
-              <p>Immigration attorneys shouldn't have to spend their time navigating Philippine government bureaucracy. IGRS exists to handle that entire process — so your firm can focus on what you do best: representing your clients.</p>
-              <p>We built IGRS as a bridge between US immigration law firms and the Philippine government document ecosystem, providing a reliable, professional, and transparent service that attorneys can depend on.</p>
-            </div>
-          </div>
+        <div class="section-title">
+          <h2>Company Overview</h2>
+          <p>IGRS is a Japanese corporation operating a dedicated Philippine document procurement office in Cebu City.</p>
+        </div>
+        <div class="company-table">
+          <dl class="company-row">
+            <dt>{t("about.name.label")}</dt>
+            <dd>{t("about.name.value")}</dd>
+          </dl>
+          <dl class="company-row">
+            <dt>{t("about.founded.label")}</dt>
+            <dd>{t("about.founded.value")}</dd>
+          </dl>
+          <dl class="company-row">
+            <dt>{t("about.hq.label")}</dt>
+            <dd>{t("about.hq.value")}</dd>
+          </dl>
+          <dl class="company-row">
+            <dt>{t("about.cebu.label")}</dt>
+            <dd>{t("about.cebu.value")}</dd>
+          </dl>
+          <dl class="company-row">
+            <dt>{t("about.biz.label")}</dt>
+            <dd>{t("about.biz.value")}</dd>
+          </dl>
+          <dl class="company-row">
+            <dt>{t("about.ceo.label")}</dt>
+            <dd>{t("about.ceo.value")}</dd>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="bg-light">
+    <!-- Stats -->
+    <section class="bg-alt">
       <div class="container">
-        <h2 class="section-title">Our History</h2>
-        <div class="timeline-wrapper">
-          <ul class="timeline">
-            <li class="timeline-item">
-              <span class="step-number">2020</span>
-              <h3>Founded in Japan</h3>
-              <p>IGRS Corporation (株式会社IGRS) was established on June 1, 2020, headquartered in Wakayama City, Japan. Founded with the vision of becoming a trusted bridge between Japanese and Philippine business ecosystems.</p>
-            </li>
-            <li class="timeline-item">
-              <span class="step-number">2020–2023</span>
-              <h3>Building On-the-Ground Expertise</h3>
-              <p>Established the Cebu City operational office and built direct working relationships with PSA, NBI, LTO, and DFA government offices. Developed internal processes for reliable document procurement and quality control, handling cases for initial business clients.</p>
-            </li>
-            <li class="timeline-item">
-              <span class="step-number">2024</span>
-              <h3>B2B Service Launch</h3>
-              <p>Launched our structured BPO (Business Process Outsourcing) service offering, formalizing document procurement packages with standardized pricing, weekly reporting, invoice billing, and DHL international delivery. Began serving immigration law firms and registered support organizations.</p>
-            </li>
-            <li class="timeline-item">
-              <span class="step-number">2025</span>
-              <h3>BPO Expansion &amp; US Market Entry</h3>
-              <p>Expanded BPO operations and launched English-language services targeting US immigration law firms. Over 80% of our client base is now B2B, serving legal professionals handling Philippine nationals across multiple visa categories.</p>
-            </li>
-          </ul>
+        <div class="section-title">
+          <h2>By the Numbers</h2>
         </div>
-      </div>
-    </section>
-
-    <!-- Strengths / Stats -->
-    <section>
-      <div class="container">
-        <h2 class="section-title">By the Numbers</h2>
-        <div class="stats-grid">
-          <div class="card stat-card">
-            <div class="stat-number">4 wks</div>
-            <div class="stat-label">Standard delivery timeline from order to your office</div>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-number">4 Weeks</div>
+            <div class="stat-label">Standard Delivery Turnaround</div>
           </div>
-          <div class="card stat-card">
+          <div class="stat">
             <div class="stat-number">80%+</div>
-            <div class="stat-label">Business clients — law firms, support organizations, and corporate clients</div>
+            <div class="stat-label">Business &amp; Law Firm Clients</div>
           </div>
-          <div class="card stat-card">
+          <div class="stat">
             <div class="stat-number">Weekly</div>
-            <div class="stat-label">Progress updates for every active order</div>
+            <div class="stat-label">Progress Updates Per Case</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Operations -->
-    <section class="bg-light">
-      <div class="container">
-        <h2 class="section-title">How We Operate</h2>
-        <div class="operations-grid">
-          <div class="card ops-card">
-            <div class="ops-icon-area">
-              <span class="ops-flag">JP</span>
-            </div>
-            <h3>Japan Headquarters</h3>
-            <p class="ops-location">Wakayama City, Wakayama, Japan</p>
-            <p>Our Japan HQ handles business administration, client communications, billing, and coordination with US-based law firms. Operating as a Japanese registered corporation ensures professional accountability and reliable business practices familiar to international clients.</p>
-            <ul class="ops-list">
-              <li>Client account management</li>
-              <li>Invoice billing &amp; accounting</li>
-              <li>Case management &amp; tracking</li>
-              <li>US client communications</li>
-            </ul>
-          </div>
-
-          <div class="card ops-card">
-            <div class="ops-icon-area">
-              <span class="ops-flag">PH</span>
-            </div>
-            <h3>Cebu Office</h3>
-            <p class="ops-location">Cebu City, Philippines</p>
-            <p>Our on-the-ground team in Cebu City handles all direct government office interactions. They visit PSA, NBI, LTO, and DFA offices in person — the only way to reliably obtain these documents. Local expertise means faster processing and the ability to handle edge cases that online or remote services cannot.</p>
-            <ul class="ops-list">
-              <li>PSA, NBI, LTO, DFA office visits</li>
-              <li>In-person document procurement</li>
-              <li>DFA apostille processing</li>
-              <li>Quality verification before shipping</li>
-            </ul>
-          </div>
-
-          <div class="card ops-card">
-            <div class="ops-icon-area">
-              <span class="ops-flag">DHL</span>
-            </div>
-            <h3>International Shipping</h3>
-            <p class="ops-location">DHL — Cebu to your US office</p>
-            <p>All documents are shipped via DHL international express from our Cebu office directly to your law firm's address. You receive a tracking number the moment we hand over the package, and we confirm delivery upon receipt.</p>
-            <ul class="ops-list">
-              <li>DHL international express</li>
-              <li>Tracking number provided</li>
-              <li>Delivery confirmation</li>
-              <li>Consolidated shipments available</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Trust Us -->
+    <!-- Our Story -->
     <section>
       <div class="container">
-        <h2 class="section-title">Why US Law Firms Trust IGRS</h2>
-        <div class="trust-grid">
-          <div class="trust-item">
-            <h3>Registered Corporation</h3>
-            <p>IGRS is a legally registered Japanese corporation. We provide formal invoices, maintain case records, and operate with the accountability of an established business — not an individual freelancer.</p>
+        <div class="about-content">
+          <div class="section-title">
+            <h2>Why We Exist</h2>
           </div>
-          <div class="trust-item">
-            <h3>No Online-Only Shortcuts</h3>
-            <p>We visit Philippine government offices in person. Many documents cannot be obtained online, and in-person presence is sometimes required to resolve issues. Our Cebu team handles this directly.</p>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Built for Law Firms</h3>
+              <p>IGRS was founded to solve a specific problem: immigration law firms handling Philippine national clients had no reliable, accountable partner for procuring Philippine government documents. Individual brokers offered no visibility, no guarantees, and no professional accountability. We built IGRS to change that.</p>
+            </div>
+            <div class="card">
+              <h3>Cebu-Based, Japan-Operated</h3>
+              <p>Our operational structure combines local presence with corporate accountability. Our Cebu City office provides direct access to PSA, NBI, LTO, and DFA offices. Our Japan headquarters provides the legal structure, billing systems, and professional standards that immigration law firms require from a B2B partner.</p>
+            </div>
+            <div class="card">
+              <h3>Corporate Accountability</h3>
+              <p>As a registered Japanese corporation, IGRS provides formal B2B services: invoice billing, case management records, weekly progress reporting, and professional correspondence. We operate as a proper business partner — not a freelance broker — which matters when you're managing client immigration cases with real deadlines and legal consequences.</p>
+            </div>
+            <div class="card">
+              <h3>End-to-End, No Surprises</h3>
+              <p>We handle every step of Philippine document procurement in-house: appointment booking, government office visits, document authentication at DFA, and DHL international shipping. You provide the required information; we deliver authenticated documents to your office. No subcontracting, no middlemen, no gaps in the chain.</p>
+            </div>
           </div>
-          <div class="trust-item">
-            <h3>Dedicated to B2B Legal Services</h3>
-            <p>Over 80% of our clients are businesses — primarily law firms and support organizations. We understand professional requirements: confidentiality, accurate documentation, and reliable delivery timelines.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countries We Serve -->
+    <section class="bg-alt">
+      <div class="container">
+        <div class="section-title">
+          <h2>Who We Work With</h2>
+          <p>We serve immigration law firms and related professional service providers across English-speaking markets.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>United States</h3>
+            <p>Immigration attorneys handling K-1, CR-1/IR-1, F-1, H-1B, L-1, and naturalization cases for Philippine national clients. We are familiar with USCIS, NVC, and DOS document standards for Philippine-origin documents.</p>
           </div>
-          <div class="trust-item">
-            <h3>Full Transparency</h3>
-            <p>Weekly progress reports, DHL tracking numbers, and delivery confirmation for every order. You always know where your clients' documents are in the process.</p>
+          <div class="card">
+            <h3>Canada</h3>
+            <p>Canadian immigration lawyers and consultants handling spousal sponsorships, work permits, Express Entry, and Provincial Nominee Program applications for Philippine nationals. IRCC-standard Philippine documents procured and apostilled.</p>
+          </div>
+          <div class="card">
+            <h3>Australia</h3>
+            <p>Australian migration agents and solicitors handling partner visas, skilled worker applications, and citizenship cases involving Philippine nationals. We supply Department of Home Affairs-ready Philippine documents.</p>
+          </div>
+          <div class="card">
+            <h3>Other Jurisdictions</h3>
+            <p>Because all IGRS documents include DFA apostille authentication, they are legally recognized in any Hague Convention member state. We can support firms in other countries handling Philippine national clients — contact us to discuss your requirements.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section">
-      <div class="container cta-inner">
-        <h2 class="cta-heading">{t("cta.title")}</h2>
-        <p class="cta-text">{t("cta.text")}</p>
-        <div class="cta-group">
-          <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta btn-lg">
-            {t("cta.button")}
-          </a>
-        </div>
+    <div class="cta-section">
+      <div class="container">
+        <h2>{t("cta.title")}</h2>
+        <p>{t("cta.text")}</p>
+        <a href={getLocalizedPath("/contact", lang)} class="btn btn-primary">{t("cta.button")}</a>
       </div>
-    </section>
-  </main>
+    </div>
 
-  <Footer lang="en" />
+  </main>
+  <Footer lang={lang} />
 </Layout>
 
 <style>
-  /* About layout */
-  .about-layout {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
-
-  .section-title-left {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-  }
-
-  .company-info-table {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-  }
-
-  /* About sidebar */
-  .about-intro-card h3 {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
-  }
-
-  .about-intro-card p:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Timeline */
-  .timeline-wrapper {
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  /* Stats */
-  .stat-card {
-    text-align: center;
-    padding: 2.5rem 2rem;
-  }
-
-  .stat-card .stat-number {
-    font-size: 2.75rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-color);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-card .stat-label {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  /* Operations */
-  .operations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .ops-card h3 {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin-bottom: 0.25rem;
-  }
-
-  .ops-location {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: var(--font-weight-medium);
-    margin-bottom: 0.75rem;
-  }
-
-  .ops-icon-area {
-    margin-bottom: 0.75rem;
-  }
-
-  .ops-flag {
-    display: inline-block;
-    padding: 0.25rem 0.6rem;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.05em;
-    border-radius: var(--border-radius-sm);
-  }
-
-  .ops-list {
-    margin: 0.75rem 0 0;
-    padding-left: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .ops-list li {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-  }
-
-  /* Trust grid */
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+  .about-content {
     max-width: 900px;
     margin: 0 auto;
-  }
-
-  .trust-item h3 {
-    font-size: 1.05rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--accent-color);
-    display: inline-block;
-  }
-
-  .trust-item p {
-    font-size: 0.925rem;
-    line-height: 1.65;
-    margin-bottom: 0;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    background-color: var(--primary-color);
-    padding: 4rem 0;
-  }
-
-  .cta-inner {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .cta-heading {
-    color: #ffffff;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .cta-text {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
-  }
-
-  .btn-lg {
-    padding: 1rem 2.5rem;
-    font-size: 1.05rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .about-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .trust-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .cta-heading {
-      font-size: 1.4rem;
-    }
   }
 </style>
