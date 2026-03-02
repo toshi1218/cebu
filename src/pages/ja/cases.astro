@@ -1,0 +1,219 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+const lang = "ja";
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="対応案件 | IGRS"
+  description="国際結婚・配偶者ビザ・帰化申請・外免切替・特定技能。行政書士事務所向けフィリピン書類取得代行。"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>{t("usecases.title")}</h1>
+        <p>行政書士事務所・登録支援機関がフィリピン関連で扱う主な案件類型と、IGRSが取得代行する書類をご紹介します。</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="cases-grid">
+          <div class="card case-card">
+            <div class="case-tag">婚姻・家族</div>
+            <h3>{t("usecases.1.title")}</h3>
+            <p>{t("usecases.1.desc")}</p>
+            <h4>取得する書類</h4>
+            <ul class="doc-list">
+              <li>PSA出生証明書</li>
+              <li>CENOMAR（独身証明書）</li>
+              <li>PSA婚姻証明書</li>
+              <li>DFAアポスティーユ（全書類）</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">在留資格</div>
+            <h3>{t("usecases.2.title")}</h3>
+            <p>{t("usecases.2.desc")}</p>
+            <h4>取得する書類</h4>
+            <ul class="doc-list">
+              <li>PSA出生証明書</li>
+              <li>PSA婚姻証明書</li>
+              <li>NBI無犯罪証明書</li>
+              <li>DFAアポスティーユ（全書類）</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">帰化</div>
+            <h3>{t("usecases.3.title")}</h3>
+            <p>{t("usecases.3.desc")}</p>
+            <h4>取得する書類</h4>
+            <ul class="doc-list">
+              <li>PSA出生証明書</li>
+              <li>PSA婚姻証明書</li>
+              <li>CENOMAR</li>
+              <li>NBI無犯罪証明書</li>
+              <li>DFAアポスティーユ（全書類）</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">運転免許</div>
+            <h3>{t("usecases.4.title")}</h3>
+            <p>{t("usecases.4.desc")}</p>
+            <h4>取得する書類</h4>
+            <ul class="doc-list">
+              <li>LTO運転経歴証明書</li>
+              <li>フィリピン運転免許証</li>
+              <li>DFAアポスティーユ</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">就労</div>
+            <h3>{t("usecases.5.title")}</h3>
+            <p>{t("usecases.5.desc")}</p>
+            <h4>取得する書類</h4>
+            <ul class="doc-list">
+              <li>NBI無犯罪証明書</li>
+              <li>PSA出生証明書</li>
+              <li>DFAアポスティーユ（全書類）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <h2 class="cta-heading">{t("cta.title")}</h2>
+        <p class="cta-text">{t("cta.text")}</p>
+        <div class="cta-group">
+          <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta btn-lg">
+            {t("cta.button")}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .case-card {
+    border-top: 3px solid var(--accent-color);
+  }
+
+  .case-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-color);
+    background-color: rgba(214, 158, 46, 0.1);
+    border: 1px solid rgba(214, 158, 46, 0.3);
+    border-radius: var(--border-radius-sm);
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .case-card h3 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .case-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+
+  .case-card h4 {
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+  }
+
+  .doc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .doc-list li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .doc-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+  }
+
+  .cta-section {
+    background-color: var(--primary-color);
+    padding: 4rem 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-heading {
+    color: #ffffff;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 768px) {
+    .cases-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-heading {
+      font-size: 1.4rem;
+    }
+  }
+</style>

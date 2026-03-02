@@ -1,0 +1,219 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+const lang = "en";
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="Immigration Cases | IGRS"
+  description="Philippine document procurement for K-1, CR-1, student, work visas, and naturalization cases. Supporting immigration law firms."
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>{t("usecases.title")}</h1>
+        <p>We support immigration attorneys handling Philippine nationals across all major visa categories.</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="cases-grid">
+          <div class="card case-card">
+            <div class="case-tag">K-1</div>
+            <h3>{t("usecases.1.title")}</h3>
+            <p>{t("usecases.1.desc")}</p>
+            <h4>Documents We Procure</h4>
+            <ul class="doc-list">
+              <li>PSA Birth Certificate</li>
+              <li>CENOMAR (Certificate of No Marriage)</li>
+              <li>NBI Clearance</li>
+              <li>DFA Apostille on all documents</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">CR-1 / IR-1</div>
+            <h3>{t("usecases.2.title")}</h3>
+            <p>{t("usecases.2.desc")}</p>
+            <h4>Documents We Procure</h4>
+            <ul class="doc-list">
+              <li>PSA Marriage Certificate</li>
+              <li>PSA Birth Certificate</li>
+              <li>NBI Clearance</li>
+              <li>DFA Apostille on all documents</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">F-1 / J-1</div>
+            <h3>{t("usecases.3.title")}</h3>
+            <p>{t("usecases.3.desc")}</p>
+            <h4>Documents We Procure</h4>
+            <ul class="doc-list">
+              <li>NBI Clearance</li>
+              <li>PSA Birth Certificate</li>
+              <li>Certified English translation</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">H-1B / L-1</div>
+            <h3>{t("usecases.4.title")}</h3>
+            <p>{t("usecases.4.desc")}</p>
+            <h4>Documents We Procure</h4>
+            <ul class="doc-list">
+              <li>NBI Clearance</li>
+              <li>PSA Birth Certificate</li>
+              <li>LTO Driver's Records (if applicable)</li>
+              <li>DFA Apostille</li>
+            </ul>
+          </div>
+
+          <div class="card case-card">
+            <div class="case-tag">N-400</div>
+            <h3>{t("usecases.5.title")}</h3>
+            <p>{t("usecases.5.desc")}</p>
+            <h4>Documents We Procure</h4>
+            <ul class="doc-list">
+              <li>PSA Birth Certificate (apostilled)</li>
+              <li>PSA Marriage Certificate (if applicable)</li>
+              <li>NBI Clearance (apostilled)</li>
+              <li>Certified English translation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <h2 class="cta-heading">{t("cta.title")}</h2>
+        <p class="cta-text">{t("cta.text")}</p>
+        <div class="cta-group">
+          <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta btn-lg">
+            {t("cta.button")}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .case-card {
+    border-top: 3px solid var(--accent-color);
+  }
+
+  .case-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.08em;
+    color: var(--accent-color);
+    background-color: rgba(214, 158, 46, 0.1);
+    border: 1px solid rgba(214, 158, 46, 0.3);
+    border-radius: var(--border-radius-sm);
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-card h3 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .case-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+
+  .case-card h4 {
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+  }
+
+  .doc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .doc-list li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .doc-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+  }
+
+  .cta-section {
+    background-color: var(--primary-color);
+    padding: 4rem 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-heading {
+    color: #ffffff;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 768px) {
+    .cases-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-heading {
+      font-size: 1.4rem;
+    }
+  }
+</style>

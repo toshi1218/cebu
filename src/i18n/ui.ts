@@ -17,6 +17,7 @@ export const ui = {
     // Nav
     "nav.home": "ホーム",
     "nav.services": "サービス",
+    "nav.cases": "対応案件",
     "nav.about": "会社概要",
     "nav.contact": "お問い合わせ",
 
@@ -192,6 +193,7 @@ export const ui = {
     // Nav
     "nav.home": "Home",
     "nav.services": "Services",
+    "nav.cases": "Cases",
     "nav.about": "About",
     "nav.contact": "Contact",
 
