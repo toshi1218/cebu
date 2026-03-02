@@ -1,0 +1,253 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+
+const lang = "ja";
+const t = useTranslations(lang);
+---
+
+<Layout title={t("site.title")} description={t("site.description")} lang={lang}>
+  <Header lang={lang} />
+  <main>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div class="container">
+        <h1>{t("cases.title")}</h1>
+        <p>行政書士事務所・登録支援機関様が実際にご依頼される案件を紹介します。</p>
+      </div>
+    </div>
+
+    <!-- Case Cards -->
+    <section>
+      <div class="container">
+        <div class="grid-2">
+
+          <!-- 国際結婚 -->
+          <div class="card case-card">
+            <div class="case-badge">国際結婚手続き</div>
+            <h3>{t("cases.1.title")}</h3>
+            <p class="case-desc">
+              フィリピン人配偶者との婚姻届を日本の市区町村役場に提出するために必要なフィリピン側書類一式を取得します。婚姻要件具備証明書の取得支援にも対応。
+            </p>
+            <div class="case-docs">
+              <h4>必要書類</h4>
+              <ul>
+                <li>PSA出生証明書（Birth Certificate）+ DFAアポスティーユ</li>
+                <li>PSA CENOMAR（独身証明書）+ DFAアポスティーユ</li>
+                <li>PSA婚姻証明書（既婚歴ありの場合）+ DFAアポスティーユ</li>
+                <li>各書類の日本語翻訳</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 配偶者ビザ -->
+          <div class="card case-card">
+            <div class="case-badge">配偶者ビザ申請</div>
+            <h3>{t("cases.2.title")}</h3>
+            <p class="case-desc">
+              日本人配偶者等・永住者の配偶者等の在留資格認定証明書交付申請に必要なフィリピン側書類を取得します。入管局の審査基準に沿った書類構成でご提供します。
+            </p>
+            <div class="case-docs">
+              <h4>必要書類</h4>
+              <ul>
+                <li>PSA婚姻証明書 + DFAアポスティーユ</li>
+                <li>PSA出生証明書 + DFAアポスティーユ</li>
+                <li>NBI無犯罪証明書（申請内容により）+ DFAアポスティーユ</li>
+                <li>各書類の日本語翻訳</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 帰化申請 -->
+          <div class="card case-card">
+            <div class="case-badge">帰化申請</div>
+            <h3>{t("cases.3.title")}</h3>
+            <p class="case-desc">
+              法務局への帰化申請に必要なフィリピン公的書類一式を取得します。帰化申請では多数の書類が求められるため、一括発注・案件管理が効率的です。
+            </p>
+            <div class="case-docs">
+              <h4>必要書類</h4>
+              <ul>
+                <li>PSA出生証明書 + DFAアポスティーユ</li>
+                <li>PSA婚姻証明書（該当者）+ DFAアポスティーユ</li>
+                <li>PSA CENOMAR（未婚の場合）+ DFAアポスティーユ</li>
+                <li>NBI無犯罪証明書 + DFAアポスティーユ</li>
+                <li>各書類の日本語翻訳</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 外免切替 -->
+          <div class="card case-card">
+            <div class="case-badge">外免切替</div>
+            <h3>{t("cases.4.title")}</h3>
+            <p class="case-desc">
+              フィリピン発行の運転免許証を日本の運転免許証に切り替える外免切替手続きに必要なLTO書類を取得します。各都道府県の運転免許試験場が要求する形式に対応します。
+            </p>
+            <div class="case-docs">
+              <h4>必要書類</h4>
+              <ul>
+                <li>LTO運転経歴証明書（Certification of No Apprehension）</li>
+                <li>フィリピン運転免許証（原本または認証謄本）</li>
+                <li>DFAアポスティーユ（試験場の要求による）</li>
+                <li>日本語翻訳</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 特定技能・技能実習 -->
+          <div class="card case-card">
+            <div class="case-badge">特定技能・技能実習</div>
+            <h3>{t("cases.5.title")}</h3>
+            <p class="case-desc">
+              登録支援機関・監理団体・受入企業が手続きを行うフィリピン人材の受入れに必要な書類を一括取得します。複数名分の案件管理・同梱発送にも対応します。
+            </p>
+            <div class="case-docs">
+              <h4>必要書類</h4>
+              <ul>
+                <li>NBI無犯罪証明書 + DFAアポスティーユ（原則必須）</li>
+                <li>PSA出生証明書 + DFAアポスティーユ</li>
+                <li>PSA CENOMAR（未婚証明として）</li>
+                <li>各書類の日本語翻訳</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bulk note -->
+    <section class="bg-alt">
+      <div class="container">
+        <div class="bulk-note">
+          <h2>複数案件の一括管理</h2>
+          <p>
+            特定技能・技能実習では複数名分の書類を同時に取得するケースが多くあります。IGRSでは案件台帳による一括管理・同梱発送に対応しており、10名以上の場合は別途お見積もりいたします。各人の進捗を個別に管理し、週次でご報告します。
+          </p>
+          <div class="bulk-points">
+            <div class="card">
+              <h3>案件台帳管理</h3>
+              <p>複数名の書類を一元管理。各案件の進捗を週次で報告します。</p>
+            </div>
+            <div class="card">
+              <h3>同梱発送対応</h3>
+              <p>複数名分の書類をまとめてDHL国際便で発送。送料を抑えられます。</p>
+            </div>
+            <div class="card">
+              <h3>請求書払い</h3>
+              <p>法人・士業のお客様には請求書払いに対応。締日・支払日はご相談ください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="container">
+        <h2>{t("cta.title")}</h2>
+        <p>{t("cta.text")}</p>
+        <a href={getLocalizedPath("/contact", lang)} class="btn btn-primary">{t("cta.button")}</a>
+      </div>
+    </div>
+
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .case-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .case-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    border: 1px solid rgba(200, 169, 81, 0.4);
+    padding: 4px 12px;
+    border-radius: 20px;
+    width: fit-content;
+  }
+  .case-card h3 {
+    color: var(--primary);
+  }
+  .case-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .case-docs {
+    margin-top: 8px;
+  }
+  .case-docs h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .case-docs ul {
+    list-style: none;
+  }
+  .case-docs li {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .case-docs li:last-child {
+    border-bottom: none;
+  }
+  .case-docs li::before {
+    content: "▸";
+    color: var(--accent);
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+  .bulk-note {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .bulk-note h2 {
+    margin-bottom: 16px;
+  }
+  .bulk-note > p {
+    color: var(--text-light);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bulk-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+  }
+  .bulk-points .card h3 {
+    margin-bottom: 8px;
+  }
+  .bulk-points .card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+  }
+  @media (max-width: 768px) {
+    .bulk-points {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

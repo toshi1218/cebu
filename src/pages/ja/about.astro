@@ -8,348 +8,165 @@ const lang = "ja";
 const t = useTranslations(lang);
 ---
 
-<Layout
-  title={t("site.title")}
-  description={t("site.description")}
-  lang={lang}
->
+<Layout title={t("site.title")} description={t("site.description")} lang={lang}>
   <Header lang={lang} />
-
   <main>
+
     <!-- Page Hero -->
     <div class="page-hero">
       <div class="container">
         <h1>{t("about.title")}</h1>
-        <p>{t("about.subtitle")}</p>
+        <p>{t("about.sub")}</p>
       </div>
     </div>
 
-    <!-- Company Info -->
+    <!-- Company Table -->
     <section>
       <div class="container">
-        <h2 class="section-title">{t("about.info.title")}</h2>
-        <div class="company-info-card card">
-          <div class="company-info-row">
-            <span class="info-label">{t("about.name.label")}</span>
-            <span class="info-value">{t("about.name.value")}</span>
+        <div class="company-table">
+          <div class="company-row">
+            <dl>
+              <dt>{t("about.name.label")}</dt>
+              <dd>{t("about.name.value")}</dd>
+            </dl>
           </div>
-          <div class="company-info-row">
-            <span class="info-label">{t("about.founded.label")}</span>
-            <span class="info-value">{t("about.founded.value")}</span>
+          <div class="company-row">
+            <dl>
+              <dt>{t("about.founded.label")}</dt>
+              <dd>{t("about.founded.value")}</dd>
+            </dl>
           </div>
-          <div class="company-info-row">
-            <span class="info-label">{t("about.hq.label")}</span>
-            <span class="info-value">{t("about.hq.value")}</span>
+          <div class="company-row">
+            <dl>
+              <dt>{t("about.hq.label")}</dt>
+              <dd>{t("about.hq.value")}</dd>
+            </dl>
           </div>
-          <div class="company-info-row">
-            <span class="info-label">{t("about.cebu.label")}</span>
-            <span class="info-value">{t("about.cebu.value")}</span>
+          <div class="company-row">
+            <dl>
+              <dt>{t("about.cebu.label")}</dt>
+              <dd>{t("about.cebu.value")}</dd>
+            </dl>
           </div>
-          <div class="company-info-row">
-            <span class="info-label">{t("about.business.label")}</span>
-            <span class="info-value">{t("about.business.value")}</span>
+          <div class="company-row">
+            <dl>
+              <dt>{t("about.biz.label")}</dt>
+              <dd>{t("about.biz.value")}</dd>
+            </dl>
           </div>
-          <div class="company-info-row">
-            <span class="info-label">{t("about.ceo.label")}</span>
-            <span class="info-value">{t("about.ceo.value")}</span>
-          </div>
-          <div class="company-info-row">
-            <span class="info-label">{t("about.email.label")}</span>
-            <span class="info-value">
-              <a href={`mailto:${t("contact.email.address")}`} class="info-email">
-                {t("contact.email.address")}
-              </a>
-            </span>
+          <div class="company-row">
+            <dl>
+              <dt>{t("about.ceo.label")}</dt>
+              <dd>{t("about.ceo.value")}</dd>
+            </dl>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="bg-light">
+    <!-- Stats -->
+    <section class="bg-alt">
       <div class="container">
-        <h2 class="section-title">沿革</h2>
-        <div class="timeline-wrap">
-          <ul class="timeline">
-            <li class="timeline-item">
-              <span class="step-number">2020</span>
-              <h3>株式会社IGRS 設立</h3>
-              <p>和歌山県和歌山市にて株式会社IGRSを設立。フィリピン公的書類取得代行事業を開始。</p>
-            </li>
-            <li class="timeline-item">
-              <span class="step-number">2020–2023</span>
-              <h3>事業基盤の構築</h3>
-              <p>セブ島に現地拠点を開設。PSA・NBI・LTO・DFA各窓口との関係を構築し、行政書士事務所向けBPOサービスの体制を整備。</p>
-            </li>
-            <li class="timeline-item">
-              <span class="step-number">2024</span>
-              <h3>登録支援機関向けサービス拡充</h3>
-              <p>特定技能・技能実習案件の増加に対応し、NBI無犯罪証明書の一括取得サービスを強化。複数名分の同梱発送体制を整備。</p>
-            </li>
-            <li class="timeline-item">
-              <span class="step-number">2025</span>
-              <h3>外免切替・翻訳サービス開始</h3>
-              <p>LTO運転経歴証明書取得代行および翻訳サービスを正式ラインナップに追加。フィリピン書類取得のワンストップ体制を確立。</p>
-            </li>
-          </ul>
+        <div class="section-title">
+          <h2>IGRSの強み</h2>
+          <p>行政書士事務所・登録支援機関に選ばれ続ける実績</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Strengths / Stats -->
-    <section>
-      <div class="container">
-        <h2 class="section-title">実績と強み</h2>
-        <div class="stats-grid">
-          <div class="card stat-card">
-            <div class="stat-number">3–4<span class="stat-unit">週間</span></div>
-            <div class="stat-label">平均納期</div>
-            <p class="stat-desc">お見積もり確定後、3〜4週間での納品を実現。急ぎ案件はご相談ください。</p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-number">4週間</div>
+            <div class="stat-label">標準納期</div>
           </div>
-          <div class="card stat-card">
-            <div class="stat-number">80<span class="stat-unit">%+</span></div>
+          <div class="stat-item">
+            <div class="stat-number">80%+</div>
             <div class="stat-label">法人・士業のお客様比率</div>
-            <p class="stat-desc">行政書士事務所・登録支援機関からの継続取引が売上の大半を占めています。</p>
           </div>
-          <div class="card stat-card">
+          <div class="stat-item">
             <div class="stat-number">週次</div>
-            <div class="stat-label">進捗報告</div>
-            <p class="stat-desc">受注後は毎週進捗をご報告。国際発送時にはDHL追跡番号を即時共有します。</p>
+            <div class="stat-label">進捗報告頻度</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Operations -->
-    <section class="bg-light">
+    <!-- Mission -->
+    <section>
       <div class="container">
-        <h2 class="section-title">運用体制</h2>
-        <div class="ops-grid">
-          <div class="card ops-card">
-            <div class="ops-icon">JP</div>
-            <h3 class="ops-title">日本本社（和歌山）</h3>
-            <ul class="ops-list">
-              <li>受注・請求書管理</li>
-              <li>案件台帳管理</li>
-              <li>お客様との連絡窓口</li>
-              <li>日本語でのサポート対応</li>
-            </ul>
+        <div class="mission-block">
+          <div class="mission-text">
+            <h2>私たちのミッション</h2>
+            <p>
+              行政書士事務所・登録支援機関の皆様が本来の業務に集中できるよう、フィリピン書類取得という専門業務を一括してお引き受けします。
+            </p>
+            <p>
+              セブ島に実拠点を置く日本法人として、現地窓口への直接アクセスと日本の法人間取引基準を両立。個人ブローカーとは異なる信頼性と透明性で、継続的な業務パートナーとしてご活用いただいています。
+            </p>
           </div>
-          <div class="card ops-card">
-            <div class="ops-icon">PH</div>
-            <h3 class="ops-title">セブ営業所（フィリピン）</h3>
-            <ul class="ops-list">
-              <li>PSA・NBI・LTO・DFA 各窓口への直接出向</li>
-              <li>現地での予約取得・申請手続き</li>
-              <li>書類受取・品質確認</li>
-              <li>DFAアポスティーユ申請</li>
-            </ul>
-          </div>
-          <div class="card ops-card">
-            <div class="ops-icon">DHL</div>
-            <h3 class="ops-title">国際発送</h3>
-            <ul class="ops-list">
-              <li>DHL国際エクスプレスにて発送</li>
-              <li>追跡番号のリアルタイム共有</li>
-              <li>複数名分の同梱発送対応</li>
-              <li>受領確認まで責任対応</li>
-            </ul>
+          <div class="mission-points">
+            <div class="card">
+              <h3>日本法人としての信頼性</h3>
+              <p>株式会社IGRSとして設立。請求書払い・案件台帳管理・週次報告など、法人間取引の標準に対応しています。</p>
+            </div>
+            <div class="card">
+              <h3>セブ島の現地拠点</h3>
+              <p>PSA・NBI・LTO・DFA各窓口へ直接出向ける実拠点をセブ市に構えています。オンライン不可の書類や窓口交渉にも対応。</p>
+            </div>
+            <div class="card">
+              <h3>DHL国際発送</h3>
+              <p>取得した書類はDHL国際便で日本の事務所へ直接お届け。追跡番号を共有し、受領確認まで責任を持って対応します。</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section">
-      <div class="container cta-inner">
-        <h2 class="cta-heading">{t("cta.title")}</h2>
-        <p class="cta-text">{t("cta.text")}</p>
-        <div class="cta-group">
-          <a href={getLocalizedPath("/contact", lang)} class="btn btn-cta btn-lg">
-            {t("cta.button")}
-          </a>
-        </div>
+    <div class="cta-section">
+      <div class="container">
+        <h2>{t("cta.title")}</h2>
+        <p>{t("cta.text")}</p>
+        <a href={getLocalizedPath("/contact", lang)} class="btn btn-primary">{t("cta.button")}</a>
       </div>
-    </section>
-  </main>
+    </div>
 
+  </main>
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  /* Company Info Card */
-  .company-info-card {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .company-info-card .company-info-row {
-    padding: 1rem 2rem;
-  }
-
-  .company-info-card .company-info-row:first-child {
-    padding-top: 1.5rem;
-  }
-
-  .company-info-card .company-info-row:last-child {
-    padding-bottom: 1.5rem;
-    border-bottom: none;
-  }
-
-  .info-email {
-    color: var(--primary-color);
-    text-decoration: underline;
-    word-break: break-all;
-  }
-
-  .info-email:hover {
-    color: var(--accent-color);
-  }
-
-  /* Timeline */
-  .timeline-wrap {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  /* Stats */
-  .stat-card {
+  .stat-item {
     text-align: center;
   }
-
-  .stat-number {
-    font-size: 3rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-color);
-    line-height: 1;
-    margin-bottom: 0.25rem;
+  .mission-block {
+    max-width: 900px;
+    margin: 0 auto;
   }
-
-  .stat-unit {
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-semibold);
+  .mission-text {
+    margin-bottom: 40px;
   }
-
-  .stat-label {
-    font-size: 0.9rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-dark);
-    margin-bottom: 0.75rem;
+  .mission-text h2 {
+    margin-bottom: 20px;
   }
-
-  .stat-desc {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 0;
+  .mission-text p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 16px;
   }
-
-  /* Operations */
-  .ops-grid {
+  .mission-points {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 24px;
   }
-
-  .ops-card {
-    text-align: center;
+  .mission-points .card h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
   }
-
-  .ops-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: var(--border-radius-md);
-    font-size: 0.85rem;
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.03em;
-    margin-bottom: 1rem;
-  }
-
-  .ops-title {
-    font-size: 1rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-  }
-
-  .ops-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .ops-list li {
-    font-size: 0.875rem;
+  .mission-points .card p {
+    font-size: 0.95rem;
     color: var(--text-light);
-    padding-left: 1rem;
-    position: relative;
-    line-height: 1.5;
   }
-
-  .ops-list li::before {
-    content: "・";
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-  }
-
-  /* CTA Section */
-  .cta-section {
-    background-color: var(--primary-color);
-    padding: 4rem 0;
-  }
-
-  .cta-inner {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .cta-heading {
-    color: #ffffff;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .cta-text {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
-  }
-
-  .btn-lg {
-    padding: 1rem 2.5rem;
-    font-size: 1.05rem;
-  }
-
-  /* Responsive */
   @media (max-width: 768px) {
-    .ops-grid {
+    .mission-points {
       grid-template-columns: 1fr;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-    }
-
-    .cta-heading {
-      font-size: 1.4rem;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .company-info-card .company-info-row {
-      padding: 0.875rem 1.25rem;
     }
   }
 </style>

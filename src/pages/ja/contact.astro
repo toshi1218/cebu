@@ -8,313 +8,171 @@ const lang = "ja";
 const t = useTranslations(lang);
 ---
 
-<Layout
-  title={t("site.title")}
-  description={t("site.description")}
-  lang={lang}
->
+<Layout title={t("site.title")} description={t("site.description")} lang={lang}>
   <Header lang={lang} />
-
   <main>
+
     <!-- Page Hero -->
     <div class="page-hero">
       <div class="container">
         <h1>{t("contact.title")}</h1>
-        <p>{t("contact.subtitle")}</p>
+        <p>{t("contact.sub")}</p>
       </div>
     </div>
 
-    <!-- Contact Main -->
+    <!-- Contact Info -->
     <section>
-      <div class="container contact-layout">
-
-        <!-- Contact Info Card -->
-        <div class="contact-info-card card">
-          <h2 class="contact-card-title">お問い合わせ先</h2>
-
-          <div class="contact-block">
-            <div class="contact-block-label">{t("contact.email")}</div>
-            <a href={`mailto:${t("contact.email.address")}`} class="contact-email-link">
-              {t("contact.email.address")}
-            </a>
-          </div>
-
-          <div class="contact-block">
-            <div class="contact-block-label">{t("contact.hours")}</div>
-            <div class="contact-hours-value">{t("contact.hours.value")}</div>
-            <div class="contact-hours-note">{t("contact.hours.note")}</div>
-          </div>
-        </div>
-
-        <!-- Inquiry Guide -->
-        <div class="inquiry-guide">
-          <h2 class="inquiry-guide-title">お問い合わせの際にお知らせください</h2>
-          <p class="inquiry-guide-intro">
-            {t("contact.text")}
-          </p>
-
-          <div class="inquiry-items">
-            <div class="inquiry-item card">
-              <div class="inquiry-number">01</div>
-              <div class="inquiry-item-content">
-                <h3 class="inquiry-item-title">必要書類の種類</h3>
-                <p>PSA出生証明書・PSA婚姻証明書・CENOMAR・NBI無犯罪証明書・LTO運転経歴証明書など、ご必要な書類をお知らせください。DFAアポスティーユ・日本語翻訳が必要な場合も合わせてご連絡ください。</p>
-              </div>
-            </div>
-            <div class="inquiry-item card">
-              <div class="inquiry-number">02</div>
-              <div class="inquiry-item-content">
-                <h3 class="inquiry-item-title">件数</h3>
-                <p>お申込み人数（件数）をお知らせください。10名以上の場合は一括見積もりをご提案します。</p>
-              </div>
-            </div>
-            <div class="inquiry-item card">
-              <div class="inquiry-number">03</div>
-              <div class="inquiry-item-content">
-                <h3 class="inquiry-item-title">希望納期</h3>
-                <p>標準納期は4週間ですが、ご希望の納期がある場合はお知らせください。可能な限り対応いたします。</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="inquiry-cta">
-            <a href={`mailto:${t("contact.email.address")}`} class="btn btn-cta btn-cta-contact">
-              {t("contact.email.address")} へメールする
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Response Note -->
-    <section class="bg-light">
       <div class="container">
-        <div class="response-note card">
-          <h2 class="response-note-title">よくある質問</h2>
-          <dl class="response-faq">
-            <div class="response-faq-item">
-              <dt>返信はいつ来ますか？</dt>
-              <dd>{t("contact.hours.note")}。土日祝日は翌営業日以降の対応となります。</dd>
-            </div>
-            <div class="response-faq-item">
-              <dt>見積もりは無料ですか？</dt>
-              <dd>はい、お見積もりは無料です。お気軽にご相談ください。</dd>
-            </div>
-            <div class="response-faq-item">
-              <dt>請求書払いは可能ですか？</dt>
-              <dd>{t("faq.2.a")}</dd>
-            </div>
-            <div class="response-faq-item">
-              <dt>複数名分をまとめて依頼できますか？</dt>
-              <dd>{t("faq.1.a")}</dd>
-            </div>
-          </dl>
+        <div class="contact-card card">
+          <p class="contact-intro">{t("contact.text")}</p>
+
+          <div class="contact-info-row">
+            <span class="contact-label">{t("contact.email.label")}</span>
+            <a href={`mailto:${t("contact.email")}`} class="email-link">{t("contact.email")}</a>
+          </div>
+
+          <div class="contact-info-row">
+            <span class="contact-label">{t("contact.hours.label")}</span>
+            <span class="contact-value">{t("contact.hours")}</span>
+          </div>
+
+          <div class="contact-note-box">
+            <p>{t("contact.note")}</p>
+          </div>
+
+          <div class="inquiry-guide">
+            <h3>お問い合わせ時にお知らせいただく内容</h3>
+            <ul>
+              <li>
+                <span class="guide-icon">1</span>
+                <div>
+                  <strong>必要書類の種類</strong>
+                  <p>PSA・NBI・LTO・DFA認証・翻訳など、必要な書類をお知らせください。</p>
+                </div>
+              </li>
+              <li>
+                <span class="guide-icon">2</span>
+                <div>
+                  <strong>件数・対象人数</strong>
+                  <p>何名分の書類が必要かをお知らせください。10名以上は別途見積もりいたします。</p>
+                </div>
+              </li>
+              <li>
+                <span class="guide-icon">3</span>
+                <div>
+                  <strong>ご希望の納期</strong>
+                  <p>書類提出期限・在留資格申請予定日などをお知らせください。標準納期は4週間です。</p>
+                </div>
+              </li>
+              <li>
+                <span class="guide-icon">4</span>
+                <div>
+                  <strong>提出先</strong>
+                  <p>入管局・法務局・市区町村役場・運転免許試験場など、書類の提出先をお知らせいただけると最適なプランをご提案できます。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
-  </main>
 
+    <!-- CTA with direct email -->
+    <div class="cta-section">
+      <div class="container">
+        <h2>{t("cta.title")}</h2>
+        <p>{t("cta.text")}</p>
+        <a href={`mailto:${t("contact.email")}`} class="btn btn-primary">{t("cta.button")}</a>
+      </div>
+    </div>
+
+  </main>
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  /* Layout */
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 2.5rem;
-    align-items: start;
+  .contact-card {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px;
   }
-
-  /* Contact Info Card */
-  .contact-info-card {
-    position: sticky;
-    top: 90px;
+  .contact-intro {
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.8;
   }
-
-  .contact-card-title {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--accent-color);
-    display: inline-block;
+  .contact-info-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
   }
-
-  .contact-block {
-    margin-bottom: 1.5rem;
+  .contact-info-row:last-of-type {
+    border-bottom: none;
   }
-
-  .contact-block:last-child {
-    margin-bottom: 0;
+  .contact-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    white-space: nowrap;
+    min-width: 80px;
   }
-
-  .contact-block-label {
-    font-size: 0.8rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.4rem;
-  }
-
-  .contact-email-link {
-    font-size: 0.95rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--primary-color);
-    text-decoration: underline;
-    word-break: break-all;
-    display: block;
-  }
-
-  .contact-email-link:hover {
-    color: var(--accent-color);
-  }
-
-  .contact-hours-value {
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    font-weight: var(--font-weight-medium);
-    margin-bottom: 0.3rem;
-  }
-
-  .contact-hours-note {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  /* Inquiry Guide */
-  .inquiry-guide-title {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
-  }
-
-  .inquiry-guide-intro {
+  .contact-value {
     font-size: 1rem;
     color: var(--text-light);
-    line-height: 1.75;
-    margin-bottom: 1.75rem;
   }
-
-  .inquiry-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
+  .contact-note-box {
+    margin: 24px 0;
+    padding: 14px 20px;
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
   }
-
-  .inquiry-item {
+  .contact-note-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .inquiry-guide {
+    margin-top: 32px;
+  }
+  .inquiry-guide h3 {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+  }
+  .inquiry-guide ul {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+  }
+  .inquiry-guide li {
     display: flex;
-    gap: 1.25rem;
+    gap: 16px;
     align-items: flex-start;
   }
-
-  .inquiry-number {
+  .guide-icon {
     flex-shrink: 0;
-    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 0.85rem;
-    font-weight: var(--font-weight-bold);
-    font-feature-settings: "tnum";
+    font-weight: 700;
+    font-size: 0.9rem;
   }
-
-  .inquiry-item-content {
-    flex: 1;
+  .inquiry-guide li strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    color: var(--text);
   }
-
-  .inquiry-item-title {
-    font-size: 1rem;
-    color: var(--text-dark);
-    margin-bottom: 0.4rem;
-  }
-
-  .inquiry-item-content p {
+  .inquiry-guide li p {
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.6;
-    margin-bottom: 0;
-  }
-
-  .inquiry-cta {
-    margin-top: 0.5rem;
-  }
-
-  .btn-cta-contact {
-    padding: 0.875rem 2rem;
-    font-size: 1rem;
-  }
-
-  /* Response Note / FAQ */
-  .response-note {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .response-note-title {
-    font-size: 1.25rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-  }
-
-  .response-faq {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .response-faq-item {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .response-faq-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .response-faq-item dt {
-    font-size: 0.95rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-dark);
-    margin-bottom: 0.4rem;
-  }
-
-  .response-faq-item dd {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .contact-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-info-card {
-      position: static;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .inquiry-item {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .btn-cta-contact {
-      display: block;
-      text-align: center;
-    }
   }
 </style>
