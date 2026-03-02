@@ -1,30 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://igrs.online/</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/cenomar</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/psa-birth-certificate</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/marriage-certificate</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/nbi-clearance</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/dfa-apostille</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/lto-drivers-license</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/translation</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/kokusai-kekkon</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/gaimen-kirikae</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/haigusha-visa</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/kika-shinsei</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/personal</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/business</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/company</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/privacy</loc><lastmod>2026-02-05</lastmod></url>
-  <url><loc>https://igrs.online/contact</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/blog</loc><lastmod>2026-02-09</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Japanese pages -->
+  <url>
+    <loc>https://igrs.online/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/ja/services</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/ja/about</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/ja/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-  <url><loc>https://igrs.online/gyoseishoshi</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/lto-transaction-history</loc><lastmod>2026-02-09</lastmod></url>
-  <url><loc>https://igrs.online/blog-data-verification-guide</loc><lastmod>2026-02-05</lastmod></url>
-  <url><loc>https://igrs.online/blog-granway-compliance</loc><lastmod>2026-02-05</lastmod></url>
-  <url><loc>https://igrs.online/blog-nbi-hit-guide</loc><lastmod>2026-02-05</lastmod></url>
-  <url><loc>https://igrs.online/blog-philippines-documents-complexity</loc><lastmod>2026-02-05</lastmod></url>
-  <url><loc>https://igrs.online/blog-philippines-japan-international-marriage-documents-2026</loc><lastmod>2026-02-05</lastmod></url>
-  <url><loc>https://igrs.online/philippine-marriage-doc-cost-comparison</loc><lastmod>2026-02-05</lastmod></url>
+  <!-- English pages -->
+  <url>
+    <loc>https://igrs.online/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igrs.online/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://igrs.online/ja/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrs.online/en/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
