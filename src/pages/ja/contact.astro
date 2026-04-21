@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+import { LINE_URL } from "../../lib/contact";
 
 const lang = "ja";
 const t = useTranslations(lang);
@@ -19,6 +20,34 @@ const t = useTranslations(lang);
         <p>{t("contact.sub")}</p>
       </div>
     </div>
+
+    <!-- LINE Primary CTA -->
+    <section class="line-section">
+      <div class="container">
+        <div class="line-card">
+          <span class="line-badge">{t("contact.line.badge")}</span>
+          <h2 class="line-title">{t("contact.line.title")}</h2>
+          <p class="line-desc">{t("contact.line.desc")}</p>
+          <a
+            href={LINE_URL}
+            target="_blank"
+            rel="noopener"
+            class="btn-line"
+            data-gtag-event="line_click"
+            data-gtag-location="contact_page"
+          >
+            <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M19.365 9.89c.46 0 .83.37.83.83 0 .46-.37.83-.83.83h-2.31v1.48h2.31c.46 0 .83.37.83.83 0 .46-.37.83-.83.83h-3.14a.83.83 0 0 1-.82-.83V8.08c0-.46.37-.83.82-.83h3.14c.46 0 .83.37.83.83 0 .46-.37.83-.83.83h-2.31v1.48h2.31zm-4.71 3.97c0 .36-.23.67-.57.78a.8.8 0 0 1-.26.04.82.82 0 0 1-.67-.33l-3.22-4.38v3.88c0 .46-.36.83-.82.83a.83.83 0 0 1-.83-.83V8.08c0-.35.23-.67.56-.78.08-.03.18-.04.26-.04.26 0 .51.13.67.33l3.23 4.39V8.08c0-.46.36-.83.82-.83.46 0 .83.37.83.83v5.78zm-7.34 0c0 .46-.37.83-.83.83a.83.83 0 0 1-.83-.83V8.08c0-.46.37-.83.83-.83.46 0 .83.37.83.83v5.78zm-2.34.83H1.83A.83.83 0 0 1 1 13.86V8.08c0-.46.37-.83.83-.83.46 0 .83.37.83.83v4.95h2.31c.46 0 .83.37.83.83 0 .46-.37.83-.83.83M24 10.31C24 4.62 18.38 0 12 0S0 4.62 0 10.31c0 5.1 4.46 9.37 10.48 10.17.41.08.96.27 1.1.62.13.31.08.81.04 1.13l-.17 1.06c-.05.31-.25 1.23 1.08.67 1.33-.56 7.17-4.22 9.79-7.23C23.94 14.72 24 12.61 24 10.31"
+              ></path>
+            </svg>
+            <span>{t("contact.line.cta")}</span>
+          </a>
+          <p class="line-note">{t("contact.line.note")}</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Contact Info -->
     <section>
@@ -91,6 +120,85 @@ const t = useTranslations(lang);
 </Layout>
 
 <style>
+  .line-section {
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+  .line-card {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 36px 40px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+  .line-badge {
+    display: inline-block;
+    background: #06c755;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+  .line-title {
+    font-size: 1.5rem;
+    margin: 14px 0 10px;
+    color: var(--text);
+  }
+  .line-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #06c755;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 999px;
+    transition:
+      background 0.2s,
+      transform 0.1s;
+    box-shadow: 0 2px 8px rgba(6, 199, 85, 0.25);
+  }
+  .btn-line:hover {
+    background: #05b64d;
+    transform: translateY(-1px);
+  }
+  .btn-line:active {
+    transform: translateY(0);
+  }
+  .line-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .line-note {
+    margin-top: 18px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  @media (max-width: 480px) {
+    .line-card {
+      padding: 28px 20px;
+    }
+    .line-title {
+      font-size: 1.25rem;
+    }
+    .btn-line {
+      width: 100%;
+    }
+  }
+
   .contact-card {
     max-width: 640px;
     margin: 0 auto;

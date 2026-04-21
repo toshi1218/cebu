@@ -1,0 +1,71 @@
+---
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+import { LINE_URL } from "../lib/contact";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<a
+  href={LINE_URL}
+  target="_blank"
+  rel="noopener"
+  class="float-line"
+  aria-label={t("float.line.aria")}
+  data-gtag-event="line_click"
+  data-gtag-location="floating_button"
+>
+  <svg class="float-line-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M19.365 9.89c.46 0 .83.37.83.83 0 .46-.37.83-.83.83h-2.31v1.48h2.31c.46 0 .83.37.83.83 0 .46-.37.83-.83.83h-3.14a.83.83 0 0 1-.82-.83V8.08c0-.46.37-.83.82-.83h3.14c.46 0 .83.37.83.83 0 .46-.37.83-.83.83h-2.31v1.48h2.31zm-4.71 3.97c0 .36-.23.67-.57.78a.8.8 0 0 1-.26.04.82.82 0 0 1-.67-.33l-3.22-4.38v3.88c0 .46-.36.83-.82.83a.83.83 0 0 1-.83-.83V8.08c0-.35.23-.67.56-.78.08-.03.18-.04.26-.04.26 0 .51.13.67.33l3.23 4.39V8.08c0-.46.36-.83.82-.83.46 0 .83.37.83.83v5.78zm-7.34 0c0 .46-.37.83-.83.83a.83.83 0 0 1-.83-.83V8.08c0-.46.37-.83.83-.83.46 0 .83.37.83.83v5.78zm-2.34.83H1.83A.83.83 0 0 1 1 13.86V8.08c0-.46.37-.83.83-.83.46 0 .83.37.83.83v4.95h2.31c.46 0 .83.37.83.83 0 .46-.37.83-.83.83M24 10.31C24 4.62 18.38 0 12 0S0 4.62 0 10.31c0 5.1 4.46 9.37 10.48 10.17.41.08.96.27 1.1.62.13.31.08.81.04 1.13l-.17 1.06c-.05.31-.25 1.23 1.08.67 1.33-.56 7.17-4.22 9.79-7.23C23.94 14.72 24 12.61 24 10.31"
+    ></path>
+  </svg>
+  <span class="float-line-label">LINE</span>
+</a>
+
+<style>
+  .float-line {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #06c755;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 14px rgba(6, 199, 85, 0.4);
+    transition:
+      transform 0.15s,
+      box-shadow 0.15s;
+  }
+  .float-line:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(6, 199, 85, 0.5);
+  }
+  .float-line-icon {
+    width: 22px;
+    height: 22px;
+  }
+  @media (max-width: 480px) {
+    .float-line {
+      right: 12px;
+      bottom: 12px;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+    }
+    .float-line-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+</style>

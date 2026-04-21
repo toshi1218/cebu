@@ -1,4 +1,7 @@
 ---
+import FloatingContact from "../components/FloatingContact.astro";
+import type { Lang } from "../i18n/ui";
+
 interface Props {
   title: string;
   description: string;
@@ -55,5 +58,6 @@ const locale = lang === "en" ? "en_US" : "ja_JP";
   </head>
   <body>
     <slot />
+    {lang === "ja" && <FloatingContact lang={lang as Lang} />}
   </body>
 </html>
