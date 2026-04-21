@@ -173,6 +173,9 @@ const enPath = path.replace(`/${lang}`, "/en") || "/en/";
     flex-direction: column;
     gap: 12px;
   }
+  .nav-mob[hidden] {
+    display: none;
+  }
   .nav-mob a {
     font-size: 1rem;
     font-weight: 500;
@@ -199,6 +202,11 @@ const enPath = path.replace(`/${lang}`, "/en") || "/en/";
   .mob-lang a.active {
     font-weight: 700;
     color: var(--primary);
+  }
+  @media (min-width: 769px) {
+    .nav-mob {
+      display: none !important;
+    }
   }
   @media (max-width: 768px) {
     .nav-desk,
