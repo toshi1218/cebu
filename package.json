@@ -20,9 +20,9 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/cloudflare": "^13.1.10",
     "@supabase/supabase-js": "^2.90.1",
-    "astro": "^5.18.0",
+    "astro": "^6.1.8",
     "googleapis": "^170.1.0",
     "lucide-react": "^0.562.0",
     "uuid": "^13.0.0"
