@@ -1,6 +1,7 @@
 ---
 import FloatingContact from "../components/FloatingContact.astro";
 import type { Lang } from "../i18n/ui";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -52,9 +53,6 @@ const locale = lang === "en" ? "en_US" : "ja_JP";
       gtag("js", new Date());
       gtag("config", "G-KRN6VVHJTQ");
     </script>
-    <style>
-      @import "../styles/global.css";
-    </style>
   </head>
   <body>
     <slot />
