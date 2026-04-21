@@ -1,6 +1,7 @@
 ---
 import { useTranslations, getLocalizedPath } from "../i18n/utils";
 import type { Lang } from "../i18n/ui";
+import { LINE_URL } from "../lib/contact";
 interface Props {
   lang: string;
 }
@@ -28,6 +29,13 @@ function lp(p: string) {
       <h4>{lang === "ja" ? "会社情報" : "Company"}</h4>
       <a href={lp("/about")}>{t("nav.about")}</a>
       <a href={lp("/contact")}>{t("nav.contact")}</a>
+      {
+        lang === "ja" && (
+          <a href={LINE_URL} target="_blank" rel="noopener" class="ft-line">
+            LINEで相談
+          </a>
+        )
+      }
     </div>
     <div class="ft-info">
       <p>{t("footer.operator")}</p>
@@ -82,6 +90,20 @@ function lp(p: string) {
   }
   .ft-links a:hover {
     opacity: 1;
+  }
+  .ft-line {
+    display: inline-block !important;
+    margin-top: 8px;
+    padding: 6px 14px !important;
+    background: #06c755;
+    color: #fff !important;
+    border-radius: 999px;
+    font-size: 0.85rem !important;
+    font-weight: 600;
+    opacity: 1 !important;
+  }
+  .ft-line:hover {
+    background: #05b64d;
   }
   .ft-info p {
     font-size: 0.85rem;
